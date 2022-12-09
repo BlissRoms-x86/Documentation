@@ -1,11 +1,21 @@
 input: ./
 output: .docs
 url: docs.blissos.org
+
 branding:
   title: BlissOS
   label: Docs
+
+edit:
+  repo: https://github.com/BlissRoms-x86/docs
+  label: Edit on GitHub
+
+editor:
+  enabled: false
+
 links:
 - text: Getting Started
   link: https://retype.com/guides/getting-started/
+
 footer:
   copyright: © Copyright {{ year }} – [BlissLabs](https://blisslabs.org) – All rights reserved
