@@ -3,8 +3,8 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - master
-
+      - main
+      
 jobs:
   publish:
     name: Publish to docs branch
