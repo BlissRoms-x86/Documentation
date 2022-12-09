@@ -19,6 +19,11 @@ links:
     link: /README.md
     icon: home
 
+  - text: Issues
+    link: https://github.com/BlissRoms-x86/support
+    icon: issue-opened
+    target: blank
+
 footer:
   copyright: © Copyright 2013-{{ year }} – [BlissLabs](https://blisslabs.org) – All rights reserved
   links:
