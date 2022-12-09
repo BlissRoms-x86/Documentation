@@ -3,6 +3,7 @@ output: .docs
 url: docs.blissos.org
 
 branding:
+  logo: /static/blissos.png
   title: BlissOS
   label: Docs
 
