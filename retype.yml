@@ -14,6 +14,11 @@ edit:
 editor:
   enabled: false
 
+links:
+  - text: Home
+    link: /README.md
+    icon: home
+
 footer:
   copyright: © Copyright 2013-{{ year }} – [BlissLabs](https://blisslabs.org) – All rights reserved
   links:
