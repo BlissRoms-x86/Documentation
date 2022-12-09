@@ -14,9 +14,8 @@ edit:
 editor:
   enabled: false
 
-links:
-- text: Getting Started
-  link: https://retype.com/guides/getting-started/
-
 footer:
-  copyright: © Copyright {{ year }} – [BlissLabs](https://blisslabs.org) – All rights reserved
+  copyright: © Copyright 2013-{{ year }} – [BlissLabs](https://blisslabs.org) – All rights reserved
+  links:
+    - text: A BlissLabs Project
+      link: https://blisslabs.org
