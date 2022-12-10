@@ -1,4 +1,8 @@
-# Bliss OS Code of Conduct
+---
+icon: code-of-conduct
+order: 2000
+---
+# Code of Conduct
 
 ## Our Pledge
 
