@@ -1,10 +1,5 @@
 ---
-description: Documentation for Bliss OS
+label: Welcome
+icon: home
 ---
-
-# Getting Started
-
-## Table of contents
-
-* [Table Of Contents](SUMMARY.md)
-
+# Welcome to BlissOS Documentation
