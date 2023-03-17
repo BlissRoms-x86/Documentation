@@ -37,6 +37,19 @@ Open RMXtools [RMXtools_v1.8_UserUpload.Net.zip](https://github.com/BlissRoms-x8
 Open the Grun2Win application and Click the "Manage Boot Menu" button. Then click the "Add A New Entry" button. In the new window, Select "Android" as the Type.
 Next Change "The Current Android Kernel Path" to "/AndroidOS/kernel". Click "Apply" in both the orange background window and blue background window. Finally click "Ok" and we are done. 
 
+The "Linux Boot Parms" should have the following command. Copy and paste it, then click apply if it doesnt show up by default.
+
+"root=/dev/ram0 verbose androidboot.selinux=permissive vmalloc=512M buildvariant=userdebug quiet "
+
+quiet - Hides the boot messages.
+vmalloc - Above 512M is probably more than enough. Remember this the memory allocation for the kernel and not the the system.
+
+This is an optional flag to add which can help with issue regarding video play in Youtube. If you are getting some green lines when playing back HD video trying adding the following flags at the end. Note I tested it on intel UHD graphics.
+
+"GRALLOC=minigbm HWC=drm_minigbm_celadon"
+
+Note : Using Grub2Win allows you to change boot flags from windows and Grub bootloader allow you to editing from bootloader before booting. In both, same flags are used. Edits made in Grub2Win are persistent while edits from Grub bootloade are temporary. I recommend that editing flags from the bootloader should be your first option because if anything goes wrong, a quick reboot can reset it. 
+
 <img width="572" alt="1" src="https://user-images.githubusercontent.com/19780503/225529366-8cebb14f-bc1b-4e40-8221-b2ed18f3f5ee.png">
 
 <img width="593" alt="2" src="https://user-images.githubusercontent.com/19780503/225529384-39102d34-c6c8-4687-9a3b-70071eaffb88.png">
@@ -50,9 +63,9 @@ By Default, the AndroidOS wouold be the last option and if it nothing is selecte
 *This is for the installation in the C: drive.
 
 **Troubleshooting:**
+For most of the issues, changing the boot flag options is answer. You can temperoraly edit the boot flags by press "E" when AndroidOS is highlighted. Usual Grub boot flags are to be used. 
 
-For most of the issues, changing the boot flag options is answer. You can temperoraly edit the boot flags by press "E" when AndroidOS is highlighted.
-
+HD DRM protected streaming won't work because of the Widevine L3 certification and there is nothing we can to fix it. 
 
 <img width="572" alt="1" src="https://user-images.githubusercontent.com/19780503/225529366-8cebb14f-bc1b-4e40-8221-b2ed18f3f5ee.png">
 <img width="593" alt="2" src="https://user-images.githubusercontent.com/19780503/225529384-39102d34-c6c8-4687-9a3b-70071eaffb88.png">
