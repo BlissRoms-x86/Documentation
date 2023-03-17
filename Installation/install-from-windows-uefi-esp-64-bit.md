@@ -67,8 +67,45 @@ For most of the issues, changing the boot flag options is answer. You can temper
 
 HD DRM protected streaming won't work because of the Widevine L3 certification and there is nothing we can to fix it. 
 
-<img width="572" alt="1" src="https://user-images.githubusercontent.com/19780503/225529366-8cebb14f-bc1b-4e40-8221-b2ed18f3f5ee.png">
-<img width="593" alt="2" src="https://user-images.githubusercontent.com/19780503/225529384-39102d34-c6c8-4687-9a3b-70071eaffb88.png">
-<img width="575" alt="3" src="https://user-images.githubusercontent.com/19780503/225529385-20862b50-8fc4-4205-907e-343ee03d0874.png">
+*Here are some boot flags that you can for troubleshooting.
+
+"(Default) w/ FFMPEG": Use the default settings with FFMPEG enabled.
+"FFMPEG_CODEC=1": Enable FFMPEG codec support.
+"FFMPEG_PREFER_C2=1": Use FFMPEG C2 as the preferred codec.
+"(Intel) w/ FFMPEG": Use Intel-specific settings with FFMPEG enabled.
+"HWC=drm_minigbm_celadon": Use the drm_minigbm_celadon hardware composer.
+"GRALLOC=minigbm": Use the minigbm graphics allocator.
+"PC-Mode (Default)": Use default settings in PC mode.
+"PC_MODE=1": Enable PC mode.
+"PC-Mode (Default) w/ FFMPEG": Use default settings with FFMPEG enabled in PC mode.
+"PC-Mode (Intel)": Use Intel-specific settings in PC mode.
+"PC-Mode (Intel) w/ FFMPEG": Use Intel-specific settings with FFMPEG enabled in PC mode.
+
+"Debugging": Choose a debugging option.
+
+"Debug": Enable general debugging.
+"Debug gralloc.gbm": Enable debugging for the gralloc.gbm graphics allocator.
+"Debug drmfb-composer": Enable debugging for the drmfb-composer hardware composer.
+"Debug hwcomposer.drm": Enable debugging for the hwcomposer.drm hardware composer.
+"Debug gralloc.minigbm": Enable debugging for the gralloc.minigbm graphics allocator.
+"Debug gralloc.minigbm_gbm_mesa": Enable debugging for the gralloc.minigbm_gbm_mesa graphics allocator.
+"Debug hwcomposer.drm_minigbm": Enable debugging for the hwcomposer.drm_minigbm hardware composer.
+"Debug hwcomposer.drm_minigbm_celadon": Enable debugging for the hwcomposer.drm_minigbm_celadon hardware composer.
+"Debug hwcomposer.intel": Enable debugging for the hwcomposer.intel hardware composer.
+
+*These options below are only available when used with the old method. That is using .img directly with a VM or when using a bootable flash drive.
+
+"VM Options ->": Choose a virtual machine option.
+"QEMU/KVM - Virgl - SW-FFMPEG": Use QEMU/KVM with Virgl and software FFMPEG.
+"nomodeset HWACCEL=0": Disable hardware acceleration for Vbox/VMWare.
+"Debug QEMU/KVM - Virgl - SW-FFMPEG": Use debug settings with QEMU/KVM, Virgl, and software FFMPEG.
+"DEBUG=2": Enable debugging with level 2.
+"VMware - No HW Acceleration": Disable hardware acceleration for VMware.
+"Debug Vbox/VMWare - No HW Acceleration": Use debug settings with Vbox/VMWare and no hardware acceleration.
+
+"Advanced options ->": Choose an advanced option.
+"Vulkan support (experimental)": Enable experimental Vulkan support.
+"SETUPWIZARD=0": Disable the setup wizard.
+"No Hardware Acceleration": Disable hardware acceleration.
 
 Updated by Bilawal(https://github.com/FrozenBrick)
