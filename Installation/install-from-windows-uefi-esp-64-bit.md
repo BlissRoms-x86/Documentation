@@ -14,7 +14,7 @@ For 32bit or MBR/Legacy install, Axon from Supreme-Gamers put together a great i
 ### Part 1 - Downloading and installing the Grub2Win Bootloader.
 
 Download the file from here - https://sourceforge.net/projects/grub2win/ and proceed to install it. 
-This bootloader helps use to boot the OS. It is recommended that bootloader be installed in the default directory (C:). 
+Grub2Win allows use to make changes to the bootloader within Windows its and makes the overall process a lot smoother. It is recommended that bootloader be installed in the default directory (C:). 
 
 ### Part 2 - Installing BlissOS
 
