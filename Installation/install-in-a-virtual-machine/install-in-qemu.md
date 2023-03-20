@@ -52,6 +52,7 @@ Below is a sample bash script used to run Bliss14 in a Qemu VM
  -device qemu-xhci,id=xhci \
  -machine vmport=off \
  -device virtio-vga-gl -display sdl,gl=on \
+ -audiodev pa,id=snd0 -device AC97,audiodev=snd0 \
  -net nic,model=virtio-net-pci -net user,hostfwd=tcp::4444-:5555
  ```
 
@@ -90,6 +91,8 @@ While this looks a little complicated, when we break this down we can see that i
 `-device virtio-vga-gl` this is needed for graphics acceleration, and while you can add a plethora of arguments, none are really beneficial at this time.
 
 `-display sdl,gl=on` This is used for the display, there are three main options here `-display sdl,gl=on` `display gtk.sdl-on` and `-display spice-app,gl=on` The difference between these are some features. each one has pros and cons, feel free to experiment. Though do take note that  even if you close the VM's window with `-display spice-app,gl=on` the VM will still be running, you will need to kill it from the terminal.
+
+`-audiodev pa,id=snd0 -device AC97,audiodev=snd0` this is needed to add audio to the VM. `--audiodev pa,id=snd0` is used to create a pulseaudio backend with the id of `snd0`. this is important as we then use `-device AC97,audiodev=snd0` to create an emulated AC97 audio device and attach it to the audiodev we created just before.
 
 `-net nic,model=virtio-net-pci -net user,hostfwd=tcp::4444-:5555` This really long command is the network command, `-net nic,model=virtio-net-pci` is what is used to add the network device to the guest in which case we are using virtio drivers again for best performance. `-net user` tells Qemu how to pass the network through and the argument `hostfwd=tcp::4444-:5555` forwards port 4444 and port 5555 together, meaning if we open another terminal and type `adb connect localhost:4444` we can get an adb connection to the VM. 
 
