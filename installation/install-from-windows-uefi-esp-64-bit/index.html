@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.724066399810">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.732634219013">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>Install from Windows - UEFI/ESP (64-bit)</title>
     <meta name="title" content="Install from Windows - UEFI/ESP (64-bit)">
-    <meta name="description" content="For 32bit or MBR/Legacy install, Axon from Supreme-Gamers put together a great installer that works with MBR or EFI and installs on NTFS or EXT4." />
+    <meta name="description" content="You must turn off Secure Boot from your BIOS if you have it enabled. Otherwise it won't boot. There is no need to format or partition the disk unless..." />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blissos.org/installation/install-from-windows-uefi-esp-64-bit/" />
@@ -20,23 +20,21 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blissos.org/installation/install-from-windows-uefi-esp-64-bit/">
     <meta property="og:title" content="Install from Windows - UEFI/ESP (64-bit)">
-    <meta property="og:description" content="For 32bit or MBR/Legacy install, Axon from Supreme-Gamers put together a great installer that works with MBR or EFI and installs on NTFS or EXT4.">
-    <meta property="og:image" content="https://docs.blissos.org/.gitbook/assets/using-the-installer.png">
+    <meta property="og:description" content="You must turn off Secure Boot from your BIOS if you have it enabled. Otherwise it won't boot. There is no need to format or partition the disk unless...">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.blissos.org/installation/install-from-windows-uefi-esp-64-bit/">
     <meta property="twitter:title" content="Install from Windows - UEFI/ESP (64-bit)">
-    <meta property="twitter:description" content="For 32bit or MBR/Legacy install, Axon from Supreme-Gamers put together a great installer that works with MBR or EFI and installs on NTFS or EXT4.">
-    <meta property="twitter:image" content="https://docs.blissos.org/.gitbook/assets/using-the-installer.png">
+    <meta property="twitter:description" content="You must turn off Secure Boot from your BIOS if you have it enabled. Otherwise it won't boot. There is no need to format or partition the disk unless...">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=2.4.0.724066399810" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.732634219013" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.724066399810" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.732634219013" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.724066399810" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.732634219013" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -238,6 +236,8 @@
         <span>Before you begin</span>
     </h3>
 </doc-anchor-target>
+<p><strong>You must turn off Secure Boot from your BIOS if you have it enabled. Otherwise it won&#x27;t boot.</strong>
+<strong>There is no need to format or partition the disk unless you want to. Installation along with windows won&#x27;t wipe the drive and works fine</strong></p>
 <p>For 32bit or MBR/Legacy install, Axon from Supreme-Gamers put together a great installer that works with MBR or EFI and installs on NTFS or EXT4. Check it out here: <a href="https://supreme-gamers.com/t/advanced-android-x86-installer-for-windows.300/">https://supreme-gamers.com/t/advanced-android-x86-installer-for-windows.300/</a></p>
 <doc-anchor-target id="windows-based-installer---uefiesp-64-bit">
     <h2>
@@ -246,64 +246,102 @@
     </h2>
 </doc-anchor-target>
 <p><strong>Proceed at your own risk.</strong> This method might be the easiest currently if you understand what you are doing.</p>
-<p>For the overall instructions on using this method, please refer to the <a href="https://forum.xda-developers.com/android/software/winapp-android-x86-installer-uefi-t3222483">tool&#x27;s original thread</a>. The tools have been updated by Team Bliss for easy installation on UEFI/ESP machines. The <a href="https://github.com/BlissRoms-x86/Androidx86-Installer-for-Windows/tree/q10-2.8/bin">builds we produce can be found here.</a> And the <a href="https://github.com/BlissRoms-x86/Androidx86-Installer-for-Windows">source for those builds can be found here.</a> This tool should work on Remix OS as well, but this has not been tested yet.</p>
-<doc-anchor-target id="part-1---downloading-the-installer">
+<doc-anchor-target id="part-1---downloading-and-installing-the-grub2win-bootloader">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#part-1---downloading-the-installer">#</doc-anchor-trigger>
-        <span>Part 1 - Downloading the Installer</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#part-1---downloading-and-installing-the-grub2win-bootloader">#</doc-anchor-trigger>
+        <span>Part 1 - Downloading and installing the Grub2Win Bootloader.</span>
     </h3>
 </doc-anchor-target>
-<p>We normally include the installer in our .iso, but with some builds, it may not be included. So we make a few alternate versions of the Windows Installer available for users.</p>
+<p>Download the file from here - <a href="https://sourceforge.net/projects/grub2win/">https://sourceforge.net/projects/grub2win/</a> and proceed to install it.
+Grub2Win allows use to make changes to the bootloader within Windows its and makes the overall process a lot smoother. It is recommended that bootloader be installed in the default directory (C:).</p>
+<doc-anchor-target id="part-2---installing-blissos">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#part-2---installing-blissos">#</doc-anchor-trigger>
+        <span>Part 2 - Installing BlissOS</span>
+    </h3>
+</doc-anchor-target>
+<p>Open the C: drive and a new folder and rename it to &quot;AndroidOS&quot;.
+Next mount the iso downloaded and copy the following files to paste it inside the AndroidOS folder we created.</p>
+<p>Files:</p>
+<p>*initrd.img
+*install.img
+*Kernel
+*System.sfs</p>
+<p>After that done, we need one more file and that is the data.img which is storage of the OS. To make the data.img, there are a few options. But i recommend RMXtools,
+Open RMXtools <a href="https://github.com/BlissRoms-x86/Documentation/files/10987199/RMXtools_v1.8_UserUpload.Net.zip">RMXtools_v1.8_UserUpload.Net.zip</a> and drag the silder to change the size of data.img file or set the size you want in MB in the &quot;Enter data.img size&quot;. Once the size is set, click &quot;Create-img&quot; and set the destination to the AndroidOS folder. Now all thats left is add the boot entry.</p>
+<doc-anchor-target id="part-3---adding-uefi-boot-entry-in-grub2win">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#part-3---adding-uefi-boot-entry-in-grub2win">#</doc-anchor-trigger>
+        <span>Part 3 - Adding UEFI Boot Entry in Grub2Win</span>
+    </h3>
+</doc-anchor-target>
+<p>Open the Grun2Win application and Click the &quot;Manage Boot Menu&quot; button. Then click the &quot;Add A New Entry&quot; button. In the new window, Select &quot;Android&quot; as the Type.
+Next Change &quot;The Current Android Kernel Path&quot; to &quot;/AndroidOS/kernel&quot;. Click &quot;Apply&quot; in both the orange background window and blue background window. Finally click &quot;Ok&quot; and we are done.</p>
+<p>The &quot;Linux Boot Parms&quot; should have the following command. Copy and paste it, then click apply if it doesnt show up by default.</p>
+<p>&quot;root=/dev/ram0 verbose androidboot.selinux=permissive vmalloc=512M buildvariant=userdebug quiet &quot;</p>
+<p>quiet - Hides the boot messages.
+vmalloc - Above 512M is probably more than enough. Remember this the memory allocation for the kernel and not the the system.</p>
+<p>This is an optional flag to add which can help with issue regarding video play in Youtube. If you are getting some green lines when playing back HD video trying adding the following flags at the end. Note I tested it on intel UHD graphics.</p>
+<p>&quot;GRALLOC=minigbm HWC=drm_minigbm_celadon&quot;</p>
+<p>Note : Using Grub2Win allows you to change boot flags from windows and Grub bootloader allow you to editing from bootloader before booting. In both, same flags are used. Edits made in Grub2Win are persistent while edits from Grub bootloade are temporary. I recommend that editing flags from the bootloader should be your first option because if anything goes wrong, a quick reboot can reset it.</p>
+<img width="572" alt="1" src="https://user-images.githubusercontent.com/19780503/225529366-8cebb14f-bc1b-4e40-8221-b2ed18f3f5ee.png">
+<img width="593" alt="2" src="https://user-images.githubusercontent.com/19780503/225529384-39102d34-c6c8-4687-9a3b-70071eaffb88.png">
+<img width="575" alt="3" src="https://user-images.githubusercontent.com/19780503/225529385-20862b50-8fc4-4205-907e-343ee03d0874.png">
+<p>Reboot and select android and enjoy your BlissOS install.</p>
+<p>By Default, the AndroidOS wouold be the last option and if it nothing is selected it will boot Windows.</p>
 <ul>
-<li>Installer for Android 9 and below -  <a href="https://github.com/BlissRoms-x86/Androidx86-Installer-for-Windows/blob/q10-2.8/bin/Androidx86-Installv26.0003.exe">Androidx86-Installv26.0003.exe</a></li>
-<li>Installer for Android 10 and above -  <a href="https://github.com/BlissRoms-x86/Androidx86-Installer-for-Windows/blob/q10-2.8/bin/Androidx86-Installv28.5800.exe">Androidx86-Installv28.5800.exe</a></li>
-<li>Installer for Android 10 and above, with Gearlock -  <a href="https://github.com/BlissRoms-x86/Androidx86-Installer-for-Windows/blob/q10-2.8/bin/Androidx86-Installv28.5900.exe">Androidx86-Installv28.5900.exe</a></li>
+<li>This is for the installation in the C: drive.</li>
 </ul>
-<doc-anchor-target id="part-2---using-the-installer">
+<doc-anchor-target id="troubleshooting">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#part-2---using-the-installer">#</doc-anchor-trigger>
-        <span>Part 2 - Using the Installer</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#troubleshooting">#</doc-anchor-trigger>
+        <span>Troubleshooting:</span>
     </h3>
 </doc-anchor-target>
-<p>The installer has been updated to accept the <code v-pre>.iso</code> files for our 8.x/10.x/11.x/12.x/14/x releases. Just execute the installer, give it Admin permissions, and follow the prompts the installer gives. Refer to the original thread for any questions, and please search before asking.</p>
-<p>It will initially ask if you want to install Bliss OS, select &quot;Yes&quot;:</p>
-<p><figure class="content-center">
-    <img src="../../.gitbook/assets/using-the-installer.png" alt="Using the installer" />
-    <figcaption class="caption">Using the installer</figcaption>
-</figure>
-</p>
-<p>It will then extract the installer resources, and load the main window:</p>
-<p><figure class="content-center">
-    <img src="../../.gitbook/assets/installation-window.png" alt="Installation window" />
-    <figcaption class="caption">Installation window</figcaption>
-</figure>
-</p>
-<ol>
-<li>You will want to start by selecting an Android OS Image (Bliss OS, Phoenix OS Darkmatter, Android-x86, etc)</li>
-<li>Then make sure you target your current Windows drive (typically C:\)</li>
-<li>Drag the slider to your desired data size. This will create a single data.img on your drive, the larger size you select, the longer it takes to create.</li>
-<li>If you plan on using root, then enable &quot;Root Access&quot;. Otherwise, if you find that you need root later, you will need to manually extract the system.img from within the system.sfs file. Then you must delete the system.sfs file after extracting</li>
-</ol>
-<p>.<strong>Warning</strong> - for Pie, you will need to add <code v-pre>androidboot.hardware=android_x86_64</code> to the grub entry in order to boot!</p>
-<doc-anchor-target id="part-3---switching-the-uefiefi-boot-entry">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#part-3---switching-the-uefiefi-boot-entry">#</doc-anchor-trigger>
-        <span>Part 3 - Switching the UEFI/EFI boot entry</span>
-    </h3>
-</doc-anchor-target>
-<p>Option 1: Use the EasyUEFI tool, then switch the UEFI/EFI entry it created to boot first. Close and reboot. Option two is to use your BIOS to select the added UEFI boot entry.</p>
-<p>Option 2: Hit Start Button &gt; Settings &gt; Update &amp; Security &gt; Recovery, and select the Restart Now button under Advanced Startup.</p>
-<p><figure class="content-center">
-    <img src="../.gitbook/assets/advanced-startup20281292028129.png" alt="Advanced startup" />
-    <figcaption class="caption">Advanced startup</figcaption>
-</figure>
-</p>
-<p>This will start to restart your PC, and show a Blue screen (Metro bootloader) where you will want to select &quot;Use a Device&quot;<br />
-Then on the next screen, your Android install will show up as either Bliss OS, Android OS or Linpus Lite. Select that, and it will reboot to grub and let you select the boot options for Android from there.</p>
-<p><strong>Troubleshooting Installer Issues:</strong></p>
-<p>Sometimes, the windows installer will fail with: Error output: The directory is not empty.</p>
-<p>This means that windows currently has something mounted at Z: or your EFI is mounted elsewhere. To fix it, launch CMD as Administrator (Ctrl-Shift-LClick), and type: <code v-pre>mountvol Z: /S    mountvol Z: /D</code></p>
-<p>Then relaunch the installer and try again.</p>
+<p>For questions, please join our Community Support chats on Telegram(<a href="https://t.me/blissx86">https://t.me/blissx86</a>) or Discord(<a href="https://discord.com/invite/F9n5gbdNy2">https://discord.com/invite/F9n5gbdNy2</a>) and search for answers there.</p>
+<p>For most of the issues, changing the boot flag options is answer. You can temperoraly edit the boot flags by press &quot;E&quot; when AndroidOS is highlighted. Usual Grub boot flags are to be used.</p>
+<p>HD DRM protected streaming won&#x27;t work because of the Widevine L3 certification and there is nothing we can to fix it.</p>
+<p><strong>Here are some boot flags that you can for troubleshooting.</strong></p>
+<ul>
+<li>(Default) w/ FFMPEG&quot;: Use the default settings with FFMPEG enabled.</li>
+</ul>
+<p>&quot;FFMPEG_CODEC=1&quot;: Enable FFMPEG codec support.</p>
+<p>&quot;FFMPEG_PREFER_C2=1&quot;: Use FFMPEG C2 as the preferred codec.</p>
+<p>&quot;(Intel) w/ FFMPEG&quot;: Use Intel-specific settings with FFMPEG enabled.</p>
+<p>&quot;HWC=drm_minigbm_celadon&quot;: Use the drm_minigbm_celadon hardware composer.</p>
+<p>&quot;GRALLOC=minigbm&quot;: Use the minigbm graphics allocator.</p>
+<p>&quot;PC-Mode (Default)&quot;: Use default settings in PC mode.</p>
+<p>&quot;PC_MODE=1&quot;: Enable PC mode.</p>
+<p>&quot;PC-Mode (Default) w/ FFMPEG&quot;: Use default settings with FFMPEG enabled in PC mode.</p>
+<p>&quot;PC-Mode (Intel)&quot;: Use Intel-specific settings in PC mode.</p>
+<p>&quot;PC-Mode (Intel) w/ FFMPEG&quot;: Use Intel-specific settings with FFMPEG enabled in PC mode.</p>
+<ul>
+<li>&quot;Debugging&quot;: Choose a debugging option.</li>
+</ul>
+<p>&quot;Debug&quot;: Enable general debugging.</p>
+<p>&quot;Debug gralloc.gbm&quot;: Enable debugging for the gralloc.gbm graphics allocator.</p>
+<p>&quot;Debug drmfb-composer&quot;: Enable debugging for the drmfb-composer hardware composer.</p>
+<p>&quot;Debug hwcomposer.drm&quot;: Enable debugging for the hwcomposer.drm hardware composer.</p>
+<p>&quot;Debug gralloc.minigbm&quot;: Enable debugging for the gralloc.minigbm graphics allocator.</p>
+<p>&quot;Debug gralloc.minigbm_gbm_mesa&quot;: Enable debugging for the gralloc.minigbm_gbm_mesa graphics allocator.</p>
+<p>&quot;Debug hwcomposer.drm_minigbm&quot;: Enable debugging for the hwcomposer.drm_minigbm hardware composer.</p>
+<p>&quot;Debug hwcomposer.drm_minigbm_celadon&quot;: Enable debugging for the hwcomposer.drm_minigbm_celadon hardware composer.</p>
+<p>&quot;Debug hwcomposer.intel&quot;: Enable debugging for the hwcomposer.intel hardware composer.</p>
+<p>*These options below are only available when used with the old method. That is using .img directly with a VM or when using a bootable flash drive.</p>
+<ul>
+<li>&quot;VM Options -&gt;&quot;: Choose a virtual machine option.</li>
+</ul>
+<p>&quot;QEMU/KVM - Virgl - SW-FFMPEG&quot;: Use QEMU/KVM with Virgl and software FFMPEG.</p>
+<p>&quot;nomodeset HWACCEL=0&quot;: Disable hardware acceleration for Vbox/VMWare.</p>
+<p>&quot;Debug QEMU/KVM - Virgl - SW-FFMPEG&quot;: Use debug settings with QEMU/KVM, Virgl, and software FFMPEG.</p>
+<p>&quot;DEBUG=2&quot;: Enable debugging with level 2.</p>
+<p>&quot;VMware - No HW Acceleration&quot;: Disable hardware acceleration for VMware.</p>
+<p>&quot;Debug Vbox/VMWare - No HW Acceleration&quot;: Use debug settings with Vbox/VMWare and no hardware acceleration.</p>
+<p>&quot;Advanced options -&gt;&quot;: Choose an advanced option.</p>
+<p>&quot;Vulkan support (experimental)&quot;: Enable experimental Vulkan support.</p>
+<p>&quot;SETUPWIZARD=0&quot;: Disable the setup wizard.</p>
+<p>&quot;No Hardware Acceleration&quot;: Disable hardware acceleration.</p>
+<p>Updated by Bilawal(<a href="https://github.com/FrozenBrick">https://github.com/FrozenBrick</a>)</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -350,7 +388,7 @@ Then on the next screen, your Android install will show up as either Bliss OS, A
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2013-2022 – <a href="https://blisslabs.org">BlissLabs</a> – All rights reserved</p></div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2013-2023 – <a href="https://blisslabs.org">BlissLabs</a> – All rights reserved</p></div>
                             </footer>
                         </div>
                     </div>
