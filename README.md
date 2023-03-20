@@ -14,6 +14,7 @@ icon: home
 * [Install in a Virtual Machine](installation/install-in-a-virtual-machine/README.md)
   * [Install in VirtualBox](installation/install-in-a-virtual-machine/install-in-virtualbox.md)
   * [Install in Qemu](installation/install-in-a-virtual-machine/install-in-qemu.md)
+  * [Advanced QEMU Config](installation/install-in-a-virtual-machine/advanced-qemu-config.md)
 * [Syslinux EFI Stub Installation](installation/syslinux-efi-stub-installation.md)
 * [Updating Bliss OS/AG builds](installation/updating-bliss-os-ag-builds.md)
 * [Advanced Installation](installation/advanced-installation.md)
