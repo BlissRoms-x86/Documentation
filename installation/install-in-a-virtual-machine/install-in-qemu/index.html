@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.732634219013">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.732646340643">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -30,11 +30,11 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=2.4.0.732634219013" rel="stylesheet" />
+    <link href="../../../resources/css/retype.css?v=2.4.0.732646340643" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.732634219013" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.732646340643" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.732634219013" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.732646340643" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -280,6 +280,7 @@ qemu-system-x86_64 \
 -device qemu-xhci,id=xhci \
 -machine vmport=off \
 -device virtio-vga-gl -display sdl,gl=on \
+-audiodev pa,id=snd0 -device AC97,audiodev=snd0 \
 -net nic,model=virtio-net-pci -net user,hostfwd=tcp::4444-:5555</code></pre>
 </doc-codeblock></div>
 <p>If you don&#x27;t want an in-depth explanation, you can skip the next section, Just make sure to replace <code v-pre>-drive</code> and <code v-pre>-cdrom</code> with the proper disk image, and cdrom image for your use.</p>
@@ -305,6 +306,7 @@ qemu-system-x86_64 \
 <p><code v-pre>-machine vmport=off \</code> this option turns of vmware I/O emulation. this has caused me some bugs in the past, so I leave it off.</p>
 <p><code v-pre>-device virtio-vga-gl</code> this is needed for graphics acceleration, and while you can add a plethora of arguments, none are really beneficial at this time.</p>
 <p><code v-pre>-display sdl,gl=on</code> This is used for the display, there are three main options here <code v-pre>-display sdl,gl=on</code> <code v-pre>display gtk.sdl-on</code> and <code v-pre>-display spice-app,gl=on</code> The difference between these are some features. each one has pros and cons, feel free to experiment. Though do take note that  even if you close the VM&#x27;s window with <code v-pre>-display spice-app,gl=on</code> the VM will still be running, you will need to kill it from the terminal.</p>
+<p><code v-pre>-audiodev pa,id=snd0 -device AC97,audiodev=snd0</code> this is needed to add audio to the VM. <code v-pre>--audiodev pa,id=snd0</code> is used to create a pulseaudio backend with the id of <code v-pre>snd0</code>. this is important as we then use <code v-pre>-device AC97,audiodev=snd0</code> to create an emulated AC97 audio device and attach it to the audiodev we created just before.</p>
 <p><code v-pre>-net nic,model=virtio-net-pci -net user,hostfwd=tcp::4444-:5555</code> This really long command is the network command, <code v-pre>-net nic,model=virtio-net-pci</code> is what is used to add the network device to the guest in which case we are using virtio drivers again for best performance. <code v-pre>-net user</code> tells Qemu how to pass the network through and the argument <code v-pre>hostfwd=tcp::4444-:5555</code> forwards port 4444 and port 5555 together, meaning if we open another terminal and type <code v-pre>adb connect localhost:4444</code> we can get an adb connection to the VM.</p>
 <doc-anchor-target id="install">
     <h2>
@@ -353,11 +355,11 @@ qemu-system-x86_64 \
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../installation/install-in-a-virtual-machine/install-in-virtualbox/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../installation/install-in-a-virtual-machine/advanced-qemu-config/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">[deprecated]Bliss OS: How to install Bliss OS on Virtual​Box</span>
+                                                <span class="block mt-1">Advanced configuration for qemu</span>
                                             </span>
                                         </a>
                                     </div>
