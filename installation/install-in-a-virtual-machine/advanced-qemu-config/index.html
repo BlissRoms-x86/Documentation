@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.732646568221">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.732651046067">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>Advanced configuration for qemu</title>
     <meta name="title" content="Advanced configuration for qemu">
-    <meta name="description" content="Qemu is a very powerful tool that may be confusing for a lot people." />
+    <meta name="description" content="Qemu is a very powerful tool that may be confusing for a lot of people." />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blissos.org/installation/install-in-a-virtual-machine/advanced-qemu-config/" />
@@ -20,22 +20,22 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blissos.org/installation/install-in-a-virtual-machine/advanced-qemu-config/">
     <meta property="og:title" content="Advanced configuration for qemu">
-    <meta property="og:description" content="Qemu is a very powerful tool that may be confusing for a lot people.">
+    <meta property="og:description" content="Qemu is a very powerful tool that may be confusing for a lot of people.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.blissos.org/installation/install-in-a-virtual-machine/advanced-qemu-config/">
     <meta property="twitter:title" content="Advanced configuration for qemu">
-    <meta property="twitter:description" content="Qemu is a very powerful tool that may be confusing for a lot people.">
+    <meta property="twitter:description" content="Qemu is a very powerful tool that may be confusing for a lot of people.">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=2.4.0.732646568221" rel="stylesheet" />
+    <link href="../../../resources/css/retype.css?v=2.4.0.732651046067" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.732646568221" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.732651046067" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.732646568221" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../../resources/js/prism.js?v=2.4.0.732646568221" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.732651046067" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../../resources/js/prism.js?v=2.4.0.732651046067" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -231,8 +231,8 @@
         <span>Advanced configuration for qemu cli</span>
     </h1>
 </doc-anchor-target>
-<p>Qemu is a very powerful tool that may be confusing for a lot people. However when using it we can get some very detailed and custom setups, this page will document some more advanced features that folk may wish to utilize with qemu. The majority of this page will assume running on linux. Many of these will not be compatible with windows. While this guide is oriented towards android. Many of the same concepts apply to general VM usage.</p>
-<p>Many of the concepts on this page will not apply to all users, If you have been linked This document is a document and this warning is still present. Any questions or corrextions can be asked and posted on the Bliss OS telegram, Matrix, and Discord groups. Ping <code v-pre>@quackdoc</code> <code v-pre>@Quack Doc</code>.</p>
+<p>Qemu is a very powerful tool that may be confusing for a lot of people. However when using it we can get some very detailed and custom setups, this page will document some more advanced features that folk may wish to utilize with qemu. The majority of this page will assume running on linux. Many of these will not be compatible with windows. While this guide is oriented towards Android. Many of the same concepts apply to general VM usage.</p>
+<p>Many of the concepts on this page will not apply to all users, If you have been linked This document is a document and this warning is still present. Any questions or corrections can be asked and posted on the Bliss OS telegram, Matrix, and Discord groups. Ping <code v-pre>@quackdoc</code> <code v-pre>@Quack Doc</code>.</p>
 <p>This guide is for for qemu&#x27;s cli. while many concepts still apply, virt-manager/libvirt documentation is being worked on.</p>
 <doc-anchor-target id="evdev">
     <h2>
@@ -241,8 +241,8 @@
     </h2>
 </doc-anchor-target>
 <p>One of the more useful and easy to implement features of qemu is evdev passthrough. Doing this can enable low latency and a better by using hotkeys to globally toggle device passthrough.</p>
-<p>There are two methods of doing this, we can use <code v-pre>virtio-input-host</code> and we can attach evdev to <code v-pre>virtio-mouse</code> and <code v-pre>virtio-keyboard</code>.Using <code v-pre>virtio-input-host</code> will give the guest exclusive accsess to the device, and will implicitly setup the proper device. This may cause bugs, and is likely not what all users would like, however this might be helpful for unique devices that don&#x27;t fall under traditional inputs, and won&#x27;t work with usb passthrough.</p>
-<p><code v-pre>virtio-input-host</code> is fairly easy to setup simply add. It does However comes at the detriment that you cannot use a hotkey to bind it back to the host without closing the VM. It accepts both <code v-pre>eventx</code> device files, as well as works with <code v-pre>by-id</code> paths. However the strength of it comes from being able to use any evdev device. This includes gamepads, some multitouch screens and more.</p>
+<p>There are two methods of doing this, we can use <code v-pre>virtio-input-host</code> and we can attach evdev to <code v-pre>virtio-mouse</code> and <code v-pre>virtio-keyboard</code>.Using <code v-pre>virtio-input-host</code> will give the guest exclusive access to the device, and will implicitly setup the proper device. This may cause bugs, and is likely not what all users would like, however this might be helpful for unique devices that don&#x27;t fall under traditional inputs, and won&#x27;t work with usb passthrough.</p>
+<p><code v-pre>virtio-input-host</code> is fairly easy to setup and simply add. It does however come at the detriment that you cannot use a hotkey to bind it back to the host without closing the VM. It accepts both <code v-pre>eventx</code> device files, as well as works with <code v-pre>by-id</code> paths. However the strength of it comes from being able to use any evdev device. This includes gamepads, some multi-touch screens and more.</p>
 <p>The below to add a multi-touch device through to the VM.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">-device virtio-input-host,id=touch0,evdev=/dev/input/eventX</code></pre>
@@ -258,7 +258,7 @@
  -device virtio-vga-gl -display sdl,gl=on \
  -device virtio-input-host,id=touch0,evdev=/dev/input/eventx</code></pre>
 </doc-codeblock></div>
-<p>The more common option would be attaching evdev devices to <code v-pre>virtio-keyboard</code> and <code v-pre>virtio-mouse</code>. This will allow us to toggle back and forth between the the guest VM and the host OS. We need to attach the below output to qemu corresponding device ids.</p>
+<p>The more common option would be attaching evdev devices to <code v-pre>virtio-keyboard</code> and <code v-pre>virtio-mouse</code>. This will allow us to toggle back and forth between the guest VM and the host OS. We need to attach the below output to qemu corresponding device ids.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none"> -object input-linux,id=mouse1,evdev=/dev/input/by-id/MOUSE_NAME
  -object input-linux,id=kbd1,evdev=/dev/input/by-id/KEYBOARD_NAME,grab_all=on,repeat=on</code></pre>
@@ -284,7 +284,7 @@
         <span>Flexible bash scripting</span>
     </h2>
 </doc-anchor-target>
-<p>Some people who add and remove options from qemu often may find that the current script setups are more of a hassle to use. However we can set up scripts using arrays instead this can allow users to comment out arguments from the script without breaking script. This is very useful for prototyping as this allows us to more efficently test and comment out various arguments. This does however pose some issues which will be explained under the <code v-pre>booting a physical install</code> section.</p>
+<p>Some people who add and remove options from qemu often may find that the current script setups are more of a hassle to use. However we can set up scripts using arrays instead this can allow users to comment out arguments from the script without breaking script. This is very useful for prototyping as this allows us to more efficiently test and comment out various arguments. This does however pose some issues which will be explained under the <code v-pre>booting a physical install</code> section.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">#!/bin/bash
 
@@ -315,18 +315,18 @@ qemu-system-x86_64 ${array[@]}</code></pre>
         <span>VFIO</span>
     </h2>
 </doc-anchor-target>
-<p>You may wish to pass a physical PCIe through to the VM. This can be helpful for people looking to make a gaming setup using bliss, or perhaps more unique setups. Qemu and Crosvm both allow doing this. With libvirt this is unbinding, and binding handled mostly automatically. You still need to load the vfio module yourself (see below).</p>
+<p>You may wish to pass a physical PCIe through to the VM. This can be helpful for people looking to make a gaming setup using Bliss, or perhaps more unique setups. Qemu and Crosvm both allow doing this. With libvirt this is unbinding, and binding is handled mostly automatically. You still need to load the vfio module yourself (see below).</p>
 <p>This article will assume you have prepared IOMMU for passthrough, there are many guides on how to find your IOMMU grouping. If you have a bad grouping it is typically possible to override them using ACS override. Be warned, this is a potential security risk and could be dangerous for host security. ACS will not be elaborated any further in this and it is totally an <code v-pre>At your own risk</code> solution.</p>
 <p>First we need to prepare the device(s) we are going to passthrough, the command to achieve this is below. It requires root being done by root, not simply with root permissions. The easiest way to do this is to use <code v-pre>su -c</code>. but first we need the pcie function address and the pcie driver. To get this we can use <code v-pre>lspci | grep -i &lt;vendor&gt;</code> to find the function address. We can then use <code v-pre>lspci -vvnn -s xx:xx.x</code> to get the pci device driver too. It will be listed under <code v-pre>kernel modules: &lt;pci_device_driver&gt;</code>. After that we need to append the domain to it, for the majority of users it will be <code v-pre>0000:</code>. Below is an example command line.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">su -c 'echo 0000:&lt;function_address&gt; &gt; /sys/bus/pci/drivers/&lt;pci_device_driver&gt;/unbind' </code></pre>
 </doc-codeblock></div>
-<p>After we have unmounted the drive we need to bind to vfio. This is done in a similar manor with the command below, however we need to load the vfio module and use the vid:pid of the device. The VID and PID will be printed in <code v-pre>lspci -nn xx:xx.x</code> an example output would, in the case below where the vid and pid would be <code v-pre>8086 56a5</code> be;</p>
+<p>After we have unmounted the drive we need to bind to vfio. This is done in a similar manner with the command below, however we need to load the vfio module and use the vid:pid of the device. The VID and PID will be printed in <code v-pre>lspci -nn xx:xx.x</code> an example output would, in the case below where the vid and pid would be <code v-pre>8086 56a5</code> be;</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">0d:00.0 VGA compatible controller [0300]: Intel Corporation DG2 [Arc A380] [8086:56a5] (rev 05)</code></pre>
 </doc-codeblock></div>
 <p>Using the above output we would do the below command to bind the DG2 graphics card to VFIO.</p>
-<p>If you have multiple GPUs with the same vendor and product IDs, you will need to use same gpu passthrough techniques. Arch wiki&#x27;s PCI_passthrough page provides a number of possible scripts one can use to make this possible.</p>
+<p>If you have multiple GPUs with the same vendor and product IDs, you will need to use same GPU passthrough techniques. Arch wiki&#x27;s PCI_passthrough page provides a number of possible scripts one can use to make this possible.</p>
 <p>This needs to be done for all the devices in the IOMMU group until all of them are bound to VFIO.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">sudo modprobe vfio
@@ -338,13 +338,13 @@ su -c 'echo 8086 56a5 &gt; /sys/bus/pci/drivers/vfio-pci/new_id&quot;' </code></
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 vfio-pci</code></pre>
 </doc-codeblock></div>
-<p>After the card is loaded into VFIO we can then load it into qemu using the below argument. The second device is because we need to passthrough any additional function devices seperately, this include audio and on some gpus USB controllers.</p>
-<p>All devices in the iommu group should to be bound to the VM.</p>
+<p>After the card is loaded into VFIO we can then load it into qemu using the below argument. The second device is because we need to passthrough any additional function devices separately, this include audio and on some gpus USB controllers.</p>
+<p>All devices in the iommu group should too be bound to the VM.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">-device vfio-pci,host=&lt;function_address&gt;,multifunction=on,x-vga=on \
 -device vfio-pci,host=&lt;function_address&gt;</code></pre>
 </doc-codeblock></div>
-<p>It may also be necssary to specify the <code v-pre>pcie-root-port</code> device.  Below is a small example of this</p>
+<p>It may also be necessary to specify the <code v-pre>pcie-root-port</code> device.  Below is a small example of this</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">    -device pcie-root-port,id=pcie.1,bus=pcie.0,addr=1c.0,slot=1,chassis=1,multifunction=on \
     -device vfio-pci,host=&lt;function_address&gt;,bus=pcie.1,addr=00.0,x-vga=on,multifunction=on \
@@ -360,7 +360,7 @@ vfio-pci</code></pre>
         <span>Booting physical media</span>
     </h2>
 </doc-anchor-target>
-<p>Below is an example of booting a physical install where a second drive is mounted to <code v-pre>nvme</code> and bliss is installed in the folder called <code v-pre>android</code>. However there is a small issue, due to how arays work under bash, this can complicate how variables and strings work, meaning that sometimes it is better to simply avoid using them in the array, thankfully that does not pose too much issues in the majority of cases.</p>
+<p>Below is an example of booting a physical install where a second drive is mounted to <code v-pre>nvme</code> and bliss is installed in the folder called <code v-pre>android</code>. However there is a small issue, due to how arrays work under bash, this can complicate how variables and strings work, meaning that sometimes it is better to simply avoid using them in the array, thankfully that does not pose too much issues in the majority of cases.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">#!/bin/bash
 
@@ -409,7 +409,7 @@ qemu-system-x86_64 ${args[@]} \
         <span>USB passthrough</span>
     </h2>
 </doc-anchor-target>
-<p>In qemu, there are three main ways to achieve USB passthrough. <code v-pre>Spice</code>, <code v-pre>VFIO</code> and <code v-pre>usb-host</code>. When using <code v-pre>usb-host</code> we can passthrough either a <code v-pre>hub</code> device or a specifc usb device. I have typically had poor experience using hub passthrough in the past so I would reccomend prefering single device passthrough.</p>
+<p>In qemu, there are three main ways to achieve USB passthrough. <code v-pre>Spice</code>, <code v-pre>VFIO</code> and <code v-pre>usb-host</code>. When using <code v-pre>usb-host</code> we can passthrough either a <code v-pre>hub</code> device or a specific usb device. I have typically had poor experience using hub passthrough in the past so I would recommend preferring single device passthrough.</p>
 <p>The most simple way to do this is typically the best, simply run <code v-pre>lsusb</code> and grab the <code v-pre>VID:PID</code> of the device you wish to passthrough, Then use <code v-pre>-device usb-host</code> to add it to the VM.</p>
 <p>Instead of simply adding <code v-pre>-usb</code> we can add specific controllers instead, an example would be.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -421,26 +421,26 @@ qemu-system-x86_64 ${args[@]} \
 <pre class="language-none"><code v-pre class="language-none">    -usb \
     -device usb-host,hostbus=bus,hostaddr=addr</code></pre>
 </doc-codeblock></div>
-<p>In other cases you can use the below command to passthrough via hostbus and host port, which is useful for passthing through usb hubs. Finding the appropriate hub or device can be done using <code v-pre>lsusb -t</code></p>
+<p>In other cases you can use the below command to passthrough via hostbus and host port, which is useful for passing through usb hubs. Finding the appropriate hub or device can be done using <code v-pre>lsusb -t</code></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">    -usb \
     -device usb-host,hostbus=bus,hostport=port</code></pre>
 </doc-codeblock></div>
 <p>It is always a good idea to append an appropriate ID to the device, in case of a keyboard, simply do <code v-pre>id=keyboard</code> in the case of a thumbdrive, you can do <code v-pre>id=usb-drive</code>. This is largely preference.</p>
-<p>For using spice,</p>
+<p>For using Spice,</p>
 <p>It will be explained in more depth below, however in the spice client you will need to enable usb-passthrough and select the appropriate device there.</p>
 <p>For VFIO,</p>
-<p>simply pass the appropriate USB controller through to the VM using vfio above. Using <code v-pre>lsusb -t</code> to locate the controller and <code v-pre>lspci</code> can be useful for determing what devices to passthrough.</p>
+<p>Simply pass the appropriate USB controller through to the VM using vfio above. Using <code v-pre>lsusb -t</code> to locate the controller and <code v-pre>lspci</code> can be useful for determining what devices to passthrough.</p>
 <p>USB devices can be hotplugged using the Qemu Human Monitor explained below.</p>
 <doc-anchor-target id="low-latency-pipewirejack-audio">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#low-latency-pipewirejack-audio">#</doc-anchor-trigger>
-        <span>Low latency Pipewire/Jack audio</span>
+        <span>Low latency PipeWire/Jack audio</span>
     </h2>
 </doc-anchor-target>
-<p>Using qemu, we can instead of using pulse audio backend, use jack. this is very useful since we can use jack for higher quality and lower latency audio, as well as a highly configurable two way audio. this is great because Bliss and other android x86 operating systems have a quite high base latency.</p>
-<p>using jack you can manage to cut a round trip from 240ms to 200ms. it&#x27;s important to remeber that this is a <strong>Round Trip</strong> numbers, meaning the time it takes from audio to go from the host to the virtualized microphone, into android, to the speakers, and back to the host. this is not the android -&gt; host latency, currently this is not something tested. however it could be anywhere from 1/3 of this to 2/3 of this. This will assume using pipewire since it is the easiest and most convient option.</p>
-<p>using <code v-pre>jack_lsp</code> to list ports we can connect to the ports I am interested are</p>
+<p>Using qemu, we can instead of using pulse audio backend, use jack. This is very useful since we can use jack for higher quality and lower latency audio, as well as a highly configurable two way audio. This is great because Bliss and other Android x86 operating systems have a quite high base latency.</p>
+<p>Using jack you can manage to cut a round trip from 240ms to 200ms. It&#x27;s important to remember that this is a <strong>Round Trip</strong> numbers, meaning the time it takes from audio to go from the host to the virtualized microphone, into Android, to the speakers, and back to the host. This is not the android -&gt; host latency, currently this is not something tested. however it could be anywhere from 1/3 of this to 2/3 of this. This will assume using PipeWire since it is the easiest and most convenient option.</p>
+<p>Using <code v-pre>jack_lsp</code> to list ports we can connect to the ports I am interested are</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">speakers 
 
@@ -456,41 +456,41 @@ Realtek Audio USB Analog Stereo:capture_FR</code></pre>
 <pre class="language-none"><code v-pre class="language-none">  -audiodev jack,id=jack0,out.connect-ports=Family,in.connect-ports=USB \
   -device ich9-intel-hda -device hda-duplex,audiodev=jack0</code></pre>
 </doc-codeblock></div>
-<p>If you remove the <code v-pre>out.connect-ports=Family,in.connect-ports=USB</code> part of the command line, it will create an output not connected to anything. in this case you could either manually connect ports using helvum or pipewire direcly, or you could setup a wireplumber profile to handle automatic connections. however this is far out of scope</p>
-<p>we can also do a bit more tunning by setting <code v-pre>PIPEWIRE_LATENCY</code> when we do this, we can actually ignore the output qemu tells us when it starts as if we check pw-top we can see that it is indeed running when we check pw-top</p>
+<p>If you remove the <code v-pre>out.connect-ports=Family,in.connect-ports=USB</code> part of the command line, it will create an output not connected to anything. In this case you could either manually connect ports using helvum or PipeWire direcly, or you could setup a WirePlumber profile to handle automatic connections. however this is far out of scope</p>
+<p>We can also do a bit more tuning by setting <code v-pre>PIPEWIRE_LATENCY</code> When we do this, we can actually ignore the output qemu tells us when it starts as if we check pw-top we can see that it is indeed running when we check pw-top</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">export PIPEWIRE_LATENCY=128/48000</code></pre>
 </doc-codeblock></div>
-<p>However jack is not the only options we have, we also have Alsa output. this is about as direct as you can get automatically outputs to headphones and microphone properly, and is still controlled via pipewire. however audio quality of it can be greatly dependant on the host PC. so while not reccomended you can try it by using <code v-pre>-audiodev alsa,id=alsa0</code> instead of <code v-pre>-audiodev jack,id=jack0...</code></p>
-<p>Testing <code v-pre>SDL</code> audio output is fine, but is higher latency then <code v-pre>Jack</code> so it would be typically not reccomended.</p>
-<p>As for the emulated audio devices, AC97 is the lowest latency, but may suffer in audio quality. There are multiple other audio devices however at this time I do not have a method for testing latency in them. The reccomendation for low latency audio is <code v-pre>AC97</code> but for general use it is <code v-pre>-device ich9-intel-hda -device hda-duplex</code>.</p>
-<p>This open the doors to advanced audio manipluation and high quality audio from android. this can be useful for gaming as well as game recording since you could connect to a virtual device which could then be connected to both headphones and OBS.</p>
-<p>This also opens the way for high fidelity audio though it is currently not reccomended to go above 48000 hz on bliss at this time due to potential audio distorting.</p>
+<p>However jack is not the only options we have, we also have Alsa output. this is about as direct as you can get automatically outputs to headphones and microphone properly, and is still controlled via PipeWire. however audio quality of it can be greatly dependant on the host PC. so while not recommended you can try it by using <code v-pre>-audiodev alsa,id=alsa0</code> instead of <code v-pre>-audiodev jack,id=jack0...</code></p>
+<p>Testing <code v-pre>SDL</code> audio output is fine, but is higher latency than <code v-pre>Jack</code> so it would be typically not recommended.</p>
+<p>As for the emulated audio devices, AC97 is the lowest latency, but may suffer in audio quality. There are multiple other audio devices however at this time I do not have a method for testing latency in them. The recommendation for low latency audio is <code v-pre>AC97</code> but for general use it is <code v-pre>-device ich9-intel-hda -device hda-duplex</code>.</p>
+<p>This open the doors to advanced audio manipulation and high quality audio from Android. This can be useful for gaming as well as game recording since you could connect to a virtual device which could then be connected to both headphones and OBS.</p>
+<p>This also opens the way for high fidelity audio though it is currently not recommended to go above 48000 hz on bliss at this time due to potential audio distorting.</p>
 <doc-anchor-target id="egl-headless-for-remote-vms">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#egl-headless-for-remote-vms">#</doc-anchor-trigger>
         <span>EGL-headless for remote VMs</span>
     </h2>
 </doc-anchor-target>
-<p>Egl headless is useful for remote VMs. A remote VM being a virtual machine hosted on a seperate machine that the user is connecting from. Much like <code v-pre>-display sdl,gl=on</code> or <code v-pre>-display spice,gl=on</code> this provides 3d acceleration. However unlike the two previous, this does not open a window on the server. This means you can use spice-app to connect to the VM over a network. It may also have lower preformance then the alternative.</p>
-<p>You can use <code v-pre>rendernode=</code> to specify the gpu, this can be helpful to select a secondary gpu, or perhapps if you have many VMs running at the same time to spread the load across multiple GPUs.</p>
+<p>Egl headless is useful for remote VMs. A remote VM being a virtual machine hosted on a separate machine that the user is connecting from. Much like <code v-pre>-display sdl,gl=on</code> or <code v-pre>-display spice,gl=on</code> this provides 3D acceleration. However unlike the two previous, this does not open a window on the server. This means you can use spice-app to connect to the VM over a network. It may also have lower preformance then the alternative.</p>
+<p>You can use <code v-pre>rendernode=</code> to specify the GPU, this can be helpful to select a secondary GPU, or perhaps if you have many VMs running at the same time to spread the load across multiple GPUs.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">-display egl-headless,rendernode=/dev/dri/renderD128</code></pre>
 </doc-codeblock></div>
-<p>Note: you can not at the current time use multiplke <code v-pre>-display</code> arguments, so you will need either spice server, or some other remote graphics solution. (IE. scrcpy)</p>
+<p>Note: you can not at the current time use multiple <code v-pre>-display</code> arguments, so you will need either spice server, or some other remote graphics solution. (IE. scrcpy)</p>
 <doc-anchor-target id="spice">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#spice">#</doc-anchor-trigger>
         <span>Spice</span>
     </h2>
 </doc-anchor-target>
-<p>Spice is a method of interacting with VMs it can work both locally and over a network. It supports realtively advanced features such as usb redirection, video compression, and more. There are two ways to add spice to the VM, one for local machine, and one for remote machine. below is an example of a local machine.</p>
+<p>Spice is a method of interacting with VMs that can work both locally and over a network. It supports relatively advanced features such as usb redirection, video compression, and more. There are two ways to add spice to the VM, one for local machine, and one for remote machine. Below is an example of a local machine.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">    -device virtio-vga-gl -display spice-app,gl=on -device ac97 \
     -device virtio-serial -chardev spicevmc,id=vdagent,debug=0,name=vdagent \
     -device virtserialport,chardev=vdagent,name=com.redhat.spice.0 \</code></pre>
 </doc-codeblock></div>
-<p>And below this is an example of a remote machine. It&#x27;s important to remeber to setup firewall and/or portforwarding to allow remote connections.</p>
+<p>And below this is an example of a remote machine. It&#x27;s important to remember to setup firewall and/or port forwarding to allow remote connections.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">    -spice port=3001,disable-ticketing -device ac97 -device virtio-vga-gl -display egl-headless \
     -device virtio-serial -chardev spicevmc,id=vdagent,debug=0,name=vdagent \
@@ -516,7 +516,7 @@ Realtek Audio USB Analog Stereo:capture_FR</code></pre>
 <p>Instead of connecting tty to the terminal, we can also connect Qemu Human Monitor to the terminal. This is an interface that allows us to send commands to a running VM in order to interact with it. We can send shutdown and reset signals, add and remove usb and storage devices. As well as more advanced features like resize disks, dump the framebuffer (a sort of over glorified screenshot) and create VM snapshots. It is a very powerful tool and only some of the more common uses will be outlined here.</p>
 <p>First thing is to add it to the VM. While with bliss it might be common to use <code v-pre>-serial stdio</code>, that will conflict with using qemu human monitor, what we instead want to use is <code v-pre>-monitor stdio</code>. If you need both, we can use <code v-pre>-serial mon:stdio</code> which will multiplex the serial connection and the qemu human monitor. You can swap between the two using <code v-pre>CTRL + a</code> then press <code v-pre>c</code>. That will swap between the serial and the human monitor.</p>
 <p>When using spice, the human monitor will already be attached to it, so do not add commands to attach human monitor to qemu itself.</p>
-<p>The other option you have is to connect either the serial connection or the monitor connection to a socket, then interfacing with it over said socket. However most people will likely not use this route. It is therefore reccomended to simply use;</p>
+<p>The other option you have is to connect either the serial connection or the monitor connection to a socket, then interfacing with it over said socket. However most people will likely not use this route. It is therefore recommended to simply use;</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">-serial mon:stdio</code></pre>
 </doc-codeblock></div>
@@ -526,7 +526,7 @@ Realtek Audio USB Analog Stereo:capture_FR</code></pre>
 -monitor telnet:127.0.0.1:55555,server,nowait #telnet session
 -monitor unix:qemu-monitor-socket,server,nowait #unix socket</code></pre>
 </doc-codeblock></div>
-<p>Now that we have the human monitor attached to the VM, we can get to some of the command we can do with it. Below will be some commands with a brief writeup, to learn more about how to use the command read the link below;</p>
+<p>Now that we have the human monitor attached to the VM, we can get to some of the commands we can do with it. Below will be some commands with a brief writeup, to learn more about how to use the command read the link below;</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">system_reset #reboot the system
 system_powerdown #powerdown the system
@@ -558,15 +558,15 @@ screendump #screenshot.ppm # dump screen into ppm image</code></pre>
     </h2>
 </doc-anchor-target>
 <p>There is a LOT we can do for disk optimization! This section will be as condensed as possible while still giving you a good idea at what these features are doing. Because of this do not expect this section to be as clear as the other sections.Because there is a lot we need to cover here.</p>
-<p>NOTE: If you want to run many VMs off of a single drive, or an array, your considerations may be very different and some of these will not apply for you! this section is written based on the assumption that one, or maybe a couple VMs are being run on the computer.</p>
+<p>NOTE: If you want to run many VMs off of a single drive, or an array, your considerations may be very different and some of these will not apply for you! This section is written based on the assumption that one, or maybe a couple VMs are being run on the computer.</p>
 <doc-anchor-target id="qcow2-vs-raw-image">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#qcow2-vs-raw-image">#</doc-anchor-trigger>
         <span>Qcow2 vs raw image</span>
     </h3>
 </doc-anchor-target>
-<p>When it comes to whether or not you should use qcow2 vs raw image, this really comes down to what you as a user want out of the images. First talking about preformance. Raw vs Qcow2, under normal circumstances, should typically have similar preformance. however, Qcow2 can certainly be slow under the right (or perhaps better put wrong), circumstances.</p>
-<p>If you want a simple answer to the question &quot;Which format will give me the best preformance?&quot; the answer is raw image. If you don&#x27;t want any advanced features or configuration like compression or snapshots, you can skip the rest of the disk section.</p>
+<p>When it comes to whether or not you should use qcow2 vs raw image, this really comes down to what you as a user want out of the images. First talking about performance. Raw vs Qcow2, under normal circumstances, should typically have similar performance. However, Qcow2 can certainly be slow under the right (or perhaps better put wrong) circumstances.</p>
+<p>If you want a simple answer to the question &quot;Which format will give me the best performance?&#x27;&#x27; The answer is a raw image. If you don&#x27;t want any advanced features or configuration like compression or snapshots, you can skip the rest of the disk section.</p>
 <doc-anchor-target id="preallocation">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#preallocation">#</doc-anchor-trigger>
@@ -574,7 +574,7 @@ screendump #screenshot.ppm # dump screen into ppm image</code></pre>
     </h3>
 </doc-anchor-target>
 <p>Preallocation is put simply, how the VM decides to assign storage blocks when no data is actually inside of them. with <code v-pre>preallocation=none</code> no data is pre assigned. this means that the disk image is very small, and will grow as more data gets written to it. when you choose <code v-pre>metadata</code> it pre allocates space for metadata, this means an empty VM disk will take up more space then one with <code v-pre>none</code>.</p>
-<p>In most cases, the user will probably just want metadata. as it gives the best preformance to space and features. falloc and full preallocation will cause the VM to use up more space. however in accordance with the chart below, preformance goes up when you go down the chain. But you do start to loose some features, as <code v-pre>full</code> will cause snapshots to no longer work.</p>
+<p>In most cases, the user will probably just want metadata. as it gives the best performance to space and features. falloc and full preallocation will cause the VM to use up more space. however in accordance with the chart below, performance goes up when you go down the chain. But you do start to lose some features, as <code v-pre>full</code> will cause snapshots to no longer work.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">none 
 metadata
@@ -587,14 +587,14 @@ full</code></pre>
         <span>Compression</span>
     </h3>
 </doc-anchor-target>
-<p>Using compression to save space on your image can be a very valuble tool. while there are multiple ways to do this, but the focus of this will be on using qemu-img&#x27;s qcow2 compression, you can simply run <code v-pre>qemu-img create -f qcow2 -o compression_type=zstd disk.qcow2 10G</code> and this will create a zstd compressed disk image for you to use.</p>
+<p>Using compression to save space on your image can be a very valuable tool. while there are multiple ways to do this, but the focus of this will be on using qemu-img&#x27;s qcow2 compression, you can simply run <code v-pre>qemu-img create -f qcow2 -o compression_type=zstd disk.qcow2 10G</code> and this will create a zstd compressed disk image for you to use.</p>
 <doc-anchor-target id="cache-modes">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#cache-modes">#</doc-anchor-trigger>
         <span>Cache Modes</span>
     </h3>
 </doc-anchor-target>
-<p>Qemu supports a variety of disk write <code v-pre>cache</code> modes. these cache modes can be changed to tweak I/O speed below are the ones qemu support, see the below link for an explanation on these. Using none will essentially be the best preformance option.</p>
+<p>Qemu supports a variety of disk write <code v-pre>cache</code> modes. These cache modes can be changed to tweak I/O speed below are the ones qemu support, See the link below for an explanation on these. Using none will essentially be the best performance option.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">writethrough
 writeback
@@ -612,7 +612,7 @@ unsafe</code></pre>
 <p>With qemu we can set both <code v-pre>cache</code> size and <code v-pre>l2 cache</code> size</p>
 <p><code v-pre>...disk.qcow2,cache-size=16M</code></p>
 <p><code v-pre>...disk.qcow2,l2-cache-size=4M</code> where <code v-pre>1M</code> is good for <code v-pre>8Gb</code> of random R/W. <code v-pre>Areasize / (clustersize / 8)</code> where default cluster size is <code v-pre>64kb</code>. and area size is the total ammount of space you want cache to cover. <code v-pre>1/8th</code> of <code v-pre>64kb</code> is a nice <code v-pre>8kb</code>.</p>
-<p>In this example we can say we want <code v-pre>16gb</code> of r/w headroom, we do <code v-pre>16gb / 8kb</code>. An easier way to calculate this by hand would be to scientifc notation. this would be <code v-pre>32x10^9 / 8x10^3 = 4x10^6 = 4mb</code></p>
+<p>In this example we can say we want <code v-pre>16gb</code> of r/w headroom, we do <code v-pre>16gb / 8kb</code>. An easier way to calculate this by hand would be scientific notation. This would be <code v-pre>32x10^9 / 8x10^3 = 4x10^6 = 4mb</code></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">1KB = 10^3
 1MB = 10^6
@@ -622,26 +622,26 @@ etc</code></pre>
 </doc-codeblock></div>
 <p>Try increasing cluster size instead <code v-pre>qemu-img create -f qcow2 -o cluster_size=2M</code>.</p>
 <p><em>Try mixing <code v-pre>2m cluster</code> and <code v-pre>metadata</code> for a good blend of preformance!</em></p>
-<doc-anchor-target id="backups-and-snapshtos">
+<doc-anchor-target id="backups-and-snapshots">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#backups-and-snapshtos">#</doc-anchor-trigger>
-        <span>Backups and snapshtos</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#backups-and-snapshots">#</doc-anchor-trigger>
+        <span>Backups and snapshots</span>
     </h3>
 </doc-anchor-target>
-<p>utilizing snapshots is a key feature in doing development, as well as making sure that any downtime is minimal. This is particularly useful for preventing a corruption inside of the machine from causing a re-install.</p>
-<p>There are two main ways of doing this, you can create a full backup of the drive. this is as simple as doing rclone. This does however waste a lot of space. What we can do instead is use qemu-snapshot.</p>
-<p>Qemu-snapshot redirectes the writes to a new image, so that you can save space. say you have <code v-pre>disk.qcow2</code> you can run the command <code v-pre>qemu-img create -f qcow2 -b disk.qcow2 disk-snap1.qcow2</code> and that will create a new image. Now you modify qemu to use <code v-pre>disk-snap1.qcow2</code> it will read from <code v-pre>disk.qcow2</code> but will never write to it. All modifications made are made in <code v-pre>disk-snap1.qcow2</code>. and to revert the snapshot, you can simply delete the <code v-pre>disk-snap1.qcow2</code>.</p>
-<p>Another use of this is to do <code v-pre>qemu-img create -f qcow2 -b base.qcow2 vm1.qcow2</code> &amp;&amp; <code v-pre>qemu-img create -f qcow2 -b base.qcow2 vm2.qcow2</code>. by making two seperate snapshots, we can now run mutliple VMs each with their own unique writable disk, that is based on the <code v-pre>base.qcow2</code>. this is great for running multiple VMs without needing to waste space and setup time. <strong>REMEBER</strong> writing to the base disk will corrupt the snapshots. It&#x27;s a wise idea to change the permissions of the base disk to read only, this prevents user error. Even prefoessionals with many hours can slip up and accidentally make an error. Remeber to practice safe VM handling.</p>
-<p>The above paragraph is about creating external snapshots which is great for when the VM is off, and should be done when you wish to create a new VM. However qemu also supports internal snapshots and live snapshots. The snapshots work internalling in the single qcow2 (or qed) image. It may not be as flexible, however it is bother faster, and for many people more convient and nice to use internal snapshots.</p>
-<p>Using the human monitor above it is shown the commands <code v-pre>savevm</code> <code v-pre>loadvm</code> <code v-pre>info snapshots</code> these can be used to save, load and view the current snapshots availible. live snapshots save the entire state of the <code v-pre>cpu</code>, <code v-pre>devices</code>, <code v-pre>Ram</code>, as well as the entire disk contents, so the live snapshots can be a good amount larger. It is very akin to using an emulator &quot;save state&quot;.</p>
-<p>Removable devices can sometimes cause issues, so it&#x27;s prefered to disconnect any before taking a snapshot and before loading one. However as long as all the devices are there when the snapshot is made and loaded it will be fine.</p>
+<p>Utilizing snapshots is a key feature in doing development, as well as making sure that any downtime is minimal. This is particularly useful for preventing a corruption inside of the machine from causing a re-install.</p>
+<p>There are two main ways of doing this, you can create a full backup of the drive. This is as simple as doing rclone. This does however waste a lot of space. What we can do instead is use qemu-snapshot.</p>
+<p>Qemu-snapshot redirects the writes to a new image, so that you can save space. say you have <code v-pre>disk.qcow2</code> you can run the command <code v-pre>qemu-img create -f qcow2 -b disk.qcow2 disk-snap1.qcow2</code> and that will create a new image. Now you modify qemu to use <code v-pre>disk-snap1.qcow2</code> it will read from <code v-pre>disk.qcow2</code> but will never write to it. All modifications made are made in <code v-pre>disk-snap1.qcow2</code>. and to revert the snapshot, you can simply delete the <code v-pre>disk-snap1.qcow2</code>.</p>
+<p>Another use of this is to do <code v-pre>qemu-img create -f qcow2 -b base.qcow2 vm1.qcow2</code> &amp;&amp; <code v-pre>qemu-img create -f qcow2 -b base.qcow2 vm2.qcow2</code>. by making two separate snapshots, we can now run multiple VMs each with their own unique writable disk, that is based on the <code v-pre>base.qcow2</code>. this is great for running multiple VMs without needing to waste space and setup time. <strong>REMEMBER</strong> writing to the base disk will corrupt the snapshots. It&#x27;s a wise idea to change the permissions of the base disk to read only, this prevents user error. Even professionals with many hours can slip up and accidentally make an error. Remember to practice safe VM handling.</p>
+<p>The above paragraph is about creating external snapshots which is great for when the VM is off, and should be done when you wish to create a new VM. However qemu also supports internal snapshots and live snapshots. The snapshots work internally in the single qcow2 (or qed) image. It may not be as flexible, however it is bother faster, and for many people more convenient and nice to use internal snapshots.</p>
+<p>Using the human monitor above it is shown the commands <code v-pre>savevm</code> <code v-pre>loadvm</code> <code v-pre>info snapshots</code> these can be used to save, load and view the current snapshots available. Live snapshots save the entire state of the <code v-pre>cpu</code>, <code v-pre>devices</code>, <code v-pre>Ram</code>, as well as the entire disk contents, so the live snapshots can be a good amount larger. It is very akin to using an emulator &quot;save state&quot;.</p>
+<p>Removable devices can sometimes cause issues, so it&#x27;s preferred to disconnect any before taking a snapshot and before loading one. However as long as all the devices are there when the snapshot is made and loaded it will be fine.</p>
 <doc-anchor-target id="full-device-passthrough">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#full-device-passthrough">#</doc-anchor-trigger>
         <span>full device passthrough</span>
     </h3>
 </doc-anchor-target>
-<p>For passing storage devices to qemu there are multiple ways of doing so. To pass a sata controller, the most typicall way of doing this will be via pci passthrough. you can accomplish this with the <code v-pre>vfio</code> instructions listed previously.</p>
+<p>For passing storage devices to qemu there are multiple ways of doing so. To pass a sata controller, the most typical way of doing this will be via pci passthrough. You can accomplish this with the <code v-pre>vfio</code> instructions listed previously.</p>
 <p>As for <code v-pre>Nvme</code> devices, you can actually do something similar, you can use vfio, however a better way of doing it would be to actually use qemu&#x27;s built in functionality for this listed below</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">qemu-system-x86_64 -drive file=nvme://HOST:BUS:SLOT.FUNC/NAMESPACE</code></pre>
@@ -669,9 +669,9 @@ etc</code></pre>
         <span>EroFS to SFS and the other way around.</span>
     </h3>
 </doc-anchor-target>
-<p>Bliss Is currently shipping with <code v-pre>SquashFS</code> or <code v-pre>EroFS</code>. <code v-pre>EroFS</code> is has the best raw read speed of the supported read only filesystems. however it has a significant compromise in being the compression. <code v-pre>EroFS</code> only supports <code v-pre>LZMA</code> and <code v-pre>LZ4</code> compression. <code v-pre>LZMA</code> is quite slow, and LZ4 doesn&#x27;t offer great compression ratios.</p>
+<p>Bliss is currently shipping with <code v-pre>SquashFS</code> or <code v-pre>EroFS</code>. <code v-pre>EroFS</code> has the best raw read speed of the supported read only filesystems. however it has a significant compromise in being the compression. <code v-pre>EroFS</code> only supports <code v-pre>LZMA</code> and <code v-pre>LZ4</code> compression. <code v-pre>LZMA</code> is quite slow, and LZ4 doesn&#x27;t offer great compression ratios.</p>
 <p>So there are two reasons why you would want to recompress <code v-pre>system.img</code> using <code v-pre>SquashFS</code> or <code v-pre>EroFS</code>. The first one being wanting to simply shrink the the size of system.img.</p>
-<p>if you have an <code v-pre>eroFS</code> image and want to compress it further, you may want to convert it to an <code v-pre>SquashFS</code> image. Like wise, if you have an <code v-pre>SFS</code> image, you might be better suited to convert it to <code v-pre>EroFS</code> if you want better performance if you are willing to sacrafice a bit of storage space.</p>
+<p>if you have an <code v-pre>eroFS</code> image and want to compress it further, you may want to convert it to an <code v-pre>SquashFS</code> image. Likewise, if you have an <code v-pre>SFS</code> image, you might be better suited to convert it to <code v-pre>EroFS</code> if you want better performance if you are willing to sacrifice a bit of storage space.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">sudo modprobe erofs # Many distros will ship EroFS but it won't be enabled by default
 sudo mount -o loop system.efs /mnt 
@@ -696,7 +696,7 @@ rm system-old.efs</code></pre>
 </doc-anchor-target>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">Q: `virtio-blk` vs `virtio-scsi`
-A: `Virtio-blk` is usually faster across the board, however is limited in the ammount of drives, probably not an issue for most</code></pre>
+A: `Virtio-blk` is usually faster across the board, however is limited in the amount of drives, probably not an issue for most</code></pre>
 </doc-codeblock></div>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">Q: what is the best `Cache` mode to use?
@@ -704,11 +704,11 @@ A: you typically want `cache=none`</code></pre>
 </doc-codeblock></div>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">Q: My VM has terrible write speeds, and it is even effecting my host
-A: check if you are using a COW fs. if sodisable COW on btrfs and other COW systems for the VM</code></pre>
+A: check if you are using a COW fs. if so disable COW on btrfs and other COW systems for the VM</code></pre>
 </doc-codeblock></div>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">Q: `lazy_refcounts` Can cause corruption! but is it worth it?
-A: Typically yes. preformance can increase by a good amount at the trade off of accidental power off. but disable it if you change the `cache` mode to `none`.</code></pre>
+A: Typically yes. performance can increase by a good amount at the trade off of accidental power off. But disable it if you change the `cache` mode to `none`.</code></pre>
 </doc-codeblock></div>
 <p><a href="https://events19.lfasiallc.com/wp-content/uploads/2017/11/Storage-Performance-Tuning-for-FAST-Virtual-Machines_Fam-Zheng.pdf">https://events19.lfasiallc.com/wp-content/uploads/2017/11/Storage-Performance-Tuning-for-FAST-Virtual-Machines_Fam-Zheng.pdf</a></p>
 <doc-anchor-target id="finishing-notes">
@@ -717,11 +717,11 @@ A: Typically yes. preformance can increase by a good amount at the trade off of 
         <span>Finishing Notes</span>
     </h2>
 </doc-anchor-target>
-<p>Handling multiple VMs efficently can be a complicated topic, and is largely out of scope for this guide. This bit is just a few tips to make running more then a couple VMs a better experience. this would be a stopgap between a more professional solution such as <code v-pre>proxmox</code> or a <code v-pre>libvirt</code>. This is just a rough guideline, and may not apply across the board or when you scale up.</p>
-<p>When installing <code v-pre>Bliss</code>, It might be a good idea to break up the Disks, you only need one <code v-pre>system</code> disks for the VMs if it&#x27;s read only. This can save many gigabytes of data storage, and increase storage performance across the storage of any potentially effected drives.</p>
-<p>Another good idea is to consider what VMs need persistant memory and which ones don&#x27;t. If you are running many VMs at once, whether it be for a cloud solution or a more tailored setup, you may find that you don&#x27;t want many, or even any of the VMs to retain any modifications to them.</p>
-<p>It is <strong>highly</strong> reccomend reading the free <code v-pre>redhat</code> docs on setting up and tuning VMs if you need more then what this guide offers. It will be a lot of reading. It will however be for more valuble then most resources you can freely find on the internet. It should be the first stop for anyone wanting to actually learn more and implement these kinds of setups for yourself.</p>
-<p>The next freely accessible resource is the <code v-pre>oVirt</code> forums, documentation, and most importantly Mailing list. <code v-pre>oVirt</code> is an enterprise grade solution built upon libivrt so many of the solutions and concepts will directly apply when using libvirt, and can be used to gain a futher understanding of VM infranstructure in general.</p>
+<p>Handling multiple VMs efficiently can be a complicated topic, and is largely out of scope for this guide. This bit is just a few tips to make running more than a couple VMs a better experience. This would be a stopgap between a more professional solution such as <code v-pre>proxmox</code> or a <code v-pre>libvirt</code>. This is just a rough guideline, and may not apply across the board or when you scale up.</p>
+<p>When installing <code v-pre>Bliss</code>, It might be a good idea to break up the Disks, you only need one <code v-pre>system</code> disks for the VMs if it&#x27;s read only. This can save many gigabytes of data storage, and increase storage performance across the storage of any potentially affected drives.</p>
+<p>Another good idea is to consider what VMs need persistent memory and which ones don&#x27;t. If you are running many VMs at once, whether it be for a cloud solution or a more tailored setup, you may find that you don&#x27;t want many, or even any of the VMs to retain any modifications to them.</p>
+<p>It is <strong>highly</strong> recommend reading the free <code v-pre>redhat</code> docs on setting up and tuning VMs if you need more than what this guide offers. It will be a lot of reading. It will however be more valuable than most resources you can freely find on the internet. It should be the first stop for anyone wanting to actually learn more and implement these kinds of setups for yourself.</p>
+<p>The next freely accessible resource is the <code v-pre>oVirt</code> forums, documentation, and most importantly Mailing list. <code v-pre>oVirt</code> is an enterprise grade solution built upon libvirt so many of the solutions and concepts will directly apply when using libvirt, and can be used to gain a further understanding of VM infrastructure in general.</p>
 <p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_tuning_and_optimization_guide/index">https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_tuning_and_optimization_guide/index</a></p>
 
                                 
