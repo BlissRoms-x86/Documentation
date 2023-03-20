@@ -2,58 +2,140 @@
 
 ### Before you begin
 
+**You must turn off Secure Boot from your BIOS if you have it enabled. Otherwise it won't boot.**
+**There is no need to format or partition the disk unless you want to. Installation along with windows won't wipe the drive and works fine**
+
 For 32bit or MBR/Legacy install, Axon from Supreme-Gamers put together a great installer that works with MBR or EFI and installs on NTFS or EXT4. Check it out here: [https://supreme-gamers.com/t/advanced-android-x86-installer-for-windows.300/](https://supreme-gamers.com/t/advanced-android-x86-installer-for-windows.300/)
 
 ## Windows-based installer - UEFI/ESP \(64-bit\)
 
 **Proceed at your own risk.** This method might be the easiest currently if you understand what you are doing.
 
-For the overall instructions on using this method, please refer to the [tool's original thread](https://forum.xda-developers.com/android/software/winapp-android-x86-installer-uefi-t3222483). The tools have been updated by Team Bliss for easy installation on UEFI/ESP machines. The [builds we produce can be found here.](https://github.com/BlissRoms-x86/Androidx86-Installer-for-Windows/tree/q10-2.8/bin) And the [source for those builds can be found here.](https://github.com/BlissRoms-x86/Androidx86-Installer-for-Windows) This tool should work on Remix OS as well, but this has not been tested yet.
+### Part 1 - Downloading and installing the Grub2Win Bootloader.
 
-### Part 1 - Downloading the Installer
+Download the file from here - https://sourceforge.net/projects/grub2win/ and proceed to install it. 
+Grub2Win allows use to make changes to the bootloader within Windows its and makes the overall process a lot smoother. It is recommended that bootloader be installed in the default directory (C:). 
 
-We normally include the installer in our .iso, but with some builds, it may not be included. So we make a few alternate versions of the Windows Installer available for users.
+### Part 2 - Installing BlissOS
 
-* Installer for Android 9 and below -  [Androidx86-Installv26.0003.exe](https://github.com/BlissRoms-x86/Androidx86-Installer-for-Windows/blob/q10-2.8/bin/Androidx86-Installv26.0003.exe)
-* Installer for Android 10 and above -  [Androidx86-Installv28.5800.exe](https://github.com/BlissRoms-x86/Androidx86-Installer-for-Windows/blob/q10-2.8/bin/Androidx86-Installv28.5800.exe)
-* Installer for Android 10 and above, with Gearlock -  [Androidx86-Installv28.5900.exe](https://github.com/BlissRoms-x86/Androidx86-Installer-for-Windows/blob/q10-2.8/bin/Androidx86-Installv28.5900.exe)
+Open the C: drive and a new folder and rename it to "AndroidOS". 
+Next mount the iso downloaded and copy the following files to paste it inside the AndroidOS folder we created.
 
-### Part 2 - Using the Installer
+Files: 
 
-The installer has been updated to accept the `.iso` files for our 8.x/10.x/11.x/12.x/14/x releases. Just execute the installer, give it Admin permissions, and follow the prompts the installer gives. Refer to the original thread for any questions, and please search before asking.
+*initrd.img
+*install.img
+*Kernel
+*System.sfs
 
-It will initially ask if you want to install Bliss OS, select "Yes":
+After that done, we need one more file and that is the data.img which is storage of the OS. To make the data.img, there are a few options. But i recommend RMXtools, 
+Open RMXtools [RMXtools_v1.8_UserUpload.Net.zip](https://github.com/BlissRoms-x86/Documentation/files/10987199/RMXtools_v1.8_UserUpload.Net.zip) and drag the silder to change the size of data.img file or set the size you want in MB in the "Enter data.img size". Once the size is set, click "Create-img" and set the destination to the AndroidOS folder. Now all thats left is add the boot entry.
 
-![Using the installer](../.gitbook/assets/using-the-installer.png)
 
-It will then extract the installer resources, and load the main window:
+### Part 3 - Adding UEFI Boot Entry in Grub2Win
 
-![Installation window](../.gitbook/assets/installation-window.png)
+Open the Grun2Win application and Click the "Manage Boot Menu" button. Then click the "Add A New Entry" button. In the new window, Select "Android" as the Type.
+Next Change "The Current Android Kernel Path" to "/AndroidOS/kernel". Click "Apply" in both the orange background window and blue background window. Finally click "Ok" and we are done. 
 
-1. You will want to start by selecting an Android OS Image \(Bliss OS, Phoenix OS Darkmatter, Android-x86, etc\)
-2. Then make sure you target your current Windows drive \(typically C:\\)
-3. Drag the slider to your desired data size. This will create a single data.img on your drive, the larger size you select, the longer it takes to create. 
-4. If you plan on using root, then enable "Root Access". Otherwise, if you find that you need root later, you will need to manually extract the system.img from within the system.sfs file. Then you must delete the system.sfs file after extracting
+The "Linux Boot Parms" should have the following command. Copy and paste it, then click apply if it doesnt show up by default.
 
-.**Warning** - for Pie, you will need to add `androidboot.hardware=android_x86_64` to the grub entry in order to boot!
+"root=/dev/ram0 verbose androidboot.selinux=permissive vmalloc=512M buildvariant=userdebug quiet "
 
-### Part 3 - Switching the UEFI/EFI boot entry
+quiet - Hides the boot messages.
+vmalloc - Above 512M is probably more than enough. Remember this the memory allocation for the kernel and not the the system.
 
-Option 1: Use the EasyUEFI tool, then switch the UEFI/EFI entry it created to boot first. Close and reboot. Option two is to use your BIOS to select the added UEFI boot entry.
+This is an optional flag to add which can help with issue regarding video play in Youtube. If you are getting some green lines when playing back HD video trying adding the following flags at the end. Note I tested it on intel UHD graphics.
 
-Option 2: Hit Start Button &gt; Settings &gt; Update & Security &gt; Recovery, and select the Restart Now button under Advanced Startup.
+"GRALLOC=minigbm HWC=drm_minigbm_celadon"
 
-![Advanced startup](../.gitbook/assets/advanced-startup%20%281%29%20%281%29.png)
+Note : Using Grub2Win allows you to change boot flags from windows and Grub bootloader allow you to editing from bootloader before booting. In both, same flags are used. Edits made in Grub2Win are persistent while edits from Grub bootloade are temporary. I recommend that editing flags from the bootloader should be your first option because if anything goes wrong, a quick reboot can reset it. 
 
-This will start to restart your PC, and show a Blue screen \(Metro bootloader\) where you will want to select "Use a Device"  
-Then on the next screen, your Android install will show up as either Bliss OS, Android OS or Linpus Lite. Select that, and it will reboot to grub and let you select the boot options for Android from there.
+<img width="572" alt="1" src="https://user-images.githubusercontent.com/19780503/225529366-8cebb14f-bc1b-4e40-8221-b2ed18f3f5ee.png">
 
-**Troubleshooting Installer Issues:**
+<img width="593" alt="2" src="https://user-images.githubusercontent.com/19780503/225529384-39102d34-c6c8-4687-9a3b-70071eaffb88.png">
 
-Sometimes, the windows installer will fail with: Error output: The directory is not empty. 
+<img width="575" alt="3" src="https://user-images.githubusercontent.com/19780503/225529385-20862b50-8fc4-4205-907e-343ee03d0874.png">
 
-This means that windows currently has something mounted at Z: or your EFI is mounted elsewhere. To fix it, launch CMD as Administrator \(Ctrl-Shift-LClick\), and type: `mountvol Z: /S   
-mountvol Z: /D`
+Reboot and select android and enjoy your BlissOS install.
 
-Then relaunch the installer and try again.
+By Default, the AndroidOS wouold be the last option and if it nothing is selected it will boot Windows.
 
+* This is for the installation in the C: drive.
+
+### Troubleshooting:
+
+For questions, please join our Community Support chats on Telegram(https://t.me/blissx86) or Discord(https://discord.com/invite/F9n5gbdNy2) and search for answers there.
+
+For most of the issues, changing the boot flag options is answer. You can temperoraly edit the boot flags by press "E" when AndroidOS is highlighted. Usual Grub boot flags are to be used. 
+
+HD DRM protected streaming won't work because of the Widevine L3 certification and there is nothing we can to fix it. 
+
+**Here are some boot flags that you can for troubleshooting.**
+
+* (Default) w/ FFMPEG": Use the default settings with FFMPEG enabled.
+
+"FFMPEG_CODEC=1": Enable FFMPEG codec support.
+
+"FFMPEG_PREFER_C2=1": Use FFMPEG C2 as the preferred codec.
+
+"(Intel) w/ FFMPEG": Use Intel-specific settings with FFMPEG enabled.
+
+"HWC=drm_minigbm_celadon": Use the drm_minigbm_celadon hardware composer.
+
+"GRALLOC=minigbm": Use the minigbm graphics allocator.
+
+"PC-Mode (Default)": Use default settings in PC mode.
+
+"PC_MODE=1": Enable PC mode.
+
+"PC-Mode (Default) w/ FFMPEG": Use default settings with FFMPEG enabled in PC mode.
+
+"PC-Mode (Intel)": Use Intel-specific settings in PC mode.
+
+"PC-Mode (Intel) w/ FFMPEG": Use Intel-specific settings with FFMPEG enabled in PC mode.
+
+* "Debugging": Choose a debugging option.
+
+"Debug": Enable general debugging.
+
+"Debug gralloc.gbm": Enable debugging for the gralloc.gbm graphics allocator.
+
+"Debug drmfb-composer": Enable debugging for the drmfb-composer hardware composer.
+
+"Debug hwcomposer.drm": Enable debugging for the hwcomposer.drm hardware composer.
+
+"Debug gralloc.minigbm": Enable debugging for the gralloc.minigbm graphics allocator.
+
+"Debug gralloc.minigbm_gbm_mesa": Enable debugging for the gralloc.minigbm_gbm_mesa graphics allocator.
+
+"Debug hwcomposer.drm_minigbm": Enable debugging for the hwcomposer.drm_minigbm hardware composer.
+
+"Debug hwcomposer.drm_minigbm_celadon": Enable debugging for the hwcomposer.drm_minigbm_celadon hardware composer.
+
+"Debug hwcomposer.intel": Enable debugging for the hwcomposer.intel hardware composer.
+
+*These options below are only available when used with the old method. That is using .img directly with a VM or when using a bootable flash drive.
+
+* "VM Options ->": Choose a virtual machine option.
+
+"QEMU/KVM - Virgl - SW-FFMPEG": Use QEMU/KVM with Virgl and software FFMPEG.
+
+"nomodeset HWACCEL=0": Disable hardware acceleration for Vbox/VMWare.
+
+"Debug QEMU/KVM - Virgl - SW-FFMPEG": Use debug settings with QEMU/KVM, Virgl, and software FFMPEG.
+
+"DEBUG=2": Enable debugging with level 2.
+
+"VMware - No HW Acceleration": Disable hardware acceleration for VMware.
+
+"Debug Vbox/VMWare - No HW Acceleration": Use debug settings with Vbox/VMWare and no hardware acceleration.
+
+"Advanced options ->": Choose an advanced option.
+
+"Vulkan support (experimental)": Enable experimental Vulkan support.
+
+"SETUPWIZARD=0": Disable the setup wizard.
+
+"No Hardware Acceleration": Disable hardware acceleration.
+
+Updated by Bilawal(https://github.com/FrozenBrick)
