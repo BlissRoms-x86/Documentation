@@ -18,6 +18,7 @@ You can download a stable Bliss OS build by clicking on the link [here](https://
 
 {% hint style="info" %}
 If you are looking for a GUI based installer for Windows, we do include one in some of the .ISO's we produce, and we also support the [Supreme-Gamers Advanced Android-x86 Installer](https://supreme-gamers.com/r/advanced-android-x86-installer-for-windows.61/).
+We also have a second option for Windows install that can be found on our repo here: [Android-x86 UEFI Installer](https://github.com/BlissRoms-x86/Androidx86-Installer-for-Windows/blob/S12.1-2.8/bin/Androidx86-Installv28.5800_A12.1.7z)
 {% endhint %}
 
 When booting into the installer, choose "Installation - Install Android-x86 to harddisk":
@@ -52,12 +53,13 @@ Congratulations! You should now have a functional dual-boot with Bliss OS!
 
 ## Download Bliss OS
 
-You can download a stable Bliss OS build by clicking on the link [here](https://sourceforge.net/projects/blissos-x86/), non-stable builds can be found [here.](https://sourceforge.net/projects/blissos-x86/)
+You can download a stable Bliss OS build by clicking on the link [here](https://sourceforge.net/projects/blissos-x86/), non-stable builds can be found [here.](https://sourceforge.net/projects/blissos-dev/)
 
 ## Install Bliss OS
 
 {% hint style="info" %}
 If you are looking for a GUI based installer for Windows, we do include one in some of the .ISO's we produce, and we also support the [Supreme-Gamers Advanced Android-x86 Installer](https://supreme-gamers.com/r/advanced-android-x86-installer-for-windows.61/).
+We also have a second option for Windows install that can be found on our repo here: [Android-x86 UEFI Installer](https://github.com/BlissRoms-x86/Androidx86-Installer-for-Windows/blob/S12.1-2.8/bin/Androidx86-Installv28.5800_A12.1.7z)
 {% endhint %}
 
 When booting into the installer, choose "Android-x86 ... Installation":
@@ -79,7 +81,7 @@ First create the EFI partition, this is the partition that is used to install th
 1. Create a [ new ] partition
 2. leave First Sector default (Just press enter)
 3. for "Size in Sectors" all we need to do is enter `+512M`
-4. Leave type as default
+4. Set type as ef00
 5. We don't necessairly need to name this partition, but it is best practice to name it `EFI`
 
 ![Partitioning p2](../.gitbook/assets/uefi-android.png)
