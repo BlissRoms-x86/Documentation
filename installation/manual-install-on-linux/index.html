@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.737571282716">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.737574300246">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -30,11 +30,11 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=2.4.0.737571282716" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.737574300246" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.737571282716" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.737574300246" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.737571282716" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.737574300246" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -239,14 +239,17 @@
 <p><strong>!!ATTENTION!!</strong> Bliss OS also supports Jaxparrow&#x27;s Android-x86 Installer for Linux. Source can be found here: <a href="https://github.com/jaxparrow07/Androidx86-Installer-Linux">https://github.com/jaxparrow07/Androidx86-Installer-Linux</a> </p>
 <p>Create a directory at / as /blissos</p>
 <ol>
-<li>Extract initrd.img, ramdisk.img, kernel and system.* from your desired blissOS ISO into the /blissos directory.</li>
-<li>Make a dir called /blissos/data (Only valid for android-pie, for higher versions you need data.img, can be created with make_ext4fs)</li>
+<li>Extract <code v-pre>initrd.img</code>, <code v-pre>ramdisk.img</code>, <code v-pre>kernel</code> and system.* from your desired blissOS ISO into the /blissos directory. <code v-pre>ramdisk.img</code> can be ignored for Android 10 and newer as it is already merged into the system (system-as-root).</li>
+<li>Make a directory called <code v-pre>/blissos/data</code>. This will only work for ext4 filesystems, for NTFS and other filesystems or if you are having bootloop you need data.img, can be created with make_ext4fs.</li>
 <li>Create a new grub entry with this the following code: </li>
 </ol>
-<p><code v-pre>menuentry &quot;BlissOS&quot; { set SOURCE_NAME=&quot;blissos&quot; search --set=root --file /$SOURCE_NAME/kernel </code><br />
-<code v-pre>     linux /$SOURCE_NAME/kernel quiet root=/dev/ram0 androidboot.hardware=android_x86_64 androidboot.selinux=permissive acpi_sleep=s3_bios,s3_mode SRC=/$SOURCE_NAME </code><br />
-<code v-pre>     initrd /$SOURCE_NAME/initrd.img</code><br />
-<code v-pre>}</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">menuentry &quot;BlissOS&quot; { 
+    set SOURCE_NAME=&quot;blissos&quot; search --set=root --file /$SOURCE_NAME/kernel 
+    linux /$SOURCE_NAME/kernel quiet root=/dev/ram0 SRC=/$SOURCE_NAME  
+    initrd /$SOURCE_NAME/initrd.img
+}</code></pre>
+</doc-codeblock></div>
 <doc-anchor-target id="example-for-making-a-8gb-image">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#example-for-making-a-8gb-image">#</doc-anchor-trigger>
@@ -257,6 +260,17 @@
 <pre class="language-none"><code v-pre class="language-none">dd if=/dev/zero of=data.img bs=1024 count=0 seek=$[102410248]
 sudo mkfs.ext4 -F data.img</code></pre>
 </doc-codeblock></div>
+<p>Alternatively, one can use <code v-pre>truncate</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">truncate -s 8G data.img
+mkfs.ext4 -F -b 4096 -L &quot;/data&quot; data.img</code></pre>
+</doc-codeblock></div>
+<p>Here are some additional tips for installing BlissOS on Linux:</p>
+<ul>
+<li>Do not try to install Bliss OS on exotic linux filesystems such ZFS, XFS, BtrFS, currently not every filesystem has built-in support in the Bliss OS kernel, ext4 is supported. If you install it on an unsupported filesystem, it will be stuck at <code v-pre>Detecting Android-x86...</code>. You will probably have to compile your own kernel and use a modified initrd.img to boot from other filesystems.</li>
+<li>If you want read-write /system or being able to make changes to the system, simply extract system.img from system.img using a tool that support Zstandard compressed squashFS images. It can also be mounted.</li>
+<li>For <code v-pre>data.img</code>, it would be good to repair/check filesystem regularly using command <code v-pre>e2fsck -f data.img</code>.</li>
+</ul>
 
                                 
                                 <!-- Required only on API pages -->
