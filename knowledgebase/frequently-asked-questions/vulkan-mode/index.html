@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.737860426255">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.737862220105">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -30,11 +30,11 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=2.4.0.737860426255" rel="stylesheet" />
+    <link href="../../../resources/css/retype.css?v=2.4.0.737862220105" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.737860426255" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.737862220105" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.737860426255" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.737862220105" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -230,7 +230,8 @@
         <span>Vulkan Mode</span>
     </h1>
 </doc-anchor-target>
-<p>In our Android 9+ versions, we include the ability to use a Grub command for enabling Vulkan mode on supported graphics hardware.</p>
+<p>In our Android 9+ versions, we include the ability to use a Grub command for enabling Vulkan mode on supported graphics hardware.
+If you are testing using Bliss OS 15.8.5 or newer, you may not need to worry about triggering this value, as it should be automatic.</p>
 <doc-anchor-target id="to-initially-test">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#to-initially-test">#</doc-anchor-trigger>
@@ -239,13 +240,13 @@
 </doc-anchor-target>
 <p>When your PC reboots, it&#x27;s initially shows a grub menu. tap &quot;e&quot; to edit the current selection and add the VULKAN=1 to the end of the line that starts with &quot;kernel&quot;, then follow the on-screen prompts to boot with those edits.</p>
 <p>If it works, then edit Grub from your main OS, and add the flag there.</p>
-<doc-anchor-target id="here-is-an-example-grub-menuentry">
+<doc-anchor-target id="here-is-an-example-grub-menuentry-bliss-os-158x">
     <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#here-is-an-example-grub-menuentry">#</doc-anchor-trigger>
-        <span>Here is an example Grub menuentry:</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#here-is-an-example-grub-menuentry-bliss-os-158x">#</doc-anchor-trigger>
+        <span>Here is an example Grub menuentry (Bliss OS 15.8.x):</span>
     </h4>
 </doc-anchor-target>
-<p><code v-pre>menuentry 'Bliss-x86 Test-Vulkan' --class bliss { search --file --no-floppy --set=root /AndroidOS/android.boot linux /AndroidOS/kernel root=/dev/ram0 SRC=/AndroidOS androidboot.selinux=permissive androidboot.hardware=android_x86_64 buildvariant=eng quiet DATA= VULKAN=1 initrd /AndroidOS/initrd.img }</code></p>
+<p><code v-pre>menuentry 'Bliss-x86 Test-Vulkan' --class bliss { search --file --no-floppy --set=root /AndroidOS/android.boot linux /AndroidOS/kernel root=/dev/ram0 SRC=/AndroidOS androidboot.selinux=permissive GRALLOC=minigbm HWC=drm_minigbm quiet DATA= VULKAN=1 initrd /AndroidOS/initrd.img }</code></p>
 
                                 
                                 <!-- Required only on API pages -->

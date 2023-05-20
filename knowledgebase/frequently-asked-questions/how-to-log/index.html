@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.737860426255">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.737862220105">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -30,11 +30,11 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=2.4.0.737860426255" rel="stylesheet" />
+    <link href="../../../resources/css/retype.css?v=2.4.0.737862220105" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.737860426255" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../../resources/js/config.js?v=2.4.0.737862220105" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.737860426255" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=2.4.0.737862220105" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -231,6 +231,10 @@
     </h1>
 </doc-anchor-target>
 <p>For grabbing manual logs of issues in Android-x86/Bliss OS, we need to use the alt-f1 console or built in terminal and we need to know the storage location we want to save in. For the examples below, we have our external storage mounted at sdcard/.</p>
+<p><strong>For Bliss 15.x &amp; 16.x:</strong><br />
+Use KernelSU app to grant su permissions to Termux, then open the built in Termux app, then enter:</p>
+<p><code v-pre>su   logcat &gt; sdcard/log.txt</code></p>
+<p>Or, boot into the OS using <code v-pre>DEBUG=2</code> from Grub, and the logs will be saved in /data after boot, or /tmp/log during early boot stages</p>
 <p><strong>For Bliss 14.x:</strong><br />
 Open the built in terminal app, then enter:</p>
 <p><code v-pre>su   logcat &gt; sdcard/log.txt</code></p>
