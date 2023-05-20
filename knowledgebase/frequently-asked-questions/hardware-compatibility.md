@@ -1,6 +1,11 @@
 # Hardware Compatibility
 
+We have updated our hardware support tracking and moved it to a repo of it's own along with a web frontend at: https://tested.blissos.org/
+
+Repo: https://github.com/BlissRoms-x86/CompatibilityList
+
 **Supported CPU's:**
+(as of 2022 Q4)
 
 Intel:
 
@@ -29,4 +34,5 @@ How to identify Native-Bridge Types in ISO file ?
 
 * **houdini** - Includes Intel's Houdini \(Works with most Intel CPU's and some recent AMD CPU's\)
 * **libndk** - Includes Google's libndk-translation \(Works on all CPU's, but not as efficient as Houdini\) 
+
 
