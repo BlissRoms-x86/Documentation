@@ -21,7 +21,7 @@ menuentry "BlissOS" {
 ### **Example for making a 8gb image:**&#x20;
 
 ```
-dd if=/dev/zero of=data.img bs=1024 count=0 seek=$[102410248]
+dd if=/dev/zero of=data2.img bs=1 count=0 seek=8G
 sudo mkfs.ext4 -F data.img
 ```
 Alternatively, one can use `truncate`
