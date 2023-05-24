@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.738265565283">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.738272835866">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>Manual Install on Linux</title>
     <meta name="title" content="Manual Install on Linux">
-    <meta name="description" content="!!ATTENTION!! Bliss OS also supports Jaxparrow's Android-x86 Installer for Linux. Source can be found here:" />
+    <meta name="description" content="Create a directory at / as /blissos" />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blissos.org/installation/manual-install-on-linux/" />
@@ -20,21 +20,21 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blissos.org/installation/manual-install-on-linux/">
     <meta property="og:title" content="Manual Install on Linux">
-    <meta property="og:description" content="!!ATTENTION!! Bliss OS also supports Jaxparrow's Android-x86 Installer for Linux. Source can be found here:">
+    <meta property="og:description" content="Create a directory at / as /blissos">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.blissos.org/installation/manual-install-on-linux/">
     <meta property="twitter:title" content="Manual Install on Linux">
-    <meta property="twitter:description" content="!!ATTENTION!! Bliss OS also supports Jaxparrow's Android-x86 Installer for Linux. Source can be found here:">
+    <meta property="twitter:description" content="Create a directory at / as /blissos">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=2.4.0.738265565283" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.738272835866" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.738265565283" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.738272835866" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.738265565283" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.738272835866" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -236,7 +236,6 @@
         <span>Installation</span>
     </h2>
 </doc-anchor-target>
-<p><strong>!!ATTENTION!!</strong> Bliss OS also supports Jaxparrow&#x27;s Android-x86 Installer for Linux. Source can be found here: <a href="https://github.com/jaxparrow07/Androidx86-Installer-Linux">https://github.com/jaxparrow07/Androidx86-Installer-Linux</a> </p>
 <p>Create a directory at / as /blissos</p>
 <ol>
 <li>Extract <code v-pre>initrd.img</code>, <code v-pre>ramdisk.img</code>, <code v-pre>kernel</code> and system.* from your desired blissOS ISO into the /blissos directory. <code v-pre>ramdisk.img</code> can be ignored for Android 10 and newer as it is already merged into the system (system-as-root).</li>
@@ -271,6 +270,7 @@ mkfs.ext4 -F -b 4096 -L &quot;/data&quot; data.img</code></pre>
 <li>If you want read-write /system or being able to make changes to the system, simply extract system.img from system.img using a tool that support Zstandard compressed squashFS images. It can also be mounted.</li>
 <li>For <code v-pre>data.img</code>, it would be good to repair/check filesystem regularly using command <code v-pre>e2fsck -f data.img</code>.</li>
 </ul>
+<p><strong>!!ATTENTION!!</strong> Bliss OS 14.3 and below versions also support Jaxparrow&#x27;s Android-x86 Installer for Linux. Source can be found here: <a href="https://github.com/jaxparrow07/Androidx86-Installer-Linux">https://github.com/jaxparrow07/Androidx86-Installer-Linux</a> </p>
 
                                 
                                 <!-- Required only on API pages -->
