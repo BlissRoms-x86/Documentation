@@ -2,8 +2,6 @@
 
 ## Installation
 
-**!!ATTENTION!!** Bliss OS also supports Jaxparrow's Android-x86 Installer for Linux. Source can be found here: [https://github.com/jaxparrow07/Androidx86-Installer-Linux](https://github.com/jaxparrow07/Androidx86-Installer-Linux)&#x20;
-
 Create a directory at / as /blissos
 
 1. Extract `initrd.img`, `ramdisk.img`, `kernel` and system.\* from your desired blissOS ISO into the /blissos directory. `ramdisk.img` can be ignored for Android 10 and newer as it is already merged into the system (system-as-root).
@@ -35,3 +33,4 @@ Here are some additional tips for installing BlissOS on Linux:
 - If you want read-write /system or being able to make changes to the system, simply extract system.img from system.img using a tool that support Zstandard compressed squashFS images. It can also be mounted.
 - For `data.img`, it would be good to repair/check filesystem regularly using command `e2fsck -f data.img`. 
 
+**!!ATTENTION!!** Bliss OS 14.3 and below versions also support Jaxparrow's Android-x86 Installer for Linux. Source can be found here: [https://github.com/jaxparrow07/Androidx86-Installer-Linux](https://github.com/jaxparrow07/Androidx86-Installer-Linux)&#x20;
