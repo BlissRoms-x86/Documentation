@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.739564960482">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.739565828745">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.0.3">
@@ -30,11 +30,11 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.0.3.739564960482" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=3.0.3.739565828745" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=3.0.3.739564960482" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=3.0.3.739565828745" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=3.0.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=3.0.3.739564960482" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=3.0.3.739565828745" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -250,6 +250,13 @@
 }</code></pre>
 </doc-codeblock></div>
 <p>The line we are targeting for our configuration is the one that starts with “<code v-pre>linux /AndroidOS/kernel</code>”. Here are some of the explanations for the configs we support.</p>
+<p>If your Grub menu entry looka a little different, and has some of the commands at the top, you can also edit there to add your configuration preferences.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">setparams 'Android-x86 Intel' 'fbcon=rotate:1' 'mem_sleep_default=shallow' 'acpi_sleep=s3_mode' 'HWC=drm_minigbm_celadon' 'GRALLOC=minigbm' 'quiet'
+   savedefault
+   set root=$android
+   ....</code></pre>
+</doc-codeblock></div>
 <p>Warning: Note that not all of the configs listed here are available in the open-source Bliss OS source, but are available through licensing the Android-Generic Project add-on for that feature, or licensing the use of Bliss Bass (which comes with all available AG add-on&#x27;s) for your organization</p>
 <doc-anchor-target id="supported-parameters">
     <h2>
