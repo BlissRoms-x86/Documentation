@@ -20,6 +20,14 @@ menuentry 'Android-x86' --class android-x86 {
 
 The line we are targeting for our configuration is the one that starts with “`linux /AndroidOS/kernel`”. Here are some of the explanations for the configs we support.
 
+If your Grub menu entry looka a little different, and has some of the commands at the top, you can also edit there to add your configuration preferences. 
+```
+setparams 'Android-x86 Intel' 'fbcon=rotate:1' 'mem_sleep_default=shallow' 'acpi_sleep=s3_mode' 'HWC=drm_minigbm_celadon' 'GRALLOC=minigbm' 'quiet'
+   savedefault
+   set root=$android
+   ....
+```
+
 Warning: Note that not all of the configs listed here are available in the open-source Bliss OS source, but are available through licensing the Android-Generic Project add-on for that feature, or licensing the use of Bliss Bass (which comes with all available AG add-on's) for your organization
 
 ## Supported Parameters:
