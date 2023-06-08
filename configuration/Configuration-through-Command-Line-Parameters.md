@@ -1,6 +1,6 @@
 # Configuration Through Command Line Parameters
 
-Bliss OS (and Bliss-Bass) utilizes the an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .iso to be configured through kernel command line parameters on a per-device basis. This allows end users to fine tune the performance of the OS to the capabilities of the device.
+Bliss OS (and Bliss-Bass) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .iso to be configured through kernel command line parameters on a per-device basis. This allows end users to fine tune the performance of the OS to the capabilities of the device.
 
 ## Intro to Kernel Command Line Parameters
 
