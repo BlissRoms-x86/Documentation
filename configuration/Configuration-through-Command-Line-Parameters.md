@@ -28,7 +28,7 @@ setparams 'Android-x86 Intel' 'fbcon=rotate:1' 'mem_sleep_default=shallow' 'acpi
    ....
 ```
 
-Warning: Note that not all of the configs listed here are available in the open-source Bliss OS source, but are available through licensing the Android-Generic Project add-on for that feature, or licensing the use of Bliss Bass (which comes with all available AG add-on's) for your organization
+Warning: Note that not all of the configs listed here are available in the open-source Bliss OS source, but are available through licensing the Android-Generic Project add-on for that feature, or licensing the use of Bliss Bass (which comes with most available AG add-on's) for your organization
 
 ## Supported Parameters:
 
