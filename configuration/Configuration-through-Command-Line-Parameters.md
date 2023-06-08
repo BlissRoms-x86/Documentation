@@ -4,7 +4,7 @@ Bliss OS (and Bliss-Bass) utilizes an expanded configuration layer, our Broad Ap
 
 ## Intro to Kernel Command Line Parameters
 
-We use Grub, Rufus, or other Linux bootloaders to boot the device once installed. The menu entry is how we also pass many of our parameters for configuring the device as well. Here is an example of a typical menu entry for Grub for Bliss OS 15.8.x:
+We use Grub, Refind, or other Linux bootloaders to boot the device once installed. The menu entry is how we also pass many of our parameters for configuring the device as well. Here is an example of a typical menu entry for Grub for Bliss OS 15.8.x:
 
 ```
 menuentry 'Android-x86' --class android-x86 {
