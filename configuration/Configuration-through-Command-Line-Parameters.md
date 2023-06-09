@@ -128,7 +128,7 @@ In some cases, we are working with hardware that requires Gralloc4 specs. We can
 We also offer a few various options that allow you to select different video encoder/decoder stack options:
 
 *   `FFMPEG_CODEC` - This will enable switching to using FFMPEG codecs
-*   'FFMPEG_PREFER_C2` - This will force FFMPEG to use Google C2 codecs
+*   `FFMPEG_PREFER_C2` - This will force FFMPEG to use Google C2 codecs
 *   `FFMPEG_HWACCEL_DISABLE` - This will disable hardware accelleration for the FFMPEG codec
 *   `CODEC2_LEVEL` - This will set the C2 level (typically to disable it '0' along with FFMPEG_HWACCEL_DISABLE)
 *   `NO_YUV420` - This will force the system to not use yuv420 color space (fixes some black or glitchy screens)
