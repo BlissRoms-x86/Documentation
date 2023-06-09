@@ -19,3 +19,6 @@ Use the alt-f1/f7 console, then enter:
   
 After that is done, you can edit the system files you need. When you are done, you can close the terminal app or use alt-f7 to get back to Android if you are using the Console.
 
+Watch this video for detailed instructions.
+
+https://youtu.be/hA1SjE3kTfQ
