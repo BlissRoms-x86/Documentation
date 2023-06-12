@@ -137,6 +137,18 @@ We also offer a few various options that allow you to select different video enc
 
 ### Networking:
 
+### USB/PCI:
+
+#### USB:
+
+##### USB Modes:
+
+(Available through Android-Generic Add-On & Bliss Bass)
+
+Switch USB mode (ADB/Storage) !! Requires kernel configs !!:
+* `FORCE_USE_ADB_CLIENT_MODE` - Forces client mode adb settings
+* `FORCE_USE_ADB_MASS_STORAGE` - Forces USB mass_storage mode
+
 ### Power & Memory:
 
 #### Power:
