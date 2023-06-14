@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.739912936372">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.740072011118">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.0.3">
@@ -30,11 +30,11 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.0.3.739912936372" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=3.0.3.740072011118" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=3.0.3.739912936372" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=3.0.3.740072011118" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=3.0.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=3.0.3.739912936372" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=3.0.3.740072011118" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -676,94 +676,6 @@ Options:</p>
 <li><p><strong>&lt;tile_id&gt;:</strong> This will add or remove the specified quick settings tile.</p>
 </li>
 </ul>
-</li>
-</ul>
-<doc-anchor-target id="device-management">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#device-management">#</doc-anchor-trigger>
-        <span>Device Management:</span>
-    </h3>
-</doc-anchor-target>
-<p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
-<ul>
-<li><p><code v-pre>SET_DM_ADMIN</code> - Set the dm_admin value<br />
-Options: (true|false)</p>
-</li>
-<li><p><code v-pre>SET_DM_POLICY</code> - Set the device admin policy<br />
-Options: (<policy>)</p>
-</li>
-<li><p><code v-pre>SET_DM_PASSWORD</code> - Set the device admin password<br />
-Options: (<password>)</p>
-</li>
-<li><p><code v-pre>SET_DM_RECOVERY_KEY</code> - Set the device admin recovery key<br />
-Options: (<key>)</p>
-</li>
-<li><p><code v-pre>SET_ATTESTATION</code> - Enable attestation<br />
-Options: (true|false)</p>
-</li>
-<li><p><code v-pre>SET_ATTESTATION_SERVER_URL</code> - Set the attestation server URL<br />
-Options: (<url>)</p>
-</li>
-<li><p><code v-pre>SET_ATTESTATION_KEY</code> - Set the attestation key<br />
-Options: (<key>)</p>
-</li>
-<li><p><code v-pre>SET_DEVICE_OWNER</code> - Sets the given component as active admin, and its package as device owner on initial boot<br />
-Options: (<component>)<br />
-Example:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">SET_DEVICE_OWNER=net.thiscorp.mobicontrol.androidwork/net.thiscorp.mobicontrol.admin.DeviceAdminAdapter</code></pre>
-</doc-codeblock></div>
-</li>
-<li><p><code v-pre>SET_PROFILE_OWNER_COMPONENT &amp;&amp; SET_PROFILE_OWNER_USER_ID</code> - (!! REQUIRES BOTH OPTIONS !!) Sets the given component as active admin and profile owner for an existing user on initial boot<br />
-Options:</p>
-<ul>
-<li><p><code v-pre>&lt;component&gt;</code> is the fully qualified name of the profile owner application&#x27;s component (e.g., <code v-pre>com.example.app/com.example.app.ProfileOwnerReceiver</code>).</p>
-</li>
-<li><p><code v-pre>&lt;user_id&gt;</code> is the ID of the user for whom the profile owner is being set.</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>Example:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">SET_PROFILE_OWNER_COMPONENT=com.example.app/com.example.app.ProfileOwnerReceiver SET_PROFILE_OWNER_USER_ID=10</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="kiosk-mode">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#kiosk-mode">#</doc-anchor-trigger>
-        <span>Kiosk Mode:</span>
-    </h3>
-</doc-anchor-target>
-<p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
-<ul>
-<li><p><code v-pre>FORCE_ALLOW_WALLPAPER_CHANGE</code> - Set the config_allow_wallpaper_change value<br />
-Options: (true|false)</p>
-</li>
-<li><p><code v-pre>FORCE_ALLOW_LOCKSCREEN_CHANGE</code> - Set the config_allow_lock_screen_change value<br />
-Options: (true|false)</p>
-</li>
-<li><p><code v-pre>FORCE_ALLOW_NEW_USERS</code> - Set the config_allow_new_users value<br />
-Options: (true|false)</p>
-</li>
-<li><p><code v-pre>FORCE_ALLOW_UNINSTALL_APPS</code> - Set the config_allow_uninstall_apps value<br />
-Options: (true|false)</p>
-</li>
-<li><p><code v-pre>FORCE_ALLOW_SYSTEM_SETTINGS_CHANGE</code> - Set the config_allow_system_settings_change value<br />
-Options: (true|false)</p>
-</li>
-<li><p><code v-pre>FORCE_LOCK_TO_APP</code> - Set the config_lock_to_app value<br />
-Options: (App ID)<br />
-Example:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">FORCE_LOCK_TO_APP=com.example.app</code></pre>
-</doc-codeblock></div>
-</li>
-<li><p><code v-pre>FORCE_KIOSK_MODE_TIMEOUT</code> - Set the config_kiosk_mode_timeout value<br />
-Options: (seconds)<br />
-Example (10 minutes):</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">FORCE_KIOSK_MODE_TIMEOUT=600</code></pre>
-</doc-codeblock></div>
 </li>
 </ul>
 <doc-anchor-target id="misc">
