@@ -405,16 +405,14 @@ no_console_suspend
         
 #### Rotation/Orientation:
    
-   `SET_SF_ROTATION=*` - Sets surfaceflinger hardware rotation property to the value passed: set_property ro.sf.hwrotation "$SET_SF_ROTATION"
+    * `SET_SF_ROTATION=*` - Sets surfaceflinger hardware rotation property to the value passed: set_property ro.sf.hwrotation "$SET_SF_ROTATION"
 
+    * `SET_OVERRIDE_FORCED_ORIENT=*` - Override forced orientation (true/false): set_property config.override_forced_orient "$SET_OVERRIDE_FORCED_ORIENT"
 
-   `SET_OVERRIDE_FORCED_ORIENT=*` - Override forced orientation (true/false): set_property config.override_forced_orient "$SET_OVERRIDE_FORCED_ORIENT"
-
-
-   `SET_SYS_APP_ROTATION=*` - property: persist.sys.app.rotation has three cases:
-   1.force_land: always show with landscape, if a portrait apk, system will scale up it
-   2.middle_port: if a portrait apk, will show in the middle of the screen, left and right will show black
-   3.original: original orientation, if a portrait apk, will rotate 270 degree
+    * `SET_SYS_APP_ROTATION=*` - property: persist.sys.app.rotation has three cases:   
+         * 1.force_land: always show with landscape, if a portrait apk, system will scale up it
+         * 2.middle_port: if a portrait apk, will show in the middle of the screen, left and right will show black
+         * 3.original: original orientation, if a portrait apk, will rotate 270 degree
 
 
 ### Misc:
