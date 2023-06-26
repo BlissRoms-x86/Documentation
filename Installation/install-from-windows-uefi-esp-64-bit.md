@@ -74,8 +74,8 @@ HD DRM protected streaming won't work because of the Widevine L3 certification a
 
 "(Default) w/ FFMPEG": Use the default settings with FFMPEG enabled.
 
-  - ```FFMPEG_CODEC=1```: Enable FFMPEG codec support.
-  - ```FFMPEG_PREFER_C2=1```: Use FFMPEG C2 as the preferred codec.
+  - ```FFMPEG_OMX_CODEC=1```: Enable FFMPEG codec support.
+  - ```FFMPEG_CODEC2_PREFER=1```: Use FFMPEG C2 as the preferred codec.
 
 "(Intel) w/ FFMPEG": Use Intel-specific settings with FFMPEG enabled.
 
