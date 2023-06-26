@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.741117406968">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.741120524326">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.0.3">
@@ -30,11 +30,11 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.0.3.741117406968" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=3.0.3.741120524326" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=3.0.3.741117406968" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=3.0.3.741120524326" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=3.0.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=3.0.3.741117406968" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=3.0.3.741120524326" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -279,7 +279,7 @@
 <ul>
 <li><p>1 - high-level debugging console (logs to /tmp/log)</p>
 </li>
-<li><p>2 - low-level debugging console (logs to /data &amp; /tmp/log)</p>
+<li><p>2 - low-level debugging console (logs to /data/log.txt &amp; /tmp/log)</p>
 </li>
 </ul>
 <p>Example:</p>
@@ -300,21 +300,18 @@
     </h4>
 </doc-anchor-target>
 <p>This allows us to include multiple hardware-composer options, and select the ones we want to target per-device.</p>
+<p>By default, if you set HWC without anything like <code v-pre>HWC=&quot;&quot;</code>, Bliss will use <a href="https://github.com/me176c-dev/drmfb-composer">drmfb-composer</a></p>
 <p>Command:</p>
 <p><code v-pre>HWC=*</code></p>
 <p>Options:</p>
 <ul>
-<li><p><code v-pre>default</code> - Uses the default system hardware-composer(drm)</p>
+<li><p><code v-pre>drm</code> - Use <a href="https://gitlab.freedesktop.org/drm-hwcomposer/drm-hwcomposer">drm_hwcomposer</a></p>
 </li>
-<li><p><code v-pre>drm</code> - Use DRM hardware-composer</p>
+<li><p><code v-pre>drm_celadon</code> - Use <a href="https://github.com/projectceladon/drm-hwcomposer">Project Celadon&#x27;s fork of drm_hwcomposer</a></p>
 </li>
-<li><p><code v-pre>drmfb</code> - Use drmfb hardware-composer</p>
+<li><p><code v-pre>drm_minigbm</code> - Use <a href="https://gitlab.freedesktop.org/drm-hwcomposer/drm-hwcomposer">drm_hwcomposer</a> with minigbm support</p>
 </li>
-<li><p><code v-pre>drm_minigbm</code> - Use minigbm hardware-composer</p>
-</li>
-<li><p><code v-pre>drm_minigbm_celadon</code> - Use minigbm for Intel hardware-composer</p>
-</li>
-<li><p><code v-pre>intel</code> - Use intel drm for hardware-composer</p>
+<li><p><code v-pre>drm_minigbm_celadon</code> - Use <a href="https://github.com/projectceladon/drm-hwcomposer">Project Celadon&#x27;s fork of drm_hwcomposer</a></p>
 </li>
 </ul>
 <p>Example:</p>
@@ -332,15 +329,15 @@
 <p><code v-pre>GRALLOC=*</code></p>
 <p>Options:</p>
 <ul>
-<li><p><code v-pre>gbm</code> - Compatible with drm &amp; drmfb hardware-composers</p>
+<li><p><code v-pre>gbm</code> - This is <a href="https://github.com/BlissRoms-x86/gbm_gralloc">gbm_gralloc</a> and it&#x27;s compatible with drm &amp; drm_celadon</p>
 </li>
-<li><p><code v-pre>minigbm</code> - Compatible with drm, drmfb, drm_minigbm, drm_minigbm_intel &amp; intel hardware-composers</p>
+<li><p><code v-pre>gbm_hack</code> - This is <a href="https://github.com/BlissRoms-x86/gbm_gralloc">gbm_gralloc</a> but with a <a href="https://github.com/BlissRoms-x86/gbm_gralloc/commit/e70acfc3f5acc64168a172987f34d141e55f6b54">HACK commit</a> to fix some issue with iris or nouveau. It&#x27;s compatible with drm &amp; drm_celadon</p>
 </li>
-<li><p><code v-pre>minigbm_gbm_mesa</code> - Compatible with drm, drmfb, drm_minigbm, drm_minigbm_intel &amp; intel hardware-composers</p>
+<li><p><code v-pre>minigbm</code> - This is <a href="https://github.com/supremegamers/minigbm">minigbm</a> and it&#x27;s compatible with drm_minigbm, drm_minigbm_celadon</p>
 </li>
-<li><p><code v-pre>intel</code> - Compatible with intel or drm_minigbm_celadon hardware-composers</p>
+<li><p><code v-pre>minigbm_arcvm</code> - This is <a href="https://github.com/supremegamers/minigbm">minigbm</a> but made specifically for virgl by Google, compatible with drm_minigbm, drm_minigbm_celadon</p>
 </li>
-<li><p><code v-pre>minigbm_arcvm</code> - Compatible with drm_minigbm hardware-composer</p>
+<li><p><code v-pre>minigbm_gbm_mesa</code> - This is <a href="https://github.com/supremegamers/minigbm/tree/13-x86/gbm_mesa_driver">minigbm</a> made by <a href="https://github.com/rsglobal">rsglobal</a> which he tried to port <a href="https://github.com/robherring/gbm_gralloc/issues/26">gbm_gralloc philosophy to minigbm</a>. Compatible with drm_minigbm, drm_minigbm_celadon</p>
 </li>
 </ul>
 <p>Example:</p>
@@ -357,26 +354,43 @@
 <ul>
 <li><code v-pre>GRALLOC4_MINIGBM</code> - Force using gralloc4 with minigbm (only compatible with drm_minigbm_celadon)</li>
 </ul>
+<doc-anchor-target id="angle--software-rendering">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#angle--software-rendering">#</doc-anchor-trigger>
+        <span>ANGLE &amp; software rendering</span>
+    </h4>
+</doc-anchor-target>
+<ul>
+<li><p><a href="https://github.com/google/angle">ANGLE</a> is available in BlissOS 14.10 and above, if you have a device that can use Vulkan, you can try ANGLE with Vulkan backend using <code v-pre>ANGLE=1</code>.</p>
+</li>
+<li><p>Alternatively, you can also use <a href="https://github.com/google/swiftshader">SwiftShader Vulkan</a> with ANGLE as a software rendering solution if you are running it inside something like a virtual machine by setting <code v-pre>nomodeset ANGLE=1</code> or <code v-pre>HWACCEL=0 ANGLE=1</code></p>
+</li>
+<li><p>There&#x27;s one more option for software rendering, which is the legacy <a href="https://gitlab.com/hmtheboy154/swiftshader/-/tree/legacy_11-x86/src/OpenGL">SwiftShader EGL</a>, simply set <code v-pre>nomodeset</code> or <code v-pre>HWACCEL=0</code> to use it.</p>
+</li>
+</ul>
+<p><strong>NOTE</strong> : You may want to turn on Color Inversion when using software rendering because the color might be inverted</p>
+<doc-anchor-target id="media-stack">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#media-stack">#</doc-anchor-trigger>
+        <span>Media Stack:</span>
+    </h3>
+</doc-anchor-target>
 <doc-anchor-target id="video-encodersdecoders">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#video-encodersdecoders">#</doc-anchor-trigger>
         <span>Video Encoders/Decoders:</span>
     </h4>
 </doc-anchor-target>
-<p>We also offer a few various options that allow you to select different video encoder/decoder stack options:</p>
+<p>By default, BlissOS will use AOSP&#x27;s codec2 software decoder. We also offer a few various options that allow you to select different video decoders stack options:</p>
 <ul>
-<li><code v-pre>FFMPEG_OMX_CODEC</code> - This will enable switching to using FFMPEG codecs</li>
-<li><code v-pre>FFMPEG_CODEC2_PREFER</code> - This will force FFMPEG to use Google C2 codecs</li>
-<li><code v-pre>FFMPEG_HWACCEL_DISABLE</code> - This will disable hardware accelleration for the FFMPEG codec</li>
-<li><code v-pre>CODEC2_LEVEL</code> - This will set the C2 level (typically to disable it &#x27;0&#x27; along with FFMPEG_HWACCEL_DISABLE)</li>
-<li><code v-pre>OMX_NO_YUV420</code> - This will force the system to not use yuv420 color space (fixes some black or glitchy screens)</li>
+<li><code v-pre>CODEC2_LEVEL</code> - This will set the C2 level (default value is <code v-pre>4</code>, you can disable codeec2 completely with &#x27;0&#x27;).</li>
+<li><code v-pre>FFMPEG_OMX_CODEC</code> - This will enable OMX version of FFMPEG codecs (disable codec2 with <code v-pre>CODEC2_LEVEL=0</code> to use this codecs).</li>
+<li><code v-pre>FFMPEG_CODEC2_PREFER</code> - This will force Bliss to use codec2 version of FFMPEG codecs by default.</li>
+<li><code v-pre>FFMPEG_HWACCEL_DISABLE</code> - This will disable hardware accelleration for the FFMPEG codecs.</li>
+<li><code v-pre>FFMPEG_CODEC_LOG</code> - This will show more log of FFMPEG codecs, enable if you want to debug it</li>
+<li><code v-pre>FFMPEG_CODEC2_DEINTERLACE</code> &amp; <code v-pre>FFMPEG_CODEC2_DEINTERLACE_VAAPI</code> - configuring deinterlacing option for FFMPEG codec2, you can find the options in this <a href="https://github.com/supremegamers/stagefright-plugins/commit/48e5d4e8c6e577c7f56c1da3aa90897444422d33">commit made by Micheal Goffioul</a></li>
+<li><code v-pre>OMX_NO_YUV420</code> - This will force the system to not use YUV420 color format on OMX codec (fixes some black or glitchy screens, use it with <code v-pre>CODEC2_LEVEL=0</code>)</li>
 </ul>
-<doc-anchor-target id="audio-stack">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#audio-stack">#</doc-anchor-trigger>
-        <span>Audio Stack:</span>
-    </h3>
-</doc-anchor-target>
 <doc-anchor-target id="networking">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#networking">#</doc-anchor-trigger>
