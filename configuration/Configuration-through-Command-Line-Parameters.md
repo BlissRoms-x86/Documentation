@@ -79,7 +79,7 @@ Options:
     
 *   `drm_minigbm` - Use [drm_hwcomposer](https://gitlab.freedesktop.org/drm-hwcomposer/drm-hwcomposer) with minigbm support
     
-*   `drm_minigbm_celadon` - Use [Project Celadon's fork of drm_hwcomposer](https://github.com/projectceladon/drm-hwcomposer)
+*   `drm_minigbm_celadon` - Use [Project Celadon's fork of drm_hwcomposer](https://github.com/projectceladon/drm-hwcomposer) with minigbm support
 
 Example:
 
