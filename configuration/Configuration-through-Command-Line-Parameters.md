@@ -131,7 +131,7 @@ We also offer a few various options that allow you to select different video enc
 *   `FFMPEG_CODEC2_PREFER` - This will force FFMPEG to use Google C2 codecs
 *   `FFMPEG_HWACCEL_DISABLE` - This will disable hardware accelleration for the FFMPEG codec
 *   `CODEC2_LEVEL` - This will set the C2 level (typically to disable it '0' along with FFMPEG_HWACCEL_DISABLE)
-*   `NO_YUV420` - This will force the system to not use yuv420 color space (fixes some black or glitchy screens)
+*   `OMX_NO_YUV420` - This will force the system to not use yuv420 color space (fixes some black or glitchy screens)
 
 ### Audio Stack:
 
