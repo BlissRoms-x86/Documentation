@@ -48,7 +48,7 @@ Options:
 
 *   1 - high-level debugging console (logs to /tmp/log)
     
-*   2 - low-level debugging console (logs to /data & /tmp/log)
+*   2 - low-level debugging console (logs to /data/log.txt & /tmp/log)
     
 
 Example:
@@ -65,24 +65,21 @@ This includes a number pf parameters that we can use to customize the stack to o
 
 This allows us to include multiple hardware-composer options, and select the ones we want to target per-device.
 
+By default, if you set HWC without anything like `HWC=""`, Bliss will use [drmfb-composer](https://github.com/me176c-dev/drmfb-composer)
+
 Command:
 
 `HWC=*`
 
 Options:
+    
+*   `drm` - Use [drm_hwcomposer](https://gitlab.freedesktop.org/drm-hwcomposer/drm-hwcomposer)
 
-*   `default` - Uses the default system hardware-composer(drm)
+*   `drm_celadon` - Use [Project Celadon's fork of drm_hwcomposer](https://github.com/projectceladon/drm-hwcomposer)    
     
-*   `drm` - Use DRM hardware-composer
+*   `drm_minigbm` - Use [drm_hwcomposer](https://gitlab.freedesktop.org/drm-hwcomposer/drm-hwcomposer) with minigbm support
     
-*   `drmfb` - Use drmfb hardware-composer
-    
-*   `drm_minigbm` - Use minigbm hardware-composer
-    
-*   `drm_minigbm_celadon` - Use minigbm for Intel hardware-composer
-    
-*   `intel` - Use intel drm for hardware-composer
-    
+*   `drm_minigbm_celadon` - Use [Project Celadon's fork of drm_hwcomposer](https://github.com/projectceladon/drm-hwcomposer)
 
 Example:
 
@@ -100,16 +97,15 @@ Command:
 
 Options:
 
-*   `gbm` - Compatible with drm & drmfb hardware-composers
+*   `gbm` - This is [gbm_gralloc](https://github.com/BlissRoms-x86/gbm_gralloc) and it's compatible with drm & drm\_celadon
+
+*   `gbm_hack` - This is [gbm_gralloc](https://github.com/BlissRoms-x86/gbm_gralloc) but with a [HACK commit](https://github.com/BlissRoms-x86/gbm_gralloc/commit/e70acfc3f5acc64168a172987f34d141e55f6b54) to fix some issue with iris or nouveau. It's compatible with drm & drm\_celadon
     
-*   `minigbm` - Compatible with drm, drmfb, drm\_minigbm, drm\_minigbm\_intel & intel hardware-composers
+*   `minigbm` - This is [minigbm](https://github.com/supremegamers/minigbm) and it's compatible with drm\_minigbm, drm\_minigbm\_celadon
+
+*   `minigbm_arcvm` - This is [minigbm](https://github.com/supremegamers/minigbm) but made specifically for virgl by Google, compatible with drm\_minigbm, drm\_minigbm\_celadon
     
-*   `minigbm_gbm_mesa` - Compatible with drm, drmfb, drm\_minigbm, drm\_minigbm\_intel & intel hardware-composers
-    
-*   `intel` - Compatible with intel or drm\_minigbm\_celadon hardware-composers
-    
-*   `minigbm_arcvm` - Compatible with drm\_minigbm hardware-composer
-    
+*   `minigbm_gbm_mesa` - This is [minigbm](https://github.com/supremegamers/minigbm/tree/13-x86/gbm_mesa_driver) made by [rsglobal](https://github.com/rsglobal) which he tried to port [gbm_gralloc philosophy to minigbm](https://github.com/robherring/gbm_gralloc/issues/26). Compatible with drm\_minigbm, drm\_minigbm\_celadon
 
 Example:
 
@@ -122,18 +118,29 @@ In some cases, we are working with hardware that requires Gralloc4 specs. We can
 
 *   `GRALLOC4_MINIGBM` - Force using gralloc4 with minigbm (only compatible with drm_minigbm_celadon)
 
+#### ANGLE & software rendering
+
+- [ANGLE](https://github.com/google/angle) is available in BlissOS 14.10 and above, if you have a device that can use Vulkan, you can try ANGLE with Vulkan backend using `ANGLE=1`.
+
+- Alternatively, you can also use [SwiftShader Vulkan](https://github.com/google/swiftshader) with ANGLE as a software rendering solution if you are running it inside something like a virtual machine by setting `nomodeset ANGLE=1` or `HWACCEL=0 ANGLE=1`
+
+- There's one more option for software rendering, which is the legacy [SwiftShader EGL](https://gitlab.com/hmtheboy154/swiftshader/-/tree/legacy_11-x86/src/OpenGL), simply set `nomodeset` or `HWACCEL=0` to use it.
+
+**NOTE** : You may want to turn on Color Inversion when using software rendering because the color might be inverted
+
+### Media Stack:
 
 #### Video Encoders/Decoders:
 
-We also offer a few various options that allow you to select different video encoder/decoder stack options:
+By default, BlissOS will use AOSP's codec2 software decoder. We also offer a few various options that allow you to select different video decoders stack options:
 
-*   `FFMPEG_OMX_CODEC` - This will enable switching to using FFMPEG codecs
-*   `FFMPEG_CODEC2_PREFER` - This will force FFMPEG to use Google C2 codecs
-*   `FFMPEG_HWACCEL_DISABLE` - This will disable hardware accelleration for the FFMPEG codec
-*   `CODEC2_LEVEL` - This will set the C2 level (typically to disable it '0' along with FFMPEG_HWACCEL_DISABLE)
-*   `OMX_NO_YUV420` - This will force the system to not use yuv420 color space (fixes some black or glitchy screens)
-
-### Audio Stack:
+*   `CODEC2_LEVEL` - This will set the C2 level (default value is `4`, you can disable codeec2 completely with '0').
+*   `FFMPEG_OMX_CODEC` - This will enable OMX version of FFMPEG codecs (disable codec2 with `CODEC2_LEVEL=0` to use this codecs).
+*   `FFMPEG_CODEC2_PREFER` - This will force Bliss to use codec2 version of FFMPEG codecs by default.
+*   `FFMPEG_HWACCEL_DISABLE` - This will disable hardware accelleration for the FFMPEG codecs.
+*   `FFMPEG_CODEC_LOG` - This will show more log of FFMPEG codecs, enable if you want to debug it
+*   `FFMPEG_CODEC2_DEINTERLACE` & `FFMPEG_CODEC2_DEINTERLACE_VAAPI` - configuring deinterlacing option for FFMPEG codec2, you can find the options in this [commit made by Micheal Goffioul](https://github.com/supremegamers/stagefright-plugins/commit/48e5d4e8c6e577c7f56c1da3aa90897444422d33)
+*   `OMX_NO_YUV420` - This will force the system to not use YUV420 color format on OMX codec (fixes some black or glitchy screens, use it with `CODEC2_LEVEL=0`)
 
 ### Networking:
 
