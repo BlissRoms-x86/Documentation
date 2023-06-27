@@ -1,7 +1,7 @@
 # Vulkan Mode
 
 In our Android 9+ versions, we include the ability to use a Grub command for enabling Vulkan mode on supported graphics hardware.
-If you are testing using Bliss OS 15.8.5 or newer, you may not need to worry about triggering this value, as it should be automatic. 
+However, from Bliss OS 14.10, you don't have to to worry about triggering this value as we removed `VULKAN=1` from the OS. 
 
 #### To initially test:
 
