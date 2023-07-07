@@ -8,7 +8,7 @@ Boot into Bliss OS and select "DEBUG mode" from the grub menu. Once boot complet
 ### Step 2:
 Mount your efi partition (usually first partition in disk):
 
-  mount /dev/sda1 /mnt
+  mount /dev/sda1 /tmp
 
 ### Step 3:
 Change directory to /mnt/efi/boot:
@@ -22,11 +22,12 @@ Edit the android.cfg using vi editor:
 
 ### Step 5:
 Use Vi Editor to add your changes and save 
--  Press 'i' to enter edit mode
+-  Press 'insert' to enter edit mode
 -  Press 'Esc', type ':w', and press 'Enter' to save.
--  Press 'Esc', type ':x', and press 'Enter' to exit.
+-  Press 'Esc', type ':q', and press 'Enter' to exit.
+- Also you can combine save & exit with ':wq'
 
 ### Step 6:
-Now you can reboot to see your changes:
-
+Now you can umount efi partiton and reboot to see your changes:
+  umount /tmp
   reboot -f
