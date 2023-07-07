@@ -8,7 +8,7 @@ Boot into Bliss OS and select "DEBUG mode" from the grub menu. Once boot complet
 ### Step 2:
 Mount your efi partition (usually first partition in disk):
 
-  mount /dev/sda1 /tmp
+  mount /dev/sda1 /mnt
 
 ### Step 3:
 Change directory to /mnt/efi/boot:
@@ -29,5 +29,5 @@ Use Vi Editor to add your changes and save
 
 ### Step 6:
 Now you can umount efi partiton and reboot to see your changes:
-  umount /tmp
+  umount /dev/sda1
   reboot -f
