@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.742059607235">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.742062078821">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.0.3">
@@ -30,11 +30,11 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.0.3.742059607235" rel="stylesheet" />
+    <link href="../../../resources/css/retype.css?v=3.0.3.742062078821" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../../resources/js/config.js?v=3.0.3.742059607235" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../../resources/js/config.js?v=3.0.3.742062078821" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../../resources/js/retype.js?v=3.0.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=3.0.3.742059607235" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=3.0.3.742062078821" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -244,8 +244,12 @@
         <span>Step 2:</span>
     </h3>
 </doc-anchor-target>
-<p>Mount your efi partition (usually first partition in disk):</p>
-<p>mount /dev/sda1 /mnt</p>
+<p>To list devices:</p>
+<p><code v-pre>blkid</code></p>
+<p>Assuming device is <code v-pre>/dev/sda</code>, Identify EFI partition number (should have boot flag):</p>
+<p><code v-pre>parted /dev/sda print</code></p>
+<p>Mount your EFI partition (usually first partition in disk):</p>
+<p><code v-pre>mount /dev/sda1 /mnt</code></p>
 <doc-anchor-target id="step-3">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#step-3">#</doc-anchor-trigger>
@@ -253,7 +257,7 @@
     </h3>
 </doc-anchor-target>
 <p>Change directory to /mnt/efi/boot:</p>
-<p>cd /mnt/efi/boot</p>
+<p><code v-pre>cd /mnt/efi/boot</code></p>
 <doc-anchor-target id="step-4">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#step-4">#</doc-anchor-trigger>
@@ -261,7 +265,7 @@
     </h3>
 </doc-anchor-target>
 <p>Edit the android.cfg using vi editor:</p>
-<p>vi android.cfg</p>
+<p><code v-pre>vi android.cfg</code></p>
 <doc-anchor-target id="step-5">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#step-5">#</doc-anchor-trigger>
@@ -269,11 +273,11 @@
     </h3>
 </doc-anchor-target>
 <p>Use Vi Editor to add your changes and save
--  Press &#x27;insert&#x27; to enter edit mode
--  Press &#x27;Esc&#x27;, type &#x27;:w&#x27;, and press &#x27;Enter&#x27; to save.
--  Press &#x27;Esc&#x27;, type &#x27;:q&#x27;, and press &#x27;Enter&#x27; to exit.</p>
+-  Press <code v-pre>insert</code> to enter edit mode
+-  Press <code v-pre>Esc</code>, type <code v-pre>:w</code>, and press <code v-pre>Enter</code> to save.
+-  Press <code v-pre>Esc</code>, type <code v-pre>:q</code>, and press <code v-pre>Enter</code> to exit.</p>
 <ul>
-<li>Also you can combine save &amp; exit with &#x27;:wq&#x27;</li>
+<li>Also you can combine save &amp; exit with <code v-pre>:wq</code></li>
 </ul>
 <doc-anchor-target id="step-6">
     <h3>
@@ -281,9 +285,11 @@
         <span>Step 6:</span>
     </h3>
 </doc-anchor-target>
-<p>Now you can umount efi partiton and reboot to see your changes:
-umount /dev/sda1
-reboot -f</p>
+<p>Now you can umount efi partition and reboot to see your changes:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">  umount /dev/sda1
+  reboot -f</code></pre>
+</doc-codeblock></div>
 
                                 
                                 <!-- Required only on API pages -->
