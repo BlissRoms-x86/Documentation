@@ -9,24 +9,24 @@
     <meta name="generator" content="Retype 3.0.3">
 
     <!-- Primary Meta Tags -->
-    <title>Bliss OS: How to install Bliss OS on Qemu</title>
-    <meta name="title" content="Bliss OS: How to install Bliss OS on Qemu">
-    <meta name="description" content="This article is a guide to install Android Generic builds on Qemu. Bliss 14 at the current moment does not work." />
+    <title>How to edit grub from your Bliss OS install</title>
+    <meta name="title" content="How to edit grub from your Bliss OS install">
+    <meta name="description" content="Follow these steps to edit EFI from rooted Bliss OS" />
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.blissos.org/installation/install-in-a-virtual-machine/install-in-qemu/" />
+    <link rel="canonical" href="https://docs.blissos.org/knowledgebase/troubleshooting/edit-grub-from-bliss-install/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.blissos.org/installation/install-in-a-virtual-machine/install-in-qemu/">
-    <meta property="og:title" content="Bliss OS: How to install Bliss OS on Qemu">
-    <meta property="og:description" content="This article is a guide to install Android Generic builds on Qemu. Bliss 14 at the current moment does not work.">
+    <meta property="og:url" content="https://docs.blissos.org/knowledgebase/troubleshooting/edit-grub-from-bliss-install/">
+    <meta property="og:title" content="How to edit grub from your Bliss OS install">
+    <meta property="og:description" content="Follow these steps to edit EFI from rooted Bliss OS">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.blissos.org/installation/install-in-a-virtual-machine/install-in-qemu/">
-    <meta property="twitter:title" content="Bliss OS: How to install Bliss OS on Qemu">
-    <meta property="twitter:description" content="This article is a guide to install Android Generic builds on Qemu. Bliss 14 at the current moment does not work.">
+    <meta property="twitter:url" content="https://docs.blissos.org/knowledgebase/troubleshooting/edit-grub-from-bliss-install/">
+    <meta property="twitter:title" content="How to edit grub from your Bliss OS install">
+    <meta property="twitter:description" content="Follow these steps to edit EFI from rooted Bliss OS">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -224,122 +224,62 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="install-with-qemu-script" class="break-words">
+<doc-anchor-target id="how-to-edit-grub-from-your-bliss-os-install" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#install-with-qemu-script">#</doc-anchor-trigger>
-        <span>Install with Qemu Script</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#how-to-edit-grub-from-your-bliss-os-install">#</doc-anchor-trigger>
+        <span>How to edit grub from your Bliss OS install</span>
     </h1>
 </doc-anchor-target>
-<div class="-mt-3 mb-12 flex flex-wrap text-sm text-gray-400 dark:text-dark-350 items-center">
-    <div class="flex items-center shrink-0">Published&nbsp;<span>2021-10-27</span></div>
-</div>
-
-<p>This article is a guide to install <code v-pre>Android Generic</code> builds on Qemu. Bliss 14 at the current moment does not work. Gearlock causes resizefs errors that do not occur in the current Project Sakura build. There is a version of Bliss 11.13 that does have a working Gearlock in the BLISS OS telegram group.</p>
-<p>Also tested is AOSP 12. with AOSP 12 you may need to boot with hwcomposer.drm to get it to work properly when using virgl graphics. currently default boot does not work, and while using gbm mesa, the android UI crashes when a mouse is drawn. so while a keyboard works. no mouse control even with a real mouse passed through to the VM. this is not an issue when using hwcomposer.drm. I recommend duplicating or editing the hwcompser.drm entry, remove &#x27;DEBUG=2&#x27; from it. as it will allow usage as normal.</p>
-<doc-anchor-target id="background">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#background">#</doc-anchor-trigger>
-        <span>Background</span>
-    </h2>
+<p>Follow these steps to edit EFI from rooted Bliss OS</p>
+<doc-anchor-target id="step-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#step-1">#</doc-anchor-trigger>
+        <span>Step 1:</span>
+    </h3>
 </doc-anchor-target>
-<p>Qemu while simple in use, can be complicated to understand for beginners. This is because Qemu has a LOT of options for customization, many of which are useful, but more so that are not.</p>
-<p>Qemu on windows as of time of writing this will NOT work on bliss 14. but may work on bliss 11. this is due to lack of software rendering on bliss 14. assuming Gearlock issues get fixed. in the mean time, use Project Sakura OS.</p>
-<p>If you wish to use this guide on windows 10 or above, It may be possible to use WSL, however to get Qemu KVM support on WSL you will need a custom kernel. Another possible method is to use an unofficial patch from the <code v-pre>qemu-3dfx</code> project to get virgl working on windows. but at this current time. it has not been tested with any android generic project.</p>
-<doc-anchor-target id="make-the-image">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#make-the-image">#</doc-anchor-trigger>
-        <span>Make the image.</span>
-    </h2>
+<p>Boot into Bliss OS and select &quot;DEBUG mode&quot; from the grub menu. Once boot completes, press enter</p>
+<doc-anchor-target id="step-2">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#step-2">#</doc-anchor-trigger>
+        <span>Step 2:</span>
+    </h3>
 </doc-anchor-target>
-<p>When you have Qemu installed be it on Linux or windows, you will have installed a plethora of Qemu related tools. the tool we need for this is <code v-pre>qemu-img</code>, Navigate to the folder you want your image installed in and run the following command.</p>
-<p><code v-pre>qemu-img create -f qcow2 Bliss14.qcow2 20G</code></p>
-<p>Breaking this down a little bit running
-<code v-pre>qemu-img create</code> is used to tell the program we want to create.</p>
-<p><code v-pre>-f qcow2</code> is used to tell it we want to create the image using qcow2 format. <code v-pre>qemu-img</code> supports many formats so we want to specify this one.</p>
-<p><code v-pre>Bliss14.qcow2</code> is the name of the image</p>
-<p><code v-pre>20G</code> is the image size.</p>
-<doc-anchor-target id="make-a-script-to-run-the-vm">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#make-a-script-to-run-the-vm">#</doc-anchor-trigger>
-        <span>Make a script to run the VM.</span>
-    </h2>
+<p>Mount your efi partition (usually first partition in disk):</p>
+<p>mount /dev/sda1 /mnt</p>
+<doc-anchor-target id="step-3">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#step-3">#</doc-anchor-trigger>
+        <span>Step 3:</span>
+    </h3>
 </doc-anchor-target>
-<p>Below is a sample bash script used to run Bliss14 in a Qemu VM</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">#!/bin/bash
-qemu-system-x86_64 \
--enable-kvm \
--M q35 \
--m 4096 -smp 4 -cpu host \
--bios /usr/share/ovmf/x64/OVMF.fd \
--drive file=disks/bliss14-k54-gapps.qcow2,if=virtio \
--cdrom images/Bliss14-k54-gapps.iso \
--usb \
--device virtio-tablet \
--device virtio-keyboard \
--device qemu-xhci,id=xhci \
--machine vmport=off \
--device virtio-vga-gl -display sdl,gl=on \
--audiodev pa,id=snd0 -device AC97,audiodev=snd0 \
--net nic,model=virtio-net-pci -net user,hostfwd=tcp::4444-:5555</code></pre>
-</doc-codeblock></div>
-<p>If you don&#x27;t want an in-depth explanation, you can skip the next section, Just make sure to replace <code v-pre>-drive</code> and <code v-pre>-cdrom</code> with the proper disk image, and cdrom image for your use.</p>
-<doc-anchor-target id="explanation">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#explanation">#</doc-anchor-trigger>
-        <span>Explanation</span>
-    </h2>
+<p>Change directory to /mnt/efi/boot:</p>
+<p>cd /mnt/efi/boot</p>
+<doc-anchor-target id="step-4">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#step-4">#</doc-anchor-trigger>
+        <span>Step 4:</span>
+    </h3>
 </doc-anchor-target>
-<p>While this looks a little complicated, when we break this down we can see that it isn&#x27;t. we are just telling Qemu what we want our virtual machine to have attached to it. if you don</p>
-<p><code v-pre>qemu-system-x86_64</code> is used to launch the program, there are various other commands that can launch different versions of Qemu, but this is the one we want in the majority of cases.</p>
-<p><code v-pre>-enable-kvm</code> tells Qemu to use KVM hypervisor, this is how we get near native CPU performance from our VM</p>
-<p><code v-pre>-M q35</code> This tells Qemu what Machine type to run as, we need to specify this as <code v-pre>i440fx</code> will not work it is simple too old.</p>
-<p><code v-pre>-m 4096 -smp 4</code> tells Qemu How much ram to use, and how many cores to add the the VM</p>
-<p><code v-pre>-cpu host</code> This tells Qemu what CPU it should be trying telling the guest it is. Generally it is the preferred option. However in case you start to get instability <code v-pre>-cpu qemu64</code> may be the option you need as it presents a very bare bones cpu to the VM. see <code v-pre>qemu-cpu-models</code> of the Qemu docs to learn more.</p>
-<p><code v-pre>-bios /usr/share/ovmf/x64/OVMF.fd \</code> is needed to tell Qemu to boot using UEFI, which is necessary as right now there is a bug that prevents android-generic based roms from being installed when in legacy mode. It is important to note that the location of this can vary depending on the host OS.</p>
-<p><code v-pre>-drive file=disks/bliss14-k54-gapps.qcow2,if=virtio \</code> is how we mount the disk. Using this method instead of <code v-pre>-hda</code> lets us use virtio driver instead of emulated driver, giving us greater performance in the VM.</p>
-<p><code v-pre>-cdrom images/Bliss-v11.iso \</code> Just mount the iso for bliss, while we could use virtio driver for this, there is no real need to, because it&#x27;s only use is installing the OS, this can be removed when the VM is installed</p>
-<p><code v-pre>-usb</code> is used to tell Qemu to add a USB controller, no real need to give it any additional arguments</p>
-<p><code v-pre>-device virtio-tablet </code> is one of two options for mouse capture the other being <code v-pre>-device virtio-mouse</code> using Tablet will allow you to use Qemu as if it were any other app, using <code v-pre>virtio-mouse</code> on the other hand will capture the mouse, and lock it to the VM. and to free it you will need to click <code v-pre>ctrl+alt</code> to free it. You may use <code v-pre>usb-mouse</code> or <code v-pre>usb-tablet</code> to use a emulated mouse and tablet instead of the paravirtualized ones. which incurs a very minor preformance hit. but also a measurable latency one.</p>
-<p><code v-pre>-device virtio-keyboard</code>  is for keyboard, no need to change anything here, <code v-pre>usb-kbd</code> also exists for using emulated keyboard instead.</p>
-<p><code v-pre>-device qemu-xhci,id=xhci</code> tells Qemu what USB version to use, no need to change this</p>
-<p><code v-pre>-machine vmport=off \</code> this option turns of vmware I/O emulation. this has caused me some bugs in the past, so I leave it off.</p>
-<p><code v-pre>-device virtio-vga-gl</code> this is needed for graphics acceleration, and while you can add a plethora of arguments, none are really beneficial at this time.</p>
-<p><code v-pre>-display sdl,gl=on</code> This is used for the display, there are three main options here <code v-pre>-display sdl,gl=on</code> <code v-pre>display gtk.sdl-on</code> and <code v-pre>-display spice-app,gl=on</code> The difference between these are some features. each one has pros and cons, feel free to experiment. Though do take note that  even if you close the VM&#x27;s window with <code v-pre>-display spice-app,gl=on</code> the VM will still be running, you will need to kill it from the terminal.</p>
-<p><code v-pre>-audiodev pa,id=snd0 -device AC97,audiodev=snd0</code> this is needed to add audio to the VM. <code v-pre>--audiodev pa,id=snd0</code> is used to create a pulseaudio backend with the id of <code v-pre>snd0</code>. this is important as we then use <code v-pre>-device AC97,audiodev=snd0</code> to create an emulated AC97 audio device and attach it to the audiodev we created just before.</p>
-<p><code v-pre>-net nic,model=virtio-net-pci -net user,hostfwd=tcp::4444-:5555</code> This really long command is the network command, <code v-pre>-net nic,model=virtio-net-pci</code> is what is used to add the network device to the guest in which case we are using virtio drivers again for best performance. <code v-pre>-net user</code> tells Qemu how to pass the network through and the argument <code v-pre>hostfwd=tcp::4444-:5555</code> forwards port 4444 and port 5555 together, meaning if we open another terminal and type <code v-pre>adb connect localhost:4444</code> we can get an adb connection to the VM.</p>
-<doc-anchor-target id="install">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#install">#</doc-anchor-trigger>
-        <span>Install</span>
-    </h2>
+<p>Edit the android.cfg using vi editor:</p>
+<p>vi android.cfg</p>
+<doc-anchor-target id="step-5">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#step-5">#</doc-anchor-trigger>
+        <span>Step 5:</span>
+    </h3>
 </doc-anchor-target>
-<p>The rest of the installation is the same as real hardware. You should be able to proceed as normal.</p>
-<doc-anchor-target id="known-issues">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#known-issues">#</doc-anchor-trigger>
-        <span>Known Issues</span>
-    </h2>
+<p>Use Vi Editor to add your changes and save
+-  Press &#x27;i&#x27; to enter edit mode
+-  Press &#x27;Esc&#x27;, type &#x27;:w&#x27;, and press &#x27;Enter&#x27; to save.
+-  Press &#x27;Esc&#x27;, type &#x27;:x&#x27;, and press &#x27;Enter&#x27; to exit.</p>
+<doc-anchor-target id="step-6">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#step-6">#</doc-anchor-trigger>
+        <span>Step 6:</span>
+    </h3>
 </doc-anchor-target>
-<p>Currently we cannot properly set resolution using qemu and virgl. Because of this we need to manually edit the grub file in the VM to do so. There are a plethora of ways to do this. However the easiest is to use qemu-nbd to manually edit the grub entry and use <code v-pre>video=1920x1080</code> to manually set resoltuon to 1080p. Change this value to a resolution that suits your needs.</p>
-<p>Qemu does not currently support vulkan acceleration. While there was a work in progress patch that had support. It has not made it into qemu yet, nor does it seem like it will anytime soon. You may use physical gpu passthrough to get around this issue.</p>
-<p>Qemu does not currently support video decode/encode acceleration. There is no news when this might be availible in qemu. You may use physical gpu passthrough to get around this issue.</p>
-<doc-anchor-target id="additional-customizations">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#additional-customizations">#</doc-anchor-trigger>
-        <span>Additional customizations</span>
-    </h2>
-</doc-anchor-target>
-<p>Qemu is an incredibly powerful tool. this quick guide barely scratches the surface of some of the advanced customizations that are possible. if you are looking for more advanced features to step up your VM. To make it closer to a hardware install. Here are some potential further customizations that are possible with Qemu.</p>
-<ol>
-<li>USB passthrough</li>
-<li>EVDEV usb+mouse passthrough for easy switching</li>
-<li>PCIe passthrough</li>
-<li>egl-headless for remote VM&#x27;s with graphics acceleration</li>
-<li>emulate USB storage device</li>
-<li>It may also be possible to use multiple virtual monitors, though this has not yet been tested.</li>
-</ol>
-<p>This is all possible using virt-manager, or any other libvirt solution given they too support it. no guide has been written up for it yet.</p>
+<p>Now you can reboot to see your changes:</p>
+<p>reboot -f</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -347,7 +287,7 @@ qemu-system-x86_64 \
                             </div>
                             <footer class="clear-both">
                                 <div class="flex flex-wrap items-center justify-between mt-14">
-                                    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/BlissRoms-x86/Documentation/blob/main/Installation/install-in-a-virtual-machine/install-in-qemu.md" target="_blank" rel="noopener">
+                                    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/BlissRoms-x86/Documentation/blob/main/knowledgebase/troubleshooting/edit-grub-from-bliss-install.md" target="_blank" rel="noopener">
                                         <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         <span>Edit on GitHub</span>
                                     </a>
@@ -355,20 +295,20 @@ qemu-system-x86_64 \
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../installation/install-in-a-virtual-machine/advanced-qemu-config/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../knowledgebase/troubleshooting/graphics-troubleshooting/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Advanced configuration for qemu</span>
+                                                <span class="block mt-1">Debug Graphics</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../installation/advanced-installation/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../knowledgebase/troubleshooting/how-to-mount-ext-partition-on-boot/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Advanced Installation</span>
+                                                <span class="block mt-1">How to mount ext partition on boot</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -415,6 +355,6 @@ qemu-system-x86_64 \
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Bliss OS: How to install Bliss OS on Qemu", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "How to edit grub from your Bliss OS install", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>
