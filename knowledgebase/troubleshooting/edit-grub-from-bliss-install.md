@@ -36,7 +36,7 @@ Use Vi Editor to add your changes and save
 - Also you can combine save & exit with `:wq`
 
 ### Step 6:
-Now you can umount efi partiton and reboot to see your changes:
+Now you can umount efi partition and reboot to see your changes:
 ```
   umount /dev/sda1
   reboot -f
