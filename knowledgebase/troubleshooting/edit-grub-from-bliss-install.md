@@ -13,6 +13,12 @@ To list devices:
 Assuming device is `/dev/sda`, Identify EFI partition number (should have boot flag):
 
   `parted /dev/sda print`
+  
+if you have nvme disk your EFI partition should be like this:
+
+/dev/nvme0n1p1
+
+You must use this partition for bottom commands.
 
 Mount your EFI partition (usually first partition in disk):
 
