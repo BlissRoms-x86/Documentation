@@ -1,6 +1,7 @@
 # Remount system as Read/Write
+(Credits go to Knoxville and others from Telegram for this method)
 
-For remounting, we need to use the alt-f1 console or built in terminal.   
+For remounting, we need to use the alt-f1 console or built in terminal. 
 
 **For Bliss 15.x:**
 Boot with DEBUG=1, and mount remount the install partition:
