@@ -1,24 +1,54 @@
 # Remount system as Read/Write
 
 For remounting, we need to use the alt-f1 console or built in terminal.   
-**For Bliss 14.x:**  
-Open the built in terminal app, then enter:
 
-`su  
-mount -o remount,rw /system`
+**For Bliss 15.x:**
+Boot with DEBUG=1, and mount remount the install partition:
 
-**For Bliss 12.x:**  
-Use the alt-f1/f7 console, then enter:
+```
+mount -o remount,rw /dev/block/sd(x)
+cd /src
+mount system.sfs /tmp
+cp /tmp/system.img system.img
+umount /tmp
+rm -f system.sfs 
+```
 
-`mount -o remount,rw -t ext4 /dev/loop0 /`  
-  
-**For Bliss 11:**  
-Use the alt-f1/f7 console, then enter:
+or if you want to backup original system image
+```
+mv system.sfs system.bak 
+```
+Now we sync the filesystem and reboot:
+```
+sync
+reboot -f
+```
+Upon reboot, you will have R/W on system
 
-`mount -o remount,rw -t ext4 /dev/loop0 /system`  
-  
-After that is done, you can edit the system files you need. When you are done, you can close the terminal app or use alt-f7 to get back to Android if you are using the Console.
+Once we have a system.img and no system.sfs, we need to use the built in terminal app (with su permissions granted), and type:
+```
+cat /proc/mounts
+```
 
+Then look for the `/dev/loop#` where we see mounted at "/", likely followed by "ext4 ro....". Note that as we will need to use that for the next command. 
+Now type:
+```
+mount -o remount,rw -t ext4 /dev/loop# /
+```
+
+Or for older Bliss versions (**14.x, 11.x**) use:
+```
+mount -o remount,rw -t ext4 /dev/loop# /system
+```
+
+Then you can edit the system files you need. When you are done, you can remount as RO:
+```
+mount -o remount,ro -t ext4 /dev/loop# /
+```
+
+Then test to verify changes stick
+
+**Video Walkthrough**
 Watch this video for detailed instructions.
 
 https://youtu.be/hA1SjE3kTfQ
