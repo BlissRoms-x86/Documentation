@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.742142016489">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.0.3.742345450734">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.0.3">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>Remount system as Read/Write</title>
     <meta name="title" content="Remount system as Read/Write">
-    <meta name="description" content="For remounting, we need to use the alt-f1 console or built in terminal. For Bliss 14.x: Open the built in terminal app, then enter:" />
+    <meta name="description" content="For remounting, we need to use the alt-f1 console or built in terminal." />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blissos.org/knowledgebase/troubleshooting/remount-system-as-read-write/" />
@@ -20,21 +20,21 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blissos.org/knowledgebase/troubleshooting/remount-system-as-read-write/">
     <meta property="og:title" content="Remount system as Read/Write">
-    <meta property="og:description" content="For remounting, we need to use the alt-f1 console or built in terminal. For Bliss 14.x: Open the built in terminal app, then enter:">
+    <meta property="og:description" content="For remounting, we need to use the alt-f1 console or built in terminal.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.blissos.org/knowledgebase/troubleshooting/remount-system-as-read-write/">
     <meta property="twitter:title" content="Remount system as Read/Write">
-    <meta property="twitter:description" content="For remounting, we need to use the alt-f1 console or built in terminal. For Bliss 14.x: Open the built in terminal app, then enter:">
+    <meta property="twitter:description" content="For remounting, we need to use the alt-f1 console or built in terminal.">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.0.3.742142016489" rel="stylesheet" />
+    <link href="../../../resources/css/retype.css?v=3.0.3.742345450734" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../../resources/js/config.js?v=3.0.3.742142016489" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../../resources/js/config.js?v=3.0.3.742345450734" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../../resources/js/retype.js?v=3.0.3" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=3.0.3.742142016489" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../../resources/js/lunr.js?v=3.0.3.742345450734" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -230,18 +230,47 @@
         <span>Remount system as Read/Write</span>
     </h1>
 </doc-anchor-target>
-<p>For remounting, we need to use the alt-f1 console or built in terminal.<br />
-<strong>For Bliss 14.x:</strong><br />
-Open the built in terminal app, then enter:</p>
-<p><code v-pre>su   mount -o remount,rw /system</code></p>
-<p><strong>For Bliss 12.x:</strong><br />
-Use the alt-f1/f7 console, then enter:</p>
-<p><code v-pre>mount -o remount,rw -t ext4 /dev/loop0 /</code></p>
-<p><strong>For Bliss 11:</strong><br />
-Use the alt-f1/f7 console, then enter:</p>
-<p><code v-pre>mount -o remount,rw -t ext4 /dev/loop0 /system</code></p>
-<p>After that is done, you can edit the system files you need. When you are done, you can close the terminal app or use alt-f7 to get back to Android if you are using the Console.</p>
-<p>Watch this video for detailed instructions.</p>
+<p>For remounting, we need to use the alt-f1 console or built in terminal.</p>
+<p><strong>For Bliss 15.x:</strong>
+Boot with DEBUG=1, and mount remount the install partition:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">mount -o remount,rw /dev/block/sd(x)
+cd /src
+mount system.sfs /tmp
+cp /tmp/system.img system.img
+umount /tmp
+rm -f system.sfs </code></pre>
+</doc-codeblock></div>
+<p>or if you want to backup original system image</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">mv system.sfs system.bak </code></pre>
+</doc-codeblock></div>
+<p>Now we sync the filesystem and reboot:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">sync
+reboot -f</code></pre>
+</doc-codeblock></div>
+<p>Upon reboot, you will have R/W on system</p>
+<p>Once we have a system.img and no system.sfs, we need to use the built in terminal app (with su permissions granted), and type:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">cat /proc/mounts</code></pre>
+</doc-codeblock></div>
+<p>Then look for the <code v-pre>/dev/loop#</code> where we see mounted at &quot;/&quot;, likely followed by &quot;ext4 ro....&quot;. Note that as we will need to use that for the next command.
+Now type:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">mount -o remount,rw -t ext4 /dev/loop# /</code></pre>
+</doc-codeblock></div>
+<p>Or for older Bliss versions (<strong>14.x, 11.x</strong>) use:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">mount -o remount,rw -t ext4 /dev/loop# /system</code></pre>
+</doc-codeblock></div>
+<p>Then you can edit the system files you need. When you are done, you can remount as RO:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">mount -o remount,ro -t ext4 /dev/loop# /</code></pre>
+</doc-codeblock></div>
+<p>Then test to verify changes stick</p>
+<p><strong>Video Walkthrough</strong>
+Watch this video for detailed instructions.</p>
 <p><a href="https://youtu.be/hA1SjE3kTfQ">https://youtu.be/hA1SjE3kTfQ</a></p>
 
                                 
