@@ -64,7 +64,7 @@ Although we are doing our best to help you learn, it never hurts to become a bit
 Now all we have to do is clone AGP into the vendor folder. 
 
 ```text
-git clone https://github.com/android-generic/vendor_ag vendor/ag 
+git clone https://github.com/android-generic/vendor_ag-archive vendor/ag 
 ```
 
 ## **3. Using AGP with Bliss OS** <a id="UsingWithBlissOSSource:-3.UsingAGPwithBlissOS"></a>
