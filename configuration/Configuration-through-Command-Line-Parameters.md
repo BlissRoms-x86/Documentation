@@ -497,3 +497,45 @@ Example: `ENABLE_VENDING=1`
 ##### Settings Access Restrictions:
 
 *   `HIDE_SETTINGS` - Hides com.android.settings
+
+### USB Mode Functions:
+
+(Available through Android-Generic Add-On & Bliss Bass)
+
+Allows switching default USB/ADB functions via cmdline 
+
+*   `FORCE_USE_ADB_CLIENT_MODE` - Forces USB into ADB Client mode (0=off, 1=on)
+*   `FORCE_USE_ADB_MASS_STORAGE` - Force enable ADB Mass Storage mode ofver USB (0=off, 1=on)
+
+### IIO Options Configuration:
+
+(Available through Android-Generic Add-On & Bliss Bass)
+
+This allows us to set ro.iio.* propertied through the following flags:
+
+*   `SET_IIO_ORDER` - Sets ro.iio.accel.order property
+*   `SET_IIO_ACCEL_QUIRKS` - Sets ro.iio.accel.quirks ptoperty
+*   `SET_IIO_ACCEL_X_OPT_SCALE` - Sets ro.iio.accel.x.opt_scale property
+*   `SET_IIO_ACCEL_Y_OPT_SCALE` - Sets ro.iio.accel.y.opt_scale property
+*   `SET_IIO_ANGLVEL_QUIRKS` - Sets ro.iio.anglvel.quirks property
+*   `SET_IGNORE_ATKBD` - Sets ro.ignore_atkbd property
+
+### Set Timezone:
+
+(Available through Android-Generic Add-On & Bliss Bass)
+
+To use this change, pass the grub/cmdline value for your timezone using the SET_TZ_LOCATION flag.
+Timezone reference can be found here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+Example:
+  ```
+   SET_TZ_LOCATION=America/New_York
+  ```
+### Logging Levels:
+
+(Available through Android-Generic Add-On & Bliss Bass)
+
+Allows overriding default logging/logd configuration
+
+*    `SET_LOGCAT_DEBUG` - Overrides system default logcat debigging level (0=off, 1=on)
+*    `SET_MAX_LOGD` - Will force max logging buffer (0=off,1=on) 
