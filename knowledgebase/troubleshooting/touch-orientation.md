@@ -3,9 +3,15 @@
 ### Requirements:
 - System mounted as RW
 - Booted into Debug mode (or using root and terminal)
+- Knowledge on how to use common linux commands like cat, ls, etc.
 
 ### Process:
-First, you are going to want to get your device uevent from /sys/class/dmi/id/uevent
+First, you are going to want to get your device uevent from /sys/class/dmi/id/uevent:
+  ```
+  su
+  cat /sys/class/dmi/id/uevent
+  ```
+
 Then find a good string to look for from it, like we do [here](https://github.com/BlissRoms-x86/device_generic_common/blob/d6f6c278f26ce05b0db205767ba5656ca2aa6533/init.sh#L493)
 
 Your device may also require a couple accel opt_scale options too. Example:
