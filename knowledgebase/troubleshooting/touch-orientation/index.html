@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.1.0.744387379076">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.1.0.744391748034">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.1.0">
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.1.0.744387379076" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.1.0.744391748034" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.1.0.744387379076" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.1.0.744391748034" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.1.0.744387379076" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.1.0.744391748034" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -243,6 +243,7 @@
 <ul>
 <li>System mounted as RW</li>
 <li>Booted into Debug mode (or using root and terminal)</li>
+<li>Knowledge on how to use common linux commands like cat, ls, etc.</li>
 </ul>
 <doc-anchor-target id="process">
     <h3>
@@ -250,8 +251,12 @@
         <span>Process:</span>
     </h3>
 </doc-anchor-target>
-<p>First, you are going to want to get your device uevent from /sys/class/dmi/id/uevent
-Then find a good string to look for from it, like we do <a href="https://github.com/BlissRoms-x86/device_generic_common/blob/d6f6c278f26ce05b0db205767ba5656ca2aa6533/init.sh#L493">here</a></p>
+<p>First, you are going to want to get your device uevent from /sys/class/dmi/id/uevent:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">su
+cat /sys/class/dmi/id/uevent</code></pre>
+</doc-codeblock></div>
+<p>Then find a good string to look for from it, like we do <a href="https://github.com/BlissRoms-x86/device_generic_common/blob/d6f6c278f26ce05b0db205767ba5656ca2aa6533/init.sh#L493">here</a></p>
 <p>Your device may also require a couple accel opt_scale options too. Example:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">*TECLAST*X4*)
