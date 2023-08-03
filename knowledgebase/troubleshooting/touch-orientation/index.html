@@ -9,24 +9,24 @@
     <meta name="generator" content="Retype 3.1.0">
 
     <!-- Primary Meta Tags -->
-    <title>How to mount internal NTFS partition on boot</title>
-    <meta name="title" content="How to mount internal NTFS partition on boot">
-    <meta name="description" content="It is possible to automatically mount disks at boot. There may be other ways to do this, but one way to do it is:">
+    <title>Touch orientation</title>
+    <meta name="title" content="Touch orientation">
+    <meta name="description" content="System mounted as RW">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://docs.blissos.org/knowledgebase/troubleshooting/how-to-mount-internal-ntfs-partition-on-boot/">
+    <link rel="canonical" href="https://docs.blissos.org/knowledgebase/troubleshooting/touch-orientation/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://docs.blissos.org/knowledgebase/troubleshooting/how-to-mount-internal-ntfs-partition-on-boot/">
-    <meta property="og:title" content="How to mount internal NTFS partition on boot">
-    <meta property="og:description" content="It is possible to automatically mount disks at boot. There may be other ways to do this, but one way to do it is:">
+    <meta property="og:url" content="https://docs.blissos.org/knowledgebase/troubleshooting/touch-orientation/">
+    <meta property="og:title" content="Touch orientation">
+    <meta property="og:description" content="System mounted as RW">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.blissos.org/knowledgebase/troubleshooting/how-to-mount-internal-ntfs-partition-on-boot/">
-    <meta property="twitter:title" content="How to mount internal NTFS partition on boot">
-    <meta property="twitter:description" content="It is possible to automatically mount disks at boot. There may be other ways to do this, but one way to do it is:">
+    <meta property="twitter:url" content="https://docs.blissos.org/knowledgebase/troubleshooting/touch-orientation/">
+    <meta property="twitter:title" content="Touch orientation">
+    <meta property="twitter:description" content="System mounted as RW">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -222,80 +222,46 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="how-to-mount-internal-ntfs-partition-on-boot" class="break-words">
+<doc-anchor-target id="touch-orientation" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#how-to-mount-internal-ntfs-partition-on-boot">#</doc-anchor-trigger>
-        <span>How to mount internal NTFS partition on boot</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#touch-orientation">#</doc-anchor-trigger>
+        <span>Touch orientation</span>
     </h1>
 </doc-anchor-target>
-<doc-anchor-target id="method-1">
+<doc-anchor-target id="touch-orientation">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#method-1">#</doc-anchor-trigger>
-        <span><strong>Method 1</strong></span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#touch-orientation">#</doc-anchor-trigger>
+        <span>Touch Orientation</span>
     </h2>
 </doc-anchor-target>
-<p>It is possible to automatically mount disks at boot. There may be other ways to do this, but one way to do it is:</p>
-<p>1) Write the commands for creating a folder and mounting the disk in a text file which will be a bash script file.</p>
-<p>&#x60;#!/system/bin/sh</p>
-<p>mkdir /mnt/folder_name mount.ntfs /dev/block/partition_name /mnt/folder_name&#x60;</p>
-<p>Here &#x27;partition_name&#x27; could be any of the disk you want to mount like for example sda1 devb1 etc. and &#x27;folder_name&#x27; is the folder where you want to mount the disk.</p>
-<p>2) Place the script file under /system/etc/init.d. You can name the file anything you want, but it should not have any extension i.e. .txt or any other extension must be removed.</p>
-<p>3) Reboot and enjoy ! Use a file manager like Mixplorer which can bookmark the mounted locations for easy access. The disks should now be mounted automatically at every boot.</p>
-<doc-anchor-target id="method-2">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#method-2">#</doc-anchor-trigger>
-        <span><strong>Method 2</strong></span>
-    </h2>
+<doc-anchor-target id="requirements">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#requirements">#</doc-anchor-trigger>
+        <span>Requirements:</span>
+    </h3>
 </doc-anchor-target>
-<p>Mount all NTFS Partitions on boot (mostly automated script)</p>
-<p><strong>Steps:</strong></p>
-<p>1) Open Terminal<br />
-2) create a &quot;mountfs&quot; file with the conetents below and place it under /system/bin<br />
-3) Then from a terminal:<br />
-<code v-pre>su   chmod 777 /system/bin/mountfs</code><br />
-4) Then type<br />
-<code v-pre>mountfs</code><br />
-5) Done</p>
+<ul>
+<li>System mounted as RW</li>
+<li>Booted into Debug mode (or using root and terminal)</li>
+</ul>
+<doc-anchor-target id="process">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#process">#</doc-anchor-trigger>
+        <span>Process:</span>
+    </h3>
+</doc-anchor-target>
+<p>First, you are going to want to get your device uevent from /sys/class/dmi/id/uevent
+Then find a good string to look for from it, like we do <a href="https://github.com/BlissRoms-x86/device_generic_common/blob/d6f6c278f26ce05b0db205767ba5656ca2aa6533/init.sh#L493">here</a></p>
+<p>Your device may also require a couple accel opt_scale options too. Example:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">#!/system/bin/bash
-MNT=&quot;/mnt/runtime/default/&quot;
-mount_drives() {
-FILENAME=&quot;/system/etc/drives&quot;
-N=1
-blkid | grep ntfs | cut -d : -f 1 &gt; $FILENAME
-while read BLOCK; do
-echo &quot;BlissOS_NTFS: Mounting blocks: $BLOCK&quot;
-LABEL=&quot;$( blkid -s LABEL $BLOCK | cut -d : -f 2 | cut -d '&quot;' -f 2 )&quot;
-if [ -z $LABEL ]; then
-LABEL=&quot;BlissOS_NTFS&quot;
-fi
-mkdir /mnt/&quot;$LABEL&quot;
-mount.ntfs $BLOCK /mnt/&quot;$LABEL&quot;
-((N++))
-done &lt; $FILENAME
-rm $FILENAME 
-}
-
-mount_drives &gt;/dev/null 2&gt;&amp;1 
-sleep 2
-echo &quot;All NTFS partitions / drivers mounted at $MNT&quot; &amp;&amp; echo
-echo &quot;Making some arrangements so that all NTFS partitions could be mounted at boot&quot; &amp;&amp; clear
-mv $(pwd)/mountfs /system/etc/init.d/ 
-chmod 777 /system/etc/init.d/mountfs
-sleep 2
-echo &quot;(R) Reboot (E) Exit&quot; &amp;&amp; echo 
-read -n 1 -p &quot;Choose any option :- &quot; X
-case $X in
-R | r)
-echo &quot;Rebooting&quot; &amp;&amp; sleep 2
-chvt 7 &amp;&amp; sleep 2 &amp;&amp; reboot
-;;
-E | e)
-echo &quot;Exiting&quot; &amp;&amp; sleep 2
-chvt 7 &amp;&amp; exit 0
-;;
-esacs</code></pre>
+<pre class="language-none"><code v-pre class="language-none">*TECLAST*X4*)
+    set_property ro.iio.accel.order 102
+    set_property ro.iio.accel.x.opt_scale -1
+    set_property ro.iio.accel.y.opt_scale -1
+    ;;</code></pre>
 </doc-codeblock></div>
+<p>Once done, save the file and reboot.
+If it works, please submit the changes as a PR to our <a href="https://github.com/BlissRoms-x86/device_generic_common/tree/d6f6c278f26ce05b0db205767ba5656ca2aa6533">device_generic_common repo</a></p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -303,7 +269,7 @@ esacs</code></pre>
                             </div>
                             <footer class="clear-both">
                                 <div class="flex flex-wrap items-center justify-between mt-14">
-                                    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/BlissRoms-x86/Documentation/blob/main/knowledgebase/troubleshooting/how-to-mount-internal-ntfs-partition-on-boot.md" target="_blank" rel="noopener">
+                                    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/BlissRoms-x86/Documentation/blob/main/knowledgebase/troubleshooting/touch-orientation.md" target="_blank" rel="noopener">
                                         <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         <span>Edit on GitHub</span>
                                     </a>
@@ -311,20 +277,20 @@ esacs</code></pre>
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../knowledgebase/troubleshooting/how-to-mount-ext-partition-on-boot/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../knowledgebase/troubleshooting/sound-issues/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">How to mount ext partition on boot</span>
+                                                <span class="block mt-1">Sound Issues</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../knowledgebase/troubleshooting/microsoft-surface-ipts-gearlock-package/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../knowledgebase/troubleshooting/wifi-issues/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Microsoft Surface IPTS Gearlock Package</span>
+                                                <span class="block mt-1">Wifi Issues</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -371,6 +337,6 @@ esacs</code></pre>
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "How to mount internal NTFS partition on boot", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Touch orientation", level: 3, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>
