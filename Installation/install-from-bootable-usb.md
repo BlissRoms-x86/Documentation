@@ -12,7 +12,7 @@ We recommend beginners to use this method as it is the least error-prone and non
 
 ## Download Bliss OS
 
-You can download a stable Bliss OS build by clicking on the link [here](https://sourceforge.net/projects/blissos-x86/), non-stable builds can be found [here.](https://sourceforge.net/projects/blissos-x86/)
+You can download a stable Bliss OS build from the website [here](https://blissos.org).
 
 ## Install Bliss OS
 
