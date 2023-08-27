@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.1.0.745168249403">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.2.0.746414895272">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.1.0">
+    <meta name="generator" content="Retype 3.2.0">
 
     <!-- Primary Meta Tags -->
     <title>Debug Booting</title>
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.1.0.745168249403" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.2.0.746414895272" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.1.0.745168249403" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.1.0.745168249403" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.2.0.746414895272" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.2.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.2.0.746414895272" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -250,6 +250,17 @@
 <p>Once you are able to get things to boot, use the alt-f1 /f7 console or the local Terminal app and the Logcat command to log things,<br />
 <code v-pre>su   logcat &gt; sdcard/log_name.txt</code></p>
 <p>When done, copy and paste the entire log either to Hastebin or Pastebin</p>
+<doc-anchor-target id="if-init-starts-but-never-boots-to-installer">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#if-init-starts-but-never-boots-to-installer">#</doc-anchor-trigger>
+        <span>If init starts, but never boots to installer:</span>
+    </h2>
+</doc-anchor-target>
+<p>This typically happens on newer CPU&#x27;s and requires you to install ising either our Windows based installer:
+<a href="https://github.com/gmisoftwares/BlissOS-Installer-for-Windows/releases/download/2.9/Androidx86-Installv29.0000.exe">Android-x86 Installer for Windows</a>
+or using a Linux based installer:
+<a href="https://github.com/jaxparrow07/Androidx86-Installer-Linux">Android-x86 installer for Linux</a>
+If you are trying to install within VMWare or VirtualBox, we don&#x27;t suggest doing so as it will not be hardware accellerated. Please use QEMU based emulator,like <a href="https://linuxhint.com/qemu-windows/">qemu-windows</a></p>
 <p><strong>For more advanced debugging information:</strong></p>
 <p>Please follow the advanced debugging procedures found on Android-x86 documentation <a href="https://www.android-x86.org/documentation/debug.html">https://www.android-x86.org/documentation/debug.html</a></p>
 
