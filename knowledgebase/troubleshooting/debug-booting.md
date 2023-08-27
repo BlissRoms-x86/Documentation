@@ -36,10 +36,16 @@ When done, copy and paste the entire log either to Hastebin or Pastebin
 ## If init starts, but never boots to installer:
 
 This typically happens on newer CPU's and requires you to install ising either our Windows based installer:
+
 [Android-x86 Installer for Windows](https://github.com/gmisoftwares/BlissOS-Installer-for-Windows/releases/download/2.9/Androidx86-Installv29.0000.exe)
+
 or using a Linux based installer:
+
 [Android-x86 installer for Linux](https://github.com/jaxparrow07/Androidx86-Installer-Linux)
-If you are trying to install within VMWare or VirtualBox, we don't suggest doing so as it will not be hardware accellerated. Please use QEMU based emulator,like [qemu-windows](https://linuxhint.com/qemu-windows/)
+
+If you are trying to install within VMWare or VirtualBox, we don't suggest doing so as it will not be hardware accellerated. Please use QEMU based emulator,like: 
+
+[qemu-windows](https://linuxhint.com/qemu-windows/)
 
 **For more advanced debugging information:**
 
