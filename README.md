@@ -10,7 +10,6 @@ icon: home
 
 * [Live boot Bliss OS](Installation/live-boot-bliss-os.md)
 * [Install From Bootable USB](Installation/install-from-bootable-usb.md)
-* [Install from Windows - UEFI/ESP (64-bit)](Installation/install-from-windows-uefi-esp-64-bit.md)
 * [Install in a Virtual Machine](Installation/install-in-a-virtual-machine/README.md)
   * [Install in VirtualBox](Installation/install-in-a-virtual-machine/install-in-virtualbox.md)
   * [Install in Qemu](Installation/install-in-a-virtual-machine/install-in-qemu.md)
