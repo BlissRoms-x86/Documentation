@@ -60,12 +60,14 @@ setprop hal.audio.out pcmC0D7p
 pkill audioserver
 ```
 
-On Bliss OS builds <= 15.8.8:
+This will restart the audio server and hopefully result in sound working with the right output. Use alt-f7 to get back to the Android UI and test.
+
+**Option 5 - snd-intel-dspcfg.dsp_driver**
+
+On Bliss OS builds <= 15.8.8, we have different drivers we can try (1/2). We use the snd-intel-dspcfg.dsp_driver=# cmdline option to switch between those drivers on boot:
 
 ```text
 snd-intel-dspcfg.dsp_driver=1
-pkill audioserver
 ```
 
-This will restart the audio server and hopefully result in sound working with the right output. Use alt-f7 to get back to the Android UI and test.
 
