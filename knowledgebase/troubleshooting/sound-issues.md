@@ -53,8 +53,17 @@ now you see your sound devices
 
 In this example, the we picked the top one, \(pcmC0D7\). If that doesn't work, repeat these steps and choose a different card.
 
+On Bliss OS builds < 15.8.8:
+
 ```text
 setprop hal.audio.out pcmC0D7p
+pkill audioserver
+```
+
+On Bliss OS builds <= 15.8.8:
+
+```text
+snd-intel-dspcfg.dsp_driver=1
 pkill audioserver
 ```
 
