@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.4.1.747839880708">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.4.1.748015896807">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.4.1">
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.4.1.747839880708" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.4.1.748015896807" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.4.1.747839880708" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.4.1.748015896807" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.4.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.4.1.747839880708" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.4.1.748015896807" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -233,7 +233,8 @@
 <p>Once inside VirtualBox, click on &quot;New.&quot; For the name, type &quot;Bliss OS.&quot; For the type, select <code v-pre>Linux</code>, and then <code v-pre>Linux 2.6 / 3.x / 4.x (64-bit)</code> for the version. Set memory size to 2048 MB (2 GB) or more. For the disk, accept the default options for the disk type. For the size, set it to 20 GB. VirtualBox should initialize a new virtual machine.</p>
 <p>We need to tweak a couple more settings. Click on &quot;Settings&quot; on the top bar. Allocate more logical processors in System &gt; Processor. Drag the slider to the right, keeping it <strong>inside</strong> the green bar, as you want to leave a couple of logical processors for the host operating system. For the display, try allocating all of the VRAM. (128 MB most likely) Enable 3D Acceleration. Click OK to save settings.</p>
 <p>Now click on Start. VirtualBox will ask you for the CD image. Click on the folder with the green up arrow, and then select the ISO you downloaded earlier.</p>
-<p>Select &quot;Installation - Install Bliss-OS to harddisk&quot; Press D to detect devices. Press C to create and modify partitions. If asked, select No for GPT. Select New, Primary, full size, and then make it bootable. Write to disk. Quit. Select the partition and then reformat to ext4. Select Yes to install GRUB. Select Yes to make the /system directory writable.</p>
+<p>Select &quot;Installation - Install Bliss-OS to harddisk&quot; Press D to detect devices. Press C to create and modify partitions. If asked, select No for GPT. Select New, Primary, full size, and then make it bootable. Write to disk. Quit. Select the partition and then reformat to ext4. Select Yes to install GRUB. (<strong>On Bliss OS 9.x - 11.x</strong>) Select Yes to make the /system directory writable.</p>
+<p>[<strong>PLEASE NOTE</strong>]: Recent versions of Bliss OS require manually extracting the system.img from within the system.sfs, removing the system.sfs afterwards from the installed directory in order to allow the system to be mounted as R/W. Please follow further instructions here for that process: <a href="https://docs.blissos.org/knowledgebase/troubleshooting/remount-system-as-read-write/">Remount System as Read-Write</a></p>
 <p>At this point the installation should be complete. But when you reboot, you will notice that the screen is completely black with a cursor at the top-left. This is because there is no display drivers for the virtual machine. Reset the instance, edit the boot parameters, and add <code v-pre>nomodeset</code> to the end. Bliss OS should then boot fully.</p>
 <p>Congratulations! You should have a fully working Bliss OS install in a VM, or at least something that works... even if it may be slow. Again, Android on VM is generally not a good idea and you will get a lot more performance if you install Bliss OS to the actual hardware.</p>
 
