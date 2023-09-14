@@ -16,7 +16,9 @@ We need to tweak a couple more settings. Click on "Settings" on the top bar. All
 
 Now click on Start. VirtualBox will ask you for the CD image. Click on the folder with the green up arrow, and then select the ISO you downloaded earlier.
 
-Select "Installation - Install Bliss-OS to harddisk" Press D to detect devices. Press C to create and modify partitions. If asked, select No for GPT. Select New, Primary, full size, and then make it bootable. Write to disk. Quit. Select the partition and then reformat to ext4. Select Yes to install GRUB. Select Yes to make the /system directory writable.
+Select "Installation - Install Bliss-OS to harddisk" Press D to detect devices. Press C to create and modify partitions. If asked, select No for GPT. Select New, Primary, full size, and then make it bootable. Write to disk. Quit. Select the partition and then reformat to ext4. Select Yes to install GRUB. (**On Bliss OS 9.x - 11.x**) Select Yes to make the /system directory writable.
+
+[**PLEASE NOTE**]: Recent versions of Bliss OS require manually extracting the system.img from within the system.sfs, removing the system.sfs afterwards from the installed directory in order to allow the system to be mounted as R/W. Please follow further instructions here for that process: [Remount System as Read-Write](https://docs.blissos.org/knowledgebase/troubleshooting/remount-system-as-read-write/)
 
 At this point the installation should be complete. But when you reboot, you will notice that the screen is completely black with a cursor at the top-left. This is because there is no display drivers for the virtual machine. Reset the instance, edit the boot parameters, and add `nomodeset` to the end. Bliss OS should then boot fully.
 
