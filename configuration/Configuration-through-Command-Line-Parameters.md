@@ -149,6 +149,12 @@ By default, BlissOS will use AOSP's codec2 software decoder. We also offer a few
 We include the ability to have Ethernet appear as WiFi as some appli/cations will not work without a WiFi or Cell connection present. In order to enable this mode, we use the VIRT_WIFI boot flag:
   `VIRT_WIFI=1`
 
+### Disk Access:
+
+(Available on Bliss OS 14.1x, 15.8.x, & 16.x)
+For use cases where you are dual booting or sharing system resources with multiple drives, you might want to enable automatic mounting of all disks within Android:
+  `INTERNAL_MOUNT=1` - Allows device to mount other internal drives on boot. 
+
 ### USB/PCI:
 
 #### USB:
