@@ -126,6 +126,8 @@ In some cases, we are working with hardware that requires Gralloc4 specs. We can
 
 - There's one more option for software rendering, which is the legacy [SwiftShader EGL](https://gitlab.com/hmtheboy154/swiftshader/-/tree/legacy_11-x86/src/OpenGL), simply set `nomodeset` or `HWACCEL=0` to use it.
 
+- For some virtualized methods uses, you may have a blinking cursor artifact that shows on screen. To remove this artifact, include the following boot flag: `vt.global_cursor_default=0`
+
 **NOTE** : You may want to turn on Color Inversion when using software rendering because the color might be inverted
 
 ### Media Stack:
