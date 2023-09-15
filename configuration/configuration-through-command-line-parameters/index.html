@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.4.1.748120778637">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.4.1.748120967046">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.4.1">
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.4.1.748120778637" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.4.1.748120967046" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.4.1.748120778637" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.4.1.748120967046" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.4.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.4.1.748120778637" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.4.1.748120967046" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -363,6 +363,8 @@
 <li><p>Alternatively, you can also use <a href="https://github.com/google/swiftshader">SwiftShader Vulkan</a> with ANGLE as a software rendering solution if you are running it inside something like a virtual machine by setting <code v-pre>nomodeset ANGLE=1</code> or <code v-pre>HWACCEL=0 ANGLE=1</code></p>
 </li>
 <li><p>There&#x27;s one more option for software rendering, which is the legacy <a href="https://gitlab.com/hmtheboy154/swiftshader/-/tree/legacy_11-x86/src/OpenGL">SwiftShader EGL</a>, simply set <code v-pre>nomodeset</code> or <code v-pre>HWACCEL=0</code> to use it.</p>
+</li>
+<li><p>For some virtualized methods uses, you may have a blinking cursor artifact that shows on screen. To remove this artifact, include the following boot flag: <code v-pre>vt.global_cursor_default=0</code></p>
 </li>
 </ul>
 <p><strong>NOTE</strong> : You may want to turn on Color Inversion when using software rendering because the color might be inverted</p>
