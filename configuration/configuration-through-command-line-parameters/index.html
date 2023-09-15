@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.4.1.748120967046">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.4.1.748121615770">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.4.1">
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.4.1.748120967046" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.4.1.748121615770" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.4.1.748120967046" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.4.1.748121615770" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.4.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.4.1.748120967046" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.4.1.748121615770" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -398,6 +398,15 @@
 </doc-anchor-target>
 <p>We include the ability to have Ethernet appear as WiFi as some appli/cations will not work without a WiFi or Cell connection present. In order to enable this mode, we use the VIRT_WIFI boot flag:
 <code v-pre>VIRT_WIFI=1</code></p>
+<doc-anchor-target id="disk-access">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#disk-access">#</doc-anchor-trigger>
+        <span>Disk Access:</span>
+    </h3>
+</doc-anchor-target>
+<p>(Available on Bliss OS 14.1x, 15.8.x, &amp; 16.x)
+For use cases where you are dual booting or sharing system resources with multiple drives, you might want to enable automatic mounting of all disks within Android:
+<code v-pre>INTERNAL_MOUNT=1</code> - Allows device to mount other internal drives on boot.</p>
 <doc-anchor-target id="usbpci">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#usbpci">#</doc-anchor-trigger>
