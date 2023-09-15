@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.4.1.748121615770">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.4.1.748132002400">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.4.1">
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.4.1.748121615770" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.4.1.748132002400" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.4.1.748121615770" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.4.1.748132002400" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.4.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.4.1.748121615770" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.4.1.748132002400" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -385,10 +385,12 @@
 <li><code v-pre>CODEC2_LEVEL</code> - This will set the C2 level (default value is <code v-pre>4</code>, you can disable codeec2 completely with &#x27;0&#x27;).</li>
 <li><code v-pre>FFMPEG_OMX_CODEC</code> - This will enable OMX version of FFMPEG codecs (disable codec2 with <code v-pre>CODEC2_LEVEL=0</code> to use this codecs).</li>
 <li><code v-pre>FFMPEG_CODEC2_PREFER</code> - This will force Bliss to use codec2 version of FFMPEG codecs by default.</li>
-<li><code v-pre>FFMPEG_HWACCEL_DISABLE</code> - This will disable hardware accelleration for the FFMPEG codecs.</li>
+<li><code v-pre>FFMPEG_HWACCEL_DISABLE</code> - (Bliss OS 15.8.4-15.8.6) This will disable hardware accelleration for the FFMPEG codecs.</li>
 <li><code v-pre>FFMPEG_CODEC_LOG</code> - This will show more log of FFMPEG codecs, enable if you want to debug it</li>
 <li><code v-pre>FFMPEG_CODEC2_DEINTERLACE</code> &amp; <code v-pre>FFMPEG_CODEC2_DEINTERLACE_VAAPI</code> - configuring deinterlacing option for FFMPEG codec2, you can find the options in this <a href="https://github.com/supremegamers/stagefright-plugins/commit/48e5d4e8c6e577c7f56c1da3aa90897444422d33">commit made by Micheal Goffioul</a></li>
 <li><code v-pre>OMX_NO_YUV420</code> - This will force the system to not use YUV420 color format on OMX codec (fixes some black or glitchy screens, use it with <code v-pre>CODEC2_LEVEL=0</code>)</li>
+<li><code v-pre>FFMPEG_CODEC</code> - This will enable hardware accelleration for the FFMPEG codecs. (0/1)</li>
+<li><code v-pre>FFMPEG_CODEC2_DRM</code> - turn on/off DRM prime handle on ffmpeg codecs, 0 is the default because not any Gralloc supporting it.</li>
 </ul>
 <doc-anchor-target id="networking">
     <h3>
