@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.4.1.748132002400">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.751225103392">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.4.1">
+    <meta name="generator" content="Retype 3.5.0">
 
     <!-- Primary Meta Tags -->
     <title>Configuration Through Command Line Parameters</title>
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.4.1.748132002400" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.751225103392" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.4.1.748132002400" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.4.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.4.1.748132002400" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.751225103392" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.751225103392" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -664,12 +664,27 @@ Options: (true|false)</p>
         <span>Features:</span>
     </h3>
 </doc-anchor-target>
+<doc-anchor-target id="kiosk-mode">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#kiosk-mode">#</doc-anchor-trigger>
+        <span>Kiosk Mode:</span>
+    </h4>
+</doc-anchor-target>
 <p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
 <ul>
-<li><p><code v-pre>FORCE_HIDE_NAVBAR</code> - Set the config_hideNavBarButtons value<br />
+<li><p><code v-pre>FORCE_DISABLE_NAVIGATION</code> - Force disable navigation bar
 Options: (true|false)</p>
 </li>
-<li><p><code v-pre>FORCE_ENABLE_RECENTS_GESTURE</code> - Sets the config_enableRecentsGestureOnNavBar value<br />
+<li><p><code v-pre>FORCE_DISABLE_NAV_HANDLE</code> - Force disable gesture navigation handle
+Options: (true|false)</p>
+</li>
+<li><p><code v-pre>FORCE_DISABLE_NAV_TASKBAR</code> - Force disable navigation taskbar
+Options: (true|false)</p>
+</li>
+<li><p><code v-pre>FORCE_DISABLE_NAV_HANDLE</code> - Force disable gesture navigation handle
+Options: (true|false)</p>
+</li>
+<li><p><code v-pre>FORCE_DISABLE_STATUSBAR</code> - Force disable statusbar
 Options: (true|false)</p>
 </li>
 <li><p><code v-pre>FORCE_SET_MAX_RECENTS</code> - Sets the config_maxRecents value<br />
