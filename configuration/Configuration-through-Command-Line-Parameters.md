@@ -573,11 +573,4 @@ Example:
   ```
    SET_TZ_LOCATION=America/New_York
   ```
-### Logging Levels:
 
-(Available through Android-Generic Add-On & Bliss Bass)
-
-Allows overriding default logging/logd configuration
-
-*    `SET_LOGCAT_DEBUG` - Overrides system default logcat debigging level (0=off, 1=on)
-*    `SET_MAX_LOGD` - Will force max logging buffer (0=off,1=on) 
