@@ -388,12 +388,22 @@ no_console_suspend
 
 ### Features:
 
+#### Kiosk Mode:
 (Available through Android-Generic Add-On & Bliss Bass)
 
-*   `FORCE_HIDE_NAVBAR` - Set the config\_hideNavBarButtons value  
+*   `FORCE_DISABLE_NAVIGATION` - Force disable navigation bar
     Options: (true|false)
-    
-*   `FORCE_ENABLE_RECENTS_GESTURE` - Sets the config\_enableRecentsGestureOnNavBar value  
+
+*   `FORCE_DISABLE_NAV_HANDLE` - Force disable gesture navigation handle
+    Options: (true|false)
+
+*   `FORCE_DISABLE_NAV_TASKBAR` - Force disable navigation taskbar
+    Options: (true|false)
+
+*   `FORCE_DISABLE_NAV_HANDLE` - Force disable gesture navigation handle
+    Options: (true|false)
+
+*   `FORCE_DISABLE_STATUSBAR` - Force disable statusbar
     Options: (true|false)
     
 *   `FORCE_SET_MAX_RECENTS` - Sets the config\_maxRecents value  
