@@ -356,7 +356,26 @@ no_console_suspend
 *   `FORCE_SWAP_UTIL_MAX` - The max amount of swapped memory as a percentage of the total swappable memory. When swapped memory grows over this limit, it means that the system swapped most of its swappable memory and is still under pressure. This can happen when non-swappable allocations are generating memory pressure which can not be relieved by swapping because most of the swappable memory is already swapped out. The default value is 100, which effectively disables this check. If the performance of the device is affected during memory pressure while swap utilization is high and the free swap level is not dropping to Sets the swap\_free\_low\_percentage, decrease the value to limit swap utilization. 
     
     High end: 100  Low end: 100
-    
+
+### Logging/Logd:
+
+(Available through Android-Generic Add-On & Bliss Bass)
+
+*   `SET_MAX_LOGD` - Sets the maximum logd value
+    *   Options: 1 = on, 0 = off
+
+*   `SET_LOGCAT_DEBUG` - Enables logcat debugging 
+    *   Options: true, false
+
+
+### OTA Updates:
+
+(Available through Android-Generic Add-On & Bliss Bass)
+
+*   `SET_CUSTOM_OTA_URI` - Sets the custom URL for OTA updates
+    *   Example:
+
+   `SET_CUSTOM_OTA_URI=https://192.168.1.1/updates/update.json`
 
 ### Performance:
 
@@ -527,7 +546,7 @@ Example: `ENABLE_VENDING=1`
 
 Allows switching default USB/ADB functions via cmdline 
 
-*   `FORCE_USE_ADB_CLIENT_MODE` - Forces USB into ADB Client mode (0=off, 1=on)
+*   `FORCE_USE_ADB_CLIENT_MODE` - Forces USB into ADB Client mode (0=off, 1=on, 2=ADB enabled but not touching USB options)
 *   `FORCE_USE_ADB_MASS_STORAGE` - Force enable ADB Mass Storage mode ofver USB (0=off, 1=on)
 
 ### IIO Options Configuration:
