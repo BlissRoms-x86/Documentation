@@ -411,19 +411,19 @@ no_console_suspend
 (Available through Android-Generic Add-On & Bliss Bass)
 
 *   `FORCE_DISABLE_NAVIGATION` - Force disable navigation bar
-    Options: (true|false)
+     Options: (true|false)
 
 *   `FORCE_DISABLE_NAV_HANDLE` - Force disable gesture navigation handle
-    Options: (true|false)
+     Options: (true|false)
 
 *   `FORCE_DISABLE_NAV_TASKBAR` - Force disable navigation taskbar
-    Options: (true|false)
+     Options: (true|false)
 
 *   `FORCE_DISABLE_NAV_HANDLE` - Force disable gesture navigation handle
-    Options: (true|false)
+     Options: (true|false)
 
 *   `FORCE_DISABLE_STATUSBAR` - Force disable statusbar
-    Options: (true|false)
+     Options: (true|false)
     
 *   `FORCE_SET_MAX_RECENTS` - Sets the config\_maxRecents value  
     Options:
