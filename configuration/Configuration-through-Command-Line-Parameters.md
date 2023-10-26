@@ -483,63 +483,13 @@ no_console_suspend
 
 With our package management features, we have the ability to also enable/disable various packages included in the system by default using the kernel cmdline.
 
-Example: `ENABLE_VENDING=1`
+Example: `HIDE_APPS="com.termux,com.android.dialer,com.android.documentsui"`
 
-##### AOSP Default Apps:
+##### Hide/Unhide Default Apps:
 
-*   `ENABLE_SEARCHBOX` - Enables com.android.quicksearchbox
-    
-*   `ENABLE_RSSREADER` - Enables com.example.android.rssreader
-    
-*   `ENABLE_WEBVIEW_SHELL` - Enables org.chromium.webview\_shell
-    
-*   `ENABLE_CONTACTS` - Enables com.android.contacts
-    
-*   `ENABLE_CAMERA2` - Enables com.android.camera2
-    
-*   `ENABLE_CALENDAR` - Enables com.android.calendar
-    
-*   `ENABLE_NOTEPAD` - Enables com.example.android.notepad
-    
-*   `ENABLE_DIALER` - Enables com.android.dialer
-    
-*   `ENABLE_GALLERY` - Enables com.android.gallery3d
-    
-*   `ENABLE_WALLPAPER_PICKER` - Enables com.android.wallpaperpicker
-    
-
-##### Google Apps:
-
-*   `ENABLE_GOOGLESEARCHBOX` - Enables com.google.android.googlequicksearchbox
-    
-*   `ENABLE_VENDING` - Enables com.android.vending (Play Store)
-    
-
-##### Bliss OS / FOSS Apps:
-
-*   `ENABLE_TSCAL` - Enables org.zeroxlab.util.tscal (Touch Calibration app)
-    
-*   `ENABLE_ELEVEN` - Enables org.lineageos.eleven (Lineage OS Music player)
-    
-*   `ENABLE_SETORIENTATION` - Enables com.googlecode.eyesfree.setorientation (Manual control of screen orientation)
-    
-*   `ENABLE_PHONOGRAPH` - Enables com.kabouzeid.gramophone (FOSS music player)
-    
-*   `ENABLE_ABOUT_BLISS` - Enables com.blissroms.aboutbliss (About Bliss app)
-    
-*   `ENABLE_KERNELSU` - Enables me.weishu.kernelsu (Root management)
-    
-*   `ENABLE_SIMPLEGALLERY` - Enables com.simplemobiletools.gallery.pro (FOSS Gallery app)
-    
-*   `ENABLE_AURORA_SERVICES` - Enables com.aurora.services (FOSS install service used with Aurora Store/Aurora Droid)
-    
-*   `ENABLE_GAMESPACE` - Enables io.chaldeaprjkt.gamespace (FOSS Game Mode service)
-    
-
-##### Settings Access Restrictions:
-
-*   `HIDE_SETTINGS` - Hides com.android.settings
-
+*   `HIDE_APPS` - Hides the apps via passed comma separated list
+*   `UNHIDE_APPS` - Unhides the apps via passed comma separated list
+  
 ### USB Mode Functions:
 
 (Available through Android-Generic Add-On & Bliss Bass)
