@@ -264,6 +264,10 @@ Example:
 no_console_suspend
 ```
 
+* `SUSPEND_TYPE`: Set suspend type. options: mem, disk, freeze mem, freeze disk
+
+* `PWR_OFF_DBLCLK`: Set power off double click. options: true,false
+
 #### Memory:
 
 (Available through Android-Generic Add-On & Bliss Bass)
@@ -322,6 +326,11 @@ no_console_suspend
 
 *   `FORCE_LOW_MEM` - Forces the low\_mem mode in Android to the specific true/false value  
     Default = false (unless device is detected to have less than 2GB RAM)
+
+*   `FORCE_MINFREE_LEVELS` - Use free memory and file cache thresholds for making decisions when to kill. This mode works the same way kernel lowmemorykiller   driver used to work.
+    AOSP Default = false, Our default = true
+
+**Other options available for specialized builds**:
     
 *   `FORCE_LMK_ENABLE` - Force enable LMK Daemon  
     Default = false (unless device is detected to have less than 2GB RAM)
@@ -424,6 +433,11 @@ no_console_suspend
 
 *   `FORCE_DISABLE_STATUSBAR` - Force disable statusbar
      Options: (true|false)
+
+*   `FORCE_DISABLE_RECENTS` - Force disable SystemUI recents
+     Options: (true|false)
+
+**Other options available for specialized builds**:
     
 *   `FORCE_SET_MAX_RECENTS` - Sets the config\_maxRecents value  
     Options:
@@ -451,7 +465,15 @@ no_console_suspend
     *   **all:** This will restore all default quick settings tiles.
         
     *   **<tile\_id>:** This will add or remove the specified quick settings tile.
-        
+
+#### Launcher Options:
+
+*   `USE_LAUNCHER3` - Forces Launcher3 to be set instead of secondary launcher in build
+
+*   `SET_SMARTDOCK_DEFAULT` - Set's SmartDock as default launcher when booting into Desktop specific builds (requires a build with SmartDock included by default)
+
+*   `ENABLE_QUICKSTEP_TASKBAR` - Set quickstep taskbar features to enabled (requires dev-options to be enabled & Launcher3 to also be enabled). options: true,false
+
 #### Rotation/Orientation:
    
 * `SET_SF_ROTATION=*` - Sets surfaceflinger hardware rotation property to the value passed
@@ -477,7 +499,7 @@ no_console_suspend
     Options: (0|1)
     
 
-### Package Management:
+#### Package Management:
 
 (Available through Android-Generic Add-On & Bliss Bass)
 
@@ -490,7 +512,7 @@ Example: `HIDE_APPS="com.termux,com.android.dialer,com.android.documentsui"`
 *   `HIDE_APPS` - Hides the apps via passed comma separated list
 *   `UNHIDE_APPS` - Unhides the apps via passed comma separated list
   
-### USB Mode Functions:
+#### USB Mode Functions:
 
 (Available through Android-Generic Add-On & Bliss Bass)
 
@@ -499,7 +521,7 @@ Allows switching default USB/ADB functions via cmdline
 *   `FORCE_USE_ADB_CLIENT_MODE` - Forces USB into ADB Client mode (0=off, 1=on, 2=ADB enabled but not touching USB options)
 *   `FORCE_USE_ADB_MASS_STORAGE` - Force enable ADB Mass Storage mode ofver USB (0=off, 1=on)
 
-### IIO Options Configuration:
+#### IIO Options Configuration:
 
 (Available through Android-Generic Add-On & Bliss Bass)
 
@@ -511,8 +533,9 @@ This allows us to set ro.iio.* propertied through the following flags:
 *   `SET_IIO_ACCEL_Y_OPT_SCALE` - Sets ro.iio.accel.y.opt_scale property
 *   `SET_IIO_ANGLVEL_QUIRKS` - Sets ro.iio.anglvel.quirks property
 *   `SET_IGNORE_ATKBD` - Sets ro.ignore_atkbd property
+*   `SENSORS_FORCE_KBDSENSOR` - Option to force kbd sensor
 
-### Set Timezone:
+#### Set Timezone:
 
 (Available through Android-Generic Add-On & Bliss Bass)
 
@@ -523,4 +546,11 @@ Example:
   ```
    SET_TZ_LOCATION=America/New_York
   ```
+#### Serial IO
 
+(Available through Android-Generic Add-On & Bliss Bass)
+
+* `SET_USB_BUS_PORTS` - Sets permissions for tty ports (chmod 666) for /dev/bus/usb/*. 
+   Example: `SET_USB_BUS_PORTS=001/001,001/002,001/003,001/004`
+* `SET_TTY_PORT_PERMS` - Set USB bus port permissions (chmod 666) for /dev/tty*. 
+   Example: `SET_TTY_PORT_PERMS=ttyS*,ttyACM*`
