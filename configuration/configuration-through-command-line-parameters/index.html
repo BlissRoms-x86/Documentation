@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.754255952727">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.754867854134">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.754255952727" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.754867854134" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.754255952727" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.754867854134" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.754255952727" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.754867854134" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -537,6 +537,12 @@ For use cases where you are dual booting or sharing system resources with multip
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none">no_console_suspend</code></pre>
 </doc-codeblock></div>
+<ul>
+<li><p><code v-pre>SUSPEND_TYPE</code>: Set suspend type. options: mem, disk, freeze mem, freeze disk</p>
+</li>
+<li><p><code v-pre>PWR_OFF_DBLCLK</code>: Set power off double click. options: true,false</p>
+</li>
+</ul>
 <doc-anchor-target id="memory">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#memory">#</doc-anchor-trigger>
@@ -593,6 +599,12 @@ Options: (true|false)</p>
 <li><p><code v-pre>FORCE_LOW_MEM</code> - Forces the low_mem mode in Android to the specific true/false value<br />
 Default = false (unless device is detected to have less than 2GB RAM)</p>
 </li>
+<li><p><code v-pre>FORCE_MINFREE_LEVELS</code> - Use free memory and file cache thresholds for making decisions when to kill. This mode works the same way kernel lowmemorykiller   driver used to work.
+AOSP Default = false, Our default = true</p>
+</li>
+</ul>
+<p><strong>Other options available for specialized builds</strong>:</p>
+<ul>
 <li><p><code v-pre>FORCE_LMK_ENABLE</code> - Force enable LMK Daemon<br />
 Default = false (unless device is detected to have less than 2GB RAM)</p>
 </li>
@@ -721,6 +733,12 @@ Options: (true|false)</p>
 <li><p><code v-pre>FORCE_DISABLE_STATUSBAR</code> - Force disable statusbar
 Options: (true|false)</p>
 </li>
+<li><p><code v-pre>FORCE_DISABLE_RECENTS</code> - Force disable SystemUI recents
+Options: (true|false)</p>
+</li>
+</ul>
+<p><strong>Other options available for specialized builds</strong>:</p>
+<ul>
 <li><p><code v-pre>FORCE_SET_MAX_RECENTS</code> - Sets the config_maxRecents value<br />
 Options:</p>
 <ul>
@@ -751,6 +769,20 @@ Options:</p>
 <li><p><strong>&lt;tile_id&gt;:</strong> This will add or remove the specified quick settings tile.</p>
 </li>
 </ul>
+</li>
+</ul>
+<doc-anchor-target id="launcher-options">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#launcher-options">#</doc-anchor-trigger>
+        <span>Launcher Options:</span>
+    </h4>
+</doc-anchor-target>
+<ul>
+<li><p><code v-pre>USE_LAUNCHER3</code> - Forces Launcher3 to be set instead of secondary launcher in build</p>
+</li>
+<li><p><code v-pre>SET_SMARTDOCK_DEFAULT</code> - Set&#x27;s SmartDock as default launcher when booting into Desktop specific builds (requires a build with SmartDock included by default)</p>
+</li>
+<li><p><code v-pre>ENABLE_QUICKSTEP_TASKBAR</code> - Set quickstep taskbar features to enabled (requires dev-options to be enabled &amp; Launcher3 to also be enabled). options: true,false</p>
 </li>
 </ul>
 <doc-anchor-target id="rotationorientation">
@@ -794,10 +826,10 @@ Options: (0|1)</p>
 </li>
 </ul>
 <doc-anchor-target id="package-management">
-    <h3>
+    <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#package-management">#</doc-anchor-trigger>
         <span>Package Management:</span>
-    </h3>
+    </h4>
 </doc-anchor-target>
 <p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
 <p>With our package management features, we have the ability to also enable/disable various packages included in the system by default using the kernel cmdline.</p>
@@ -813,10 +845,10 @@ Options: (0|1)</p>
 <li><code v-pre>UNHIDE_APPS</code> - Unhides the apps via passed comma separated list</li>
 </ul>
 <doc-anchor-target id="usb-mode-functions">
-    <h3>
+    <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#usb-mode-functions">#</doc-anchor-trigger>
         <span>USB Mode Functions:</span>
-    </h3>
+    </h4>
 </doc-anchor-target>
 <p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
 <p>Allows switching default USB/ADB functions via cmdline</p>
@@ -825,10 +857,10 @@ Options: (0|1)</p>
 <li><code v-pre>FORCE_USE_ADB_MASS_STORAGE</code> - Force enable ADB Mass Storage mode ofver USB (0=off, 1=on)</li>
 </ul>
 <doc-anchor-target id="iio-options-configuration">
-    <h3>
+    <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#iio-options-configuration">#</doc-anchor-trigger>
         <span>IIO Options Configuration:</span>
-    </h3>
+    </h4>
 </doc-anchor-target>
 <p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
 <p>This allows us to set ro.iio.* propertied through the following flags:</p>
@@ -839,12 +871,13 @@ Options: (0|1)</p>
 <li><code v-pre>SET_IIO_ACCEL_Y_OPT_SCALE</code> - Sets ro.iio.accel.y.opt_scale property</li>
 <li><code v-pre>SET_IIO_ANGLVEL_QUIRKS</code> - Sets ro.iio.anglvel.quirks property</li>
 <li><code v-pre>SET_IGNORE_ATKBD</code> - Sets ro.ignore_atkbd property</li>
+<li><code v-pre>SENSORS_FORCE_KBDSENSOR</code> - Option to force kbd sensor</li>
 </ul>
 <doc-anchor-target id="set-timezone">
-    <h3>
+    <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#set-timezone">#</doc-anchor-trigger>
         <span>Set Timezone:</span>
-    </h3>
+    </h4>
 </doc-anchor-target>
 <p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
 <p>To use this change, pass the grub/cmdline value for your timezone using the SET_TZ_LOCATION flag.
@@ -853,6 +886,19 @@ Timezone reference can be found here: <a href="https://en.wikipedia.org/wiki/Lis
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-none"><code v-pre class="language-none"> SET_TZ_LOCATION=America/New_York</code></pre>
 </doc-codeblock></div>
+<doc-anchor-target id="serial-io">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#serial-io">#</doc-anchor-trigger>
+        <span>Serial IO</span>
+    </h4>
+</doc-anchor-target>
+<p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
+<ul>
+<li><code v-pre>SET_USB_BUS_PORTS</code> - Sets permissions for tty ports (chmod 666) for /dev/bus/usb/*.
+Example: <code v-pre>SET_USB_BUS_PORTS=001/001,001/002,001/003,001/004</code></li>
+<li><code v-pre>SET_TTY_PORT_PERMS</code> - Set USB bus port permissions (chmod 666) for /dev/tty*.
+Example: <code v-pre>SET_TTY_PORT_PERMS=ttyS*,ttyACM*</code></li>
+</ul>
 
                                 
                                 <!-- Required only on API pages -->
