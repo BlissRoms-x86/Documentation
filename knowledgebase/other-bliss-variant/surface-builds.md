@@ -2,7 +2,7 @@
 
 This version is designed specifically for the Microsoft Surface devices. The kernel use almost the same LTS kernel but with extra patches from the [linux-surface](https://github.com/linux-surface) project to ensure the most compatibility.
 
-While this build indicate that this is for Surface devices, not all devices need to use this build. To know that your device need to install this build, go to this section of linux-surface wiki:
+While this build indicate that this is for Surface devices, not all devices need to use it. To know if your device need to install this build or not, go to this section of linux-surface wiki:
 
 https://github.com/linux-surface/linux-surface/wiki/Supported-Devices-and-Features
 
