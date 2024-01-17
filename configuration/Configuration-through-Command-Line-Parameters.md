@@ -139,11 +139,10 @@ By default, BlissOS will use AOSP's codec2 software decoder. We also offer a few
 *   `CODEC2_LEVEL` - This will set the C2 level (default value is `4`, you can disable codeec2 completely with '0').
 *   `FFMPEG_OMX_CODEC` - This will enable OMX version of FFMPEG codecs (disable codec2 with `CODEC2_LEVEL=0` to use this codecs).
 *   `FFMPEG_CODEC2_PREFER` - This will force Bliss to use codec2 version of FFMPEG codecs by default.
-*   `FFMPEG_HWACCEL_DISABLE` - (Bliss OS 15.8.4-15.8.6) This will disable hardware accelleration for the FFMPEG codecs.
+*   `FFMPEG_HWACCEL_DISABLE` - This will disable hardware accelleration for the FFMPEG codecs.
 *   `FFMPEG_CODEC_LOG` - This will show more log of FFMPEG codecs, enable if you want to debug it
 *   `FFMPEG_CODEC2_DEINTERLACE` & `FFMPEG_CODEC2_DEINTERLACE_VAAPI` - configuring deinterlacing option for FFMPEG codec2, you can find the options in this [commit made by Micheal Goffioul](https://github.com/supremegamers/stagefright-plugins/commit/48e5d4e8c6e577c7f56c1da3aa90897444422d33)
 *   `OMX_NO_YUV420` - This will force the system to not use YUV420 color format on OMX codec (fixes some black or glitchy screens, use it with `CODEC2_LEVEL=0`)
-*   `FFMPEG_CODEC` - This will enable hardware accelleration for the FFMPEG codecs. (0/1)
 *   `FFMPEG_CODEC2_DRM` - turn on/off DRM prime handle on ffmpeg codecs, 0 is the default because not any Gralloc supporting it.
 
 ### Networking:
