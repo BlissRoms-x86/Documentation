@@ -78,10 +78,9 @@ for example -jupiter for Steam Deck or -surface for Microsoft Surface series
 
 ```text
 $ . build/envsetup.sh
-$ lunch android_x86_64-userdebug
 $ export NO_KERNEL_CROSS_COMPILE=true
 $ export BLISS_BUILD_VARIANT=foss
-$ mka iso_img
+$ lunch bliss_x86_64-userdebug && make blissify iso_img -j23
 ```
 
 ## Setup FOSS apps or OpenGapps

@@ -73,8 +73,9 @@ And then choose 1 (x86/x86_64) to fetch all the apps. If you want to include Bro
 ## Building
 
     $ . build/envsetup.sh
+	$ export BLISS_BUILD_VARIANT=foss
     $ lunch bliss_x86_64-userdebug
-    $ make iso_img
+    $ make blissify iso_img -j23
      
 ***Adding build options***
 
