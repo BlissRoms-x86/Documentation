@@ -49,6 +49,13 @@ Options:
 *   1: high-level debugging console (logs to /tmp/log)
     
 *   2: low-level debugging console (logs to /data/log.txt & /tmp/log)
+
+
+You will also need to enable the console if you wish to use alt-f1/f7 virtual consoles:
+
+```
+androidboot.enable_console=1
+```
     
 
 Example:
@@ -499,9 +506,11 @@ INTEL_PSTATE_STATUS=passive
 
 ### Misc:
 
-(Available through Android-Generic Add-On & add-ons for Bass builds)
-
 #### Battery Stats:
+
+*   `androidboot.fake_battery=true`: AOSP implementation of fake battery status
+
+(Available through Android-Generic Add-On & add-ons for Bass builds)
 
 *   `SET_FAKE_BATTERY_LEVEL`: Let us fake the total battery percentage  
     Options: (0-100)
