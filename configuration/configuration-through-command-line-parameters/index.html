@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.760583477831">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.761882156009">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -11,7 +11,7 @@
     <!-- Primary Meta Tags -->
     <title>Configuration Through Command Line Parameters</title>
     <meta name="title" content="Configuration Through Command Line Parameters">
-    <meta name="description" content="Bliss OS (and Bliss-Bass) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .">
+    <meta name="description" content="Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blissos.org/configuration/configuration-through-command-line-parameters/">
@@ -20,21 +20,21 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blissos.org/configuration/configuration-through-command-line-parameters/">
     <meta property="og:title" content="Configuration Through Command Line Parameters">
-    <meta property="og:description" content="Bliss OS (and Bliss-Bass) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .">
+    <meta property="og:description" content="Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://docs.blissos.org/configuration/configuration-through-command-line-parameters/">
     <meta property="twitter:title" content="Configuration Through Command Line Parameters">
-    <meta property="twitter:description" content="Bliss OS (and Bliss-Bass) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .">
+    <meta property="twitter:description" content="Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.760583477831" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.761882156009" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.760583477831" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.761882156009" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.760583477831" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.761882156009" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -227,7 +227,7 @@
         <span>Configuration Through Command Line Parameters</span>
     </h1>
 </doc-anchor-target>
-<p>Bliss OS (and Bliss-Bass) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .iso to be configured through kernel command line parameters on a per-device basis. This allows end users to fine tune the performance of the OS to the capabilities of the device.</p>
+<p>Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .iso to be configured through kernel command line parameters on a per-device basis. This allows end users to fine tune the performance of the OS to the capabilities of the device.</p>
 <doc-anchor-target id="intro-to-kernel-command-line-parameters">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#intro-to-kernel-command-line-parameters">#</doc-anchor-trigger>
@@ -260,7 +260,7 @@
         <span>Supported Parameters:</span>
     </h2>
 </doc-anchor-target>
-<p><strong>Warning</strong>: Note that not all of the configs listed here are available in the open-source Bliss OS source, but are available through licensing the Android-Generic Project add-on for that feature, or licensing the use of Bliss Bass (which comes with most available AG add-on&#x27;s) for your organization</p>
+<p><strong>Warning</strong>: Note that not all of the configs listed here are available in the open-source Bliss OS source, but are available through licensing the Android-Generic Project add-on for that feature, or licensing the use of our Bass builds or Bass source (which comes with most available AG add-on&#x27;s) for your organization</p>
 <p>Here are a few of the supported parameters that we support, organized by stack.</p>
 <doc-anchor-target id="debugging">
     <h3>
@@ -274,9 +274,9 @@
 <p><code v-pre>DEBUG=*</code></p>
 <p>Options:</p>
 <ul>
-<li><p>1 - high-level debugging console (logs to /tmp/log)</p>
+<li><p>1: high-level debugging console (logs to /tmp/log)</p>
 </li>
-<li><p>2 - low-level debugging console (logs to /data/log.txt &amp; /tmp/log)</p>
+<li><p>2: low-level debugging console (logs to /data/log.txt &amp; /tmp/log)</p>
 </li>
 </ul>
 <p>Example:</p>
@@ -302,13 +302,13 @@
 <p><code v-pre>HWC=*</code></p>
 <p>Options:</p>
 <ul>
-<li><p><code v-pre>drm</code> - Use <a href="https://gitlab.freedesktop.org/drm-hwcomposer/drm-hwcomposer">drm_hwcomposer</a></p>
+<li><p><code v-pre>drm</code>: Use <a href="https://gitlab.freedesktop.org/drm-hwcomposer/drm-hwcomposer">drm_hwcomposer</a></p>
 </li>
-<li><p><code v-pre>drm_celadon</code> - Use <a href="https://github.com/projectceladon/drm-hwcomposer">Project Celadon&#x27;s fork of drm_hwcomposer</a></p>
+<li><p><code v-pre>drm_celadon</code>: Use <a href="https://github.com/projectceladon/drm-hwcomposer">Project Celadon&#x27;s fork of drm_hwcomposer</a></p>
 </li>
-<li><p><code v-pre>drm_minigbm</code> - Use <a href="https://gitlab.freedesktop.org/drm-hwcomposer/drm-hwcomposer">drm_hwcomposer</a> with minigbm support</p>
+<li><p><code v-pre>drm_minigbm</code>: Use <a href="https://gitlab.freedesktop.org/drm-hwcomposer/drm-hwcomposer">drm_hwcomposer</a> with minigbm support</p>
 </li>
-<li><p><code v-pre>drm_minigbm_celadon</code> - Use <a href="https://github.com/projectceladon/drm-hwcomposer">Project Celadon&#x27;s fork of drm_hwcomposer</a> with minigbm support</p>
+<li><p><code v-pre>drm_minigbm_celadon</code>: Use <a href="https://github.com/projectceladon/drm-hwcomposer">Project Celadon&#x27;s fork of drm_hwcomposer</a> with minigbm support</p>
 </li>
 </ul>
 <p>Example:</p>
@@ -326,15 +326,15 @@
 <p><code v-pre>GRALLOC=*</code></p>
 <p>Options:</p>
 <ul>
-<li><p><code v-pre>gbm</code> - This is <a href="https://github.com/BlissRoms-x86/gbm_gralloc">gbm_gralloc</a> and it&#x27;s compatible with drm &amp; drm_celadon</p>
+<li><p><code v-pre>gbm</code>: This is <a href="https://github.com/BlissRoms-x86/gbm_gralloc">gbm_gralloc</a> and it&#x27;s compatible with drm &amp; drm_celadon</p>
 </li>
-<li><p><code v-pre>gbm_hack</code> - This is <a href="https://github.com/BlissRoms-x86/gbm_gralloc">gbm_gralloc</a> but with a <a href="https://github.com/BlissRoms-x86/gbm_gralloc/commit/e70acfc3f5acc64168a172987f34d141e55f6b54">HACK commit</a> to fix some issue with iris or nouveau. It&#x27;s compatible with drm &amp; drm_celadon</p>
+<li><p><code v-pre>gbm_hack</code>: This is <a href="https://github.com/BlissRoms-x86/gbm_gralloc">gbm_gralloc</a> but with a <a href="https://github.com/BlissRoms-x86/gbm_gralloc/commit/e70acfc3f5acc64168a172987f34d141e55f6b54">HACK commit</a> to fix some issue with iris or nouveau. It&#x27;s compatible with drm &amp; drm_celadon</p>
 </li>
-<li><p><code v-pre>minigbm</code> - This is <a href="https://github.com/supremegamers/minigbm">minigbm</a> and it&#x27;s compatible with drm_minigbm, drm_minigbm_celadon</p>
+<li><p><code v-pre>minigbm</code>: This is <a href="https://github.com/supremegamers/minigbm">minigbm</a> and it&#x27;s compatible with drm_minigbm, drm_minigbm_celadon</p>
 </li>
-<li><p><code v-pre>minigbm_arcvm</code> - This is <a href="https://github.com/supremegamers/minigbm">minigbm</a> but made specifically for virgl by Google, compatible with drm_minigbm, drm_minigbm_celadon</p>
+<li><p><code v-pre>minigbm_arcvm</code>: This is <a href="https://github.com/supremegamers/minigbm">minigbm</a> but made specifically for virgl by Google, compatible with drm_minigbm, drm_minigbm_celadon</p>
 </li>
-<li><p><code v-pre>minigbm_gbm_mesa</code> - This is <a href="https://github.com/supremegamers/minigbm/tree/13-x86/gbm_mesa_driver">minigbm</a> made by <a href="https://github.com/rsglobal">rsglobal</a> which he tried to port <a href="https://github.com/robherring/gbm_gralloc/issues/26">gbm_gralloc philosophy to minigbm</a>. Compatible with drm_minigbm, drm_minigbm_celadon</p>
+<li><p><code v-pre>minigbm_gbm_mesa</code>: This is <a href="https://github.com/supremegamers/minigbm/tree/13-x86/gbm_mesa_driver">minigbm</a> made by <a href="https://github.com/rsglobal">rsglobal</a> which he tried to port <a href="https://github.com/robherring/gbm_gralloc/issues/26">gbm_gralloc philosophy to minigbm</a>. Compatible with drm_minigbm, drm_minigbm_celadon</p>
 </li>
 </ul>
 <p>Example:</p>
@@ -349,7 +349,7 @@
 </doc-anchor-target>
 <p>In some cases, we are working with hardware that requires Gralloc4 specs. We can force minigbm to use Gralloc4 by using:</p>
 <ul>
-<li><code v-pre>GRALLOC4_MINIGBM</code> - Force using gralloc4 with minigbm (only compatible with drm_minigbm_celadon)</li>
+<li><code v-pre>GRALLOC4_MINIGBM</code>: Force using gralloc4 with minigbm (only compatible with drm_minigbm_celadon)</li>
 </ul>
 <doc-anchor-target id="angle--software-rendering">
     <h4>
@@ -382,14 +382,14 @@
 </doc-anchor-target>
 <p>By default, BlissOS will use AOSP&#x27;s codec2 software decoder. We also offer a few various options that allow you to select different video decoders stack options:</p>
 <ul>
-<li><code v-pre>CODEC2_LEVEL</code> - This will set the C2 level (default value is <code v-pre>4</code>, you can disable codeec2 completely with &#x27;0&#x27;).</li>
-<li><code v-pre>FFMPEG_OMX_CODEC</code> - This will enable OMX version of FFMPEG codecs (disable codec2 with <code v-pre>CODEC2_LEVEL=0</code> to use this codecs).</li>
-<li><code v-pre>FFMPEG_CODEC2_PREFER</code> - This will force Bliss to use codec2 version of FFMPEG codecs by default.</li>
-<li><code v-pre>FFMPEG_HWACCEL_DISABLE</code> - This will disable hardware accelleration for the FFMPEG codecs.</li>
-<li><code v-pre>FFMPEG_CODEC_LOG</code> - This will show more log of FFMPEG codecs, enable if you want to debug it</li>
-<li><code v-pre>FFMPEG_CODEC2_DEINTERLACE</code> &amp; <code v-pre>FFMPEG_CODEC2_DEINTERLACE_VAAPI</code> - configuring deinterlacing option for FFMPEG codec2, you can find the options in this <a href="https://github.com/supremegamers/stagefright-plugins/commit/48e5d4e8c6e577c7f56c1da3aa90897444422d33">commit made by Micheal Goffioul</a></li>
-<li><code v-pre>OMX_NO_YUV420</code> - This will force the system to not use YUV420 color format on OMX codec (fixes some black or glitchy screens, use it with <code v-pre>CODEC2_LEVEL=0</code>)</li>
-<li><code v-pre>FFMPEG_CODEC2_DRM</code> - turn on/off DRM prime handle on ffmpeg codecs, 0 is the default because not any Gralloc supporting it.</li>
+<li><code v-pre>CODEC2_LEVEL</code>: This will set the C2 level (default value is <code v-pre>4</code>, you can disable codeec2 completely with &#x27;0&#x27;).</li>
+<li><code v-pre>FFMPEG_OMX_CODEC</code>: This will enable OMX version of FFMPEG codecs (disable codec2 with <code v-pre>CODEC2_LEVEL=0</code> to use this codecs).</li>
+<li><code v-pre>FFMPEG_CODEC2_PREFER</code>: This will force Bliss to use codec2 version of FFMPEG codecs by default.</li>
+<li><code v-pre>FFMPEG_HWACCEL_DISABLE</code>: This will disable hardware accelleration for the FFMPEG codecs.</li>
+<li><code v-pre>FFMPEG_CODEC_LOG</code>: This will show more log of FFMPEG codecs, enable if you want to debug it</li>
+<li><code v-pre>FFMPEG_CODEC2_DEINTERLACE</code> &amp; <code v-pre>FFMPEG_CODEC2_DEINTERLACE_VAAPI</code>: configuring deinterlacing option for FFMPEG codec2, you can find the options in this <a href="https://github.com/supremegamers/stagefright-plugins/commit/48e5d4e8c6e577c7f56c1da3aa90897444422d33">commit made by Micheal Goffioul</a></li>
+<li><code v-pre>OMX_NO_YUV420</code>: This will force the system to not use YUV420 color format on OMX codec (fixes some black or glitchy screens, use it with <code v-pre>CODEC2_LEVEL=0</code>)</li>
+<li><code v-pre>FFMPEG_CODEC2_DRM</code>: turn on/off DRM prime handle on ffmpeg codecs, 0 is the default because not any Gralloc supporting it.</li>
 </ul>
 <doc-anchor-target id="networking">
     <h3>
@@ -407,7 +407,7 @@
 </doc-anchor-target>
 <p>(Available on Bliss OS 14.1x, 15.8.x, &amp; 16.x)
 For use cases where you are dual booting or sharing system resources with multiple drives, you might want to enable automatic mounting of all disks within Android:
-<code v-pre>INTERNAL_MOUNT=1</code> - Allows device to mount other internal drives on boot.</p>
+<code v-pre>INTERNAL_MOUNT=1</code>: Allows device to mount other internal drives on boot.</p>
 <doc-anchor-target id="usbpci">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#usbpci">#</doc-anchor-trigger>
@@ -426,11 +426,11 @@ For use cases where you are dual booting or sharing system resources with multip
         <span>USB Modes:</span>
     </h5>
 </doc-anchor-target>
-<p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
+<p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <p>Switch USB mode (ADB/Storage) !! Requires kernel configs !!:</p>
 <ul>
-<li><code v-pre>FORCE_USE_ADB_CLIENT_MODE</code> - Forces client mode adb settings</li>
-<li><code v-pre>FORCE_USE_ADB_MASS_STORAGE</code> - Forces USB mass_storage mode</li>
+<li><code v-pre>FORCE_USE_ADB_CLIENT_MODE</code>: Forces client mode adb settings</li>
+<li><code v-pre>FORCE_USE_ADB_MASS_STORAGE</code>: Forces USB mass_storage mode</li>
 </ul>
 <doc-anchor-target id="power--memory">
     <h3>
@@ -452,19 +452,19 @@ For use cases where you are dual booting or sharing system resources with multip
 </doc-anchor-target>
 <p>The following are the options for <strong>mem_sleep_default</strong> (suggested values are in bold):</p>
 <ul>
-<li><p>deep - This option will choose the deepest sleep state supported by the hardware.</p>
+<li><p>deep: This option will choose the deepest sleep state supported by the hardware.</p>
 </li>
-<li><p><strong>shallow</strong> - This option will choose the shallowest sleep state supported by the hardware.</p>
+<li><p><strong>shallow</strong>: This option will choose the shallowest sleep state supported by the hardware.</p>
 </li>
-<li><p><strong>s2idle</strong> - This option will choose the S2 idle state.</p>
+<li><p><strong>s2idle</strong>: This option will choose the S2 idle state.</p>
 </li>
-<li><p>s3bios - This option will choose the S3 BIOS state.</p>
+<li><p>s3bios: This option will choose the S3 BIOS state.</p>
 </li>
-<li><p><strong>s3standby</strong> - This option will choose the S3 standby state.</p>
+<li><p><strong>s3standby</strong>: This option will choose the S3 standby state.</p>
 </li>
-<li><p>mem - This option will choose the memory state.</p>
+<li><p>mem: This option will choose the memory state.</p>
 </li>
-<li><p>off - This option will choose the off state.</p>
+<li><p>off: This option will choose the off state.</p>
 </li>
 </ul>
 <p>The default value for mem_sleep_default is deep, and the suggested value for most devices is <strong>shallow</strong></p>
@@ -474,17 +474,17 @@ For use cases where you are dual booting or sharing system resources with multip
 </doc-codeblock></div>
 <p>The following are the options for <strong>acpi_sleep</strong> (suggested values are in bold):</p>
 <ul>
-<li><p>s3_bios - This option will use the BIOS-provided S3 sleep state.</p>
+<li><p>s3_bios: This option will use the BIOS-provided S3 sleep state.</p>
 </li>
-<li><p><strong>s3_mode</strong> - This option will use the kernel&#x27;s own S3 sleep state.</p>
+<li><p><strong>s3_mode</strong>: This option will use the kernel&#x27;s own S3 sleep state.</p>
 </li>
-<li><p>s4_nohwsig - This option will disable the ACPI hardware wake signal for S4 sleep.</p>
+<li><p>s4_nohwsig: This option will disable the ACPI hardware wake signal for S4 sleep.</p>
 </li>
-<li><p>old_ordering - This option will use the old ACPI sleep state ordering.</p>
+<li><p>old_ordering: This option will use the old ACPI sleep state ordering.</p>
 </li>
-<li><p>nonvs - This option will not save non-volatile storage (NVS) to disk before entering S4 sleep.</p>
+<li><p>nonvs: This option will not save non-volatile storage (NVS) to disk before entering S4 sleep.</p>
 </li>
-<li><p>sci_force_enable - This option will force the ACPI SCI interrupt to be enabled.</p>
+<li><p>sci_force_enable: This option will force the ACPI SCI interrupt to be enabled.</p>
 </li>
 </ul>
 <p>The default value for acpi_sleep is s3_bios, and the suggested value for most devices is <strong>s3_mode</strong>.</p>
@@ -502,11 +502,11 @@ For use cases where you are dual booting or sharing system resources with multip
 <ul>
 <li><p>acpi_sleep_default: This option specifies the default sleep mode for the system. The possible values are:</p>
 <ul>
-<li><p><strong>s3</strong> - Standby mode</p>
+<li><p><strong>s3</strong>: Standby mode</p>
 </li>
-<li><p>s4 - Hibernate mode</p>
+<li><p>s4: Hibernate mode</p>
 </li>
-<li><p>s5 - Off mode</p>
+<li><p>s5: Off mode</p>
 </li>
 </ul>
 </li>
@@ -518,9 +518,9 @@ For use cases where you are dual booting or sharing system resources with multip
 <ul>
 <li><p>suspend_console: This option specifies whether to suspend the console when the system enters sleep mode. The possible values are:</p>
 <ul>
-<li><p>on - The console will be suspended.</p>
+<li><p>on: The console will be suspended.</p>
 </li>
-<li><p>off - The console will not be suspended.</p>
+<li><p>off: The console will not be suspended.</p>
 </li>
 </ul>
 </li>
@@ -537,10 +537,67 @@ For use cases where you are dual booting or sharing system resources with multip
 <pre class="language-none"><code v-pre class="language-none">no_console_suspend</code></pre>
 </doc-codeblock></div>
 <ul>
-<li><p><code v-pre>SUSPEND_TYPE</code>: Set suspend type. options: mem, disk, freeze mem, freeze disk</p>
-</li>
-<li><p><code v-pre>PWR_OFF_DBLCLK</code>: Set power off double click. options: true,false</p>
-</li>
+<li><code v-pre>SUSPEND_TYPE</code>: Set suspend type. options: mem, disk, freeze mem, freeze disk</li>
+<li><code v-pre>PWR_OFF_DBLCLK</code>: Set power off double click. options: true,false</li>
+<li><code v-pre>SLEEP_STATE</code>: Override default sleep.state property for the device</li>
+</ul>
+<doc-anchor-target id="intel-power-options">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#intel-power-options">#</doc-anchor-trigger>
+        <span>Intel Power Options:</span>
+    </h5>
+</doc-anchor-target>
+<p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
+<ul>
+<li><code v-pre>INTEL_PSTATE_CPU_MIN_PERF_PCT/INTEL_PSTATE_CPU_MAX_PERF_PCT</code>: Allow for adjusting intel_pstate max/min freq on boot by setting the min/max pref percent</li>
+</ul>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">INTEL_PSTATE_CPU_MIN_PERF_PCT=5 INTEL_PSTATE_CPU_MAX_PERF_PCT=50</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><code v-pre>CPU_ENERGY_PERFORMANCE_PREF</code>: Allow for adjusting cpu energy performance
+Normal options: default, performance, balance_performance, balance_power, power</li>
+</ul>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">CPU_ENERGY_PERFORMANCE_PREF=balance_power</code></pre>
+</doc-codeblock></div>
+<ul>
+<li><code v-pre>INTEL_PSTATE_STATUS</code>: Set cpu scaling at boot (ie set pstate status to active/passive at boot)</li>
+</ul>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">INTEL_PSTATE_STATUS=passive</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="generic-power-options">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#generic-power-options">#</doc-anchor-trigger>
+        <span>Generic Power Options:</span>
+    </h5>
+</doc-anchor-target>
+<p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
+<ul>
+<li><code v-pre>SET_SCREEN_OFF_TIMEOUT</code>: Set screen off timeout. options: integer in milliseconds</li>
+<li><code v-pre>SET_SLEEP_TIMEOUT</code>: Set screen sleep timeout. options: integer in milliseconds</li>
+<li><code v-pre>SET_POWER_ALWAYS_ON</code>: Set power always on. options: true or false</li>
+<li><code v-pre>SET_STAY_ON_WHILE_PLUGGED_IN</code>: Set stay on while plugged in. options: true or false</li>
+</ul>
+<doc-anchor-target id="generic-performance-options">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#generic-performance-options">#</doc-anchor-trigger>
+        <span>Generic Performance Options:</span>
+    </h4>
+</doc-anchor-target>
+<p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
+<ul>
+<li><code v-pre>FORCE_POWER_PROFILE</code>: Sets the power_profile value. Options: ondemand, hotplug, interactive, performance</li>
+<li><code v-pre>FORCE_IO_PROFILE</code>: Sets the io_profile value. Options: ondemand, hotplug, interactive, performance</li>
+<li><code v-pre>FORCE_CPU_GOV</code>: Sets the cpu_governor value. Options: ondemand, hotplug, interactive, performance</li>
+<li><code v-pre>FORCE_CPU_SCALING_GOV</code>: Sets the cpu_scaling_governor value. Options: ondemand, hotplug, interactive, performance</li>
+<li><code v-pre>FORCE_GPU_SCALING_GOV</code>: Sets the gpu_scaling_governor value. Options: ondemand, hotplug, interactive, performance</li>
+<li><code v-pre>FORCE_THERMAL_THROTTLE_ENABLE</code>: Sets the thermal_throttle_enable value. Options: (true|false)</li>
+<li><code v-pre>FORCE_HW_TIMEOUT_MULTIPLIER</code>: Force hw timeout multiplier, # X 5s. Options: (integer)</li>
 </ul>
 <doc-anchor-target id="memory">
     <h4>
@@ -548,42 +605,42 @@ For use cases where you are dual booting or sharing system resources with multip
         <span>Memory:</span>
     </h4>
 </doc-anchor-target>
-<p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
+<p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <ul>
-<li><p><code v-pre>FORCE_MEMORY_TRIM_ENABLE</code> - Sets the memory_trim_enable value<br />
+<li><p><code v-pre>FORCE_MEMORY_TRIM_ENABLE</code>: Sets the memory_trim_enable value<br />
 Options: (true|false)</p>
 </li>
-<li><p><code v-pre>FORCE_MIN_FREE_MEMORY</code> - Sets the minimum free ram limit</p>
+<li><p><code v-pre>FORCE_MIN_FREE_MEMORY</code>: Sets the minimum free ram limit</p>
 <p>Example value: &quot;512M&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_MAX_FREE_MEMORY</code> - Sets the max free ram limit</p>
+<li><p><code v-pre>FORCE_MAX_FREE_MEMORY</code>: Sets the max free ram limit</p>
 <p>Example value: &quot;1024M&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_OOM_SCORE_ADJ</code> - Sets the oom_score_adj value</p>
+<li><p><code v-pre>FORCE_OOM_SCORE_ADJ</code>: Sets the oom_score_adj value</p>
 <p>Example value: &quot;100&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_ENFORCE_MIN_FREE_MB</code> - Sets the enforce_min_free_mb value</p>
+<li><p><code v-pre>FORCE_ENFORCE_MIN_FREE_MB</code>: Sets the enforce_min_free_mb value</p>
 <p>Example value: &quot;1024&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_SCHED_MIN_FREE_PAGES</code> - Sets the sched_min_free_pages value</p>
+<li><p><code v-pre>FORCE_SCHED_MIN_FREE_PAGES</code>: Sets the sched_min_free_pages value</p>
 <p>Example value: &quot;1024&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_SCHED_MIN_ACTIVE_PAGES</code> - Sets the sched_min_active_pages value</p>
+<li><p><code v-pre>FORCE_SCHED_MIN_ACTIVE_PAGES</code>: Sets the sched_min_active_pages value</p>
 <p>Example value: &quot;512&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_SCHED_MIN_INACTIVE_PAGES</code> - Sets the sched_min_inactive_pages value</p>
+<li><p><code v-pre>FORCE_SCHED_MIN_INACTIVE_PAGES</code>: Sets the sched_min_inactive_pages value</p>
 <p>Example value: &quot;256&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_SCHED_MIN_DIRTY_PAGES</code> - Sets the sched_min_dirty_pages value</p>
+<li><p><code v-pre>FORCE_SCHED_MIN_DIRTY_PAGES</code>: Sets the sched_min_dirty_pages value</p>
 <p>Example value: &quot;128&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_SCHED_MIN_WRITEBACK_PAGES</code> - Sets the sched_min_writeback_pages value</p>
+<li><p><code v-pre>FORCE_SCHED_MIN_WRITEBACK_PAGES</code>: Sets the sched_min_writeback_pages value</p>
 <p>Example value: &quot;64&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_SCHED_MIN_RECLAIMABLE_PAGES</code> - Sets the sched_min_reclaimable_pages value</p>
+<li><p><code v-pre>FORCE_SCHED_MIN_RECLAIMABLE_PAGES</code>: Sets the sched_min_reclaimable_pages value</p>
 <p>Example value: &quot;32&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_SCHED_MIN_UNRECLAIMABLE_PAGES</code> - Sets the sched_min_unreclaimable_pages value</p>
+<li><p><code v-pre>FORCE_SCHED_MIN_UNRECLAIMABLE_PAGES</code>: Sets the sched_min_unreclaimable_pages value</p>
 <p>Example value: &quot;16&quot;</p>
 </li>
 </ul>
@@ -593,42 +650,42 @@ Options: (true|false)</p>
         <span>LMKD:</span>
     </h3>
 </doc-anchor-target>
-<p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
+<p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <ul>
-<li><p><code v-pre>FORCE_LOW_MEM</code> - Forces the low_mem mode in Android to the specific true/false value<br />
+<li><p><code v-pre>FORCE_LOW_MEM</code>: Forces the low_mem mode in Android to the specific true/false value<br />
 Default = false (unless device is detected to have less than 2GB RAM)</p>
 </li>
-<li><p><code v-pre>FORCE_MINFREE_LEVELS</code> - Use free memory and file cache thresholds for making decisions when to kill. This mode works the same way kernel lowmemorykiller   driver used to work.
+<li><p><code v-pre>FORCE_MINFREE_LEVELS</code>: Use free memory and file cache thresholds for making decisions when to kill. This mode works the same way kernel lowmemorykiller   driver used to work.
 AOSP Default = false, Our default = true</p>
 </li>
 </ul>
 <p><strong>Other options available for specialized builds</strong>:</p>
 <ul>
-<li><p><code v-pre>FORCE_LMK_ENABLE</code> - Force enable LMK Daemon<br />
+<li><p><code v-pre>FORCE_LMK_ENABLE</code>: Force enable LMK Daemon<br />
 Default = false (unless device is detected to have less than 2GB RAM)</p>
 </li>
-<li><p><code v-pre>FORCE_KILL_HEAVIEST_TASK</code> - Kill heaviest eligible task (best decision) vs. any eligible task (fast decision).<br />
+<li><p><code v-pre>FORCE_KILL_HEAVIEST_TASK</code>: Kill heaviest eligible task (best decision) vs. any eligible task (fast decision).<br />
 Default = false</p>
 </li>
-<li><p><code v-pre>FORCE_SWAP_FREE_LOW_PERCENTAGE</code> - Level of free swap as a percentage of the total swap space used as a threshold to consider the system as swap space starved.</p>
+<li><p><code v-pre>FORCE_SWAP_FREE_LOW_PERCENTAGE</code>: Level of free swap as a percentage of the total swap space used as a threshold to consider the system as swap space starved.</p>
 <p>Default for low-RAM devices = 10, for high-end devices = 20</p>
 </li>
-<li><p><code v-pre>FORCE_THRASHING_LIMIT</code> - Number of working set defaults as a percentage of the file-backed pagecache size used as a threshold to consider system thrashing its pagecache.</p>
+<li><p><code v-pre>FORCE_THRASHING_LIMIT</code>: Number of working set defaults as a percentage of the file-backed pagecache size used as a threshold to consider system thrashing its pagecache.</p>
 <p>Default for low-RAM devices = 30, for high-end devices = 100</p>
 </li>
-<li><p><code v-pre>FORCE_LMK_CRITICAL</code> - The possible values of oom_adj range from -17 to +15 (Default=0).</p>
+<li><p><code v-pre>FORCE_LMK_CRITICAL</code>: The possible values of oom_adj range from -17 to +15 (Default=0).</p>
 <p>The higher the score, more likely the associated process is to be killed by OOM-killer. If oom_adj is set to -17, the process is not considered for OOM-killing.</p>
 </li>
-<li><p><code v-pre>FORCE_PSI_PARTIAL_STALL_THRESHOLD</code> - The partial PSI stall threshold, in milliseconds, for triggering low memory notification. If the device receives memory pressure notifications too late, decrease this value to trigger earlier notifications. If memory pressure notifications trigger unnecessarily, increase this value to make the device less sensitive to noise.</p>
+<li><p><code v-pre>FORCE_PSI_PARTIAL_STALL_THRESHOLD</code>: The partial PSI stall threshold, in milliseconds, for triggering low memory notification. If the device receives memory pressure notifications too late, decrease this value to trigger earlier notifications. If memory pressure notifications trigger unnecessarily, increase this value to make the device less sensitive to noise.</p>
 <p>High end: 70  Low end: 200</p>
 </li>
-<li><p><code v-pre>FORCE_PSI_COMPLETE_STALL_THRESHOLD</code> - The complete PSI stall threshold, in milliseconds, for triggering critical memory notifications. If the device receives critical memory pressure notifications too late, decrease this value to trigger earlier notifications. If critical memory pressure notifications trigger unnecessarily, increase this value to make the device less sensitive to noise.</p>
+<li><p><code v-pre>FORCE_PSI_COMPLETE_STALL_THRESHOLD</code>: The complete PSI stall threshold, in milliseconds, for triggering critical memory notifications. If the device receives critical memory pressure notifications too late, decrease this value to trigger earlier notifications. If critical memory pressure notifications trigger unnecessarily, increase this value to make the device less sensitive to noise.</p>
 <p>Recommended: 700</p>
 </li>
-<li><p><code v-pre>FORCE_THRASHING_LIMIT_DECAY</code> - The thrashing threshold decay expressed as a percentage of the original threshold used to lower the threshold when the system doesn’t recover, even after a kill. If continuous thrashing produces unnecessary kills, decrease the value. If the response to continuous thrashing after a kill is too slow, increase the value.</p>
+<li><p><code v-pre>FORCE_THRASHING_LIMIT_DECAY</code>: The thrashing threshold decay expressed as a percentage of the original threshold used to lower the threshold when the system doesn’t recover, even after a kill. If continuous thrashing produces unnecessary kills, decrease the value. If the response to continuous thrashing after a kill is too slow, increase the value.</p>
 <p>High end: 10  Low end: 50</p>
 </li>
-<li><p><code v-pre>FORCE_SWAP_UTIL_MAX</code> - The max amount of swapped memory as a percentage of the total swappable memory. When swapped memory grows over this limit, it means that the system swapped most of its swappable memory and is still under pressure. This can happen when non-swappable allocations are generating memory pressure which can not be relieved by swapping because most of the swappable memory is already swapped out. The default value is 100, which effectively disables this check. If the performance of the device is affected during memory pressure while swap utilization is high and the free swap level is not dropping to Sets the swap_free_low_percentage, decrease the value to limit swap utilization.</p>
+<li><p><code v-pre>FORCE_SWAP_UTIL_MAX</code>: The max amount of swapped memory as a percentage of the total swappable memory. When swapped memory grows over this limit, it means that the system swapped most of its swappable memory and is still under pressure. This can happen when non-swappable allocations are generating memory pressure which can not be relieved by swapping because most of the swappable memory is already swapped out. The default value is 100, which effectively disables this check. If the performance of the device is affected during memory pressure while swap utilization is high and the free swap level is not dropping to Sets the swap_free_low_percentage, decrease the value to limit swap utilization.</p>
 <p>High end: 100  Low end: 100</p>
 </li>
 </ul>
@@ -638,14 +695,14 @@ Default = false</p>
         <span>Logging/Logd:</span>
     </h3>
 </doc-anchor-target>
-<p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
+<p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <ul>
-<li><p><code v-pre>SET_MAX_LOGD</code> - Sets the maximum logd value</p>
+<li><p><code v-pre>SET_MAX_LOGD</code>: Sets the maximum logd value</p>
 <ul>
 <li>Options: 1 = on, 0 = off</li>
 </ul>
 </li>
-<li><p><code v-pre>SET_LOGCAT_DEBUG</code> - Enables logcat debugging</p>
+<li><p><code v-pre>SET_LOGCAT_DEBUG</code>: Enables logcat debugging</p>
 <ul>
 <li>Options: true, false</li>
 </ul>
@@ -657,52 +714,15 @@ Default = false</p>
         <span>OTA Updates:</span>
     </h3>
 </doc-anchor-target>
-<p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
+<p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <ul>
-<li><code v-pre>SET_CUSTOM_OTA_URI</code> - Sets the custom URL for OTA updates
+<li><code v-pre>SET_CUSTOM_OTA_URI</code>: Sets the custom URL for OTA updates
 <ul>
 <li>Example:</li>
 </ul>
 </li>
 </ul>
 <p><code v-pre>SET_CUSTOM_OTA_URI=https://192.168.1.1/updates/update.json</code></p>
-<doc-anchor-target id="performance">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#performance">#</doc-anchor-trigger>
-        <span>Performance:</span>
-    </h3>
-</doc-anchor-target>
-<p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
-<ul>
-<li><p><code v-pre>FORCE_POWER_PROFILE</code> - Sets the power_profile value</p>
-<ul>
-<li>Options: ondemand, hotplug, interactive, performance</li>
-</ul>
-</li>
-<li><p><code v-pre>FORCE_IO_PROFILE</code> - Sets the io_profile value</p>
-<ul>
-<li>Options: ondemand, hotplug, interactive, performance</li>
-</ul>
-</li>
-<li><p><code v-pre>FORCE_CPU_GOV</code> - Sets the cpu_governor value</p>
-<ul>
-<li>Options: ondemand, hotplug, interactive, performance</li>
-</ul>
-</li>
-<li><p><code v-pre>FORCE_CPU_SCALING_GOV</code> - Sets the cpu_scaling_governor value</p>
-<ul>
-<li>Options: ondemand, hotplug, interactive, performance</li>
-</ul>
-</li>
-<li><p><code v-pre>FORCE_GPU_SCALING_GOV</code> - Sets the gpu_scaling_governor value</p>
-<ul>
-<li>Options: ondemand, hotplug, interactive, performance</li>
-</ul>
-</li>
-<li><p><code v-pre>FORCE_THERMAL_THROTTLE_ENABLE</code> - Sets the thermal_throttle_enable value<br />
-Options: (true|false)</p>
-</li>
-</ul>
 <doc-anchor-target id="features">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#features">#</doc-anchor-trigger>
@@ -715,30 +735,19 @@ Options: (true|false)</p>
         <span>Kiosk Mode:</span>
     </h4>
 </doc-anchor-target>
-<p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
+<p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <ul>
-<li><p><code v-pre>FORCE_DISABLE_NAVIGATION</code> - Force disable navigation bar
-Options: (true|false)</p>
-</li>
-<li><p><code v-pre>FORCE_DISABLE_NAV_HANDLE</code> - Force disable gesture navigation handle
-Options: (true|false)</p>
-</li>
-<li><p><code v-pre>FORCE_DISABLE_NAV_TASKBAR</code> - Force disable navigation taskbar
-Options: (true|false)</p>
-</li>
-<li><p><code v-pre>FORCE_DISABLE_NAV_HANDLE</code> - Force disable gesture navigation handle
-Options: (true|false)</p>
-</li>
-<li><p><code v-pre>FORCE_DISABLE_STATUSBAR</code> - Force disable statusbar
-Options: (true|false)</p>
-</li>
-<li><p><code v-pre>FORCE_DISABLE_RECENTS</code> - Force disable SystemUI recents
-Options: (true|false)</p>
-</li>
+<li><code v-pre>FORCE_DISABLE_NAVIGATION</code>: Force disable navigation bar. Options: (true|false)</li>
+<li><code v-pre>FORCE_DISABLE_NAV_HANDLE</code>: Force disable gesture navigation handle. Options: (true|false)</li>
+<li><code v-pre>FORCE_DISABLE_NAV_TASKBAR</code>: Force disable navigation taskbar. Options: (true|false)</li>
+<li><code v-pre>FORCE_DISABLE_NAV_HANDLE</code>: Force disable gesture navigation handle. Options: (true|false)</li>
+<li><code v-pre>FORCE_DISABLE_STATUSBAR</code>: Force disable statusbar. Options: (true|false)</li>
+<li><code v-pre>FORCE_DISABLE_RECENTS</code>: Force disable SystemUI recents. Options: (true|false)</li>
+<li><code v-pre>FORCE_HIDE_NAVBAR_WINDOW</code>: Force hide navigation bar window. Options: 0, 1</li>
 </ul>
 <p><strong>Other options available for specialized builds</strong>:</p>
 <ul>
-<li><p><code v-pre>FORCE_SET_MAX_RECENTS</code> - Sets the config_maxRecents value<br />
+<li><p><code v-pre>FORCE_SET_MAX_RECENTS</code>: Sets the config_maxRecents value<br />
 Options:</p>
 <ul>
 <li><p><code v-pre>0</code>: Disables the recent apps menu.</p>
@@ -755,10 +764,10 @@ Options:</p>
 </li>
 </ul>
 </li>
-<li><p><code v-pre>FORCE_ENABLE_CLEAR_ALL_RECENTS</code> - Sets the config_enableClearAllRecents value<br />
+<li><p><code v-pre>FORCE_ENABLE_CLEAR_ALL_RECENTS</code>: Sets the config_enableClearAllRecents value<br />
 Options: (true|false)</p>
 </li>
-<li><p><code v-pre>FORCE_DEFAULT_QS_TILES</code> - Sets the config_defaultQsTiles value<br />
+<li><p><code v-pre>FORCE_DEFAULT_QS_TILES</code>: Sets the config_defaultQsTiles value<br />
 Options:</p>
 <ul>
 <li><p><strong>none:</strong> This will remove all default quick settings tiles.</p>
@@ -777,12 +786,10 @@ Options:</p>
     </h4>
 </doc-anchor-target>
 <ul>
-<li><p><code v-pre>USE_LAUNCHER3</code> - Forces Launcher3 to be set instead of secondary launcher in build</p>
-</li>
-<li><p><code v-pre>SET_SMARTDOCK_DEFAULT</code> - Set&#x27;s SmartDock as default launcher when booting into Desktop specific builds (requires a build with SmartDock included by default)</p>
-</li>
-<li><p><code v-pre>ENABLE_QUICKSTEP_TASKBAR</code> - Set quickstep taskbar features to enabled (requires dev-options to be enabled &amp; Launcher3 to also be enabled). options: true,false</p>
-</li>
+<li><code v-pre>USE_LAUNCHER3</code>: Forces Launcher3 to be set instead of secondary launcher in build</li>
+<li><code v-pre>SET_SMARTDOCK_DEFAULT</code>: Set&#x27;s SmartDock as default launcher when booting into Desktop specific builds (requires a build with SmartDock included by default)</li>
+<li><code v-pre>ENABLE_QUICKSTEP_TASKBAR</code>: Set quickstep taskbar features to enabled (requires dev-options to be enabled &amp; Launcher3 to also be enabled). options: true,false</li>
+<li><code v-pre>FORCE_DESKTOP_ON_EXTERNAL</code>: Enable desktop mode on external display (required for MultiDisplay Input). options: 0,1</li>
 </ul>
 <doc-anchor-target id="rotationorientation">
     <h4>
@@ -791,11 +798,9 @@ Options:</p>
     </h4>
 </doc-anchor-target>
 <ul>
-<li><code v-pre>SET_SF_ROTATION=*</code> - Sets surfaceflinger hardware rotation property to the value passed</li>
-<li></li>
-<li><code v-pre>SET_OVERRIDE_FORCED_ORIENT=*</code> - Override forced orientation (true/false)</li>
-<li></li>
-<li><code v-pre>SET_SYS_APP_ROTATION=*</code> - Forces system app rotation, and has three cases:
+<li><code v-pre>SET_SF_ROTATION=*</code>: Sets surfaceflinger hardware rotation property to the value passed</li>
+<li><code v-pre>SET_OVERRIDE_FORCED_ORIENT=*</code>: Override forced orientation (true/false)</li>
+<li><code v-pre>SET_SYS_APP_ROTATION=*</code>: Forces system app rotation, and has three cases:
 <ul>
 <li>1.force_land: always show with landscape, if a portrait apk, system will scale up it</li>
 <li>2.middle_port: if a portrait apk, will show in the middle of the screen, left and right will show black</li>
@@ -809,7 +814,7 @@ Options:</p>
         <span>Misc:</span>
     </h3>
 </doc-anchor-target>
-<p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
+<p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <doc-anchor-target id="battery-stats">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#battery-stats">#</doc-anchor-trigger>
@@ -817,10 +822,10 @@ Options:</p>
     </h4>
 </doc-anchor-target>
 <ul>
-<li><p><code v-pre>SET_FAKE_BATTERY_LEVEL</code> - Let us fake the total battery percentage<br />
+<li><p><code v-pre>SET_FAKE_BATTERY_LEVEL</code>: Let us fake the total battery percentage<br />
 Options: (0-100)</p>
 </li>
-<li><p><code v-pre>SET_FAKE_CHARGING_STATUS</code> - Allow forcing battery charging status<br />
+<li><p><code v-pre>SET_FAKE_CHARGING_STATUS</code>: Allow forcing battery charging status<br />
 Options: (0|1)</p>
 </li>
 </ul>
@@ -830,7 +835,7 @@ Options: (0|1)</p>
         <span>Package Management:</span>
     </h4>
 </doc-anchor-target>
-<p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
+<p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <p>With our package management features, we have the ability to also enable/disable various packages included in the system by default using the kernel cmdline.</p>
 <p>Example: <code v-pre>HIDE_APPS=&quot;com.termux,com.android.dialer,com.android.documentsui&quot;</code></p>
 <doc-anchor-target id="hideunhide-default-apps">
@@ -840,8 +845,8 @@ Options: (0|1)</p>
     </h5>
 </doc-anchor-target>
 <ul>
-<li><code v-pre>HIDE_APPS</code> - Hides the apps via passed comma separated list</li>
-<li><code v-pre>UNHIDE_APPS</code> - Unhides the apps via passed comma separated list</li>
+<li><code v-pre>HIDE_APPS</code>: Hides the apps via passed comma separated list</li>
+<li><code v-pre>RESTORE_APPS</code>: Restores the apps via passed comma separated list</li>
 </ul>
 <doc-anchor-target id="usb-mode-functions">
     <h4>
@@ -849,11 +854,11 @@ Options: (0|1)</p>
         <span>USB Mode Functions:</span>
     </h4>
 </doc-anchor-target>
-<p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
+<p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <p>Allows switching default USB/ADB functions via cmdline</p>
 <ul>
-<li><code v-pre>FORCE_USE_ADB_CLIENT_MODE</code> - Forces USB into ADB Client mode (0=off, 1=on, 2=ADB enabled but not touching USB options)</li>
-<li><code v-pre>FORCE_USE_ADB_MASS_STORAGE</code> - Force enable ADB Mass Storage mode ofver USB (0=off, 1=on)</li>
+<li><code v-pre>FORCE_USE_ADB_CLIENT_MODE</code>: Forces USB into ADB Client mode (0=off, 1=on, 2=ADB enabled but not touching USB options)</li>
+<li><code v-pre>FORCE_USE_ADB_MASS_STORAGE</code>: Force enable ADB Mass Storage mode ofver USB (0=off, 1=on)</li>
 </ul>
 <doc-anchor-target id="iio-options-configuration">
     <h4>
@@ -861,16 +866,18 @@ Options: (0|1)</p>
         <span>IIO Options Configuration:</span>
     </h4>
 </doc-anchor-target>
-<p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
+<p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <p>This allows us to set ro.iio.* propertied through the following flags:</p>
 <ul>
-<li><code v-pre>SET_IIO_ORDER</code> - Sets ro.iio.accel.order property</li>
-<li><code v-pre>SET_IIO_ACCEL_QUIRKS</code> - Sets ro.iio.accel.quirks ptoperty</li>
-<li><code v-pre>SET_IIO_ACCEL_X_OPT_SCALE</code> - Sets ro.iio.accel.x.opt_scale property</li>
-<li><code v-pre>SET_IIO_ACCEL_Y_OPT_SCALE</code> - Sets ro.iio.accel.y.opt_scale property</li>
-<li><code v-pre>SET_IIO_ANGLVEL_QUIRKS</code> - Sets ro.iio.anglvel.quirks property</li>
-<li><code v-pre>SET_IGNORE_ATKBD</code> - Sets ro.ignore_atkbd property</li>
-<li><code v-pre>SENSORS_FORCE_KBDSENSOR</code> - Option to force kbd sensor</li>
+<li><code v-pre>SET_IIO_ORDER</code>: Sets ro.iio.accel.order property</li>
+<li><code v-pre>SET_IIO_ACCEL_QUIRKS</code>: Sets ro.iio.accel.quirks ptoperty</li>
+<li><code v-pre>SET_IIO_ACCEL_X_OPT_SCALE</code>: Sets ro.iio.accel.x.opt_scale property</li>
+<li><code v-pre>SET_IIO_ACCEL_Y_OPT_SCALE</code>: Sets ro.iio.accel.y.opt_scale property</li>
+<li><code v-pre>SET_IIO_ANGLVEL_QUIRKS</code>: Sets ro.iio.anglvel.quirks property</li>
+<li><code v-pre>SET_IGNORE_ATKBD</code>: Sets ro.ignore_atkbd property</li>
+<li><code v-pre>SENSORS_FORCE_KBDSENSOR</code>: Option to force kbd sensor</li>
+<li><code v-pre>SET_IIO_MAGN_QUIRKS</code>: Option to force magn quirks.
+Example: <code v-pre>SET_IIO_MAGN_QUIRKS=&quot;no-trig,no-event&quot;</code></li>
 </ul>
 <doc-anchor-target id="set-timezone">
     <h4>
@@ -878,7 +885,7 @@ Options: (0|1)</p>
         <span>Set Timezone:</span>
     </h4>
 </doc-anchor-target>
-<p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
+<p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <p>To use this change, pass the grub/cmdline value for your timezone using the SET_TZ_LOCATION flag.
 Timezone reference can be found here: <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">https://en.wikipedia.org/wiki/List_of_tz_database_time_zones</a></p>
 <p>Example:</p>
@@ -891,12 +898,29 @@ Timezone reference can be found here: <a href="https://en.wikipedia.org/wiki/Lis
         <span>Serial IO</span>
     </h4>
 </doc-anchor-target>
-<p>(Available through Android-Generic Add-On &amp; Bliss Bass)</p>
+<p>(Available through Android-Generic Add-On &amp; add-ons for Bass)</p>
 <ul>
-<li><code v-pre>SET_USB_BUS_PORTS</code> - Sets permissions for tty ports (chmod 666) for /dev/bus/usb/*.
+<li><code v-pre>SET_USB_BUS_PORTS</code>: Sets permissions for tty ports (chmod 666) for /dev/bus/usb/*.
 Example: <code v-pre>SET_USB_BUS_PORTS=001/001,001/002,001/003,001/004</code></li>
-<li><code v-pre>SET_TTY_PORT_PERMS</code> - Set USB bus port permissions (chmod 666) for /dev/tty*.
+<li><code v-pre>SET_TTY_PORT_PERMS</code>: Set USB bus port permissions (chmod 666) for /dev/tty*.
 Example: <code v-pre>SET_TTY_PORT_PERMS=ttyS*,ttyACM*</code></li>
+</ul>
+<doc-anchor-target id="network--radio-control-options">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#network--radio-control-options">#</doc-anchor-trigger>
+        <span>Network &amp; Radio Control Options:</span>
+    </h4>
+</doc-anchor-target>
+<p>(Available through Android-Generic Add-On &amp; add-ons for Bass)</p>
+<p>Enable/Disable Wireless Devices (Change included only in specialized builds):</p>
+<ul>
+<li><code v-pre>LOCKDOWN_WIRELESS_DEVICES</code>: A kernel level switch to disable all wireless devices. options: 0,1</li>
+<li><code v-pre>UNLOCKDOWN_WIRELESS_DEVICES</code>: A kernel level switch to enable all disabled wireless devices. options: 0,1</li>
+</ul>
+<p>Other Networking Options (Available in Bass builds):</p>
+<ul>
+<li><code v-pre>FORCE_DISABLE_ALL_RADIOS</code>: Set force disable all radios (only disables on boot, user can re-enable manually if given access). options: 0,1</li>
+<li><code v-pre>FORCE_BLUETOOTH_SERVICE</code>: Set force bluetooth service state. options: enable, disable</li>
 </ul>
 
                                 
