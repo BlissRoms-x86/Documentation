@@ -21,6 +21,12 @@ icon: home
 * [Run from Docker](Installation/run-from-docker.md)
 * [Install on Mac OS](Installation/install-on-mac-os.md)
 * [Using Auto-Install](Installation/using-auto-install.md)
+* [Using The Windows Installer](Installation/using-the-windows-installer/using-the-windows-installer.md)
+
+## Configuration
+
+* [Configuration through Command Line Parameters](configuration/Configuration-through-Command-Line-Parameters.md)
+* [Calibrate and configure IPTSD](configuration/Calibrate-and-configure-iptsd.md)
 
 ## Development
 
