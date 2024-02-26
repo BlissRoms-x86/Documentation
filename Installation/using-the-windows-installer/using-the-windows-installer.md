@@ -1,6 +1,6 @@
 ## Using the Windows Installer
 
-We maintain an installer for Windows, but we still reccommend using the standard EFI install method from our bootable USB in order to take advantage of the stability, security and updatability of Bliss OS builds. 
+We maintain an installer for Windows, but we still recommend using the standard EFI install method from our bootable USB in order to take advantage of the stability, security and updatability of Bliss OS builds. 
 
 #### Downloading the installer
 
@@ -15,7 +15,7 @@ When you launch the application, the UI is mostly self explanitory, but just in 
 
 ![alt text](images/photo_5100430151589670048_x.jpg)
 
-If you have a pervious install attempt that did not work for Bliss, Remix OS, Prime OS, etc. We reccommend that you use the **Cleanup** option first before installing. This will help avoid any configuration or installation issues. This step will ask for verification, and confirm with a dialog when complete. 
+If you have a pervious install attempt that did not work for Bliss, Remix OS, Prime OS, etc. We recommend that you use the **Cleanup** option first before installing. This will help avoid any configuration or installation issues. This step will ask for verification, and confirm with a dialog when complete. 
 
 ![alt text](images/photo_5100430151589670057_x.jpg) 
 ![alt text](images/photo_5100430151589670051_m.jpg)
