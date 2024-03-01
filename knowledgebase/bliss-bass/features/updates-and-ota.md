@@ -1,11 +1,11 @@
 # Updating BlissBass Go
 
-We support a variety of methods for updating BlissBass
+We support a variety of methods for updating Bliss Bass builds. Our installwe is simular to Bliss OS, but we add a few product focused options and features. 
 
 
 ### Manually - USB Installer
 
-When installed this way, you can easily update to the newest versions of BlissBass Go by running the USB installer and selecting the EXT4 partition, and select Do Not Format. This will retain the data from the previous install. 
+When installed this way, you can easily update to the newest versions of your Bliss Bass by running the USB installer and selecting the EXT4 partition, and select Do Not Format. This will retain the data from the previous install. 
 
 
 ### Manually - USB OEM Update
