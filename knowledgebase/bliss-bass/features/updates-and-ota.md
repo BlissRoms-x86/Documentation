@@ -1,4 +1,4 @@
-# Updating BlissBass Go
+# Updating Bliss Bass builds
 
 We support a variety of methods for updating Bliss Bass builds. Our installwe is simular to Bliss OS, but we add a few product focused options and features. 
 
