@@ -1,3 +1,8 @@
+# Power Management API
+
+We include a simple app to demonstrate the power management API. 
+
+
 ## Bliss Power Management AIDL Interface:
 
 
