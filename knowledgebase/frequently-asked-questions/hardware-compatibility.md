@@ -5,6 +5,13 @@ We have updated our hardware support tracking and moved it to a repo of it's own
 Repo: https://github.com/BlissRoms-x86/CompatibilityList
 
 **Supported CPU's:**
+
+!!!danger
+As of 2024, all of our latest BlissOS builds are targeting at x86_64-v2 CPU. [This microarchitecture levels](https://en.wikipedia.org/wiki/X86-64#Microarchitecture_levels) match with [Android ABIs requirement](https://developer.android.com/ndk/guides/abis) so your CPU must be compatible or else it won't be able to boot.
+
+To know if your CPU support x86_64-v2, check your CPU features using programs like [CPUID's CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) or search for your CPU at [CPU-World](https://www.cpu-world.com/) or [TechPowerUp's CPU database](https://www.techpowerup.com/cpu-specs/)
+!!!
+
 (as of 2022 Q4)
 
 Intel:
@@ -22,17 +29,22 @@ AMD:
 
 **Supported GPU's:** 
 
-* Intel / AMD iGPU - all supported + Vulkan \(Iris requires Mesa 21.1.3+\)
-* AMD Desktop GPUs - mostly supported + Vulkan 
-* Nvidia Desktop GPUs - poor support - no vulkan \(Uses Nouveau drivers\)
+* Intel iGPU : Supported
+* Intel dGPU (Ex: DG1/DG2) : Untested
+* AMD APU/GPU : Supported
+* Nvidia : Support but limited
 
 **Native-Bridge:**
 
-Native-Bridge is an ARM translation layer for android x86 developed by Intel and Google to run ARM apps on x86 architecture.  
-  
-How to identify Native-Bridge Types in ISO file ?
+BlissOS include native-bridge solution for translating ARM apps. If you can boot BlissOS, you can use this native bridge as it require x86_64v2 CPU. As of right now, 2 native bridge solution are being used :
+- BlissOS 14/15 : Intel's libhoudini (aka Intel Bridge Technology)
+- BlissOS 16/17 : Google's libndk_translation.
 
-* **houdini** - Includes Intel's Houdini \(Works with most Intel CPU's and some recent AMD CPU's\)
-* **libndk** - Includes Google's libndk-translation \(Works on all CPU's, but not as efficient as Houdini\) 
+These are proprietary libraries extracted from firmware of different devices. 
+
+~~How to identify Native-Bridge Types in ISO file ?~~
+
+~~* **houdini** - Includes Intel's Houdini \(Works with most Intel CPU's and some recent AMD CPU's\)~~
+~~* **libndk** - Includes Google's libndk-translation \(Works on all CPU's, but not as efficient as Houdini\)~~
 
 
