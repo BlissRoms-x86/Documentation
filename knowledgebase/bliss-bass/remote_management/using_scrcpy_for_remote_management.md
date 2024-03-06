@@ -28,7 +28,8 @@ Launching the AppImage will load to display the main GUI:
 
 ### Connecting to a device:
 
-To connect to a new device, start by clicking on the **wireless icon** under the options panel. From there, you can hit the **refresh** button to display any devices broadcasting ADB on the network, or you can type in the IP directly and tap the **Connect** button to connect to that device. 
+To connect to a new device, you will want to make sure that you have enabled ADB over wifi from the device, located in Settings > System > Developer Options (may require you to [enable developer options](https://developer.android.com/studio/debug/dev-options) first). 
+Then from the remote PC, start by clicking on the **wireless icon** under the options panel. From there, you can hit the **refresh** button to display any devices broadcasting ADB on the network, or you can type in the IP directly and tap the **Connect** button to connect to that device. 
 ![device connection](images/device_connection_2024-03-06_11-33-10.png)
 Once a device is connected, it will show the status in the grey textbox like below:
 ![device connected](images/device_connection-connected_2024-03-06_11-34-02.png)
