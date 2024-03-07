@@ -494,6 +494,14 @@ INTEL_PSTATE_STATUS=passive
 *   `ENABLE_QUICKSTEP_TASKBAR`: Set quickstep taskbar features to enabled (requires dev-options to be enabled & Launcher3 to also be enabled). options: true,false
 *   `FORCE_DESKTOP_ON_EXTERNAL`: Enable desktop mode on external display (required for MultiDisplay Input). options: 0,1
 
+#### Navigation & Input Options:
+
+*   `androidboot.bliss.force_ime_on_all_displays=true`: Force IME on secondary displays. Uses "ro.boot.bliss.force_ime_on_all_displays" property (true,false)
+*   `androidboot.force.navbar_on_secondary_displays=true`: Allow a system property to override this for desktop mode navigation to work on secondary displays. (true/false)
+*   `ro.boot.force.right_mouse_as_back=true`: Allows overriding AMOTION_EVENT_BUTTON_SECONDARY with AMOTION_EVENT_BUTTON_BACK, using a property trigger. (true/false)
+
+
+
 #### Rotation/Orientation:
    
 * `SET_SF_ROTATION=*`: Sets surfaceflinger hardware rotation property to the value passed
@@ -502,6 +510,7 @@ INTEL_PSTATE_STATUS=passive
   * 1.force_land: always show with landscape, if a portrait apk, system will scale up it
   * 2.middle_port: if a portrait apk, will show in the middle of the screen, left and right will show black
   * 3.original: original orientation, if a portrait apk, will rotate 270 degree
+* `androidboot.android.force_rotation_on_external_displays`: Set target orientation for external displays (0=0, 1=90, 2=180, 3-270)
 
 
 ### Misc:
