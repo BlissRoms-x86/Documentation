@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.763064369773">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.763159599579">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.763064369773" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.763159599579" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.763064369773" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.763159599579" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.763064369773" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.763159599579" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -795,6 +795,17 @@ Options:</p>
 <li><code v-pre>ENABLE_QUICKSTEP_TASKBAR</code>: Set quickstep taskbar features to enabled (requires dev-options to be enabled &amp; Launcher3 to also be enabled). options: true,false</li>
 <li><code v-pre>FORCE_DESKTOP_ON_EXTERNAL</code>: Enable desktop mode on external display (required for MultiDisplay Input). options: 0,1</li>
 </ul>
+<doc-anchor-target id="navigation--input-options">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#navigation--input-options">#</doc-anchor-trigger>
+        <span>Navigation &amp; Input Options:</span>
+    </h4>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>androidboot.bliss.force_ime_on_all_displays=true</code>: Force IME on secondary displays. Uses &quot;ro.boot.bliss.force_ime_on_all_displays&quot; property (true,false)</li>
+<li><code v-pre>androidboot.force.navbar_on_secondary_displays=true</code>: Allow a system property to override this for desktop mode navigation to work on secondary displays. (true/false)</li>
+<li><code v-pre>ro.boot.force.right_mouse_as_back=true</code>: Allows overriding AMOTION_EVENT_BUTTON_SECONDARY with AMOTION_EVENT_BUTTON_BACK, using a property trigger. (true/false)</li>
+</ul>
 <doc-anchor-target id="rotationorientation">
     <h4>
         <doc-anchor-trigger class="header-anchor-trigger" to="#rotationorientation">#</doc-anchor-trigger>
@@ -811,6 +822,7 @@ Options:</p>
 <li>3.original: original orientation, if a portrait apk, will rotate 270 degree</li>
 </ul>
 </li>
+<li><code v-pre>androidboot.android.force_rotation_on_external_displays</code>: Set target orientation for external displays (0=0, 1=90, 2=180, 3-270)</li>
 </ul>
 <doc-anchor-target id="misc">
     <h3>
