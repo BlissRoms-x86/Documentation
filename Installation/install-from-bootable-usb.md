@@ -14,7 +14,27 @@ We recommend beginners to use this method as it is the least error-prone and non
 
 You can download a stable Bliss OS build from the website [here](https://blissos.org).
 
-## Install Bliss OS
+## Install Bliss OS To It's Own Partition
+
+When booting into the installer, choose "Installation - Install Android-x86 to harddisk":
+
+![Booting into the installer](../.gitbook/assets/booting-into-installer.png)
+
+Once the installer boots, you will be asked to select the target install partition. For MBR (legacy) setups, this is normally the only partition on the device, so select it and choose EXT4 when asked if you want to reformat.  
+
+![Choose partition](../.gitbook/assets/choose-partition.png)
+
+Choose "Yes" when prompted about the `GRUB` bootloader:
+
+![Install GRUB](../.gitbook/assets/install-grub.png)
+
+The installer will begin to write the changes to the disk. Following that process, you will be asked if you want to setup the install for OTA (A/B) updates. Select **Yes** if you want to use OTA updates or recovery updates in the future. This will take some time. Go grab a coffee!
+
+![Grab a coffee](../.gitbook/assets/grab-a-coffee.png)
+
+Congratulations! You should now have a functional dual-boot with Bliss OS!
+
+## Install Bliss OS On Your Windows Partition
 
 {% hint style="info" %}
 If you are looking for a GUI based installer for Windows, we do include one in some of the .ISO's we produce, but we do have our own option for Windows installer documentation that can be found here: [Using The Windows Installer](using-the-windows-installer/using-the-windows-installer.md)
@@ -36,11 +56,7 @@ Choose "Yes" when prompted about the `GRUB` bootloader:
 
 ![Install GRUB](../.gitbook/assets/install-grub.png)
 
-The installer will ask whether or not you want to make the system partition read/write-able. If you want to root your installation, you will choose "Yes" here. Otherwise, choose "No."
-
-![Root installation](../.gitbook/assets/root-installation.png)
-
-The installer will begin to write the changes to the disk. This will take some time. Go grab a coffee!
+The installer will begin to write the changes to the disk. You may be asked if you want to setup the install for OTA (A/B) updates. Select **NO** for this install type as OTA is not supported for NTFS installs. This will take some time. Go grab a coffee!
 
 ![Grab a coffee](../.gitbook/assets/grab-a-coffee.png)
 
@@ -56,15 +72,15 @@ You can download a stable Bliss OS build by clicking on the link [here](https://
 
 ## Install Bliss OS
 
-{% hint style="info" %}
-If you are looking for a GUI based installer for Windows, we do include one in some of the .ISO's we produce, but we do have our own option for Windows installer documentation that can be found here: [Using The Windows Installer](using-the-windows-installer/using-the-windows-installer.md)
-{% endhint %}
-
 When booting into the installer, choose "Android-x86 ... Installation":
 
 ![Booting into the uefi installer](../.gitbook/assets/uefi-boot-installer.png)
 
-Once the installer boots, you will be asked to select the target drive. You will need to choose what drive to install it too, this could be a pre-existing install of something, or a new drive, shown will be a new drive. you will need to select "Create/Modify partitions" 
+### Setting up A New Partition:
+
+!!(WARNING: This is only needed if you intend to wipe everything from your PC and install Bliss OS only)!!
+
+Once booted into the installer to setup your install as a new drive, you will need to select "Create/Modify partitions" 
 
 {% hint style="info" %}
 WARNING THIS WILL DELETE ANY DATA ON THE DRIVE
@@ -72,7 +88,7 @@ WARNING THIS WILL DELETE ANY DATA ON THE DRIVE
 
 ![Partitioning p1](../.gitbook/assets/uefi-create.png)
 
-In the next screen, we need to make **two** partiitons for this to work, as Bliss needs to install a bootloader to boot to. if you have a pre-existing install of linux, this step may be unnecessary.
+In the next screen, we need to remove all existing partitions on the device and make **two** new partiitons for this to work, as Bliss needs to install a bootloader to boot to. if you have a pre-existing install of linux, this step may be unnecessary.
 
 First create the EFI partition, this is the partition that is used to install the bootloader. 
 
@@ -92,7 +108,11 @@ Next we need to make the second partition this is the partition that the bulk of
 
 ![Partitioned](../.gitbook/assets/uefi-partitioned.png)
 
-Now that we have the drives partitioned, we can start to install android. Select the ANDROID partition that we have made before, and format it as ext4. this is the recomended format unless windows compatibility is need, in that case select NTFS. and click < Yes > on the next screen
+### Installing On Existing Partition
+
+Once the installer boots, you will be asked to select your target ESP (EFI) partition first (Usually the first partition in the drive, around 500mb-2gb), then you will be asked to select the target install drive. 
+
+You will then need to choose what drive to install it too, this could be a pre-existing partition or the partition you created above. Select that larger target partition and format it as ext4. this is the recomended format. Click < Yes > on the next screen
 
 ![Format Drive p1](../.gitbook/assets/uefi-ext4.png)
 ![Format Drive p2](../.gitbook/assets/uefi-risks.png)
@@ -101,12 +121,7 @@ The installer will procede to format and install android, you will then be promp
 
 ![Install Grub](../.gitbook/assets/uefi-grub.png)
 
-The installer will ask whether or not you want to make the system partition read/write-able. If you want to root your installation, you will choose "Yes" here. Otherwise, choose "No."
-
-![Root installation](../.gitbook/assets/root-installation.png)
-
-
-And just like with legacy, The installer will begin to write the changes to the disk. This will take some time. Go grab another coffee!
+The installer will begin to write the changes to the disk. You might be asked if you want to setup the install for OTA (A/B) updates. Select **Yes** if you have a large enough drive to handle the system taking up twice as much space. This will take some time. Go grab another coffee!
 
 ![Grab a coffee](../.gitbook/assets/grab-a-coffee.png)
 
