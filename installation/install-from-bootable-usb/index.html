@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.765053821544">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.765404402951">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -32,11 +32,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.765053821544" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.765404402951" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.765053821544" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.765404402951" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.765053821544" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.765404402951" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -244,10 +244,41 @@
     </h2>
 </doc-anchor-target>
 <p>You can download a stable Bliss OS build from the website <a href="https://blissos.org">here</a>.</p>
-<doc-anchor-target id="install-bliss-os">
+<doc-anchor-target id="install-bliss-os-to-its-own-partition">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#install-bliss-os">#</doc-anchor-trigger>
-        <span>Install Bliss OS</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#install-bliss-os-to-its-own-partition">#</doc-anchor-trigger>
+        <span>Install Bliss OS To It&#x27;s Own Partition</span>
+    </h2>
+</doc-anchor-target>
+<p>When booting into the installer, choose &quot;Installation - Install Android-x86 to harddisk&quot;:</p>
+<p><figure class="content-center">
+    <img src="../../.gitbook/assets/booting-into-installer.png" alt="Booting into the installer">
+    <figcaption class="caption">Booting into the installer</figcaption>
+</figure>
+</p>
+<p>Once the installer boots, you will be asked to select the target install partition. For MBR (legacy) setups, this is normally the only partition on the device, so select it and choose EXT4 when asked if you want to reformat.</p>
+<p><figure class="content-center">
+    <img src="../../.gitbook/assets/choose-partition.png" alt="Choose partition">
+    <figcaption class="caption">Choose partition</figcaption>
+</figure>
+</p>
+<p>Choose &quot;Yes&quot; when prompted about the <code v-pre>GRUB</code> bootloader:</p>
+<p><figure class="content-center">
+    <img src="../../.gitbook/assets/install-grub.png" alt="Install GRUB">
+    <figcaption class="caption">Install GRUB</figcaption>
+</figure>
+</p>
+<p>The installer will begin to write the changes to the disk. Following that process, you will be asked if you want to setup the install for OTA (A/B) updates. Select <strong>Yes</strong> if you want to use OTA updates or recovery updates in the future. This will take some time. Go grab a coffee!</p>
+<p><figure class="content-center">
+    <img src="../../.gitbook/assets/grab-a-coffee.png" alt="Grab a coffee">
+    <figcaption class="caption">Grab a coffee</figcaption>
+</figure>
+</p>
+<p>Congratulations! You should now have a functional dual-boot with Bliss OS!</p>
+<doc-anchor-target id="install-bliss-os-on-your-windows-partition">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#install-bliss-os-on-your-windows-partition">#</doc-anchor-trigger>
+        <span>Install Bliss OS On Your Windows Partition</span>
     </h2>
 </doc-anchor-target>
 <div class="flex mb-6">
@@ -291,13 +322,7 @@
     <figcaption class="caption">Install GRUB</figcaption>
 </figure>
 </p>
-<p>The installer will ask whether or not you want to make the system partition read/write-able. If you want to root your installation, you will choose &quot;Yes&quot; here. Otherwise, choose &quot;No.&quot;</p>
-<p><figure class="content-center">
-    <img src="../../.gitbook/assets/root-installation.png" alt="Root installation">
-    <figcaption class="caption">Root installation</figcaption>
-</figure>
-</p>
-<p>The installer will begin to write the changes to the disk. This will take some time. Go grab a coffee!</p>
+<p>The installer will begin to write the changes to the disk. You may be asked if you want to setup the install for OTA (A/B) updates. Select <strong>NO</strong> for this install type as OTA is not supported for NTFS installs. This will take some time. Go grab a coffee!</p>
 <p><figure class="content-center">
     <img src="../../.gitbook/assets/grab-a-coffee.png" alt="Grab a coffee">
     <figcaption class="caption">Grab a coffee</figcaption>
@@ -318,36 +343,26 @@
     </h2>
 </doc-anchor-target>
 <p>You can download a stable Bliss OS build by clicking on the link <a href="https://sourceforge.net/projects/blissos-x86/">here</a>, non-stable builds can be found <a href="https://sourceforge.net/projects/blissos-dev/">here.</a></p>
-<doc-anchor-target id="install-bliss-os-1">
+<doc-anchor-target id="install-bliss-os">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#install-bliss-os-1">#</doc-anchor-trigger>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#install-bliss-os">#</doc-anchor-trigger>
         <span>Install Bliss OS</span>
     </h2>
 </doc-anchor-target>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p>If you are looking for a GUI based installer for Windows, we do include one in some of the .ISO&#x27;s we produce, but we do have our own option for Windows installer documentation that can be found here: <a href="../using-the-windows-installer/">Using The Windows Installer</a></p>
-        </div>
-    </div>
-</div>
 <p>When booting into the installer, choose &quot;Android-x86 ... Installation&quot;:</p>
 <p><figure class="content-center">
     <img src="../../.gitbook/assets/uefi-boot-installer.png" alt="Booting into the uefi installer">
     <figcaption class="caption">Booting into the uefi installer</figcaption>
 </figure>
 </p>
-<p>Once the installer boots, you will be asked to select the target drive. You will need to choose what drive to install it too, this could be a pre-existing install of something, or a new drive, shown will be a new drive. you will need to select &quot;Create/Modify partitions&quot;</p>
+<doc-anchor-target id="setting-up-a-new-partition">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#setting-up-a-new-partition">#</doc-anchor-trigger>
+        <span>Setting up A New Partition:</span>
+    </h3>
+</doc-anchor-target>
+<p>!!(WARNING: This is only needed if you intend to wipe everything from your PC and install Bliss OS only)!!</p>
+<p>Once booted into the installer to setup your install as a new drive, you will need to select &quot;Create/Modify partitions&quot;</p>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
@@ -370,7 +385,7 @@
     <figcaption class="caption">Partitioning p1</figcaption>
 </figure>
 </p>
-<p>In the next screen, we need to make <strong>two</strong> partiitons for this to work, as Bliss needs to install a bootloader to boot to. if you have a pre-existing install of linux, this step may be unnecessary.</p>
+<p>In the next screen, we need to remove all existing partitions on the device and make <strong>two</strong> new partiitons for this to work, as Bliss needs to install a bootloader to boot to. if you have a pre-existing install of linux, this step may be unnecessary.</p>
 <p>First create the EFI partition, this is the partition that is used to install the bootloader.</p>
 <ol>
 <li>Create a [ new ] partition</li>
@@ -395,7 +410,14 @@
     <figcaption class="caption">Partitioned</figcaption>
 </figure>
 </p>
-<p>Now that we have the drives partitioned, we can start to install android. Select the ANDROID partition that we have made before, and format it as ext4. this is the recomended format unless windows compatibility is need, in that case select NTFS. and click &lt; Yes &gt; on the next screen</p>
+<doc-anchor-target id="installing-on-existing-partition">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#installing-on-existing-partition">#</doc-anchor-trigger>
+        <span>Installing On Existing Partition</span>
+    </h3>
+</doc-anchor-target>
+<p>Once the installer boots, you will be asked to select your target ESP (EFI) partition first (Usually the first partition in the drive, around 500mb-2gb), then you will be asked to select the target install drive.</p>
+<p>You will then need to choose what drive to install it too, this could be a pre-existing partition or the partition you created above. Select that larger target partition and format it as ext4. this is the recomended format. Click &lt; Yes &gt; on the next screen</p>
 <p><figure class="content-center">
     <img src="../../.gitbook/assets/uefi-ext4.png" alt="Format Drive p1">
     <figcaption class="caption">Format Drive p1</figcaption>
@@ -411,13 +433,7 @@
     <figcaption class="caption">Install Grub</figcaption>
 </figure>
 </p>
-<p>The installer will ask whether or not you want to make the system partition read/write-able. If you want to root your installation, you will choose &quot;Yes&quot; here. Otherwise, choose &quot;No.&quot;</p>
-<p><figure class="content-center">
-    <img src="../../.gitbook/assets/root-installation.png" alt="Root installation">
-    <figcaption class="caption">Root installation</figcaption>
-</figure>
-</p>
-<p>And just like with legacy, The installer will begin to write the changes to the disk. This will take some time. Go grab another coffee!</p>
+<p>The installer will begin to write the changes to the disk. You might be asked if you want to setup the install for OTA (A/B) updates. Select <strong>Yes</strong> if you have a large enough drive to handle the system taking up twice as much space. This will take some time. Go grab another coffee!</p>
 <p><figure class="content-center">
     <img src="../../.gitbook/assets/grab-a-coffee.png" alt="Grab a coffee">
     <figcaption class="caption">Grab a coffee</figcaption>
