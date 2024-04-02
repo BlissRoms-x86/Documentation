@@ -106,13 +106,15 @@ Next we need to make the second partition this is the partition that the bulk of
 2. We can leave everything default. Although a name is not necesary we can call it ANDROID.
 3. Lastly we click [ WRITE ] and [ QUIT ] 
 
-![Partitioned](../.gitbook/assets/uefi-partitioned.png)
-
 ### Installing On Existing Partition
 
-Once the installer boots, you will be asked to select your target ESP (EFI) partition first (Usually the first partition in the drive, around 500mb-2gb), then you will be asked to select the target install drive. 
+Once the installer boots, you will be asked to select your target ESP (EFI) partition first (Usually the first partition in the drive, around 500mb-2gb).
 
-You will then need to choose what drive to install it too, this could be a pre-existing partition or the partition you created above. Select that larger target partition and format it as ext4. this is the recomended format. Click < Yes > on the next screen
+You will then need to choose what drive to install it too, this could be a pre-existing partition or the partition you created above. Select that larger target partition and format it as ext4. 
+
+![Partitioned](../.gitbook/assets/uefi-partitioned.png)
+
+This is the recomended format. Click < Yes > on the next screen
 
 ![Format Drive p1](../.gitbook/assets/uefi-ext4.png)
 ![Format Drive p2](../.gitbook/assets/uefi-risks.png)
