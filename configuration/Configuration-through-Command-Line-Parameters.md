@@ -139,6 +139,13 @@ In some cases, we are working with hardware that requires Gralloc4 specs. We can
 
 ### Media Stack:
 
+#### Audio HAL:
+
+The latest versions of Bliss OS have 2 audio HALs, and defaults to the new one (x86_celadon).
+We can configure them though by using the following boot flags:
+- `AUDIO_PRIMARY=x86_celadon`
+- `AUDIO_PRIMARY=x86`
+
 #### Video Encoders/Decoders:
 
 By default, BlissOS will use AOSP's codec2 software decoder. We also offer a few various options that allow you to select different video decoders stack options:
