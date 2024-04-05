@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.765407587821">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.765648347313">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=3.5.0.765407587821" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.5.0.765648347313" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.765407587821" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.5.0.765648347313" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.765407587821" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.5.0.765648347313" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -942,7 +942,17 @@ Example: <code v-pre>SET_TTY_PORT_PERMS=ttyS*,ttyACM*</code></li>
         <span>Network &amp; Radio Control Options:</span>
     </h4>
 </doc-anchor-target>
-<p>(Available through Android-Generic Add-On &amp; add-ons for Bass)</p>
+<doc-anchor-target id="bluetooth">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#bluetooth">#</doc-anchor-trigger>
+        <span>Bluetooth</span>
+    </h5>
+</doc-anchor-target>
+<p>We ship recent builds with two Bluetooth HAL&#x27;s and it defaults to the newest one with BTLE support. For devices that new HAL does not work on, we suggest using the legacy BT HAL.</p>
+<ul>
+<li><code v-pre>BTLINUX_HAL=1</code>: Use Bluetooth Linux HAL</li>
+</ul>
+<p>(Below items are available through Android-Generic Add-On &amp; add-ons for Bass)</p>
 <p>Enable/Disable Wireless Devices (Change included only in specialized builds):</p>
 <ul>
 <li><code v-pre>LOCKDOWN_WIRELESS_DEVICES</code>: A kernel level switch to disable all wireless devices. options: 0,1</li>
