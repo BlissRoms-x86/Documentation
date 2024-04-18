@@ -524,7 +524,7 @@ INTEL_PSTATE_STATUS=passive
 
 #### Battery Stats:
 
-*   `androidboot.fake_battery=true`: AOSP implementation of fake battery status
+*   `androidboot.fake_battery=1`: AOSP implementation of fake battery status
 
 (Available through Android-Generic Add-On & add-ons for Bass builds)
 
