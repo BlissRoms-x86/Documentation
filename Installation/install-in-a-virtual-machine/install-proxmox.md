@@ -17,14 +17,14 @@ This has been tested in Proxmox 8.1 and 8.2
 
 ## Create a new VM
 
-1. Download the release of BlissOS that you would like to use - tested 14/15/16 as of 2024-04, and place it in the ISO directory (default `/var/lib/vz/template/iso`)
+1. Download the release of BlissOS that you would like to use, tested 14/15/16 as of April 2024, and place the file in the ISO directory (default `/var/lib/vz/template/iso`)
 2. On the Proxmox WebUI, click `Create VM`. *DO NOT START THE VM AFTER CONFIGURING.*
 3. Click the `Advanced` checkbox on the popup that appears.
 4. Fill in the following settings for the General tab:
 
 `Name:` whateveryouwant
 `Shutdown timeout:` `5` (This is because by default it cannot shutdown the VM, so it will kill the VM after 5 seconds. Adjust as per your needs.)
-`Start at boot:` Checked, if you would like it to start when the host machine starts)
+`Start at boot:` Checked, if you would like it to start when the host machine starts.
 
 5. Click `Next`, and fill in the following settings for the OS tab:
 `Use CD/DVD disc image file (iso)`: <ISO OF BLISS OS>
@@ -52,9 +52,9 @@ This has been tested in Proxmox 8.1 and 8.2
 `Bridge`: Your network bridge (default is `vmbr0`)
 `Model`: `VirtIO (paravirtualized)`
 
-11. Click `Next`, and in the Confirm tab, ensure everything is as you configured it. Click `Confirm`. DO NOT START THE VM.
+11. Click `Next`, and in the `Confirm` tab, ensure everything is as you configured it. Click `Confirm`. DO NOT START THE VM.
 
-12. Select the VM on the left hand side window of the Proxmox WebUI
+12. Select the VM on the left-hand side window of the Proxmox WebUI
 
 13. Click the `Options` menu item in the Virtual Machine settings.
 
@@ -111,7 +111,7 @@ To do so, on the host Proxmox, via SSH:
 #!/bin/bash
 if [ "$2" == "pre-stop" ]
 then
-    nohup /usr/sbin/qm stop "$1" &>/dev/null &
+  nohup /usr/sbin/qm stop "$1" &>/dev/null &
 fi
 ```
 
@@ -124,3 +124,5 @@ qm set VMID --hookscript local:snippets/forcestop.sh
 ```
 
 This will stop the Virtual Machine after the timeout in the `Start/Shutdown order` under `Options` in the Proxmox UI.
+
+> To remove it: `qm set VMID --delete hookscript`
