@@ -14,6 +14,13 @@ We recommend beginners to use this method as it is the least error-prone and non
 
 You can download a stable Bliss OS build from the website [here](https://blissos.org).
 
+## Bios Setup
+
+You will need to update a couple configs in your PC BIOS:
+- Disable TPM (drive encryption)
+- Disable Secure Boot
+- Make sure drive access is set to AHCI
+
 ## Install Bliss OS To It's Own Partition
 
 When booting into the installer, choose "Installation - Install Android-x86 to harddisk":
