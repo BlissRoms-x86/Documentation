@@ -70,4 +70,8 @@ On Bliss OS builds <= 15.8.8, we have different drivers we can try (1/2). We use
 snd-intel-dspcfg.dsp_driver=1
 ```
 
+### Select a differrent audio HAL
 
+On Bliss OS v15.9+, 16.8+, we have multiple audio HAL's included, allowing you to switch from one to the other using grub command line. The default HAL is now the new one:
+New: `AUDIO_PRIMARY=x86_celadon` 
+Legacy: `AUDIO_PRIMARY=x86`
