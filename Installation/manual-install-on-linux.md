@@ -10,25 +10,29 @@ Create a directory at / as /blissos
 
 ```
 menuentry "BlissOS (Default) w/ FFMPEG" { 
-    set SOURCE_NAME="blissos" search --set=root --file /$SOURCE_NAME/kernel 
+    set SOURCE_NAME="blissos"
+    search --set=root --file /$SOURCE_NAME/kernel 
     linux /$SOURCE_NAME/kernel FFMPEG_CODEC=1 FFMPEG_PREFER_C2=1 quiet root=/dev/ram0 SRC=/$SOURCE_NAME  
     initrd /$SOURCE_NAME/initrd.img
 }
 
 menuentry "BlissOS (Intel) w/ FFMPEG" { 
-    set SOURCE_NAME="blissos" search --set=root --file /$SOURCE_NAME/kernel 
+    set SOURCE_NAME="blissos"
+    search --set=root --file /$SOURCE_NAME/kernel 
     linux /$SOURCE_NAME/kernel HWC=drm_minigbm_celadon GRALLOC=minigbm FFMPEG_CODEC=1 FFMPEG_PREFER_C2=1 quiet root=/dev/ram0 SRC=/$SOURCE_NAME  
     initrd /$SOURCE_NAME/initrd.img
 }
 
 menuentry "BlissOS PC-Mode (Default) w/ FFMPEG" { 
-    set SOURCE_NAME="blissos" search --set=root --file /$SOURCE_NAME/kernel 
+    set SOURCE_NAME="blissos"
+    search --set=root --file /$SOURCE_NAME/kernel 
     linux /$SOURCE_NAME/kernel  quiet root=/dev/ram0 SRC=/$SOURCE_NAME  
     initrd /$SOURCE_NAME/initrd.img
 }
 
 menuentry "BlissOS PC-Mode (Intel) w/ FFMPEG" { 
-    set SOURCE_NAME="blissos" search --set=root --file /$SOURCE_NAME/kernel 
+    set SOURCE_NAME="blissos"
+    search --set=root --file /$SOURCE_NAME/kernel 
     linux /$SOURCE_NAME/kernel PC_MODE=1 HWC=drm_minigbm_celadon GRALLOC=minigbm FFMPEG_CODEC=1 FFMPEG_PREFER_C2=1 quiet root=/dev/ram0 SRC=/$SOURCE_NAME  
     initrd /$SOURCE_NAME/initrd.img
 }
