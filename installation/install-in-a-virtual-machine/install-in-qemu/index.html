@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.769517388065">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.5.0.772586731659">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.5.0">
@@ -30,11 +30,11 @@
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../../resources/css/retype.css?v=3.5.0.769517388065" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.5.0.772586731659" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.769517388065" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.5.0.772586731659" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.5.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.769517388065" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.5.0.772586731659" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -233,6 +233,7 @@
 
 <p>This article is a guide to install <code v-pre>Android Generic</code> builds on Qemu. Bliss 14 at the current moment does not work. Gearlock causes resizefs errors that do not occur in the current Project Sakura build. There is a version of Bliss 11.13 that does have a working Gearlock in the BLISS OS telegram group.</p>
 <p>Also tested is AOSP 12. with AOSP 12 you may need to boot with hwcomposer.drm to get it to work properly when using virgl graphics. currently default boot does not work, and while using gbm mesa, the android UI crashes when a mouse is drawn. so while a keyboard works. no mouse control even with a real mouse passed through to the VM. this is not an issue when using hwcomposer.drm. I recommend duplicating or editing the hwcompser.drm entry, remove &#x27;DEBUG=2&#x27; from it. as it will allow usage as normal.</p>
+<p>This document also assumes that you have downloaded the latest iso of Bliss OS from our website and are using that for the <code v-pre>-cdrom images/&lt;BLISS_IMAGE_NAME&gt;.iso</code></p>
 <doc-anchor-target id="background">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#background">#</doc-anchor-trigger>
@@ -270,7 +271,7 @@ qemu-system-x86_64 \
 -m 4096 -smp 4 -cpu host \
 -bios /usr/share/ovmf/x64/OVMF.fd \
 -drive file=disks/bliss14-k54-gapps.qcow2,if=virtio \
--cdrom images/Bliss14-k54-gapps.iso \
+-cdrom images/&lt;BLISS_IMAGE_NAME&gt;.iso \
 -usb \
 -device virtio-tablet \
 -device virtio-keyboard \
@@ -295,7 +296,7 @@ qemu-system-x86_64 \
 <p><code v-pre>-cpu host</code> This tells Qemu what CPU it should be trying telling the guest it is. Generally it is the preferred option. However in case you start to get instability <code v-pre>-cpu qemu64</code> may be the option you need as it presents a very bare bones cpu to the VM. see <code v-pre>qemu-cpu-models</code> of the Qemu docs to learn more.</p>
 <p><code v-pre>-bios /usr/share/ovmf/x64/OVMF.fd \</code> is needed to tell Qemu to boot using UEFI, which is necessary as right now there is a bug that prevents android-generic based roms from being installed when in legacy mode. It is important to note that the location of this can vary depending on the host OS.</p>
 <p><code v-pre>-drive file=disks/bliss14-k54-gapps.qcow2,if=virtio \</code> is how we mount the disk. Using this method instead of <code v-pre>-hda</code> lets us use virtio driver instead of emulated driver, giving us greater performance in the VM.</p>
-<p><code v-pre>-cdrom images/Bliss-v11.iso \</code> Just mount the iso for bliss, while we could use virtio driver for this, there is no real need to, because it&#x27;s only use is installing the OS, this can be removed when the VM is installed</p>
+<p><code v-pre>-cdrom images/&lt;BLISS_IMAGE_NAME&gt;.iso \</code> (Replace BLISS_IMAGE_NAME with the full filename of the iso file you downloaded) Just mount the iso for bliss, while we could use virtio driver for this, there is no real need to, because it&#x27;s only use is installing the OS, this can be removed when the VM is installed</p>
 <p><code v-pre>-usb</code> is used to tell Qemu to add a USB controller, no real need to give it any additional arguments</p>
 <p><code v-pre>-device virtio-tablet </code> is one of two options for mouse capture the other being <code v-pre>-device virtio-mouse</code> using Tablet will allow you to use Qemu as if it were any other app, using <code v-pre>virtio-mouse</code> on the other hand will capture the mouse, and lock it to the VM. and to free it you will need to click <code v-pre>ctrl+alt</code> to free it. You may use <code v-pre>usb-mouse</code> or <code v-pre>usb-tablet</code> to use a emulated mouse and tablet instead of the paravirtualized ones. which incurs a very minor preformance hit. but also a measurable latency one.</p>
 <p><code v-pre>-device virtio-keyboard</code>  is for keyboard, no need to change anything here, <code v-pre>usb-kbd</code> also exists for using emulated keyboard instead.</p>
