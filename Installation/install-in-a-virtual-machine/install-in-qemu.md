@@ -9,6 +9,8 @@ This article is a guide to install `Android Generic` builds on Qemu. Bliss 14 at
 
 Also tested is AOSP 12. with AOSP 12 you may need to boot with hwcomposer.drm to get it to work properly when using virgl graphics. currently default boot does not work, and while using gbm mesa, the android UI crashes when a mouse is drawn. so while a keyboard works. no mouse control even with a real mouse passed through to the VM. this is not an issue when using hwcomposer.drm. I recommend duplicating or editing the hwcompser.drm entry, remove 'DEBUG=2' from it. as it will allow usage as normal.
 
+This document also assumes that you have downloaded the latest iso of Bliss OS from our website and are using that for the `-cdrom images/<BLISS_IMAGE_NAME>.iso`
+
 ## Background
 
 Qemu while simple in use, can be complicated to understand for beginners. This is because Qemu has a LOT of options for customization, many of which are useful, but more so that are not. 
@@ -45,7 +47,7 @@ Below is a sample bash script used to run Bliss14 in a Qemu VM
  -m 4096 -smp 4 -cpu host \
  -bios /usr/share/ovmf/x64/OVMF.fd \
  -drive file=disks/bliss14-k54-gapps.qcow2,if=virtio \
- -cdrom images/Bliss14-k54-gapps.iso \
+ -cdrom images/<BLISS_IMAGE_NAME>.iso \
  -usb \
  -device virtio-tablet \
  -device virtio-keyboard \
@@ -76,7 +78,7 @@ While this looks a little complicated, when we break this down we can see that i
 
 `-drive file=disks/bliss14-k54-gapps.qcow2,if=virtio \` is how we mount the disk. Using this method instead of `-hda` lets us use virtio driver instead of emulated driver, giving us greater performance in the VM.
 
-`-cdrom images/Bliss-v11.iso \` Just mount the iso for bliss, while we could use virtio driver for this, there is no real need to, because it's only use is installing the OS, this can be removed when the VM is installed
+`-cdrom images/<BLISS_IMAGE_NAME>.iso \` (Replace BLISS_IMAGE_NAME with the full filename of the iso file you downloaded) Just mount the iso for bliss, while we could use virtio driver for this, there is no real need to, because it's only use is installing the OS, this can be removed when the VM is installed
 
 `-usb` is used to tell Qemu to add a USB controller, no real need to give it any additional arguments
 
