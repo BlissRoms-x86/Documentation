@@ -75,7 +75,13 @@ Congratulations! You should now have a functional dual-boot with Bliss OS!
 
 ## Download Bliss OS
 
-You can download a stable Bliss OS build by clicking on the link [here](https://sourceforge.net/projects/blissos-x86/), non-stable builds can be found [here.](https://sourceforge.net/projects/blissos-dev/)
+You can download a stable Bliss OS build by clicking on the link [here](https://sourceforge.net/projects/blissos-x86/), non-stable builds can be found [here.](https://sourceforge.net/projects/blissos-dev/) 
+Please make sure you are downloading the latest .iso and not the OTA update .zip.
+
+## Flash iso to USB drive
+
+We recommend flashing the iso to a USB drive using Rufus or Belana Etcher, usong default options for each. 
+These images are not compatible with Ventoy. 
 
 ## Install Bliss OS
 
