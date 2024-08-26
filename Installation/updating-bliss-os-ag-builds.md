@@ -1,6 +1,6 @@
 # Updating Bliss OS/AG builds
 
-Somethmes you might want to update your Bliss OS/AG install when a new release is pushed out. Doing this is simple, as long as you used our documented methods to install. 
+Sometimes you might want to update your Bliss OS/AG install when a new release is pushed out. Doing this is simple, as long as you used our documented methods to install. 
 
 **Bootable USB Method:**
 
