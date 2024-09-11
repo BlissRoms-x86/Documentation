@@ -61,3 +61,4 @@ icon: home
 * [Troubleshooting - Remount as RW](knowledgebase/troubleshooting/remount-system-as-read-write.md)
 * [Troubleshooting - Sound](knowledgebase/troubleshooting/sound-issues.md)
 * [Troubleshooting - WiFi](knowledgebase/troubleshooting/wifi-issues.md)
+* [Troubleshooting - Disable touchpad](knowledgebase/troubleshooting/disable-touchpad.md)
