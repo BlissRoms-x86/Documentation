@@ -5,16 +5,16 @@ Accidental touches due to palm contact with the touchpad can be quite frustratin
 In order to disable the touchpad, you'll need to access a root shell. Here's how to get root privileges.
 
 1. **Open KernelSU:**
-   - From the app drawer, locate and open **KernelSU** app.
+   - **KernelSU** manager app is automatically installed in Bliss OS.
    
 2. **Enable Superuser for Termux:**
-   - In the KernelSU interface, find **Termux** in the list of installed apps.
-   - Enable superuser privileges for Termux.
+   - In the KernelSU interface, find **Termux** in the list of apps from superuser tab.
+   - Enable superuser for Termux.
 
 ### Step 2: Launch Termux and Switch to Root User
 
 1. **Open Termux:**
-   - **Termux** app is pre-installed in Bliss OS.
+   - **Termux** is a terminal app which is automatically installed in Bliss OS.
 
 2. **Open a root shell:**
    - In Termux, type `su` and press **Enter** to open a root shell.
@@ -45,13 +45,13 @@ To disable the touchpad, we need to identify which event device corresponds to i
    getevent -ql
    ```
 2. Tap on the touchpad, and the command will display input events associated with that touchpad.
-3. Once you've determined the correct event number **X** (eventX), use the same command to disable it:  
+3. Once you've determined the correct event number **X** (eventX), press ctrl+c to interrupt the running getevent program and use the same command to disable it:  
    ```bash
    echo remove > /sys/class/input/eventX/uevent
    ```
 
 
-Congratulations, now you should have successfully disabled your laptop's touchpad. Should you need to re-enable the touchpad, reboot the system or trigger the uevent to re-add the device:
+Congratulations, now you should have successfully disabled your laptop's touchpad. To re-enable the touchpad, reboot the system or trigger the uevent to re-add the device:
    ```bash
    echo add > /sys/class/input/eventX/uevent
    ```
