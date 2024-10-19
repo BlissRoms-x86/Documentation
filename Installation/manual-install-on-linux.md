@@ -55,6 +55,7 @@ This method assumes you already have systemd-boot used by your Linux installatio
 2. Create a /blissOS directory on a ext4 partition on the same disk. Copy system.sys and create a data directory inside the /blissOS directory.
 2b. If you do not have an ext4 partition you can use FAT32 or NTFS with data.img file (see above, if using FAT32 the data.img file cannot be larger than 4GB).
 3. Create entries for blissOS in /boot/loader/entries/ (or /efi/loader/entries, if you mounted your ESP parittion as /efi). Each entry should be a seperate .conf file.
+   
 blissos-default.conf
 ```
 title   BlissOS
