@@ -26,7 +26,7 @@ menuentry "BlissOS (Intel) w/ FFMPEG" {
 menuentry "BlissOS PC-Mode (Default) w/ FFMPEG" { 
     set SOURCE_NAME="blissos"
     search --set=root --file /$SOURCE_NAME/kernel 
-    linux /$SOURCE_NAME/kernel  quiet root=/dev/ram0 SRC=/$SOURCE_NAME  
+    linux /$SOURCE_NAME/kernel PC_MODE=1 quiet root=/dev/ram0 SRC=/$SOURCE_NAME  
     initrd /$SOURCE_NAME/initrd.img
 }
 
@@ -48,6 +48,40 @@ Alternatively, one can use `truncate`
 ```
 truncate -s 8G data.img
 mkfs.ext4 -F -b 4096 -L "/data" data.img
+```
+## Alternative using systemd-boot
+This method assumes you already have systemd-boot used by your Linux installation, please refer to your distro's documentation if you wish to install it.
+1. Extract initrd.img and kernel from the blissOS ISO to your EFI partition. (You may rename the files if they conflict with your current Linux installation just ensure you match the config files to the new filenames)
+2. Create a /blissOS directory on a ext4 partition on the same disk. Copy system.sys and create a data directory inside the /blissOS directory.
+2b. If you do not have an ext4 partition you can use FAT32 or NTFS with data.img file (see above, if using FAT32 the data.img file cannot be larger than 4GB).
+3. Create entries for blissOS in /boot/loader/entries/ (or /efi/loader/entries, if you mounted your ESP parittion as /efi). Each entry should be a seperate .conf file.
+blissos-default.conf
+```
+title   BlissOS
+linux   /kernel
+initrd  /initrd.img
+options FFMPEG_CODEC=1 FFMPEG_PREFER_C2=1 quiet root=/dev/ram0 SRC=/blissos rw
+```
+blissos-intel.conf
+```
+title   BlissOS
+linux   /kernel
+initrd  /initrd.img
+options HWC=drm_minigbm_celadon GRALLOC=minigbm FFMPEG_CODEC=1 FFMPEG_PREFER_C2=1 quiet root=/dev/ram0 SRC=/blissos rw
+```
+blissos-pcmode.conf
+```
+title   BlissOS
+linux   /kernel
+initrd  /initrd.img
+options PC_MODE=1 quiet root=/dev/ram0 SRC=/blissos rw
+```
+blissos-pcmode-intel.conf
+```
+title   BlissOS
+linux   /kernel
+initrd  /initrd.img
+options PC_MODE=1 HWC=drm_minigbm_celadon GRALLOC=minigbm FFMPEG_CODEC=1 FFMPEG_PREFER_C2=1 quiet root=/dev/ram0 SRC=/blissos rw
 ```
 
 Here are some additional tips for installing BlissOS on Linux:
