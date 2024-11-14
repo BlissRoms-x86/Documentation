@@ -57,7 +57,7 @@ In this case the new values would be:
  * `AspectMin`: 1.021
  * `AspectMax`: 2.323
 
-Create a file `/data/vendor/ipts/90-calibration.conf` with a text editor of your choice, and enter the above values like this:
+Create a file `/data/vendor/iptsd.d/90-calibration.conf` with a text editor of your choice, and enter the above values like this:
 
 ```ini
 [Contacts]
