@@ -21,3 +21,23 @@ Right click on uninstall.bat in the installation directory and run as administra
 ![alt text](images/Screenshot6.png)
 ![alt text](images/Screenshot7.png)
 
+### Linux
+Ubuntu/Debian: Download the .deb file and run
+```bash
+sudo apt update
+sudo apt install ./path/to/filename.deb
+```
+Fedora and RPM distros: Download the .RPM file and run
+```
+rpm -ivvh ./path/to/package_name.rpm
+```
+Arch Linux: Get it from the AUR
+```bash
+git clone https://aur.archlinux.org/android-x86-installer-tauri-bin.git
+cd android-x86-installer-tauri-bin
+makepkg -si
+```
+Other distros: Download the .AppImage, grant it executable permission and double-click on it to run.
+```bash
+chmod a+x ./<path to AppImage>
+```
