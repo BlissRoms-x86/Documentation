@@ -9,7 +9,7 @@ date: '2020-08-27 23:17 +0800'
 This article is a draft content to describe how to install `Bliss OS` on `VirtualBox`. It combines [`android-x86` `VirtualBox` howto](https://www.android-x86.org/documentation/virtualbox.html) and our old article:"Install Bliss OS on a VM \(`virtualbox`\)".
 
 !!!warning Low Performance!
-You should have a completely functional `Bliss OS` install on a virtual machine (VM) after following this guide, ...albeit its going to be __slower than usual__ due to the limiting VM enviroment.  Installing `Android` on a virtual machine is usually not a good idea. [!badge variant="warning" text="Installing `Bliss OS` on the actual hardware"]([https://docs.blissos.org/#install-bliss-os](https://docs.blissos.org/#install-bliss-os:~:text=Advanced%20Installation-,Manual%20Install%20on%20Linux,Using%20The%20Windows%20Installer,-%23)) will result in much better performance.
+You should have a completely functional `Bliss OS` install on a virtual machine (VM) after following this guide, ...albeit its going to be __slower than usual__ due to the limiting VM enviroment.  Installing `Android` on a virtual machine is usually not a good idea. [!badge variant="warning" text="Installing `Bliss OS` on the actual hardware"](https://docs.blissos.org/#install-bliss-os:~:text=Advanced%20Installation-,Manual%20Install%20on%20Linux,Using%20The%20Windows%20Installer,-%23) will result in much better performance.
 !!!
 
 
