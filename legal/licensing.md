@@ -5,7 +5,7 @@ Bliss OS is available under different licensing options designed to accommodate 
 
 - Bliss OS licensed under commercial licenses is appropriate for development of proprietary/commercial software where you do not want to share any source code with third parties or otherwise cannot comply with the terms of the GNU GPL version 3.
 - Bliss OS licensed under the GNU General Public License (GPL) version 3 is appropriate for the development of Bliss OS applications provided you can comply with the terms and conditions of the GNU GPL version 3.
-- Any alterations to the Bliss OS source or compiled images, including repackaging, distribution of altered images, or removal of included system components is subject to license compliance requirements. If you are unable to comply with the terms and conditions of the GNU GPL version 3, you must obtain a commercial license from Navotpala Tech (Bliss Co-Labs) to use Bliss OS.
+- Any alterations to the Bliss OS source or compiled images, including repackaging, redistribution, distribution of altered images, or removal of included system components or configurations (including configuration changes), are subject to license compliance requirements. If you are unable to comply with the terms and conditions of the GNU GPL version 3, you must obtain a commercial license from Navotpala Tech (Bliss Co-Labs) to use Bliss OS.
 
 
 Bliss OS also contains third-party code that is licensed under specific open-source licenses from the original authors (See Third-Party Code in Bliss OS below). 
