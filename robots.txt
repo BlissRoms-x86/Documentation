@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://docs.blissos.org/sitemap.xml.gz
+Sitemap: https://docs.blissos.org/sitemap.xml

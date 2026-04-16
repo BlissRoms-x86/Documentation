@@ -1,0 +1,92 @@
+﻿# Welcome to BlissOS Documentation
+
+> Live boot Bliss OS
+
+- [Welcome to BlissOS Documentation](https://docs.blissos.org/readme.md): Welcome to BlissOS Documentation
+- [Code of Conduct](https://docs.blissos.org/code_of_conduct.md): We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body
+
+## Installation
+
+### Install in a Virtual Machine
+
+- [Install in a Virtual Machine](https://docs.blissos.org/installation/install-in-a-virtual-machine.md): Install Bliss OS in a Virtual Machine of your choice
+- [Advanced configuration for qemu](https://docs.blissos.org/installation/install-in-a-virtual-machine/advanced-qemu-config.md): Qemu is a very powerful tool that may be confusing for a lot of people. However when using it we can get some very detailed and custom setups, this page will document some more advanced features that folk may wish to utilize with qemu.
+- [[deprecated]Bliss OS: How to install Bliss OS on VirtualBox](https://docs.blissos.org/installation/install-in-a-virtual-machine/install-in-virtualbox.md): This article is a draft content to describe how to install Bliss OS on VirtualBox. It combines android-x86 VirtualBox howto and our old article:"Install Bliss OS on a VM (virtualbox)".
+- [Bliss OS: How to install Bliss OS on Qemu](https://docs.blissos.org/installation/install-in-a-virtual-machine/install-in-qemu.md): This article is a guide to install Android Generic builds on Qemu. Bliss 14 at the current moment does not work. Gearlock causes resizefs errors that do not occur in the current Project Sakura build.
+- [Advanced Installation](https://docs.blissos.org/installation/advanced-installation.md): This is only for advanced users. For regular users, please visit our main Installation Guide found here.
+- [Collecting bug reports](https://docs.blissos.org/installation/collecting-bug-reports.md): This process is mostly the same as Android-x86 builds, but with a few additions that help things along. If you need to collect logs in order to submit a bug report, then the first thing you will want to do is reboot your Bliss OS install using debug mode.
+- [Install Legacy From Bootable USB](https://docs.blissos.org/installation/install-from-bootable-usb.md): Install Bliss OS from bootable USB Installer
+- [Install on Mac OS](https://docs.blissos.org/installation/install-on-mac-os.md): (Thanks to @lconstantin for this guide)
+- [Live boot Bliss OS](https://docs.blissos.org/installation/live-boot-bliss-os.md): Try out Bliss OS before installation via live boot
+- [Manual Install on Linux](https://docs.blissos.org/installation/manual-install-on-linux.md): Create a directory at / as /blissos
+- [Run from Docker](https://docs.blissos.org/installation/run-from-docker.md): We have gained support for running our images from Docker thanks to @sickcodes and his Dock-Droid project.
+- [Syslinux EFI Stub Installation](https://docs.blissos.org/installation/syslinux-efi-stub-installation.md): Thanks to @IcedCube for the original post! This method is NOT recommended as it is fairly bleeding-edge and experimental, but it should help booting on Chinese tablets that do not want to run grub.
+- [Updating Bliss OS/AG builds](https://docs.blissos.org/installation/updating-bliss-os-ag-builds.md): Sometimes you might want to update your Bliss OS/AG install when a new release is pushed out. Doing this is simple, as long as you used our documented methods to install.
+- [Using Auto-Install](https://docs.blissos.org/installation/using-auto-install.md): For those that want to use the auto-install feature, there are a few things you should know first.
+- [Using the windows installer](https://docs.blissos.org/installation/using-the-windows-installer/using-the-windows-installer.md): We maintain an installer for Windows, but we still recommend using the standard EFI install method from our bootable USB in order to take advantage of the stability, security and updatability of Bliss OS builds.
+
+## Knowledgebase
+
+### External threads and links
+
+- [XDA Threads](https://docs.blissos.org/knowledgebase/external-threads-and-links/xda-threads.md): We usually release our builds on XDA, so here are the running threads we are currently maintaining:
+
+### Frequently asked questions
+
+- [Build Filenames](https://docs.blissos.org/knowledgebase/frequently-asked-questions/build-filenames.md): The filenames we use contain some important information about what all is included in the builds.
+- [Desktop Mode](https://docs.blissos.org/knowledgebase/frequently-asked-questions/desktop-mode.md): We have a number of requests on how to use the included Desktop Mode.
+- [F.A.Q.](https://docs.blissos.org/knowledgebase/frequently-asked-questions/faq.md): Frequently asked questions about Bliss OS
+- [Hardware Compatibility](https://docs.blissos.org/knowledgebase/frequently-asked-questions/hardware-compatibility.md): We have updated our hardware support tracking and moved it to a repo of it's own along with a web frontend at: https://tested.blissos.org/
+- [How to Log](https://docs.blissos.org/knowledgebase/frequently-asked-questions/how-to-log.md): For grabbing manual logs of issues in Android-x86/Bliss OS, we need to use the alt-f1 console or built in terminal and we need to know the storage location we want to save in.
+- [Keyboard Shortcuts](https://docs.blissos.org/knowledgebase/frequently-asked-questions/keyboard-shortcuts.md): System
+- [Sandboxing Apps](https://docs.blissos.org/knowledgebase/frequently-asked-questions/sandboxing-apps.md): Sometimes we have apps that check the system for root. In these cases, they will all fail their check unless you are running the app in a sandboxed environment.
+- [Vulkan Mode](https://docs.blissos.org/knowledgebase/frequently-asked-questions/vulkan-mode.md): In our Android 9+ versions, we include the ability to use a Grub command for enabling Vulkan mode on supported graphics hardware. However, from Bliss OS 14.10, you don't have to to worry about triggering this value as we removed VULKAN=1 from the OS.
+
+### Other Bliss Variant
+
+- [BlissOS for Surface devices](https://docs.blissos.org/knowledgebase/other-bliss-variant/surface-builds.md): This version is designed specifically for the Microsoft Surface devices. The kernel use almost the same LTS kernel but with extra patches from the linux-surface project to ensure the most compatibility.
+- [BlissOS Go](https://docs.blissos.org/knowledgebase/other-bliss-variant/go-builds.md): This variant is designed specifically for the low-end hardware that meet the minimum requirement to run BlissOS. While using the same LTS kernel as the
+- [BlissOS Zenith](https://docs.blissos.org/knowledgebase/other-bliss-variant/zenith-builds.md): BlissOS Zenith is the new flagship build of BlissOS. Zenith is a BlissOS variant that is intended for "chasing the latest". We will build this variant weekly with only the latest version of BlissOS that is available, combine with latest Stable kernel.
+
+### Supreme gamers resources we like
+
+- [Advanced Android-x86 Installer](https://docs.blissos.org/knowledgebase/supreme-gamers-resources-we-like/advanced-android-x86-installer.md): Axon from Supreme-Gamers put together a great installer that works with MBR/EFI and installs on NTFS or EXT4. Advanced Android-x86 Installer
+- [Gearlock](https://docs.blissos.org/knowledgebase/supreme-gamers-resources-we-like/gearlock.md): Gearlock Developer Documentation: https://supreme-gamers.com/gearlock/
+- [Linux Android-x86 Installer](https://docs.blissos.org/knowledgebase/supreme-gamers-resources-we-like/linux-android-x86-installer.md): Advanced and easy to use Advanced Android x86 installer for Linux.
+
+### Troubleshooting
+
+- [Debug Booting](https://docs.blissos.org/knowledgebase/troubleshooting/debug-booting.md): There are a few ways to debug booting and we will run through a few of them here.
+- [Debug Graphics](https://docs.blissos.org/knowledgebase/troubleshooting/graphics-troubleshooting.md): When booting into Bliss for the first time, some users may see a blinking cursor, scrambled graphics, or black screen. These are all signs that your device requires some configuration to get things to run.
+- [How to disable touchpad](https://docs.blissos.org/knowledgebase/troubleshooting/disable-touchpad.md): Accidental touches due to palm contact with the touchpad can be quite frustrating. Fortunately, the Linux kernel allows you to disable the touchpad or any input device temporarily using sysfs by triggering the uevent.
+- [How to edit grub from your Bliss OS install](https://docs.blissos.org/knowledgebase/troubleshooting/edit-grub-from-bliss-install.md): Follow these steps to edit EFI from rooted Bliss OS
+- [How to mount ext partition on boot](https://docs.blissos.org/knowledgebase/troubleshooting/how-to-mount-ext-partition-on-boot.md): User cjeu100 put together a script that works well from our Android 9 builds. Follow the link below to head to that post.
+- [How to mount internal NTFS partition on boot](https://docs.blissos.org/knowledgebase/troubleshooting/how-to-mount-internal-ntfs-partition-on-boot.md): It is possible to automatically mount disks at boot. There may be other ways to do this, but one way to do it is:
+- [Microsoft Surface IPTS Gearlock Package](https://docs.blissos.org/knowledgebase/troubleshooting/microsoft-surface-ipts-gearlock-package.md): If you have a Microsoft Surface device and touchscreen support is not enabled by default, this likely means that your device requires a special kernel for support.
+- [Not booting after install on Linux](https://docs.blissos.org/knowledgebase/troubleshooting/not-booting-after-install-on-linux.md): For Linux users that are able to boot our Android 10/11 builds in Live mode, but things fail to boot once installed, this is caused by a bug in our data detection scripts.
+- [Remount system as Read/Write](https://docs.blissos.org/knowledgebase/troubleshooting/remount-system-as-read-write.md): (Credits go to Knoxville and others from Telegram for this method)
+- [Sound Issues](https://docs.blissos.org/knowledgebase/troubleshooting/sound-issues.md): When running our builds on real hardware, sometimes the sound is not detected properly. We can troubleshoot this issue a number of ways.
+- [Touch orientation](https://docs.blissos.org/knowledgebase/troubleshooting/touch-orientation.md): System mounted as RW
+- [Wifi Issues](https://docs.blissos.org/knowledgebase/troubleshooting/wifi-issues.md): For many users, wifi is not detected right on boot. If you are using a build that is pre Kernel-5.x, you can try and add the grub option "AUTO_LOAD=old". If you are using a newer kernel (5.0+), make sure your device has native support included in the kernel.
+- [Google play certification](https://docs.blissos.org/knowledgebase/google-play-certification.md): With Bliss OS builds that require users to flsh their own gapps package, users will need to register their device for Google Play developer certification in order to use Google Play Store and GMS.
+
+## Configuration
+
+- [Calibrate and configure iptsd](https://docs.blissos.org/configuration/calibrate-and-configure-iptsd.md): This section is a copy of linux-surface iptsd wiki with a few edit for BlissOS's iptsd. If you have any trouble with configuring iptsd, please file a bug report here for BlissOS 14 & 15 and here for BlissOS 16+. You can also file a bug report at the main iptsd repo.
+- [Configuration Through Command Line Parameters](https://docs.blissos.org/configuration/configuration-through-command-line-parameters.md): Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .iso to be configured through kernel command line parameters on a per-device basis.
+
+## Development
+
+- [[GUI Method] Build Bliss OS 14.x](https://docs.blissos.org/development/gui-method-build-bliss-os-14.x.md): This first part will go over the steps needed to sync and setup your Build Environment for Bliss OS 14.3 source. If you have done that already, you can skip to the next section.
+- [Build Bliss OS 11.x](https://docs.blissos.org/development/build-bliss-os-11.x.md): Instructions on how to build Bliss OS yourself
+- [Build bliss os 15.x](https://docs.blissos.org/development/build-bliss-os-15.x.md): Download the BlissOS source code, based on AOSP & Android-x86
+- [Build Bliss OS (v14.x)](https://docs.blissos.org/development/build-bliss-os-14.x.md): We also offer Android-Generic Project 2.0 as an easy to learn method of building Android 11 for PC's. Checkout the project README.md for more info.
+- [Contributing Documentation](https://docs.blissos.org/development/contributing-documentation.md): We are wide open to users submitting their documentation updates to our docs.blissroms.com site. Our repos for the docs site are here:
+- [Development FAQ](https://docs.blissos.org/development/development-faq.md): Much of what we are doing with Android source is lacking proper documentation as to what it does, and how. This document will try to answer a few of those questions.
+- [Maintaining Proper Authorship](https://docs.blissos.org/development/maintaining-proper-authorship.md): One of the most important things you need to keep in mind while working on open-source projects is maintaining correct authorship. In this article, we'll
+- [Porting Linux Drivers](https://docs.blissos.org/development/porting-linux-drivers.md): When it seems that there might be a missing driver or hardware support for your specific device, the best way to add support for that is o search online for a Linux kernel module for your target component.
+- [What are Linux Drivers?](https://docs.blissos.org/development/what-are-linux-drivers.md): For those looking to help gain a better understanding of how Linux drivers work, here is a YouTube video that helps to explain things a bit
+
+## Legal
+
+- [Licensing](https://docs.blissos.org/legal/licensing.md): Bliss OS is available under different licensing options designed to accommodate the needs of our various users:

@@ -1,0 +1,48 @@
+# Hardware Compatibility
+
+We have updated our hardware support tracking and moved it to a repo of it's own along with a web frontend at: https://tested.blissos.org/
+
+Repo: https://github.com/BlissRoms-x86/CompatibilityList
+
+**Supported CPU's:**
+
+!!!danger
+As of 2024, all of our latest BlissOS builds are targeting at x86_64-v2 CPU. [This microarchitecture levels](https://en.wikipedia.org/wiki/X86-64#Microarchitecture_levels) match with [Android ABIs requirement](https://developer.android.com/ndk/guides/abis) so your CPU must be compatible or else it won't be able to boot.
+
+To know if your CPU support x86_64-v2, check your CPU features using programs like [CPUID's CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) or search for your CPU at [CPU-World](https://www.cpu-world.com/) or [TechPowerUp's CPU database](https://www.techpowerup.com/cpu-specs/)
+!!!
+
+(as of 2022 Q4)
+
+Intel:
+
+* Intel i Series \(i3/5/7/9\) - Fully Supported
+* Intel Celeron M - Fully Supported \(Kernel 5.4+ recommended\) 
+* Intel Atom - Mostly Supported \(Kernel 5.10+ recommended\)
+* Core2Duo - Not Fully Supported \(Needs SSE4.2\) \(May require 32bit builds\)
+
+AMD:
+
+* A Series - Mostly Supported \(Needs SSE4.2\) \(Kernel 5.10+ recommended\)
+* Ryzen Series \(1k-7k\) - Fully Supported \(Kernel 5.10+ recommended\)
+* Athlon Series - Mostly Supported \(Needs SSE4.2\) \(Kernel 5.10+ recommended\)
+
+**Supported GPU's:** 
+
+* Intel iGPU : Supported
+* Intel dGPU (Ex: DG1/DG2) : Untested
+* AMD APU/GPU : Supported
+* Nvidia : Support but limited
+
+**Native-Bridge:**
+
+BlissOS include native-bridge solution for translating ARM apps. If you can boot BlissOS, you can use this native bridge as it require x86_64v2 CPU. As of right now, 2 native bridge solution are being used :
+- BlissOS 14/15 : Intel's libhoudini (aka Intel Bridge Technology)
+- BlissOS 16/17 : Google's libndk_translation.
+
+These are proprietary libraries extracted from firmware of different devices. 
+
+~~How to identify Native-Bridge Types in ISO file ?~~
+
+~~* **houdini** - Includes Intel's Houdini \(Works with most Intel CPU's and some recent AMD CPU's\)~~
+~~* **libndk** - Includes Google's libndk-translation \(Works on all CPU's, but not as efficient as Houdini\)~~

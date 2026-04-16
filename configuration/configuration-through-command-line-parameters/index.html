@@ -3,239 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.8.1.800385785923">
+    <meta name="color-scheme" content="light dark">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.5.3.829676137076">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.8.1">
+    <meta name="generator" content="Retype 4.5.3">
 
     <!-- Primary Meta Tags -->
     <title>Configuration Through Command Line Parameters</title>
     <meta name="title" content="Configuration Through Command Line Parameters">
-    <meta name="description" content="Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .">
+    <meta name="description" content="Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .iso to be configured through kernel command line parameters on a per-device basis.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://docs.blissos.org/configuration/configuration-through-command-line-parameters/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://docs.blissos.org/sitemap.xml">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://docs.blissos.org/configuration/configuration-through-command-line-parameters/">
     <meta property="og:title" content="Configuration Through Command Line Parameters">
-    <meta property="og:description" content="Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .">
+    <meta property="og:description" content="Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .iso to be configured through kernel command line parameters on a per-device basis.">
+    <meta property="og:site_name" content="BlissOS">
+    <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://docs.blissos.org/configuration/configuration-through-command-line-parameters/">
-    <meta property="twitter:title" content="Configuration Through Command Line Parameters">
-    <meta property="twitter:description" content="Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://docs.blissos.org/configuration/configuration-through-command-line-parameters/">
+    <meta name="twitter:title" content="Configuration Through Command Line Parameters">
+    <meta name="twitter:description" content="Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .iso to be configured through kernel command line parameters on a per-device basis.">
 
-    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+    <!-- Alternate Markdown -->
+    <link rel="alternate" type="text/markdown" href="https://docs.blissos.org/configuration/configuration-through-command-line-parameters.md">
 
-    <link href="../../resources/css/retype.css?v=3.8.1.800385785923" rel="stylesheet">
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.8.1.800385785923" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.8.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.8.1.800385785923" data-turbo-eval="false" defer></script>
+    <link href="../../resources/css/retype.css?v=4.5.3.829676137076" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.5.3.829676137076" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.5.3" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.5.3.829676137076" data-turbo-eval="false" defer></script>
 </head>
 <body>
-    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
-        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
+    <div class="absolute bottom-0 left-0" style="top: 5rem; right: 50%"></div>
+
+    <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-header-bg border-b border-header-border md:h-20">
+        <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+            <!-- Mobile menu button skeleton -->
+            <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-hidden rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+            <div v-cloak id="retype-sidebar-left-toggle-button"></div>
     
-        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
-            <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
-                <!-- Mobile menu button skeleton -->
-                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
-                <div v-cloak id="docs-sidebar-toggle"></div>
-        
-                <!-- Logo -->
-                <div class="flex items-center justify-between h-full py-2 md:w-75">
-                    <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="../../" class="flex items-center leading-snug text-2xl">
-                            <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
-                                <img class="max-h-10 dark:hidden md:inline-block" src="../../static/blissos.png">
-                                <img class="max-h-10 hidden dark:inline-block" src="../../static/blissos.png">
-                            </span>
-                            <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">BlissOS</span>
-                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
-                    </div>
-        
-                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+            <!-- Logo -->
+            <div class="flex items-center justify-between h-full py-2 md:w-75">
+                <div class="flex items-center px-2 md:px-6">
+                    <a id="retype-branding-logo" href="https://docs.blissos.org/" class="flex items-center leading-snug text-2xl">
+                        <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
+                            <img class="max-h-10 md:inline-block" src="../../static/blissos.png" alt="" width="40" height="40">
+                        </span>
+                        <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">BlissOS</span>
+                    </a><span id="retype-branding-label" class="inline-flex mt-1 px-2 py-1 ml-4 text-xs font-medium leading-none items-center rounded-md bg-branding-label-bg text-branding-label-text ring-1 ring-branding-label-border ring-inset md:inline-block">Docs</span>
                 </div>
-        
-                <div class="flex justify-between md:grow">
-                    <!-- Top Nav -->
-                    <nav class="hidden md:flex">
-                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
-                            <li class="mr-6">
-                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="../../">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
-                                        <g fill="currentColor">
-                                            <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
-                                        </g>
-                                    </svg>
-                                    <span>Home</span>
-                                </a>
-                            </li>
-                            <li class="mr-6">
-                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://github.com/BlissRoms-x86/support" target="_blank">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
-                                        <g fill="currentColor">
-                                            <path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Zm9.5 2a2 2 0 1 1-.001-3.999A2 2 0 0 1 12 14Z"/>
-                                        </g>
-                                    </svg>
-                                    <span>Issues</span>
-                                </a>
-                            </li>
-                            <li class="mr-6">
-                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://twitter.com/blissos_org" target="_blank">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
-                                        <g fill="currentColor">
-                                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-.139 9.237c.209 4.617-3.234 9.765-9.33 9.765-1.854 0-3.579-.543-5.032-1.475 1.742.205 3.48-.278 4.86-1.359-1.437-.027-2.649-.976-3.066-2.28.515.098 1.021.069 1.482-.056-1.579-.317-2.668-1.739-2.633-3.26.442.246.949.394 1.486.411-1.461-.977-1.875-2.907-1.016-4.383 1.619 1.986 4.038 3.293 6.766 3.43-.479-2.053 1.08-4.03 3.199-4.03.943 0 1.797.398 2.395 1.037.748-.147 1.451-.42 2.086-.796-.246.767-.766 1.41-1.443 1.816.664-.08 1.297-.256 1.885-.517-.439.656-.996 1.234-1.639 1.697z"/>
-                                        </g>
-                                    </svg>
-                                    <span>Twitter</span>
-                                </a>
-                            </li>
-        
-                        </ul>
-                    </nav>
-        
-                    <!-- Header Right Skeleton -->
-                    <div v-cloak class="flex justify-end grow skeleton">
-        
-                        <!-- Search input mock -->
-                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
-                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
-                            </div>
-                            <input class="w-full h-10 placeholder-gray-400 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 dark:placeholder-dark-400" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
-                        </div>
-        
-                        <!-- Mobile search button -->
-                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
-                        </div>
-        
-                        <!-- Dark mode switch placeholder -->
-                        <div class="w-10 h-10 lg:ml-2"></div>
-        
-                        <!-- History button -->
-                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
-                        </div>
-                    </div>
-        
-                    <div v-cloak class="flex justify-end grow">
-                        <div id="docs-mobile-search-button"></div>
-                        <doc-search-desktop></doc-search-desktop>
-        
-                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
-                        <doc-history></doc-history>
-                    </div>
+    
+                <span class="hidden h-8 border-r md:inline-block border-base-border"></span>
+            </div>
+    
+            <div class="flex justify-between md:grow">
+                <!-- Top Nav -->
+                <nav id="retype-header-nav" class="hidden md:flex">
+                    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                        <li class="mr-6">
+                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                </svg>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="mr-6">
+                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://github.com/BlissRoms-x86/support" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Zm9.5 2a2 2 0 1 1-.001-3.999A2 2 0 0 1 12 14Z"/>
+                                </svg>
+                                <span>Issues</span>
+                            </a>
+                        </li>
+                        <li class="mr-6">
+                            <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://twitter.com/blissos_org" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-.139 9.237c.209 4.617-3.234 9.765-9.33 9.765-1.854 0-3.579-.543-5.032-1.475 1.742.205 3.48-.278 4.86-1.359-1.437-.027-2.649-.976-3.066-2.28.515.098 1.021.069 1.482-.056-1.579-.317-2.668-1.739-2.633-3.26.442.246.949.394 1.486.411-1.461-.977-1.875-2.907-1.016-4.383 1.619 1.986 4.038 3.293 6.766 3.43-.479-2.053 1.08-4.03 3.199-4.03.943 0 1.797.398 2.395 1.037.748-.147 1.451-.42 2.086-.796-.246.767-.766 1.41-1.443 1.816.664-.08 1.297-.256 1.885-.517-.439.656-.996 1.234-1.639 1.697z"/>
+                                </svg>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+    
+                    </ul>
+                </nav>
+    
+                <div v-cloak class="flex justify-end grow">
+                    <div id="retype-mobile-search-button"></div>
+                    <doc-search-desktop></doc-search-desktop>
+    
+                    <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                    <doc-history></doc-history>
                 </div>
             </div>
-        </header>
-    
-        <div class="container relative flex bg-white">
-            <!-- Sidebar Skeleton -->
-            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-white border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
-            
-                <div class="flex items-center h-16 px-6">
-                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
-                </div>
-            
-                <div class="pl-6 mt-1 mb-4">
-                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
-                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
-                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
-                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
-                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
-                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
-                </div>
-            
-                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
-                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+        </div>
+    </header>
+
+
+    <div id="retype-container" class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+        <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-sidebar-left-bg border-sidebar-left-border sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton">
+        
+            <div class="flex items-center h-16 px-6">
+                <input id="retype-filter-input-mock" class="w-full h-10 pl-8 px-3 py-2 transition-colors duration-200 ease-linear bg-filter-bg border border-filter-border rounded-lg shadow-none md:text-sm hover:border-filter-border-hover focus:outline-hidden focus:border-filter-border-focus placeholder-filter-placeholder" type="text">
+            </div>
+        
+            <div class="pl-6 mt-1 mb-4">
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+                <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            </div>
+        
+            <div class="shrink-0 mt-auto bg-transparent dark:border-base-border">
+                <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                    <span class="text-xs whitespace-nowrap">Powered by</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Sidebar component -->
+        <doc-sidebar v-cloak>
+            <template #sidebar-footer>
+                <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-base-border">
+        
+                    <div class="py-3 px-6 md:hidden border-b dark:border-base-border">
+                        <nav>
+                            <ul class="flex flex-wrap justify-center items-center">
+                                <li class="mr-6">
+                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="../../">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
+                                        </svg>
+                                        <span>Home</span>
+                                    </a>
+                                </li>
+                                <li class="mr-6">
+                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://github.com/BlissRoms-x86/support" target="_blank">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Zm9.5 2a2 2 0 1 1-.001-3.999A2 2 0 0 1 12 14Z"/>
+                                        </svg>
+                                        <span>Issues</span>
+                                    </a>
+                                </li>
+                                <li class="mr-6">
+                                    <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-header-text font-header-text hover:text-header-text-hover" href="https://twitter.com/blissos_org" target="_blank">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="block shrink-0 mr-1.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-.139 9.237c.209 4.617-3.234 9.765-9.33 9.765-1.854 0-3.579-.543-5.032-1.475 1.742.205 3.48-.278 4.86-1.359-1.437-.027-2.649-.976-3.066-2.28.515.098 1.021.069 1.482-.056-1.579-.317-2.668-1.739-2.633-3.26.442.246.949.394 1.486.411-1.461-.977-1.875-2.907-1.016-4.383 1.619 1.986 4.038 3.293 6.766 3.43-.479-2.053 1.08-4.03 3.199-4.03.943 0 1.797.398 2.395 1.037.748-.147 1.451-.42 2.086-.796-.246.767-.766 1.41-1.443 1.816.664-.08 1.297-.256 1.885-.517-.439.656-.996 1.234-1.639 1.697z"/>
+                                        </svg>
+                                        <span>Twitter</span>
+                                    </a>
+                                </li>
+        
+                            </ul>
+                        </nav>
+                    </div>
+        
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-350 dark:text-dark-400 hover:text-gray-600 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
                         <span class="text-xs whitespace-nowrap">Powered by</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
                     </a>
                 </div>
-            </div>
-            
-            <!-- Sidebar component -->
-            <doc-sidebar v-cloak>
-                <template #sidebar-footer>
-                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
-            
-                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
-                            <nav>
-                                <ul class="flex flex-wrap justify-center items-center">
-                                    <li class="mr-6">
-                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="../../">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
-                                                <g fill="currentColor">
-                                                    <path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"/>
-                                                </g>
-                                            </svg>
-                                            <span>Home</span>
-                                        </a>
-                                    </li>
-                                    <li class="mr-6">
-                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://github.com/BlissRoms-x86/support" target="_blank">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
-                                                <g fill="currentColor">
-                                                    <path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1ZM2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12Zm9.5 2a2 2 0 1 1-.001-3.999A2 2 0 0 1 12 14Z"/>
-                                                </g>
-                                            </svg>
-                                            <span>Issues</span>
-                                        </a>
-                                    </li>
-                                    <li class="mr-6">
-                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://twitter.com/blissos_org" target="_blank">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px mr-1" width="18" height="18" viewBox="0 0 24 24" role="presentation">
-                                                <g fill="currentColor">
-                                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-.139 9.237c.209 4.617-3.234 9.765-9.33 9.765-1.854 0-3.579-.543-5.032-1.475 1.742.205 3.48-.278 4.86-1.359-1.437-.027-2.649-.976-3.066-2.28.515.098 1.021.069 1.482-.056-1.579-.317-2.668-1.739-2.633-3.26.442.246.949.394 1.486.411-1.461-.977-1.875-2.907-1.016-4.383 1.619 1.986 4.038 3.293 6.766 3.43-.479-2.053 1.08-4.03 3.199-4.03.943 0 1.797.398 2.395 1.037.748-.147 1.451-.42 2.086-.796-.246.767-.766 1.41-1.443 1.816.664-.08 1.297-.256 1.885-.517-.439.656-.996 1.234-1.639 1.697z"/>
-                                                </g>
-                                            </svg>
-                                            <span>Twitter</span>
-                                        </a>
-                                    </li>
-            
-                                </ul>
-                            </nav>
-                        </div>
-            
-                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
-                            <span class="text-xs whitespace-nowrap">Powered by</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
-                        </a>
-                    </div>
-                </template>
-            </doc-sidebar>
-    
-            <div class="grow min-w-0 dark:bg-dark-850">
-                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
-                <div class="flex">
-                    <div class="min-w-0 p-4 grow md:px-16">
-                        <main class="relative pb-12 lg:pt-2">
-                            <div class="docs-markdown" id="docs-content">
-                                <!-- Rendered if sidebar right is enabled -->
-                                <div id="docs-sidebar-right-toggle"></div>
-                                <!-- Page content  -->
-<doc-anchor-target id="configuration-through-command-line-parameters" class="break-words">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#configuration-through-command-line-parameters">#</doc-anchor-trigger>
-        <span>Configuration Through Command Line Parameters</span>
-    </h1>
-</doc-anchor-target>
+            </template>
+        </doc-sidebar>
+
+        <div class="grow min-w-0 bg-body-bg">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+<div class="flex">
+    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
+        <main class="relative pb-12 lg:pt-2">
+            <div class="relative retype-markdown" id="retype-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="retype-sidebar-right-toggle"></div>
+                <doc-page-actions></doc-page-actions>
+
+                <!-- Page content  -->
+<h1 id="configuration-through-command-line-parameters">Configuration Through Command Line Parameters</h1>
 <p>Bliss OS (and the Bass builds) utilizes an expanded configuration layer, our Broad Apparatus Support System (Bass for short) allows one generic .iso to be configured through kernel command line parameters on a per-device basis. This allows end users to fine tune the performance of the OS to the capabilities of the device.</p>
-<doc-anchor-target id="intro-to-kernel-command-line-parameters">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#intro-to-kernel-command-line-parameters">#</doc-anchor-trigger>
-        <span>Intro to Kernel Command Line Parameters</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="intro-to-kernel-command-line-parameters">Intro to Kernel Command Line Parameters</h2>
 <p>We use Grub, Refind, or other Linux bootloaders to boot the device once installed. The menu entry is how we also pass many of our parameters for configuring the device as well. Here is an example of a typical menu entry for Grub for Bliss OS 15.8.x:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">menuentry 'Android-x86' --class android-x86 {
+<div id="intro-to-kernel-command-line-parameters-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">menuentry 'Android-x86' --class android-x86 {
 
    search --file --no-floppy --set=root /AndroidOS/android.boot
 
@@ -245,798 +207,671 @@
 
 }</code></pre>
 </doc-codeblock></div>
-<p>The line we are targeting for our configuration is the one that starts with “<code v-pre>linux /AndroidOS/kernel</code>”. Here are some of the explanations for the configs we support.</p>
+<p>The line we are targeting for our configuration is the one that starts with “<code translate="no" v-pre>linux /AndroidOS/kernel</code>”. Here are some of the explanations for the configs we support.</p>
 <p>If your Grub menu entry looks a little different, and has some of the commands at the top, you can also edit there to add your configuration preferences.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">setparams 'Android-x86 Intel' 'fbcon=rotate:1' 'mem_sleep_default=shallow' 'acpi_sleep=s3_mode' 'HWC=drm_minigbm_celadon' 'GRALLOC=minigbm' 'quiet'
+<div id="intro-to-kernel-command-line-parameters-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">setparams 'Android-x86 Intel' 'fbcon=rotate:1' 'mem_sleep_default=shallow' 'acpi_sleep=s3_mode' 'HWC=drm_minigbm_celadon' 'GRALLOC=minigbm' 'quiet'
    savedefault
    set root=$android
    ....</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="supported-parameters">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#supported-parameters">#</doc-anchor-trigger>
-        <span>Supported Parameters:</span>
-    </h2>
-</doc-anchor-target>
+<h2 id="supported-parameters">Supported Parameters:</h2>
 <p><strong>Warning</strong>: Note that not all of the configs listed here are available in the open-source Bliss OS source, but are available through licensing the Android-Generic Project add-on for that feature, or licensing the use of our Bass builds or Bass source (which comes with most available AG add-on&#x27;s) for your organization</p>
 <p>Here are a few of the supported parameters that we support, organized by stack.</p>
-<doc-anchor-target id="debugging">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#debugging">#</doc-anchor-trigger>
-        <span>Debugging:</span>
-    </h3>
-</doc-anchor-target>
+<h3 id="debugging">Debugging:</h3>
 <p>This will enable logging or low level debugging console before the system starts to boot Android.</p>
 <p>This is a root console, and can be used for testing or troubleshooting. Pressing exit, twice will continue with the Android boot process.</p>
 <p>Command:</p>
-<p><code v-pre>DEBUG=*</code></p>
+<p><code translate="no" v-pre>DEBUG=*</code></p>
 <p>Options:</p>
 <ul>
-<li><p>1: high-level debugging console (logs to /tmp/log)</p>
+<li>
+<p>1: high-level debugging console (logs to /tmp/log)</p>
 </li>
-<li><p>2: low-level debugging console (logs to /data/log.txt &amp; /tmp/log)</p>
+<li>
+<p>2: low-level debugging console (logs to /data/log.txt &amp; /tmp/log)</p>
 </li>
 </ul>
 <p>You will also need to enable the console if you wish to use alt-f1/f7 virtual consoles:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">androidboot.enable_console=1</code></pre>
+<div id="debugging-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">androidboot.enable_console=1</code></pre>
 </doc-codeblock></div>
 <p>Example:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">DEBUG=2</code></pre>
+<div id="debugging-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">DEBUG=2</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="graphics-stack">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#graphics-stack">#</doc-anchor-trigger>
-        <span>Graphics Stack:</span>
-    </h3>
-</doc-anchor-target>
+<h3 id="graphics-stack">Graphics Stack:</h3>
 <p>This includes a number pf parameters that we can use to customize the stack to our hardware&#x27;s capabilities.</p>
-<doc-anchor-target id="hardware-composer">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#hardware-composer">#</doc-anchor-trigger>
-        <span>Hardware Composer:</span>
-    </h4>
-</doc-anchor-target>
+<h4 id="hardware-composer">Hardware Composer:</h4>
 <p>This allows us to include multiple hardware-composer options, and select the ones we want to target per-device.</p>
-<p>By default, if you set HWC without anything like <code v-pre>HWC=&quot;&quot;</code>, Bliss will use <a href="https://github.com/me176c-dev/drmfb-composer">drmfb-composer</a></p>
+<p>By default, if you set HWC without anything like <code translate="no" v-pre>HWC=&quot;&quot;</code>, Bliss will use <a href="https://github.com/me176c-dev/drmfb-composer">drmfb-composer</a></p>
 <p>Command:</p>
-<p><code v-pre>HWC=*</code></p>
+<p><code translate="no" v-pre>HWC=*</code></p>
 <p>Options:</p>
 <ul>
-<li><p><code v-pre>drm</code>: Use <a href="https://gitlab.freedesktop.org/drm-hwcomposer/drm-hwcomposer">drm_hwcomposer</a></p>
+<li>
+<p><code translate="no" v-pre>drm</code>: Use <a href="https://gitlab.freedesktop.org/drm-hwcomposer/drm-hwcomposer">drm_hwcomposer</a></p>
 </li>
-<li><p><code v-pre>drm_celadon</code>: Use <a href="https://github.com/projectceladon/drm-hwcomposer">Project Celadon&#x27;s fork of drm_hwcomposer</a></p>
+<li>
+<p><code translate="no" v-pre>drm_celadon</code>: Use <a href="https://github.com/projectceladon/drm-hwcomposer">Project Celadon&#x27;s fork of drm_hwcomposer</a></p>
 </li>
-<li><p><code v-pre>drm_minigbm</code>: Use <a href="https://gitlab.freedesktop.org/drm-hwcomposer/drm-hwcomposer">drm_hwcomposer</a> with minigbm support</p>
+<li>
+<p><code translate="no" v-pre>drm_minigbm</code>: Use <a href="https://gitlab.freedesktop.org/drm-hwcomposer/drm-hwcomposer">drm_hwcomposer</a> with minigbm support</p>
 </li>
-<li><p><code v-pre>drm_minigbm_celadon</code>: Use <a href="https://github.com/projectceladon/drm-hwcomposer">Project Celadon&#x27;s fork of drm_hwcomposer</a> with minigbm support</p>
+<li>
+<p><code translate="no" v-pre>drm_minigbm_celadon</code>: Use <a href="https://github.com/projectceladon/drm-hwcomposer">Project Celadon&#x27;s fork of drm_hwcomposer</a> with minigbm support</p>
 </li>
 </ul>
 <p>Example:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">HWC=drm_minigbm_celadon</code></pre>
+<div id="hardware-composer-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">HWC=drm_minigbm_celadon</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="gralloc">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#gralloc">#</doc-anchor-trigger>
-        <span>Gralloc:</span>
-    </h4>
-</doc-anchor-target>
+<h4 id="gralloc">Gralloc:</h4>
 <p>We pair up our Gralloc options to work with certain HWC options.</p>
 <p>Command:</p>
-<p><code v-pre>GRALLOC=*</code></p>
+<p><code translate="no" v-pre>GRALLOC=*</code></p>
 <p>Options:</p>
 <ul>
-<li><p><code v-pre>gbm</code>: This is <a href="https://github.com/BlissRoms-x86/gbm_gralloc">gbm_gralloc</a> and it&#x27;s compatible with drm &amp; drm_celadon</p>
+<li>
+<p><code translate="no" v-pre>gbm</code>: This is <a href="https://github.com/BlissRoms-x86/gbm_gralloc">gbm_gralloc</a> and it&#x27;s compatible with drm &amp; drm_celadon</p>
 </li>
-<li><p><code v-pre>gbm_hack</code>: This is <a href="https://github.com/BlissRoms-x86/gbm_gralloc">gbm_gralloc</a> but with a <a href="https://github.com/BlissRoms-x86/gbm_gralloc/commit/e70acfc3f5acc64168a172987f34d141e55f6b54">HACK commit</a> to fix some issue with iris or nouveau. It&#x27;s compatible with drm &amp; drm_celadon</p>
+<li>
+<p><code translate="no" v-pre>gbm_hack</code>: This is <a href="https://github.com/BlissRoms-x86/gbm_gralloc">gbm_gralloc</a> but with a <a href="https://github.com/BlissRoms-x86/gbm_gralloc/commit/e70acfc3f5acc64168a172987f34d141e55f6b54">HACK commit</a> to fix some issue with iris or nouveau. It&#x27;s compatible with drm &amp; drm_celadon</p>
 </li>
-<li><p><code v-pre>minigbm</code>: This is <a href="https://github.com/supremegamers/minigbm">minigbm</a> and it&#x27;s compatible with drm_minigbm, drm_minigbm_celadon</p>
+<li>
+<p><code translate="no" v-pre>minigbm</code>: This is <a href="https://github.com/supremegamers/minigbm">minigbm</a> and it&#x27;s compatible with drm_minigbm, drm_minigbm_celadon</p>
 </li>
-<li><p><code v-pre>minigbm_arcvm</code>: This is <a href="https://github.com/supremegamers/minigbm">minigbm</a> but made specifically for virgl by Google, compatible with drm_minigbm, drm_minigbm_celadon</p>
+<li>
+<p><code translate="no" v-pre>minigbm_arcvm</code>: This is <a href="https://github.com/supremegamers/minigbm">minigbm</a> but made specifically for virgl by Google, compatible with drm_minigbm, drm_minigbm_celadon</p>
 </li>
-<li><p><code v-pre>minigbm_gbm_mesa</code>: This is <a href="https://github.com/supremegamers/minigbm/tree/13-x86/gbm_mesa_driver">minigbm</a> made by <a href="https://github.com/rsglobal">rsglobal</a> which he tried to port <a href="https://github.com/robherring/gbm_gralloc/issues/26">gbm_gralloc philosophy to minigbm</a>. Compatible with drm_minigbm, drm_minigbm_celadon</p>
+<li>
+<p><code translate="no" v-pre>minigbm_gbm_mesa</code>: This is <a href="https://github.com/supremegamers/minigbm/tree/13-x86/gbm_mesa_driver">minigbm</a> made by <a href="https://github.com/rsglobal">rsglobal</a> which he tried to port <a href="https://github.com/robherring/gbm_gralloc/issues/26">gbm_gralloc philosophy to minigbm</a>. Compatible with drm_minigbm, drm_minigbm_celadon</p>
 </li>
 </ul>
 <p>Example:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">GRALLOC=minigbm_gbm_mesa</code></pre>
+<div id="gralloc-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">GRALLOC=minigbm_gbm_mesa</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="gralloc4-configurations">
-    <h5>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#gralloc4-configurations">#</doc-anchor-trigger>
-        <span>Gralloc4 Configurations:</span>
-    </h5>
-</doc-anchor-target>
+<h5 id="gralloc4-configurations">Gralloc4 Configurations:</h5>
 <p>In some cases, we are working with hardware that requires Gralloc4 specs. We can force minigbm to use Gralloc4 by using:</p>
 <ul>
-<li><code v-pre>GRALLOC4_MINIGBM</code>: Force using gralloc4 with minigbm (only compatible with drm_minigbm_celadon)</li>
+<li><code translate="no" v-pre>GRALLOC4_MINIGBM</code>: Force using gralloc4 with minigbm (only compatible with drm_minigbm_celadon)</li>
 </ul>
-<doc-anchor-target id="angle--software-rendering">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#angle--software-rendering">#</doc-anchor-trigger>
-        <span>ANGLE &amp; software rendering</span>
-    </h4>
-</doc-anchor-target>
+<h4 id="angle--software-rendering">ANGLE &amp; software rendering</h4>
 <ul>
-<li><p><a href="https://github.com/google/angle">ANGLE</a> is available in BlissOS 14.10 and above, if you have a device that can use Vulkan, you can try ANGLE with Vulkan backend using <code v-pre>ANGLE=1</code>.</p>
+<li>
+<p><a href="https://github.com/google/angle">ANGLE</a> is available in BlissOS 14.10 and above, if you have a device that can use Vulkan, you can try ANGLE with Vulkan backend using <code translate="no" v-pre>ANGLE=1</code>.</p>
 </li>
-<li><p>Alternatively, you can also use <a href="https://github.com/google/swiftshader">SwiftShader Vulkan</a> with ANGLE as a software rendering solution if you are running it inside something like a virtual machine by setting <code v-pre>nomodeset ANGLE=1</code> or <code v-pre>HWACCEL=0 ANGLE=1</code></p>
+<li>
+<p>Alternatively, you can also use <a href="https://github.com/google/swiftshader">SwiftShader Vulkan</a> with ANGLE as a software rendering solution if you are running it inside something like a virtual machine by setting <code translate="no" v-pre>nomodeset ANGLE=1</code> or <code translate="no" v-pre>HWACCEL=0 ANGLE=1</code></p>
 </li>
-<li><p>There&#x27;s one more option for software rendering, which is the legacy <a href="https://gitlab.com/hmtheboy154/swiftshader/-/tree/legacy_11-x86/src/OpenGL">SwiftShader EGL</a>, simply set <code v-pre>nomodeset</code> or <code v-pre>HWACCEL=0</code> to use it.</p>
+<li>
+<p>There&#x27;s one more option for software rendering, which is the legacy <a href="https://gitlab.com/hmtheboy154/swiftshader/-/tree/legacy_11-x86/src/OpenGL">SwiftShader EGL</a>, simply set <code translate="no" v-pre>nomodeset</code> or <code translate="no" v-pre>HWACCEL=0</code> to use it.</p>
 </li>
-<li><p>For some virtualized methods uses, you may have a blinking cursor artifact that shows on screen. To remove this artifact, include the following boot flag: <code v-pre>vt.global_cursor_default=0</code></p>
+<li>
+<p>For some virtualized methods uses, you may have a blinking cursor artifact that shows on screen. To remove this artifact, include the following boot flag: <code translate="no" v-pre>vt.global_cursor_default=0</code></p>
 </li>
 </ul>
 <p><strong>NOTE</strong> : You may want to turn on Color Inversion when using software rendering because the color might be inverted</p>
-<doc-anchor-target id="media-stack">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#media-stack">#</doc-anchor-trigger>
-        <span>Media Stack:</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="audio-hal">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#audio-hal">#</doc-anchor-trigger>
-        <span>Audio HAL:</span>
-    </h4>
-</doc-anchor-target>
+<h3 id="media-stack">Media Stack:</h3>
+<h4 id="audio-hal">Audio HAL:</h4>
 <p>The latest versions of Bliss OS have 2 audio HALs, and defaults to the new one (x86_celadon).
 We can configure them though by using the following boot flags:</p>
 <ul>
-<li><code v-pre>AUDIO_PRIMARY=x86_celadon</code></li>
-<li><code v-pre>AUDIO_PRIMARY=x86</code></li>
+<li><code translate="no" v-pre>AUDIO_PRIMARY=x86_celadon</code></li>
+<li><code translate="no" v-pre>AUDIO_PRIMARY=x86</code></li>
 </ul>
-<doc-anchor-target id="video-encodersdecoders">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#video-encodersdecoders">#</doc-anchor-trigger>
-        <span>Video Encoders/Decoders:</span>
-    </h4>
-</doc-anchor-target>
+<h4 id="video-encodersdecoders">Video Encoders/Decoders:</h4>
 <p>By default, BlissOS will use AOSP&#x27;s codec2 software decoder. We also offer a few various options that allow you to select different video decoders stack options:</p>
 <ul>
-<li><code v-pre>CODEC2_LEVEL</code>: This will set the C2 level (default value is <code v-pre>4</code>, you can disable codeec2 completely with &#x27;0&#x27;).</li>
-<li><code v-pre>FFMPEG_OMX_CODEC</code>: This will enable OMX version of FFMPEG codecs (disable codec2 with <code v-pre>CODEC2_LEVEL=0</code> to use this codecs).</li>
-<li><code v-pre>FFMPEG_CODEC2_PREFER</code>: This will force Bliss to use codec2 version of FFMPEG codecs by default.</li>
-<li><code v-pre>FFMPEG_HWACCEL_DISABLE</code>: This will disable hardware accelleration for the FFMPEG codecs.</li>
-<li><code v-pre>FFMPEG_CODEC_LOG</code>: This will show more log of FFMPEG codecs, enable if you want to debug it</li>
-<li><code v-pre>FFMPEG_CODEC2_DEINTERLACE</code> &amp; <code v-pre>FFMPEG_CODEC2_DEINTERLACE_VAAPI</code>: configuring deinterlacing option for FFMPEG codec2, you can find the options in this <a href="https://github.com/supremegamers/stagefright-plugins/commit/48e5d4e8c6e577c7f56c1da3aa90897444422d33">commit made by Micheal Goffioul</a></li>
-<li><code v-pre>OMX_NO_YUV420</code>: This will force the system to not use YUV420 color format on OMX codec (fixes some black or glitchy screens, use it with <code v-pre>CODEC2_LEVEL=0</code>)</li>
-<li><code v-pre>FFMPEG_CODEC2_DRM</code>: turn on/off DRM prime handle on ffmpeg codecs, 0 is the default because not any Gralloc supporting it.</li>
+<li><code translate="no" v-pre>CODEC2_LEVEL</code>: This will set the C2 level (default value is <code translate="no" v-pre>4</code>, you can disable codeec2 completely with &#x27;0&#x27;).</li>
+<li><code translate="no" v-pre>FFMPEG_OMX_CODEC</code>: This will enable OMX version of FFMPEG codecs (disable codec2 with <code translate="no" v-pre>CODEC2_LEVEL=0</code> to use this codecs).</li>
+<li><code translate="no" v-pre>FFMPEG_CODEC2_PREFER</code>: This will force Bliss to use codec2 version of FFMPEG codecs by default.</li>
+<li><code translate="no" v-pre>FFMPEG_HWACCEL_DISABLE</code>: This will disable hardware accelleration for the FFMPEG codecs.</li>
+<li><code translate="no" v-pre>FFMPEG_CODEC_LOG</code>: This will show more log of FFMPEG codecs, enable if you want to debug it</li>
+<li><code translate="no" v-pre>FFMPEG_CODEC2_DEINTERLACE</code> &amp; <code translate="no" v-pre>FFMPEG_CODEC2_DEINTERLACE_VAAPI</code>: configuring deinterlacing option for FFMPEG codec2, you can find the options in this <a href="https://github.com/supremegamers/stagefright-plugins/commit/48e5d4e8c6e577c7f56c1da3aa90897444422d33">commit made by Micheal Goffioul</a></li>
+<li><code translate="no" v-pre>OMX_NO_YUV420</code>: This will force the system to not use YUV420 color format on OMX codec (fixes some black or glitchy screens, use it with <code translate="no" v-pre>CODEC2_LEVEL=0</code>)</li>
+<li><code translate="no" v-pre>FFMPEG_CODEC2_DRM</code>: turn on/off DRM prime handle on ffmpeg codecs, 0 is the default because not any Gralloc supporting it.</li>
 </ul>
-<doc-anchor-target id="networking">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#networking">#</doc-anchor-trigger>
-        <span>Networking:</span>
-    </h3>
-</doc-anchor-target>
+<h3 id="networking">Networking:</h3>
 <p>We include the ability to have Ethernet appear as WiFi as some appli/cations will not work without a WiFi or Cell connection present. In order to enable this mode, we use the VIRT_WIFI boot flag:
-<code v-pre>VIRT_WIFI=1</code></p>
-<doc-anchor-target id="disk-access">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#disk-access">#</doc-anchor-trigger>
-        <span>Disk Access:</span>
-    </h3>
-</doc-anchor-target>
+<code translate="no" v-pre>VIRT_WIFI=1</code></p>
+<h3 id="disk-access">Disk Access:</h3>
 <p>(Available on Bliss OS 14.1x, 15.8.x, &amp; 16.x)
 For use cases where you are dual booting or sharing system resources with multiple drives, you might want to enable automatic mounting of all disks within Android:
-<code v-pre>INTERNAL_MOUNT=1</code>: Allows device to mount other internal drives on boot.</p>
-<doc-anchor-target id="usbpci">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#usbpci">#</doc-anchor-trigger>
-        <span>USB/PCI:</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="usb">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#usb">#</doc-anchor-trigger>
-        <span>USB:</span>
-    </h4>
-</doc-anchor-target>
-<doc-anchor-target id="usb-modes">
-    <h5>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#usb-modes">#</doc-anchor-trigger>
-        <span>USB Modes:</span>
-    </h5>
-</doc-anchor-target>
+<code translate="no" v-pre>INTERNAL_MOUNT=1</code>: Allows device to mount other internal drives on boot.</p>
+<h3 id="usbpci">USB/PCI:</h3>
+<h4 id="usb">USB:</h4>
+<h5 id="usb-modes">USB Modes:</h5>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <p>Switch USB mode (ADB/Storage) !! Requires kernel configs !!:</p>
 <ul>
-<li><code v-pre>FORCE_USE_ADB_CLIENT_MODE</code>: Forces client mode adb settings</li>
-<li><code v-pre>FORCE_USE_ADB_MASS_STORAGE</code>: Forces USB mass_storage mode</li>
+<li><code translate="no" v-pre>FORCE_USE_ADB_CLIENT_MODE</code>: Forces client mode adb settings</li>
+<li><code translate="no" v-pre>FORCE_USE_ADB_MASS_STORAGE</code>: Forces USB mass_storage mode</li>
 </ul>
-<doc-anchor-target id="power--memory">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#power--memory">#</doc-anchor-trigger>
-        <span>Power &amp; Memory:</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="power">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#power">#</doc-anchor-trigger>
-        <span>Power:</span>
-    </h4>
-</doc-anchor-target>
-<doc-anchor-target id="default-sleep-mode-options">
-    <h5>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#default-sleep-mode-options">#</doc-anchor-trigger>
-        <span>Default Sleep Mode Options:</span>
-    </h5>
-</doc-anchor-target>
+<h3 id="power--memory">Power &amp; Memory:</h3>
+<h4 id="power">Power:</h4>
+<h5 id="default-sleep-mode-options">Default Sleep Mode Options:</h5>
 <p>The following are the options for <strong>mem_sleep_default</strong> (suggested values are in bold):</p>
 <ul>
-<li><p>deep: This option will choose the deepest sleep state supported by the hardware.</p>
+<li>
+<p>deep: This option will choose the deepest sleep state supported by the hardware.</p>
 </li>
-<li><p><strong>shallow</strong>: This option will choose the shallowest sleep state supported by the hardware.</p>
+<li>
+<p><strong>shallow</strong>: This option will choose the shallowest sleep state supported by the hardware.</p>
 </li>
-<li><p><strong>s2idle</strong>: This option will choose the S2 idle state.</p>
+<li>
+<p><strong>s2idle</strong>: This option will choose the S2 idle state.</p>
 </li>
-<li><p>s3bios: This option will choose the S3 BIOS state.</p>
+<li>
+<p>s3bios: This option will choose the S3 BIOS state.</p>
 </li>
-<li><p><strong>s3standby</strong>: This option will choose the S3 standby state.</p>
+<li>
+<p><strong>s3standby</strong>: This option will choose the S3 standby state.</p>
 </li>
-<li><p>mem: This option will choose the memory state.</p>
+<li>
+<p>mem: This option will choose the memory state.</p>
 </li>
-<li><p>off: This option will choose the off state.</p>
+<li>
+<p>off: This option will choose the off state.</p>
 </li>
 </ul>
 <p>The default value for mem_sleep_default is deep, and the suggested value for most devices is <strong>shallow</strong></p>
 <p>Example:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">mem_sleep_default=shallow</code></pre>
+<div id="default-sleep-mode-options-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">mem_sleep_default=shallow</code></pre>
 </doc-codeblock></div>
 <p>The following are the options for <strong>acpi_sleep</strong> (suggested values are in bold):</p>
 <ul>
-<li><p>s3_bios: This option will use the BIOS-provided S3 sleep state.</p>
+<li>
+<p>s3_bios: This option will use the BIOS-provided S3 sleep state.</p>
 </li>
-<li><p><strong>s3_mode</strong>: This option will use the kernel&#x27;s own S3 sleep state.</p>
+<li>
+<p><strong>s3_mode</strong>: This option will use the kernel&#x27;s own S3 sleep state.</p>
 </li>
-<li><p>s4_nohwsig: This option will disable the ACPI hardware wake signal for S4 sleep.</p>
+<li>
+<p>s4_nohwsig: This option will disable the ACPI hardware wake signal for S4 sleep.</p>
 </li>
-<li><p>old_ordering: This option will use the old ACPI sleep state ordering.</p>
+<li>
+<p>old_ordering: This option will use the old ACPI sleep state ordering.</p>
 </li>
-<li><p>nonvs: This option will not save non-volatile storage (NVS) to disk before entering S4 sleep.</p>
+<li>
+<p>nonvs: This option will not save non-volatile storage (NVS) to disk before entering S4 sleep.</p>
 </li>
-<li><p>sci_force_enable: This option will force the ACPI SCI interrupt to be enabled.</p>
+<li>
+<p>sci_force_enable: This option will force the ACPI SCI interrupt to be enabled.</p>
 </li>
 </ul>
 <p>The default value for acpi_sleep is s3_bios, and the suggested value for most devices is <strong>s3_mode</strong>.</p>
 <p>Example:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">acpi_sleep=s3_mode</code></pre>
+<div id="default-sleep-mode-options-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">acpi_sleep=s3_mode</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="other-sleep-mode-options">
-    <h5>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#other-sleep-mode-options">#</doc-anchor-trigger>
-        <span>Other Sleep Mode Options</span>
-    </h5>
-</doc-anchor-target>
+<h5 id="other-sleep-mode-options">Other Sleep Mode Options</h5>
 <p>There are a number of other Linux kernel command line options that can be used to configure sleep mode settings. Some of these options include:</p>
 <ul>
-<li><p>acpi_sleep_default: This option specifies the default sleep mode for the system. The possible values are:</p>
+<li>
+<p>acpi_sleep_default: This option specifies the default sleep mode for the system. The possible values are:</p>
 <ul>
-<li><p><strong>s3</strong>: Standby mode</p>
+<li>
+<p><strong>s3</strong>: Standby mode</p>
 </li>
-<li><p>s4: Hibernate mode</p>
+<li>
+<p>s4: Hibernate mode</p>
 </li>
-<li><p>s5: Off mode</p>
+<li>
+<p>s5: Off mode</p>
 </li>
 </ul>
 </li>
 </ul>
 <p>Example:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">acpi_sleep_default=s3</code></pre>
+<div id="other-sleep-mode-options-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">acpi_sleep_default=s3</code></pre>
 </doc-codeblock></div>
 <ul>
-<li><p>suspend_console: This option specifies whether to suspend the console when the system enters sleep mode. The possible values are:</p>
+<li>
+<p>suspend_console: This option specifies whether to suspend the console when the system enters sleep mode. The possible values are:</p>
 <ul>
-<li><p>on: The console will be suspended.</p>
+<li>
+<p>on: The console will be suspended.</p>
 </li>
-<li><p>off: The console will not be suspended.</p>
+<li>
+<p>off: The console will not be suspended.</p>
 </li>
 </ul>
 </li>
 </ul>
 <p>Example:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">suspend_console=on</code></pre>
+<div id="other-sleep-mode-options-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">suspend_console=on</code></pre>
 </doc-codeblock></div>
 <ul>
 <li>no_console_suspend: This option specifies that the console should not be suspended when the system enters sleep mode. This option overrides the value of the suspend_console option.</li>
 </ul>
 <p>Example:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">no_console_suspend</code></pre>
+<div id="other-sleep-mode-options-code-3" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">no_console_suspend</code></pre>
 </doc-codeblock></div>
 <ul>
-<li><code v-pre>SUSPEND_TYPE</code>: Set suspend type. options: mem, disk, freeze mem, freeze disk</li>
-<li><code v-pre>PWR_OFF_DBLCLK</code>: Set power off double click. options: true,false</li>
-<li><code v-pre>SLEEP_STATE</code>: Override default sleep.state property for the device</li>
+<li><code translate="no" v-pre>SUSPEND_TYPE</code>: Set suspend type. options: mem, disk, freeze mem, freeze disk</li>
+<li><code translate="no" v-pre>PWR_OFF_DBLCLK</code>: Set power off double click. options: true,false</li>
+<li><code translate="no" v-pre>SLEEP_STATE</code>: Override default sleep.state property for the device</li>
 </ul>
-<doc-anchor-target id="intel-power-options">
-    <h5>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#intel-power-options">#</doc-anchor-trigger>
-        <span>Intel Power Options:</span>
-    </h5>
-</doc-anchor-target>
+<h5 id="intel-power-options">Intel Power Options:</h5>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <ul>
-<li><code v-pre>INTEL_PSTATE_CPU_MIN_PERF_PCT/INTEL_PSTATE_CPU_MAX_PERF_PCT</code>: Allow for adjusting intel_pstate max/min freq on boot by setting the min/max pref percent</li>
+<li><code translate="no" v-pre>INTEL_PSTATE_CPU_MIN_PERF_PCT/INTEL_PSTATE_CPU_MAX_PERF_PCT</code>: Allow for adjusting intel_pstate max/min freq on boot by setting the min/max pref percent</li>
 </ul>
 <p>Example:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">INTEL_PSTATE_CPU_MIN_PERF_PCT=5 INTEL_PSTATE_CPU_MAX_PERF_PCT=50</code></pre>
+<div id="intel-power-options-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">INTEL_PSTATE_CPU_MIN_PERF_PCT=5 INTEL_PSTATE_CPU_MAX_PERF_PCT=50</code></pre>
 </doc-codeblock></div>
 <ul>
-<li><code v-pre>CPU_ENERGY_PERFORMANCE_PREF</code>: Allow for adjusting cpu energy performance
+<li><code translate="no" v-pre>CPU_ENERGY_PERFORMANCE_PREF</code>: Allow for adjusting cpu energy performance
 Normal options: default, performance, balance_performance, balance_power, power</li>
 </ul>
 <p>Example:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">CPU_ENERGY_PERFORMANCE_PREF=balance_power</code></pre>
+<div id="intel-power-options-code-2" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">CPU_ENERGY_PERFORMANCE_PREF=balance_power</code></pre>
 </doc-codeblock></div>
 <ul>
-<li><code v-pre>INTEL_PSTATE_STATUS</code>: Set cpu scaling at boot (ie set pstate status to active/passive at boot)</li>
+<li><code translate="no" v-pre>INTEL_PSTATE_STATUS</code>: Set cpu scaling at boot (ie set pstate status to active/passive at boot)</li>
 </ul>
 <p>Example:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none">INTEL_PSTATE_STATUS=passive</code></pre>
+<div id="intel-power-options-code-3" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">INTEL_PSTATE_STATUS=passive</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="generic-power-options">
-    <h5>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#generic-power-options">#</doc-anchor-trigger>
-        <span>Generic Power Options:</span>
-    </h5>
-</doc-anchor-target>
+<h5 id="generic-power-options">Generic Power Options:</h5>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <ul>
-<li><code v-pre>SET_SCREEN_OFF_TIMEOUT</code>: Set screen off timeout. options: integer in milliseconds</li>
-<li><code v-pre>SET_SLEEP_TIMEOUT</code>: Set screen sleep timeout. options: integer in milliseconds</li>
-<li><code v-pre>SET_POWER_ALWAYS_ON</code>: Set power always on. options: true or false</li>
-<li><code v-pre>SET_STAY_ON_WHILE_PLUGGED_IN</code>: Set stay on while plugged in. options: true or false</li>
+<li><code translate="no" v-pre>SET_SCREEN_OFF_TIMEOUT</code>: Set screen off timeout. options: integer in milliseconds</li>
+<li><code translate="no" v-pre>SET_SLEEP_TIMEOUT</code>: Set screen sleep timeout. options: integer in milliseconds</li>
+<li><code translate="no" v-pre>SET_POWER_ALWAYS_ON</code>: Set power always on. options: true or false</li>
+<li><code translate="no" v-pre>SET_STAY_ON_WHILE_PLUGGED_IN</code>: Set stay on while plugged in. options: true or false</li>
 </ul>
-<doc-anchor-target id="generic-performance-options">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#generic-performance-options">#</doc-anchor-trigger>
-        <span>Generic Performance Options:</span>
-    </h4>
-</doc-anchor-target>
+<h4 id="generic-performance-options">Generic Performance Options:</h4>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <ul>
-<li><code v-pre>FORCE_POWER_PROFILE</code>: Sets the power_profile value. Options: ondemand, hotplug, interactive, performance</li>
-<li><code v-pre>FORCE_IO_PROFILE</code>: Sets the io_profile value. Options: ondemand, hotplug, interactive, performance</li>
-<li><code v-pre>FORCE_CPU_GOV</code>: Sets the cpu_governor value. Options: ondemand, hotplug, interactive, performance</li>
-<li><code v-pre>FORCE_CPU_SCALING_GOV</code>: Sets the cpu_scaling_governor value. Options: ondemand, hotplug, interactive, performance</li>
-<li><code v-pre>FORCE_GPU_SCALING_GOV</code>: Sets the gpu_scaling_governor value. Options: ondemand, hotplug, interactive, performance</li>
-<li><code v-pre>FORCE_THERMAL_THROTTLE_ENABLE</code>: Sets the thermal_throttle_enable value. Options: (true|false)</li>
-<li><code v-pre>FORCE_HW_TIMEOUT_MULTIPLIER</code>: Force hw timeout multiplier, # X 5s. Options: (integer)</li>
+<li><code translate="no" v-pre>FORCE_POWER_PROFILE</code>: Sets the power_profile value. Options: ondemand, hotplug, interactive, performance</li>
+<li><code translate="no" v-pre>FORCE_IO_PROFILE</code>: Sets the io_profile value. Options: ondemand, hotplug, interactive, performance</li>
+<li><code translate="no" v-pre>FORCE_CPU_GOV</code>: Sets the cpu_governor value. Options: ondemand, hotplug, interactive, performance</li>
+<li><code translate="no" v-pre>FORCE_CPU_SCALING_GOV</code>: Sets the cpu_scaling_governor value. Options: ondemand, hotplug, interactive, performance</li>
+<li><code translate="no" v-pre>FORCE_GPU_SCALING_GOV</code>: Sets the gpu_scaling_governor value. Options: ondemand, hotplug, interactive, performance</li>
+<li><code translate="no" v-pre>FORCE_THERMAL_THROTTLE_ENABLE</code>: Sets the thermal_throttle_enable value. Options: (true|false)</li>
+<li><code translate="no" v-pre>FORCE_HW_TIMEOUT_MULTIPLIER</code>: Force hw timeout multiplier, # X 5s. Options: (integer)</li>
 </ul>
-<doc-anchor-target id="memory">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#memory">#</doc-anchor-trigger>
-        <span>Memory:</span>
-    </h4>
-</doc-anchor-target>
+<h4 id="memory">Memory:</h4>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <ul>
-<li><p><code v-pre>FORCE_MEMORY_TRIM_ENABLE</code>: Sets the memory_trim_enable value<br />
+<li>
+<p><code translate="no" v-pre>FORCE_MEMORY_TRIM_ENABLE</code>: Sets the memory_trim_enable value<br />
 Options: (true|false)</p>
 </li>
-<li><p><code v-pre>FORCE_MIN_FREE_MEMORY</code>: Sets the minimum free ram limit</p>
+<li>
+<p><code translate="no" v-pre>FORCE_MIN_FREE_MEMORY</code>: Sets the minimum free ram limit</p>
 <p>Example value: &quot;512M&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_MAX_FREE_MEMORY</code>: Sets the max free ram limit</p>
+<li>
+<p><code translate="no" v-pre>FORCE_MAX_FREE_MEMORY</code>: Sets the max free ram limit</p>
 <p>Example value: &quot;1024M&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_OOM_SCORE_ADJ</code>: Sets the oom_score_adj value</p>
+<li>
+<p><code translate="no" v-pre>FORCE_OOM_SCORE_ADJ</code>: Sets the oom_score_adj value</p>
 <p>Example value: &quot;100&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_ENFORCE_MIN_FREE_MB</code>: Sets the enforce_min_free_mb value</p>
+<li>
+<p><code translate="no" v-pre>FORCE_ENFORCE_MIN_FREE_MB</code>: Sets the enforce_min_free_mb value</p>
 <p>Example value: &quot;1024&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_SCHED_MIN_FREE_PAGES</code>: Sets the sched_min_free_pages value</p>
+<li>
+<p><code translate="no" v-pre>FORCE_SCHED_MIN_FREE_PAGES</code>: Sets the sched_min_free_pages value</p>
 <p>Example value: &quot;1024&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_SCHED_MIN_ACTIVE_PAGES</code>: Sets the sched_min_active_pages value</p>
+<li>
+<p><code translate="no" v-pre>FORCE_SCHED_MIN_ACTIVE_PAGES</code>: Sets the sched_min_active_pages value</p>
 <p>Example value: &quot;512&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_SCHED_MIN_INACTIVE_PAGES</code>: Sets the sched_min_inactive_pages value</p>
+<li>
+<p><code translate="no" v-pre>FORCE_SCHED_MIN_INACTIVE_PAGES</code>: Sets the sched_min_inactive_pages value</p>
 <p>Example value: &quot;256&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_SCHED_MIN_DIRTY_PAGES</code>: Sets the sched_min_dirty_pages value</p>
+<li>
+<p><code translate="no" v-pre>FORCE_SCHED_MIN_DIRTY_PAGES</code>: Sets the sched_min_dirty_pages value</p>
 <p>Example value: &quot;128&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_SCHED_MIN_WRITEBACK_PAGES</code>: Sets the sched_min_writeback_pages value</p>
+<li>
+<p><code translate="no" v-pre>FORCE_SCHED_MIN_WRITEBACK_PAGES</code>: Sets the sched_min_writeback_pages value</p>
 <p>Example value: &quot;64&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_SCHED_MIN_RECLAIMABLE_PAGES</code>: Sets the sched_min_reclaimable_pages value</p>
+<li>
+<p><code translate="no" v-pre>FORCE_SCHED_MIN_RECLAIMABLE_PAGES</code>: Sets the sched_min_reclaimable_pages value</p>
 <p>Example value: &quot;32&quot;</p>
 </li>
-<li><p><code v-pre>FORCE_SCHED_MIN_UNRECLAIMABLE_PAGES</code>: Sets the sched_min_unreclaimable_pages value</p>
+<li>
+<p><code translate="no" v-pre>FORCE_SCHED_MIN_UNRECLAIMABLE_PAGES</code>: Sets the sched_min_unreclaimable_pages value</p>
 <p>Example value: &quot;16&quot;</p>
 </li>
 </ul>
-<doc-anchor-target id="lmkd">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#lmkd">#</doc-anchor-trigger>
-        <span>LMKD:</span>
-    </h3>
-</doc-anchor-target>
+<h3 id="lmkd">LMKD:</h3>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <ul>
-<li><p><code v-pre>FORCE_LOW_MEM</code>: Forces the low_mem mode in Android to the specific true/false value<br />
+<li>
+<p><code translate="no" v-pre>FORCE_LOW_MEM</code>: Forces the low_mem mode in Android to the specific true/false value<br />
 Default = false (unless device is detected to have less than 2GB RAM)</p>
 </li>
-<li><p><code v-pre>FORCE_MINFREE_LEVELS</code>: Use free memory and file cache thresholds for making decisions when to kill. This mode works the same way kernel lowmemorykiller   driver used to work.
+<li>
+<p><code translate="no" v-pre>FORCE_MINFREE_LEVELS</code>: Use free memory and file cache thresholds for making decisions when to kill. This mode works the same way kernel lowmemorykiller   driver used to work.
 AOSP Default = false, Our default = true</p>
 </li>
 </ul>
 <p><strong>Other options available for specialized builds</strong>:</p>
 <ul>
-<li><p><code v-pre>FORCE_LMK_ENABLE</code>: Force enable LMK Daemon<br />
+<li>
+<p><code translate="no" v-pre>FORCE_LMK_ENABLE</code>: Force enable LMK Daemon<br />
 Default = false (unless device is detected to have less than 2GB RAM)</p>
 </li>
-<li><p><code v-pre>FORCE_KILL_HEAVIEST_TASK</code>: Kill heaviest eligible task (best decision) vs. any eligible task (fast decision).<br />
+<li>
+<p><code translate="no" v-pre>FORCE_KILL_HEAVIEST_TASK</code>: Kill heaviest eligible task (best decision) vs. any eligible task (fast decision).<br />
 Default = false</p>
 </li>
-<li><p><code v-pre>FORCE_SWAP_FREE_LOW_PERCENTAGE</code>: Level of free swap as a percentage of the total swap space used as a threshold to consider the system as swap space starved.</p>
+<li>
+<p><code translate="no" v-pre>FORCE_SWAP_FREE_LOW_PERCENTAGE</code>: Level of free swap as a percentage of the total swap space used as a threshold to consider the system as swap space starved.</p>
 <p>Default for low-RAM devices = 10, for high-end devices = 20</p>
 </li>
-<li><p><code v-pre>FORCE_THRASHING_LIMIT</code>: Number of working set defaults as a percentage of the file-backed pagecache size used as a threshold to consider system thrashing its pagecache.</p>
+<li>
+<p><code translate="no" v-pre>FORCE_THRASHING_LIMIT</code>: Number of working set defaults as a percentage of the file-backed pagecache size used as a threshold to consider system thrashing its pagecache.</p>
 <p>Default for low-RAM devices = 30, for high-end devices = 100</p>
 </li>
-<li><p><code v-pre>FORCE_LMK_CRITICAL</code>: The possible values of oom_adj range from -17 to +15 (Default=0).</p>
+<li>
+<p><code translate="no" v-pre>FORCE_LMK_CRITICAL</code>: The possible values of oom_adj range from -17 to +15 (Default=0).</p>
 <p>The higher the score, more likely the associated process is to be killed by OOM-killer. If oom_adj is set to -17, the process is not considered for OOM-killing.</p>
 </li>
-<li><p><code v-pre>FORCE_PSI_PARTIAL_STALL_THRESHOLD</code>: The partial PSI stall threshold, in milliseconds, for triggering low memory notification. If the device receives memory pressure notifications too late, decrease this value to trigger earlier notifications. If memory pressure notifications trigger unnecessarily, increase this value to make the device less sensitive to noise.</p>
+<li>
+<p><code translate="no" v-pre>FORCE_PSI_PARTIAL_STALL_THRESHOLD</code>: The partial PSI stall threshold, in milliseconds, for triggering low memory notification. If the device receives memory pressure notifications too late, decrease this value to trigger earlier notifications. If memory pressure notifications trigger unnecessarily, increase this value to make the device less sensitive to noise.</p>
 <p>High end: 70  Low end: 200</p>
 </li>
-<li><p><code v-pre>FORCE_PSI_COMPLETE_STALL_THRESHOLD</code>: The complete PSI stall threshold, in milliseconds, for triggering critical memory notifications. If the device receives critical memory pressure notifications too late, decrease this value to trigger earlier notifications. If critical memory pressure notifications trigger unnecessarily, increase this value to make the device less sensitive to noise.</p>
+<li>
+<p><code translate="no" v-pre>FORCE_PSI_COMPLETE_STALL_THRESHOLD</code>: The complete PSI stall threshold, in milliseconds, for triggering critical memory notifications. If the device receives critical memory pressure notifications too late, decrease this value to trigger earlier notifications. If critical memory pressure notifications trigger unnecessarily, increase this value to make the device less sensitive to noise.</p>
 <p>Recommended: 700</p>
 </li>
-<li><p><code v-pre>FORCE_THRASHING_LIMIT_DECAY</code>: The thrashing threshold decay expressed as a percentage of the original threshold used to lower the threshold when the system doesn’t recover, even after a kill. If continuous thrashing produces unnecessary kills, decrease the value. If the response to continuous thrashing after a kill is too slow, increase the value.</p>
+<li>
+<p><code translate="no" v-pre>FORCE_THRASHING_LIMIT_DECAY</code>: The thrashing threshold decay expressed as a percentage of the original threshold used to lower the threshold when the system doesn’t recover, even after a kill. If continuous thrashing produces unnecessary kills, decrease the value. If the response to continuous thrashing after a kill is too slow, increase the value.</p>
 <p>High end: 10  Low end: 50</p>
 </li>
-<li><p><code v-pre>FORCE_SWAP_UTIL_MAX</code>: The max amount of swapped memory as a percentage of the total swappable memory. When swapped memory grows over this limit, it means that the system swapped most of its swappable memory and is still under pressure. This can happen when non-swappable allocations are generating memory pressure which can not be relieved by swapping because most of the swappable memory is already swapped out. The default value is 100, which effectively disables this check. If the performance of the device is affected during memory pressure while swap utilization is high and the free swap level is not dropping to Sets the swap_free_low_percentage, decrease the value to limit swap utilization.</p>
+<li>
+<p><code translate="no" v-pre>FORCE_SWAP_UTIL_MAX</code>: The max amount of swapped memory as a percentage of the total swappable memory. When swapped memory grows over this limit, it means that the system swapped most of its swappable memory and is still under pressure. This can happen when non-swappable allocations are generating memory pressure which can not be relieved by swapping because most of the swappable memory is already swapped out. The default value is 100, which effectively disables this check. If the performance of the device is affected during memory pressure while swap utilization is high and the free swap level is not dropping to Sets the swap_free_low_percentage, decrease the value to limit swap utilization.</p>
 <p>High end: 100  Low end: 100</p>
 </li>
 </ul>
-<doc-anchor-target id="logginglogd">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#logginglogd">#</doc-anchor-trigger>
-        <span>Logging/Logd:</span>
-    </h3>
-</doc-anchor-target>
+<h3 id="logginglogd">Logging/Logd:</h3>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <ul>
-<li><p><code v-pre>SET_MAX_LOGD</code>: Sets the maximum logd value</p>
+<li>
+<p><code translate="no" v-pre>SET_MAX_LOGD</code>: Sets the maximum logd value</p>
 <ul>
 <li>Options: 1 = on, 0 = off</li>
 </ul>
 </li>
-<li><p><code v-pre>SET_LOGCAT_DEBUG</code>: Enables logcat debugging</p>
+<li>
+<p><code translate="no" v-pre>SET_LOGCAT_DEBUG</code>: Enables logcat debugging</p>
 <ul>
 <li>Options: true, false</li>
 </ul>
 </li>
 </ul>
-<doc-anchor-target id="ota-updates">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#ota-updates">#</doc-anchor-trigger>
-        <span>OTA Updates:</span>
-    </h3>
-</doc-anchor-target>
+<h3 id="ota-updates">OTA Updates:</h3>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <ul>
-<li><code v-pre>SET_CUSTOM_OTA_URI</code>: Sets the custom URL for OTA updates
+<li><code translate="no" v-pre>SET_CUSTOM_OTA_URI</code>: Sets the custom URL for OTA updates
 <ul>
 <li>Example:</li>
 </ul>
 </li>
 </ul>
-<p><code v-pre>SET_CUSTOM_OTA_URI=https://192.168.1.1/updates/update.json</code></p>
-<doc-anchor-target id="features">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#features">#</doc-anchor-trigger>
-        <span>Features:</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="kiosk-mode">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#kiosk-mode">#</doc-anchor-trigger>
-        <span>Kiosk Mode:</span>
-    </h4>
-</doc-anchor-target>
+<p><code translate="no" v-pre>SET_CUSTOM_OTA_URI=https://192.168.1.1/updates/update.json</code></p>
+<h3 id="features">Features:</h3>
+<h4 id="kiosk-mode">Kiosk Mode:</h4>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <ul>
-<li><code v-pre>FORCE_DISABLE_NAVIGATION</code>: Force disable navigation bar. Options: (true|false)</li>
-<li><code v-pre>FORCE_DISABLE_NAV_HANDLE</code>: Force disable gesture navigation handle. Options: (true|false)</li>
-<li><code v-pre>FORCE_DISABLE_NAV_TASKBAR</code>: Force disable navigation taskbar. Options: (true|false)</li>
-<li><code v-pre>FORCE_DISABLE_NAV_HANDLE</code>: Force disable gesture navigation handle. Options: (true|false)</li>
-<li><code v-pre>FORCE_DISABLE_STATUSBAR</code>: Force disable statusbar. Options: (true|false)</li>
-<li><code v-pre>FORCE_DISABLE_RECENTS</code>: Force disable SystemUI recents. Options: (true|false)</li>
-<li><code v-pre>FORCE_HIDE_NAVBAR_WINDOW</code>: Force hide navigation bar window. Options: 0, 1</li>
+<li><code translate="no" v-pre>FORCE_DISABLE_NAVIGATION</code>: Force disable navigation bar. Options: (true|false)</li>
+<li><code translate="no" v-pre>FORCE_DISABLE_NAV_HANDLE</code>: Force disable gesture navigation handle. Options: (true|false)</li>
+<li><code translate="no" v-pre>FORCE_DISABLE_NAV_TASKBAR</code>: Force disable navigation taskbar. Options: (true|false)</li>
+<li><code translate="no" v-pre>FORCE_DISABLE_NAV_HANDLE</code>: Force disable gesture navigation handle. Options: (true|false)</li>
+<li><code translate="no" v-pre>FORCE_DISABLE_STATUSBAR</code>: Force disable statusbar. Options: (true|false)</li>
+<li><code translate="no" v-pre>FORCE_DISABLE_RECENTS</code>: Force disable SystemUI recents. Options: (true|false)</li>
+<li><code translate="no" v-pre>FORCE_HIDE_NAVBAR_WINDOW</code>: Force hide navigation bar window. Options: 0, 1</li>
 </ul>
 <p><strong>Other options available for specialized builds</strong>:</p>
 <ul>
-<li><p><code v-pre>FORCE_SET_MAX_RECENTS</code>: Sets the config_maxRecents value<br />
+<li>
+<p><code translate="no" v-pre>FORCE_SET_MAX_RECENTS</code>: Sets the config_maxRecents value<br />
 Options:</p>
 <ul>
-<li><p><code v-pre>0</code>: Disables the recent apps menu.</p>
+<li>
+<p><code translate="no" v-pre>0</code>: Disables the recent apps menu.</p>
 </li>
-<li><p><code v-pre>1</code>: Displays up to 1 app in the recent apps menu.</p>
+<li>
+<p><code translate="no" v-pre>1</code>: Displays up to 1 app in the recent apps menu.</p>
 </li>
-<li><p><code v-pre>2</code>: Displays up to 2 apps in the recent apps menu.</p>
+<li>
+<p><code translate="no" v-pre>2</code>: Displays up to 2 apps in the recent apps menu.</p>
 </li>
-<li><p><code v-pre>3</code>: Displays up to 3 apps in the recent apps menu.</p>
+<li>
+<p><code translate="no" v-pre>3</code>: Displays up to 3 apps in the recent apps menu.</p>
 </li>
-<li><p><code v-pre>4</code>: Displays up to 4 apps in the recent apps menu.</p>
+<li>
+<p><code translate="no" v-pre>4</code>: Displays up to 4 apps in the recent apps menu.</p>
 </li>
-<li><p><code v-pre>5</code>: Displays up to 5 apps in the recent apps menu.</p>
+<li>
+<p><code translate="no" v-pre>5</code>: Displays up to 5 apps in the recent apps menu.</p>
 </li>
 </ul>
 </li>
-<li><p><code v-pre>FORCE_ENABLE_CLEAR_ALL_RECENTS</code>: Sets the config_enableClearAllRecents value<br />
+<li>
+<p><code translate="no" v-pre>FORCE_ENABLE_CLEAR_ALL_RECENTS</code>: Sets the config_enableClearAllRecents value<br />
 Options: (true|false)</p>
 </li>
-<li><p><code v-pre>FORCE_DEFAULT_QS_TILES</code>: Sets the config_defaultQsTiles value<br />
+<li>
+<p><code translate="no" v-pre>FORCE_DEFAULT_QS_TILES</code>: Sets the config_defaultQsTiles value<br />
 Options:</p>
 <ul>
-<li><p><strong>none:</strong> This will remove all default quick settings tiles.</p>
+<li>
+<p><strong>none:</strong> This will remove all default quick settings tiles.</p>
 </li>
-<li><p><strong>all:</strong> This will restore all default quick settings tiles.</p>
+<li>
+<p><strong>all:</strong> This will restore all default quick settings tiles.</p>
 </li>
-<li><p><strong>&lt;tile_id&gt;:</strong> This will add or remove the specified quick settings tile.</p>
+<li>
+<p><strong>&lt;tile_id&gt;:</strong> This will add or remove the specified quick settings tile.</p>
 </li>
 </ul>
 </li>
 </ul>
-<doc-anchor-target id="launcher-options">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#launcher-options">#</doc-anchor-trigger>
-        <span>Launcher Options:</span>
-    </h4>
-</doc-anchor-target>
+<h4 id="launcher-options">Launcher Options:</h4>
 <ul>
-<li><code v-pre>USE_LAUNCHER3</code>: Forces Launcher3 to be set instead of secondary launcher in build</li>
-<li><code v-pre>SET_SMARTDOCK_DEFAULT</code>: Set&#x27;s SmartDock as default launcher when booting into Desktop specific builds (requires a build with SmartDock included by default)</li>
-<li><code v-pre>ENABLE_QUICKSTEP_TASKBAR</code>: Set quickstep taskbar features to enabled (requires dev-options to be enabled &amp; Launcher3 to also be enabled). options: true,false</li>
-<li><code v-pre>FORCE_DESKTOP_ON_EXTERNAL</code>: Enable desktop mode on external display (required for MultiDisplay Input). options: 0,1</li>
+<li><code translate="no" v-pre>USE_LAUNCHER3</code>: Forces Launcher3 to be set instead of secondary launcher in build</li>
+<li><code translate="no" v-pre>SET_SMARTDOCK_DEFAULT</code>: Set&#x27;s SmartDock as default launcher when booting into Desktop specific builds (requires a build with SmartDock included by default)</li>
+<li><code translate="no" v-pre>ENABLE_QUICKSTEP_TASKBAR</code>: Set quickstep taskbar features to enabled (requires dev-options to be enabled &amp; Launcher3 to also be enabled). options: true,false</li>
+<li><code translate="no" v-pre>FORCE_DESKTOP_ON_EXTERNAL</code>: Enable desktop mode on external display (required for MultiDisplay Input). options: 0,1</li>
 </ul>
-<doc-anchor-target id="navigation--input-options">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#navigation--input-options">#</doc-anchor-trigger>
-        <span>Navigation &amp; Input Options:</span>
-    </h4>
-</doc-anchor-target>
+<h4 id="navigation--input-options">Navigation &amp; Input Options:</h4>
 <ul>
-<li><code v-pre>androidboot.bliss.force_ime_on_all_displays=true</code>: Force IME on secondary displays. Uses &quot;ro.boot.bliss.force_ime_on_all_displays&quot; property (true,false)</li>
-<li><code v-pre>androidboot.force.navbar_on_secondary_displays=true</code>: Allow a system property to override this for desktop mode navigation to work on secondary displays. (true/false)</li>
-<li><code v-pre>ro.boot.force.right_mouse_as_back=true</code>: Allows overriding AMOTION_EVENT_BUTTON_SECONDARY with AMOTION_EVENT_BUTTON_BACK, using a property trigger. (true/false)</li>
+<li><code translate="no" v-pre>androidboot.bliss.force_ime_on_all_displays=true</code>: Force IME on secondary displays. Uses &quot;ro.boot.bliss.force_ime_on_all_displays&quot; property (true,false)</li>
+<li><code translate="no" v-pre>androidboot.force.navbar_on_secondary_displays=true</code>: Allow a system property to override this for desktop mode navigation to work on secondary displays. (true/false)</li>
+<li><code translate="no" v-pre>ro.boot.force.right_mouse_as_back=true</code>: Allows overriding AMOTION_EVENT_BUTTON_SECONDARY with AMOTION_EVENT_BUTTON_BACK, using a property trigger. (true/false)</li>
 </ul>
-<doc-anchor-target id="rotationorientation">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#rotationorientation">#</doc-anchor-trigger>
-        <span>Rotation/Orientation:</span>
-    </h4>
-</doc-anchor-target>
+<h4 id="rotationorientation">Rotation/Orientation:</h4>
 <ul>
-<li><code v-pre>SET_SF_ROTATION=*</code>: Sets surfaceflinger hardware rotation property to the value passed</li>
-<li><code v-pre>SET_OVERRIDE_FORCED_ORIENT=*</code>: Override forced orientation (true/false)</li>
-<li><code v-pre>SET_SYS_APP_ROTATION=*</code>: Forces system app rotation, and has three cases:
+<li><code translate="no" v-pre>SET_SF_ROTATION=*</code>: Sets surfaceflinger hardware rotation property to the value passed</li>
+<li><code translate="no" v-pre>SET_OVERRIDE_FORCED_ORIENT=*</code>: Override forced orientation (true/false)</li>
+<li><code translate="no" v-pre>SET_SYS_APP_ROTATION=*</code>: Forces system app rotation, and has three cases:
 <ul>
 <li>1.force_land: always show with landscape, if a portrait apk, system will scale up it</li>
 <li>2.middle_port: if a portrait apk, will show in the middle of the screen, left and right will show black</li>
 <li>3.original: original orientation, if a portrait apk, will rotate 270 degree</li>
 </ul>
 </li>
-<li><code v-pre>androidboot.android.force_rotation_on_external_displays</code>: Set target orientation for external displays (0=0, 1=90, 2=180, 3-270)</li>
+<li><code translate="no" v-pre>androidboot.android.force_rotation_on_external_displays</code>: Set target orientation for external displays (0=0, 1=90, 2=180, 3-270)</li>
 </ul>
-<doc-anchor-target id="misc">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#misc">#</doc-anchor-trigger>
-        <span>Misc:</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="battery-stats">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#battery-stats">#</doc-anchor-trigger>
-        <span>Battery Stats:</span>
-    </h4>
-</doc-anchor-target>
+<h3 id="misc">Misc:</h3>
+<h4 id="battery-stats">Battery Stats:</h4>
 <ul>
-<li><code v-pre>androidboot.fake_battery=1</code>: AOSP implementation of fake battery status</li>
+<li><code translate="no" v-pre>androidboot.fake_battery=1</code>: AOSP implementation of fake battery status</li>
 </ul>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <ul>
-<li><p><code v-pre>SET_FAKE_BATTERY_LEVEL</code>: Let us fake the total battery percentage<br />
+<li>
+<p><code translate="no" v-pre>SET_FAKE_BATTERY_LEVEL</code>: Let us fake the total battery percentage<br />
 Options: (0-100)</p>
 </li>
-<li><p><code v-pre>SET_FAKE_CHARGING_STATUS</code>: Allow forcing battery charging status<br />
+<li>
+<p><code translate="no" v-pre>SET_FAKE_CHARGING_STATUS</code>: Allow forcing battery charging status<br />
 Options: (0|1)</p>
 </li>
 </ul>
-<doc-anchor-target id="package-management">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#package-management">#</doc-anchor-trigger>
-        <span>Package Management:</span>
-    </h4>
-</doc-anchor-target>
+<h4 id="package-management">Package Management:</h4>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <p>With our package management features, we have the ability to also enable/disable various packages included in the system by default using the kernel cmdline.</p>
-<p>Example: <code v-pre>HIDE_APPS=&quot;com.termux,com.android.dialer,com.android.documentsui&quot;</code></p>
-<doc-anchor-target id="hideunhide-default-apps">
-    <h5>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#hideunhide-default-apps">#</doc-anchor-trigger>
-        <span>Hide/Unhide Default Apps:</span>
-    </h5>
-</doc-anchor-target>
+<p>Example: <code translate="no" v-pre>HIDE_APPS=&quot;com.termux,com.android.dialer,com.android.documentsui&quot;</code></p>
+<h5 id="hideunhide-default-apps">Hide/Unhide Default Apps:</h5>
 <ul>
-<li><code v-pre>HIDE_APPS</code>: Hides the apps via passed comma separated list</li>
-<li><code v-pre>RESTORE_APPS</code>: Restores the apps via passed comma separated list</li>
+<li><code translate="no" v-pre>HIDE_APPS</code>: Hides the apps via passed comma separated list</li>
+<li><code translate="no" v-pre>RESTORE_APPS</code>: Restores the apps via passed comma separated list</li>
 </ul>
-<doc-anchor-target id="usb-mode-functions">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#usb-mode-functions">#</doc-anchor-trigger>
-        <span>USB Mode Functions:</span>
-    </h4>
-</doc-anchor-target>
+<h4 id="usb-mode-functions">USB Mode Functions:</h4>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <p>Allows switching default USB/ADB functions via cmdline</p>
 <ul>
-<li><code v-pre>FORCE_USE_ADB_CLIENT_MODE</code>: Forces USB into ADB Client mode (0=off, 1=on, 2=ADB enabled but not touching USB options)</li>
-<li><code v-pre>FORCE_USE_ADB_MASS_STORAGE</code>: Force enable ADB Mass Storage mode ofver USB (0=off, 1=on)</li>
+<li><code translate="no" v-pre>FORCE_USE_ADB_CLIENT_MODE</code>: Forces USB into ADB Client mode (0=off, 1=on, 2=ADB enabled but not touching USB options)</li>
+<li><code translate="no" v-pre>FORCE_USE_ADB_MASS_STORAGE</code>: Force enable ADB Mass Storage mode ofver USB (0=off, 1=on)</li>
 </ul>
-<doc-anchor-target id="iio-options-configuration">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#iio-options-configuration">#</doc-anchor-trigger>
-        <span>IIO Options Configuration:</span>
-    </h4>
-</doc-anchor-target>
+<h4 id="iio-options-configuration">IIO Options Configuration:</h4>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <p>This allows us to set ro.iio.* propertied through the following flags:</p>
 <ul>
-<li><code v-pre>SET_IIO_ORDER</code>: Sets ro.iio.accel.order property</li>
-<li><code v-pre>SET_IIO_ACCEL_QUIRKS</code>: Sets ro.iio.accel.quirks ptoperty</li>
-<li><code v-pre>SET_IIO_ACCEL_X_OPT_SCALE</code>: Sets ro.iio.accel.x.opt_scale property</li>
-<li><code v-pre>SET_IIO_ACCEL_Y_OPT_SCALE</code>: Sets ro.iio.accel.y.opt_scale property</li>
-<li><code v-pre>SET_IIO_ANGLVEL_QUIRKS</code>: Sets ro.iio.anglvel.quirks property</li>
-<li><code v-pre>SET_IGNORE_ATKBD</code>: Sets ro.ignore_atkbd property</li>
-<li><code v-pre>SENSORS_FORCE_KBDSENSOR</code>: Option to force kbd sensor</li>
-<li><code v-pre>SET_IIO_MAGN_QUIRKS</code>: Option to force magn quirks.
-Example: <code v-pre>SET_IIO_MAGN_QUIRKS=&quot;no-trig,no-event&quot;</code></li>
+<li><code translate="no" v-pre>SET_IIO_ORDER</code>: Sets ro.iio.accel.order property</li>
+<li><code translate="no" v-pre>SET_IIO_ACCEL_QUIRKS</code>: Sets ro.iio.accel.quirks ptoperty</li>
+<li><code translate="no" v-pre>SET_IIO_ACCEL_X_OPT_SCALE</code>: Sets ro.iio.accel.x.opt_scale property</li>
+<li><code translate="no" v-pre>SET_IIO_ACCEL_Y_OPT_SCALE</code>: Sets ro.iio.accel.y.opt_scale property</li>
+<li><code translate="no" v-pre>SET_IIO_ANGLVEL_QUIRKS</code>: Sets ro.iio.anglvel.quirks property</li>
+<li><code translate="no" v-pre>SET_IGNORE_ATKBD</code>: Sets ro.ignore_atkbd property</li>
+<li><code translate="no" v-pre>SENSORS_FORCE_KBDSENSOR</code>: Option to force kbd sensor</li>
+<li><code translate="no" v-pre>SET_IIO_MAGN_QUIRKS</code>: Option to force magn quirks.
+Example: <code translate="no" v-pre>SET_IIO_MAGN_QUIRKS=&quot;no-trig,no-event&quot;</code></li>
 </ul>
-<doc-anchor-target id="set-timezone">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#set-timezone">#</doc-anchor-trigger>
-        <span>Set Timezone:</span>
-    </h4>
-</doc-anchor-target>
+<h4 id="set-timezone">Set Timezone:</h4>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass builds)</p>
 <p>To use this change, pass the grub/cmdline value for your timezone using the SET_TZ_LOCATION flag.
 Timezone reference can be found here: <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">https://en.wikipedia.org/wiki/List_of_tz_database_time_zones</a></p>
 <p>Example:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-none"><code v-pre class="language-none"> SET_TZ_LOCATION=America/New_York</code></pre>
+<div id="set-timezone-code-1" class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none"> SET_TZ_LOCATION=America/New_York</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="serial-io">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#serial-io">#</doc-anchor-trigger>
-        <span>Serial IO</span>
-    </h4>
-</doc-anchor-target>
+<h4 id="serial-io">Serial IO</h4>
 <p>(Available through Android-Generic Add-On &amp; add-ons for Bass)</p>
 <ul>
-<li><code v-pre>SET_USB_BUS_PORTS</code>: Sets permissions for tty ports (chmod 666) for /dev/bus/usb/*.
-Example: <code v-pre>SET_USB_BUS_PORTS=001/001,001/002,001/003,001/004</code></li>
-<li><code v-pre>SET_TTY_PORT_PERMS</code>: Set USB bus port permissions (chmod 666) for /dev/tty*.
-Example: <code v-pre>SET_TTY_PORT_PERMS=ttyS*,ttyACM*</code></li>
+<li>
+<p><code translate="no" v-pre>SET_USB_BUS_PORTS</code>: Sets permissions for tty ports (chmod 666) for /dev/bus/usb/*.
+Example: <code translate="no" v-pre>SET_USB_BUS_PORTS=001/001,001/002,001/003,001/004</code></p>
+</li>
+<li>
+<p><code translate="no" v-pre>SET_TTY_PORT_PERMS</code>: Set USB bus port permissions (chmod 666) for /dev/tty*.
+Example: <code translate="no" v-pre>SET_TTY_PORT_PERMS=ttyS*,ttyACM*</code></p>
+</li>
 </ul>
-<doc-anchor-target id="network--radio-control-options">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#network--radio-control-options">#</doc-anchor-trigger>
-        <span>Network &amp; Radio Control Options:</span>
-    </h4>
-</doc-anchor-target>
-<doc-anchor-target id="bluetooth">
-    <h5>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#bluetooth">#</doc-anchor-trigger>
-        <span>Bluetooth</span>
-    </h5>
-</doc-anchor-target>
+<h4 id="network--radio-control-options">Network &amp; Radio Control Options:</h4>
+<h5 id="bluetooth">Bluetooth</h5>
 <p>We ship recent builds with two Bluetooth HAL&#x27;s and it defaults to the newest one with BTLE support. For devices that new HAL does not work on, we suggest using the legacy BT HAL.</p>
 <ul>
-<li><code v-pre>BTLINUX_HAL=1</code>: Use Bluetooth Linux HAL</li>
+<li><code translate="no" v-pre>BTLINUX_HAL=1</code>: Use Bluetooth Linux HAL</li>
 </ul>
 <p>(Below items are available through Android-Generic Add-On &amp; add-ons for Bass)</p>
 <p>Enable/Disable Wireless Devices (Change included only in specialized builds):</p>
 <ul>
-<li><code v-pre>LOCKDOWN_WIRELESS_DEVICES</code>: A kernel level switch to disable all wireless devices. options: 0,1</li>
-<li><code v-pre>UNLOCKDOWN_WIRELESS_DEVICES</code>: A kernel level switch to enable all disabled wireless devices. options: 0,1</li>
+<li><code translate="no" v-pre>LOCKDOWN_WIRELESS_DEVICES</code>: A kernel level switch to disable all wireless devices. options: 0,1</li>
+<li><code translate="no" v-pre>UNLOCKDOWN_WIRELESS_DEVICES</code>: A kernel level switch to enable all disabled wireless devices. options: 0,1</li>
 </ul>
 <p>Other Networking Options (Available in Bass builds):</p>
 <ul>
-<li><code v-pre>FORCE_DISABLE_ALL_RADIOS</code>: Set force disable all radios (only disables on boot, user can re-enable manually if given access). options: 0,1</li>
-<li><code v-pre>FORCE_BLUETOOTH_SERVICE</code>: Set force bluetooth service state. options: enable, disable</li>
+<li><code translate="no" v-pre>FORCE_DISABLE_ALL_RADIOS</code>: Set force disable all radios (only disables on boot, user can re-enable manually if given access). options: 0,1</li>
+<li><code translate="no" v-pre>FORCE_BLUETOOTH_SERVICE</code>: Set force bluetooth service state. options: enable, disable</li>
 </ul>
 
-                                
-                                <!-- Required only on API pages -->
-                                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
-                            </div>
-                            <footer class="clear-both">
-                                <div class="flex flex-wrap items-center justify-between mt-14">
-                                    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/BlissRoms-x86/Documentation/blob/main/configuration/Configuration-through-Command-Line-Parameters.md" target="_blank" rel="noopener">
-                                        <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-                                        <span>Edit on GitHub</span>
-                                    </a>
-                                </div>
-                            
-                                <nav class="flex mt-14">
-                                    <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../configuration/calibrate-and-configure-iptsd/">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-                                            <span>
-                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Calibrate and configure iptsd</span>
-                                            </span>
-                                        </a>
-                                    </div>
-                            
-                                    <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../development/gui-method-build-bliss-os-14.x/">
-                                            <span>
-                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">[GUI Method] Build Bliss OS 14.​x</span>
-                                            </span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-                                        </a>
-                                    </div>
-                                </nav>
-                            </footer>
-                        </main>
                 
-                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
-                            <footer class="flex flex-wrap items-center justify-between">
-                                <div>
-                                    <ul class="flex flex-wrap items-center text-sm">
-                                        <li>
-                                            <a class="block mr-4 py-2 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 md:mb-0" href="https://blisslabs.org">A BlissLabs Project</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© Copyright 2013-2025 – <a href="https://blisslabs.org">BlissLabs</a> – All rights reserved</p></div>
-                            </footer>
-                        </div>
-                    </div>
-                
-                    <!-- Rendered if sidebar right is enabled -->
-                    <!-- Sidebar right skeleton-->
-                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
-                        <div class="pl-5">
-                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
-                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
-                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
-                        </div>
-                    </div>
-                
-                    <!-- User should be able to hide sidebar right -->
-                    <doc-sidebar-right v-cloak></doc-sidebar-right>
-                </div>
-
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
             </div>
+            <footer id="retype-content-footer" class="clear-both">
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-14">
+                    <a id="retype-edit-this-page" class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-body-link font-body-link hover:text-body-link-hover hover:underline" href="https://github.com/BlissRoms-x86/Documentation/blob/main/configuration/Configuration-through-Command-Line-Parameters.md" target="_blank" rel="noopener">
+                        <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                        <span>Edit on GitHub</span>
+                    </a>
+                </div>
+            
+                <nav id="retype-nextprev" class="print:hidden flex mt-14">
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../configuration/calibrate-and-configure-iptsd/">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                            <span>
+                                <span class="block text-xs font-normal text-base-text-muted">Previous</span>
+                                <span class="block mt-1">Calibrate and configure iptsd</span>
+                            </span>
+                        </a>
+                    </div>
+            
+                    <div class="w-1/2">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../development/gui-method-build-bliss-os-14.x/">
+                            <span>
+                                <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
+                                <span class="block mt-1">[GUI Method] Build Bliss OS 14.​x</span>
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                        </a>
+                    </div>
+                </nav>
+            </footer>
+        </main>
+
+        <div id="retype-page-footer" class="print:border-none border-t border-base-border pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                <div id="retype-footer-links" class="print:hidden">
+                    <ul class="flex flex-wrap items-center text-sm">
+                        <li>
+                            <a class="block mr-4 py-2 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-footer-link hover:text-footer-link-hover md:mb-0" href="https://blisslabs.org">A BlissLabs Project</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="retype-copyright" class="print:justify-center py-2 text-footer-text font-footer-link text-sm leading-relaxed"><p>© Copyright 2013-2026 – <a href="https://blisslabs.org">BlissLabs</a> – All rights reserved</p></div>
+            </footer>
         </div>
-    
-        <doc-search-mobile></doc-search-mobile>
-        <doc-back-to-top></doc-back-to-top>
     </div>
 
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-sidebar-right-bg border-sidebar-right-border lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:translate-x-0 sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-skeleton-bg rounded-full loading"></div>
+        </div>
+    </div>
 
-    <div id="docs-overlay-target"></div>
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Configuration Through Command Line Parameters", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+    <div id="retype-overlay-target"></div>
+
+        <script data-cfasync="false">window.__DOCS__ = { "title": "Configuration Through Command Line Parameters", level: 2, icon: "file", hasPrism: false, hasInstagram: false, hasMermaid: false, hasMath: false, tocDepth: 23, "md": "/configuration/configuration-through-command-line-parameters.md" }</script>
 </body>
 </html>
