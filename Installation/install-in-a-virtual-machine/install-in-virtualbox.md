@@ -8,6 +8,11 @@ date: '2020-08-27 23:17 +0800'
 
 This article is a draft content to describe how to install `Bliss OS` on `VirtualBox`. It combines [`android-x86` `VirtualBox` howto](https://www.android-x86.org/documentation/virtualbox.html) and our old article:"Install Bliss OS on a VM \(`virtualbox`\)".
 
+!!!warning Low Performance!
+You should have a completely functional `Bliss OS` install on a virtual machine (VM) after following this guide, ...albeit its going to be __slower than usual__ due to the limiting VM enviroment.  Installing `Android` on a virtual machine is usually not a good idea. [!badge variant="warning" text="Installing `Bliss OS` on the actual hardware"](https://docs.blissos.org/#install-bliss-os:~:text=Advanced%20Installation-,Manual%20Install%20on%20Linux,Using%20The%20Windows%20Installer,-%23) will result in much better performance.
+!!!
+
+
 ## Create a new VM
 
 If you have not already created a `VirtualBox` virtual machine for `Bliss OS` yet, do so as follows:
@@ -24,7 +29,7 @@ Tested on `VirtualBox` 64-bit for `Ubuntu` 20.04 with `Intel` and `AMD` \(`Ryzen
 
 Select your machine, then click the Settings button and refer to the below recommended configuration to make sure your settings match.
 
-1. \[_System_\] Recommended: Processor\(s\) should be set above 1 if you have more than one virtual processor in your host system. Failure to do so means every single app \(like Google Chrome\) might crush if you try to use it.
+1. \[_System_\] Recommended: Processor\(s\) should be set above 1 if you have more than one virtual processor in your host system. Failure to do so means every single app \(like Google Chrome\) might crash if you try to use it.
 2. \[_Display_\]:
 
    2.1. _Optional_: Video Memory may be increased beyond the minimum selected automatically. The affects of this are unknown.
