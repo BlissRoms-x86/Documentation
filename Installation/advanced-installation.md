@@ -1,6 +1,6 @@
 # Advanced Installation
 
-This is only for **advanced users**. For regular users, please visit our main [Installation Guide found here.](installation-guide.md)
+This is only for **advanced users**. For regular users, please visit our other [installation guides found here.](https://docs.blissos.org/#install-bliss-os)
 
 ## Custom Install - Bliss OS 8.x/10.x/11.x UEFI/ESP \(64-bit\)
 
