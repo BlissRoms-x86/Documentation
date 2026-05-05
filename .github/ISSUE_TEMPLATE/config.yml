@@ -13,7 +13,7 @@ contact_links:
     url: https://blissos.org/discord
     about: 'If you need further assistance, join our Discord server.'
   - name: Documentation issue
-    url: https://github.com/BlissRoms-x86/docs
+    url: https://github.com/BlissRoms-x86/Documentation
     about: 'For documentation issues, report it and/or suggest changes on our documentation repository.'
   - name: Knowledgebase issue
     url: https://github.com/BlissRoms-x86/knowledgebase
